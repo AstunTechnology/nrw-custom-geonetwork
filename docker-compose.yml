@@ -45,7 +45,7 @@ services:
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
       - ../iso19139.gemini23/src/main/config/translations/en-schema-iso19139.gemini23.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.gemini23.json
-      - ../iso19139.gemini23/target/gn-schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.gemini23-4.2.2z-SNAPSHOT.jar
+      - ../iso19139.gemini23/target/gn-schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar
       # gemini 2.2
       #- ../iso19139.gemini22_GN3/src/main/plugin/iso19139.gemini22:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini22
       #- ../iso19139.gemini22_GN3/src/main/config/translations/en-schema-iso19139.gemini22.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.gemini22.json
