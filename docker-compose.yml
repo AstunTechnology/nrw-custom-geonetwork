@@ -109,7 +109,7 @@ services:
   #   container_name: nginx
   #   volumes:
   #         - ./nginx/default.local:/etc/nginx/conf.d/default.conf
-  #         - ./nginx/servers:/etc/ngifnx/servers
+  #         - ./nginx/servers:/etc/nginx/servers
   #         - ./nginx/locations:/etc/nginx/locations
   #         - ./nginx/root/robots.txt:/var/www/html/robots.txt
   #         # - ./certs/letsencrypt/live:/etc/nginx/certs
