@@ -15,7 +15,7 @@ services:
     environment:
       DATA_DIR: /catalogue-data
 
-      JAVA_OPTS: >
+      JAVA_OPTS:
         -Dorg.eclipse.jetty.annotations.AnnotationParser.LEVEL=OFF
         -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true
         -Xms512M -Xss512M -Xmx2G -XX:+UseConcMarkSweepGC
