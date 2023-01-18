@@ -60,22 +60,22 @@ services:
       # scotgov specifics
       - ./scotgov/catalog/config/batch-process-cfg.json:/var/lib/jetty/webapps/geonetwork/catalog/config/batch-process-cfg.json
       - ./scotgov/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
-      - ./scotgov/catalog/components/metadataactions/partials/related.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/related.html
-      - ./scotgov/catalog/components/search/resultsview/partials/viewtemplates/editor.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/editor.html
+        #- ./scotgov/catalog/components/metadataactions/partials/related.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/related.html
+        #- ./scotgov/catalog/components/search/resultsview/partials/viewtemplates/editor.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/editor.html
       - ./scotgov/catalog/lib/angular/angular-sanitize.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular/angular-sanitize.js
       - ./scotgov/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
       - ./scotgov/catalog/style/gn_login.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_login.less
       - ./scotgov/catalog/style/gn_metadata.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_metadata.less
       - ./scotgov/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
-      - ./scotgov/catalog/templates/admin/usergroup/users.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup/users.html
-      - ./scotgov/catalog/templates/editor/editorboard.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/editorboard.html
-      - ./scotgov/catalog/templates/new-password.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/new-password.html
+        #- ./scotgov/catalog/templates/admin/usergroup/users.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup/users.html
+        #- ./scotgov/catalog/templates/editor/editorboard.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/editorboard.html
+        #- ./scotgov/catalog/templates/new-password.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/new-password.html
       - ./scotgov/catalog/views/default/images/Govscot_logo_white.png:/var/lib/jetty/webapps/geonetwork/catalog/views/default/images/Govscot_logo_white.png
-      - ./scotgov/catalog/views/default/less/gn_admin_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_admin_default.less
-      - ./scotgov/catalog/views/default/less/gn_editor_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_editor_default.less
+        #- ./scotgov/catalog/views/default/less/gn_admin_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_admin_default.less
+        #- ./scotgov/catalog/views/default/less/gn_editor_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_editor_default.less
       # - ./scotgov/catalog/views/default/module.js:/var/lib/jetty/webapps/geonetwork/catalog/views/default/module.js
       - ./scotgov/catalog/views/default/templates/footer.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/footer.html
-      #- ./scotgov/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html
+      - ./scotgov/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html
       #- ./scotgov/catalog/views/default/templates/recordView.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView.html
       #- ./scotgov/catalog/views/default/templates/searchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/searchForm.html
       - ./scotgov/WEB-INF/config-lucene.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-lucene.xml
