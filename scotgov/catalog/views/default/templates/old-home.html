@@ -70,6 +70,7 @@
 
   <div class="row gn-row-topics" data-ng-show="searchInfo.count > 0">
     <div data-ng-class="fluidLayout ? 'container-fluid' : 'container'">
+      
       <div class="col-sm-12 col-md-9" data-ng-show="browse !== ''">
         <h4>
           <span data-translate="">browseBy</span>
@@ -92,7 +93,7 @@
             data-translate="">topicCats</span></label>
         </h4>
 
-  <!--       <div class="row">
+        <!--<div class="row">
           <span id="chips-card" data-ng-repeat="(key, facet) in searchInfo.facet['topicCats']"
                 class="col-xs-6 col-sm-4 col-lg-3" data-ng-show="browse === 'topics'"> -->
         <div class="row">
@@ -133,6 +134,8 @@
           </span>
         </div>
       </div>
+
+      
       <div class="col-sm-12 col-md-3" data-ng-show="searchInfo.facet['types'].length > 0">
         <h4>
           <span data-translate="">browseTypes</span>
@@ -159,6 +162,7 @@
       </div>
     </div>
   </div>
+  
   <!-- /.gn-row-topics -->
 
   <div class="row gn-row-info"
