@@ -62,7 +62,7 @@ services:
     ports:
       - 8081:80
     environment:
-      GN4_API_URL: http://${DH_HOST}:{DH_PORT}/geonetwork/srv/api
+      GN4_API_URL: http://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
     restart: always
     networks:
     - esnet
