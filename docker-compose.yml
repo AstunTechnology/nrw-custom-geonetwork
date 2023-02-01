@@ -10,7 +10,8 @@ volumes:
 services:
   geonetwork:
     image: geonetwork:latest
-    restart: always
+    restart: unless-stopped
+    container_name: geonetwork
     ports:
       - 8080:8080
     user: 0:0
@@ -38,18 +39,67 @@ services:
       GEONETWORK_DB_USERNAME: ${POSTGRES_DB_USERNAME}
       GEONETWORK_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
       GEONETWORK_MICROSERVICESPROXY_TARGETURI: http://ogc-api-records-service:8080
+  
+    
     volumes:
+      # general overrides
       - geonetwork:/catalogue-data
+      - ./thesauri/external/thesauri/theme:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/theme
+      #- ./geonetwork:/var/lib/jetty/webapps/geonetwork/WEB-INF/data
+      # schema overrides
+      # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
       - ../iso19139.gemini23/src/main/config/translations/en-schema-iso19139.gemini23.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.gemini23.json
-      - ../iso19139.gemini23/target/schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar
-      - ../iso19139.gemini22/src/main/plugin/iso19139.gemini22:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini22
-      - ../iso19139.gemini22/src/main/config/translations/en-schema-iso19139.gemini22.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.gemini22.json
-      - ../iso19139.gemini22/target/schema-iso19139.gemini22-4.2.2-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/schema-iso19139.gemini22-4.2.2-SNAPSHOT.jar
-      #- ../iso19139.eamp/src/main/plugin/iso19139.eamp:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.eamp
-      #- ../iso19139.eamp/target/gn-schema-iso19139.eamp-4.2.0-0.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.eamp-4.2.0-0.jar
-      # - ../iso19139.nonspatial/src/main/plugin/iso19139.nonspatial:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nonspatial
-      # - ../iso19139.nonspatial/target/gn-schema-iso19139.nonspatial-4.2.0-0.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.nonspatial-4.2.0-0.jar
+      - ../iso19139.gemini23/target/gn-schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.gemini23-4.2.2-SNAPSHOT.jar
+      # gemini 2.2
+      - ../iso19139.gemini22_GN3/src/main/plugin/iso19139.gemini22:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini22
+      - ../iso19139.gemini22_GN3/src/main/config/translations/en-schema-iso19139.gemini22.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.gemini22.json
+      - ../iso19139.gemini22_GN3/target/schema-iso19139.gemini22-4.2.2-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/schema-iso19139.gemini22-4.2.2-SNAPSHOT.jar
+      - ../iso19139.gemini22_GN3/src/main/plugin/iso19139.gemini22/process/xml_gemini22gemini23-schemaupgrade.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/process/xml_gemini22gemini23-schemaupgrade.xsl
+      # iso19139
+      - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/default.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/default.xsl
+      - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl
+        # - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/convert/dcat.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/convert/dcat.xsl
+        # - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/present/csw/dcat-brief.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/present/csw/dcat-brief.xsl
+      # scotgov specifics
+      - ./scotgov/catalog/config/batch-process-cfg.json:/var/lib/jetty/webapps/geonetwork/catalog/config/batch-process-cfg.json
+      - ./scotgov/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
+      - ./scotgov/catalog/lib/angular/angular-sanitize.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular/angular-sanitize.js
+      - ./scotgov/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
+      - ./scotgov/catalog/style/gn_login.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_login.less
+      - ./scotgov/catalog/style/gn_metadata.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_metadata.less
+      - ./scotgov/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
+      - ./scotgov/catalog/views/default/images/Govscot_logo_white.png:/var/lib/jetty/webapps/geonetwork/catalog/views/default/images/Govscot_logo_white.png
+      - ./scotgov/catalog/views/default/less/gn_admin_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_admin_default.less
+      - ./scotgov/catalog/views/default/less/gn_editor_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_editor_default.less
+      - ./scotgov/catalog/views/default/templates/footer.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/footer.html
+      - ./scotgov/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html   
+      - ./scotgov/WEB-INF/config-lucene.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-lucene.xml
+      - ./scotgov/WEB-INF/config-print/print-config.yaml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-print/print-config.yaml
+      - ./scotgov/WEB-INF/config-summary.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-summary.xml
+      - ./scotgov/WEB-INF/data/data/resources/map/config-viewer.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map/config-viewer.xml
+      - ./scotgov/WEB-INF/data/data/resources/map/config-viewer-search.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map/config-viewer-search.xml
+      - ./scotgov/WEB-INF/data/data/resources/images/images/logos:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/harvesting
+      - ./scotgov/xsl/conversion/import/ESRI_ISO-to-GEMINI_23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/ESRI_ISO-to-GEMINI_23.xsl
+      - ./scotgov/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl
+      - ./scotgov/xsl/conversion/import/_to_gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/_to_gemini23.xsl
+      - ./scotgov/xsl/conversion/import/xml_gemini22gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/xml_gemini22gemini23.xsl
+        # - ./scotgov/catalog/views/default/module.js:/var/lib/jetty/webapps/geonetwork/catalog/views/default/module.js
+        # - ./scotgov/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html     
+        # - ./scotgov/catalog/templates/admin/usergroup/users.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup/users.html
+        # - ./scotgov/catalog/templates/editor/editorboard.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/editorboard.html
+        # - ./scotgov/catalog/templates/new-password.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/new-password.html    
+        # - ./scotgov/catalog/views/default/templates/recordView.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView.html
+        # - ./scotgov/catalog/views/default/templates/searchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/searchForm.html
+        # - ./scotgov/catalog/components/metadataactions/partials/related.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/related.html
+        # - ./scotgov/catalog/components/search/resultsview/partials/viewtemplates/editor.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/editor.html
+        # - ./scotgov/xslt/common/render-html.xsl:/var/lib/jetty/webapps/geonetwork/xslt/common/render-html.xsl
+        # - ./scotgov/xslt/services/rdf.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/rdf.xsl
+        # - ./scotgov/xslt/skin/default/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
+        # - ./scotgov/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl
+        # - ./scotgov/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl
+        # - ../iso19139.nonspatial/src/main/plugin/iso19139.nonspatial:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nonspatial
+        # - ../iso19139.nonspatial/target/gn-schema-iso19139.nonspatial-4.2.0-0.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.nonspatial-4.2.0-0.jar
     # depends_on:
     #   - elasticsearch
     #   - database
@@ -63,7 +113,7 @@ services:
       - 8081:80
     environment:
       GN4_API_URL: http://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
-    restart: always
+    restart: unless-stopped
     networks:
     - esnet
 
@@ -78,6 +128,9 @@ services:
       GN_LEGACY_URL: http://${GN_HOST}:${GN_PORT}/geonetwork
       GN_INDEX_URL: ${ES_URL}
       SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
+
+    restart: unless-stopped
+    container_name: ogc-api-service
 
     # depends_on:
     #   - database
