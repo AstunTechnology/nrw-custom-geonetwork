@@ -1,0 +1,87 @@
+<ul class="nav navbar-nav">
+  <!-- <li class="scottish-logo">
+    <a href="https://www.gov.scot/" title="Scottish Government Website"><span>gov.scot</span></a>
+  </li> -->
+  <li class="hidden-sm">
+    <a href="https://scottish-sdi-metadata-portal.readthedocs.io" target="_blank" title="Guidance"><span>Guidance</span></a>
+      <!--
+	<i class="fa fa-fw fa-github"></i> 
+	<a href="https://scottish-sdi-metadata-portal.readthedocs.io" target="_blank" title="Guidance"><span>Guidance</span></a>
+      	<i class="fa fa-fw fa-github"></i>
+      	<span data-translate="">github</span> 
+      -->
+  </li>
+  <li class="hidden-sm">
+    <a href="mailto:SSDI.Metadata@gov.scot?subject='SSDI%20Portal%20Contact'" target="_blank" title="Contact"><span>Contact</span></a>
+  </li>
+
+  <li class="hidden-sm">
+    <a href="https://scottish-sdi-metadata-portal.readthedocs.io/en/latest/accessibility.html" target="_blank" title="Accessibility"><span>Accessibility</span></a>
+  </li>
+  <li class="hidden-sm">
+    <a target="_blank" href="../../../zeppelin" target="_blank" title="Analytics (admin only)"><span>Analytics (admin only)</span></a>
+  </li>
+  <li class="hidden-sm">
+      <a target="_blank" href="../../../geohealthcheck" target="_blank" title="Service Monitoring"><span>Service Monitoring</span></a>
+  </li>
+  <li>
+    <a href="../../doc/api" target="_blank" title="{{'learnTheApi' | translate}}">API</a>
+  </li>
+  <li gn-static-pages-list-viewer data-section="footer" data-language="{{lang}}" />
+</ul>
+<ul class="nav navbar-nav" ng-show="getSocialLinksVisible()">
+  <li class="navbar-text">
+    <span data-translate="">shareOn</span>
+  </li>
+  <li>
+    <a href="https://twitter.com/share?url={{socialMediaLink | encodeURIComponent}}"
+       target="_blank"
+       title="{{'shareOnTwitter' | translate}}"
+       aria-label="{{'shareOnTwitter' | translate}}">
+       <span class="fa fa-twitter"></span>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.facebook.com/sharer.php?u={{socialMediaLink | encodeURIComponent}}"
+       target="_blank"
+       title="{{'shareOnFacebook' | translate}}"
+       aria-label="{{'shareOnFacebook' | translate}}">
+       <span class="fa fa-facebook"></span>
+    </a>
+  </li>
+  <li>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{socialMediaLink | encodeURIComponent}}"
+       target="_blank"
+       title="{{'shareOnLinkedIn' | translate}}"
+       aria-label="{{'shareOnLinkedIn' | translate}}">
+      <span class="fa fa-linkedin"></span>
+    </a>
+  </li>
+  <li>
+    <a href="mailto:?subject={{info.site.name}}&amp;body={{socialMediaLink | encodeURIComponent}}"
+       target="_blank"
+       title="{{'shareByEmail' | translate}}"
+       aria-label="{{'shareByEmail' | translate}}">
+       <span class="fa fa-envelope-o"></span>
+    </a>
+  </li>
+  <li>
+    <a href=""
+       data-ng-click="getPermalink('', socialMediaLink)"
+       title="{{'permalink' | translate}}"
+       aria-label="{{'permalink' | translate}}">
+      <span class="fa fa-fw fa-link"></span></a>
+  </li>
+  <li>
+    <a href="rss.search?sortBy=changeDate&georss=simplepoint"
+       title="{{'rssFeed' | translate}}"
+       aria-label="{{'rssFeed' | translate}}">
+      <span class="fa fa-rss"/>
+    </a>
+  </li>
+  <li class="gn-footer-text">
+    <span data-translate=""
+          data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}">
+      versionDetails</span>
+  </li>
+</ul>

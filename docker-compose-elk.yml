@@ -28,6 +28,9 @@ services:
       environment:
         - "ES_JAVA_OPTS=-Xms1G -Xmx1G" 
         - discovery.type=single-node
+        # - logger.discovery.name=org.elasticsearch.discovery
+        - logger.deprecation.level=OFF
+        - logger.level=WARN
       volumes:
         - esdata:/usr/share/elasticsearch/data
       healthcheck:
