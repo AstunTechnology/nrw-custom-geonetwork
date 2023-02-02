@@ -10,8 +10,8 @@ volumes:
 services:
   geonetwork:
     image: geonetwork:latest
-    container_name: geonetwork
     restart: unless-stopped
+    container_name: geonetwork
     ports:
       - 8080:8080
     user: 0:0
@@ -40,10 +40,13 @@ services:
       GEONETWORK_DB_USERNAME: ${POSTGRES_DB_USERNAME}
       GEONETWORK_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
       GEONETWORK_MICROSERVICESPROXY_TARGETURI: http://ogc-api-records-service:8080
+  
+    
     volumes:
       # general overrides
-      #- ./geonetwork:/var/lib/jetty/webapps/geonetwork/WEB-INF/data
+      - geonetwork:/catalogue-data
       - ./thesauri/external/thesauri/theme:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/theme
+      #- ./geonetwork:/var/lib/jetty/webapps/geonetwork/WEB-INF/data
       # schema overrides
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
@@ -89,7 +92,7 @@ services:
         # - ./scotgov/catalog/templates/new-password.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/new-password.html    
         # - ./scotgov/catalog/views/default/templates/recordView.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView.html
         # - ./scotgov/catalog/views/default/templates/searchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/searchForm.html
-        # -  ./scotgov/catalog/components/metadataactions/partials/related.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/related.html
+        # - ./scotgov/catalog/components/metadataactions/partials/related.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/related.html
         # - ./scotgov/catalog/components/search/resultsview/partials/viewtemplates/editor.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/editor.html
         # - ./scotgov/xslt/common/render-html.xsl:/var/lib/jetty/webapps/geonetwork/xslt/common/render-html.xsl
         # - ./scotgov/xslt/services/rdf.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/rdf.xsl
@@ -111,7 +114,7 @@ services:
       - 8081:80
     environment:
       GN4_API_URL: http://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
-    restart: always
+    restart: unless-stopped
     networks:
     - esnet
 
@@ -126,6 +129,9 @@ services:
       GN_LEGACY_URL: http://${GN_HOST}:${GN_PORT}/geonetwork
       GN_INDEX_URL: ${ES_URL}
       SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
+
+    restart: unless-stopped
+    container_name: ogc-api-service
 
     # depends_on:
     #   - database
