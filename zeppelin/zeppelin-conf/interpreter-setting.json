@@ -5,23 +5,23 @@
     "className": "org.apache.zeppelin.jdbc.JDBCInterpreter",
     "properties": {
       "default.url": {
-        "envName": null,
+        "envName": "JDBC_DB_URL",
         "propertyName": "default.url",
-        "defaultValue": "jdbc:postgresql://URL:PORT/DBNAME",
+        "defaultValue": "",
         "description": "The URL for JDBC.",
         "type": "string"
       },
       "default.user": {
-        "envName": null,
+        "envName": "JDBC_DB_USER",
         "propertyName": "default.user",
-        "defaultValue": "READONLYUSER",
+        "defaultValue": "",
         "description": "The JDBC user name",
         "type": "string"
       },
       "default.password": {
-        "envName": null,
+        "envName": "JDBC_DB_PASSWORD",
         "propertyName": "default.password",
-        "defaultValue": "READONLYPASSWORD",
+        "defaultValue": "",
         "description": "The JDBC user password",
         "type": "password"
       },
