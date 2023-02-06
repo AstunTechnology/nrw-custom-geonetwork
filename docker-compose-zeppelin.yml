@@ -16,9 +16,7 @@ services:
       - ./shiro-geonetwork/lib/postgresql-42.3.3.jar:/usr/local/tomcat/webapps/zeppelin/lib/postgresql-42.3.3.jar
       - ./shiro-geonetwork/conf/shiro.ini:/usr/local/tomcat/webapps/zeppelin/conf/shiro.ini
       - ./zeppelin/zeppelin-conf/interpreter-setting.json:/usr/local/tomcat/webapps/zeppelin/interpreter/jdbc/interpreter-setting.json
-      #- ./zeppelin/zeppelin-conf/interpreter.json:/usr/local/tomcat/webapps/zeppelin/conf/interpreter.json
       - ./zeppelin/zeppelin-conf/zeppelin-site.xml:/usr/local/tomcat/webapps/zeppelin/conf/zeppelin-site.xml
-      #- ./zeppelin/zeppelin-jdbc-0.10.1.jar:/usr/local/tomcat/webapps/zeppelin/interpreter/jdbc/zeppelin-jdbc-0.10.1.jar
       #- ./certs/cacerts:/custom_keystore/cacerts
     environment:
       - "ZEPPELIN_INTERPRETER_OUTPUT_LIMIT=10490000"
