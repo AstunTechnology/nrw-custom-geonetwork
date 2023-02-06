@@ -139,10 +139,6 @@ services:
     networks:
       - esnet
 
-
-  
-
-
   nginx:
     image: nginx
     container_name: nginx
@@ -170,18 +166,6 @@ services:
       timeout: 10s
       retries: 5
     restart: unless-stopped
-
-
-  datahub:
-    image: geonetwork/geonetwork-ui-datahub:master
-    container_name: datahub
-    ports:
-      - 8081:80
-    environment:
-      GN4_API_URL: http://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
-    restart: always
-    networks:
-    - esnet
 
 networks:
   esnet:
