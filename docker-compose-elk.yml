@@ -30,7 +30,7 @@ services:
         - discovery.type=single-node
         # - logger.discovery.name=org.elasticsearch.discovery
         - logger.deprecation.level=OFF
-        #- logger.level=WARN
+        - logger.level=WARN
       volumes:
         - esdata:/usr/share/elasticsearch/data
       healthcheck:
