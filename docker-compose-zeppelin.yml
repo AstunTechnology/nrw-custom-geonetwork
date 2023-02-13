@@ -26,7 +26,7 @@ services:
       - "ZEPPELIN_ADDR=0.0.0.0"
       - "JDBC_DB_URL=jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}" 
       - "JDBC_DB_USER=${POSTGRES_DB_ROUSER}" 
-      - "JDBC_DB_PASSWORD=${POSTGRES_DB_PASSWORD}" 
+      - "JDBC_DB_PASSWORD=${POSTGRES_DB_ROPASSWORD}" 
       - "HOSTNAME=0.0.0.0"
       # JAVA_OPTS:
       #   -Djavax.net.ssl.trustStore=/custom_keystore/cacerts -Djavax.net.ssl.trustStorePassword=changeit
