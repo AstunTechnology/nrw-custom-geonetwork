@@ -10,7 +10,7 @@ services:
     #   dockerfile: dockerfile.zeppelin
     container_name: zeppelin
     volumes: 
-      - ./zeppelin/zeppelin-notebook:/usr/local/tomcat/webapps/zeppelin/notebook
+      - ./zeppelin/zeppelin-notebook:/notebook
       - ./shiro-geonetwork/geonetwork-integration/target/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar:/usr/local/tomcat/webapps/zeppelin/lib/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar
       - ./zeppelin/zeppelin-logs:/zeppelin/logs
       - ./shiro-geonetwork/lib/postgresql-42.3.3.jar:/usr/local/tomcat/webapps/zeppelin/lib/postgresql-42.3.3.jar
@@ -21,7 +21,7 @@ services:
     environment:
       - "ZEPPELIN_INTERPRETER_OUTPUT_LIMIT=10490000"
       - "ZEPPELIN_INTERPRETER_GROUP_DEFAULT=jdbc"
-      - "ZEPPELIN_NOTEBOOK_DIR=/opt/zeppelin/notebook"
+      - "ZEPPELIN_NOTEBOOK_DIR=/notebook"
       - "ZEPPELIN_PORT=8083"
       - "ZEPPELIN_ADDR=0.0.0.0"
       - "JDBC_DB_URL=jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}" 
