@@ -94,6 +94,9 @@ services:
       - ./scotgov/catalog/views/default/templates/index.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/index.html
       - ./scotgov/catalog/templates/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar.html
       - ./scotgov/catalog/templates/top-toolbar-accessible.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar-accessible.html
+      # data quality snippets
+      - ../geonetwork-snippets/gemini23-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl
+      - ../geonetwork-snippets/iso19139-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl  
     networks:
       - esnet
 
