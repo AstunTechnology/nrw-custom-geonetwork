@@ -98,7 +98,7 @@ services:
         # - ./scotgov/xslt/services/rdf.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/rdf.xsl
         # - ./scotgov/xslt/skin/default/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
         # - ./scotgov/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl
-        # - ./scotgov/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl
+      - ./scotgov/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl
         # - ../iso19139.nonspatial/src/main/plugin/iso19139.nonspatial:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nonspatial
         # - ../iso19139.nonspatial/target/gn-schema-iso19139.nonspatial-4.2.0-0.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.nonspatial-4.2.0-0.jar
     # depends_on:
