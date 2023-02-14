@@ -19,6 +19,11 @@ delete from schematrondes where label = 'schematron-rules-GEMINI_2.3_supp-v1.0';
 update validation set valtype = 'schematron-rules-GEMINI_23_supp_v10' where valtype = 'schematron-rules-GEMINI_2.3_supp-v1.0';
 update validation set valtype = 'schematron-rules-GEMINI_23_v10' where valtype = 'schematron-rules-GEMINI_2.3_Schema-v1.0';
 
+delete from schematroncriteria where group_schematronid in (select id from schematron where schemaname = 'dcat-ap');
+delete from schematroncriteriagroup where schematronid in (select id from schematron where schemaname = 'dcat-ap');
+delete from schematrondes where label like '%dcat%';
+delete from schematron where schemaname = 'dcat-ap';
+
 /*DELETE 400
 DELETE 100
 DELETE 17
@@ -27,7 +32,12 @@ DELETE 4
 DELETE 1
 DELETE 1
 UPDATE 371
-UPDATE 371*/
+UPDATE 371
+DELETE 3
+DELETE 3
+DELETE 3
+DELETE 3
+*/
 
 /*select * from settings where name like '%version%';
 +-------------------------+-------+----------+----------+----------+-----------+----------+
