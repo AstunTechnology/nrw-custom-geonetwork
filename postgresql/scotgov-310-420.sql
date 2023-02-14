@@ -46,3 +46,18 @@ DELETE 3
 | system/platform/version | 4.0.1 | 0        | 150      | n        | n         | y        |
 +-------------------------+-------+----------+----------+----------+-----------+----------+*/
 
+# after one failed run where it gets to 4.0.1 but then fails with an error about guf_userfeedbacks
+
+UPDATE Settings SET value = 'Etc/UTC' WHERE name = 'system/server/timeZone' AND VALUE = '';
+UPDATE Settings SET value='4.0.2' WHERE name='system/platform/version';
+UPDATE Settings SET value='SNAPSHOT' WHERE name='system/platform/subVersion';
+
+# restart geonetwork
+
+/*select * from settings where name like '%version%';
++-------------------------+-------+----------+----------+----------+-----------+----------+
+| name                    | value | datatype | position | internal | encrypted | editable |
+|-------------------------+-------+----------+----------+----------+-----------+----------|
+| system/platform/version | 4.2.2 | 0        | 150      | n        | n         | y        |
++-------------------------+-------+----------+----------+----------+-----------+----------+*/
+
