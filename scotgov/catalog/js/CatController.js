@@ -116,6 +116,18 @@
               showMosaic: true,
               showMaps: true,
               facetConfig: {
+                "cl_topic.key": {
+                  terms: {
+                    field: "cl_topic.key",
+                    size: 20
+                  },
+                  meta: {
+                    decorator: {
+                      type: "icon",
+                      prefix: "fa fa-2x pull-left gn-icon-"
+                    }
+                  }
+                },
                 "th_httpinspireeceuropaeutheme-theme_tree.key": {
                   terms: {
                     field: "th_httpinspireeceuropaeutheme-theme_tree.key",
@@ -127,18 +139,6 @@
                       type: "icon",
                       prefix: "fa fa-2x pull-left gn-icon iti-",
                       expression: "http://inspire.ec.europa.eu/theme/(.*)"
-                    }
-                  }
-                },
-                "cl_topic.key": {
-                  terms: {
-                    field: "cl_topic.key",
-                    size: 20
-                  },
-                  meta: {
-                    decorator: {
-                      type: "icon",
-                      prefix: "fa fa-2x pull-left gn-icon-"
                     }
                   }
                 },
