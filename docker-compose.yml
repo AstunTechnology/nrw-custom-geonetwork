@@ -61,6 +61,7 @@ services:
       # iso19139
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/default.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/default.xsl
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl
+      - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/eng/labels.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/eng/labels.xml
       # scotgov specifics
       # persistent logo and favicon
       - ./scotgov/WEB-INF/data/data/resources/images/images/logos/scotgov.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/48e84e1c-d7ac-4c19-a03f-2689dc991a51.png
@@ -106,9 +107,6 @@ services:
         #- ./scotgov/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl
         # - ../iso19139.nonspatial/src/main/plugin/iso19139.nonspatial:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nonspatial
         # - ../iso19139.nonspatial/target/gn-schema-iso19139.nonspatial-4.2.0-0.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.nonspatial-4.2.0-0.jar
-    # depends_on:
-    #   - elasticsearch
-    #   - database
       # dtime integration
       - ./scotgov/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
       - ./scotgov/catalog/views/default/templates/dtechtive.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/dtechtive.html

@@ -1,9 +1,9 @@
-# create database geonetwork420clean
-#\c geonetwork420clean
-# create extension hstore
-# create extension postgis
-# restore dump
-# run audit.sql
+/* create database <database-name>
+\c <database-name>
+create extension hstore
+create extension postgis
+restore public schema dump
+run audit.sql */
 
 
 
@@ -24,7 +24,8 @@ delete from schematroncriteriagroup where schematronid in (select id from schema
 delete from schematrondes where label like '%dcat%';
 delete from schematron where schemaname = 'dcat-ap';
 
-/*DELETE 400
+/*
+DELETE 400
 DELETE 100
 DELETE 17
 DELETE 1
@@ -37,27 +38,25 @@ DELETE 3
 DELETE 3
 DELETE 3
 DELETE 3
-*/
 
-/*select * from settings where name like '%version%';
+select * from settings where name like '%version%';
 +-------------------------+-------+----------+----------+----------+-----------+----------+
 | name                    | value | datatype | position | internal | encrypted | editable |
 |-------------------------+-------+----------+----------+----------+-----------+----------|
 | system/platform/version | 4.0.1 | 0        | 150      | n        | n         | y        |
-+-------------------------+-------+----------+----------+----------+-----------+----------+*/
++-------------------------+-------+----------+----------+----------+-----------+----------+
 
-# after one failed run where it gets to 4.0.1 but then fails with an error about guf_userfeedbacks
+after one failed run where it gets to 4.0.1 but then fails with an error about guf_userfeedbacks */
 
 UPDATE Settings SET value = 'Etc/UTC' WHERE name = 'system/server/timeZone' AND VALUE = '';
 UPDATE Settings SET value='4.0.2' WHERE name='system/platform/version';
 UPDATE Settings SET value='SNAPSHOT' WHERE name='system/platform/subVersion';
 
-# restart geonetwork
+/* restart geonetwork
 
-/*select * from settings where name like '%version%';
+select * from settings where name like '%version%';
 +-------------------------+-------+----------+----------+----------+-----------+----------+
 | name                    | value | datatype | position | internal | encrypted | editable |
 |-------------------------+-------+----------+----------+----------+-----------+----------|
 | system/platform/version | 4.2.2 | 0        | 150      | n        | n         | y        |
 +-------------------------+-------+----------+----------+----------+-----------+----------+*/
-

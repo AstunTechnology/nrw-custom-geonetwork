@@ -77,8 +77,6 @@
    "updateCategories" :"Update licence",
    "xml_gemini22gemini23-schemaupgrade": "Batch convert from Gemini 2.2 to Gemini 2.3",
    "gmd:CI_ResponsibleParty": "Organisations & contacts",
-   "gmd:DQ_DomainConsistency": "Data Quality Reports (INSPIRE)",
-   "gmd:DQ_CompletenessCommission": "Data Quality Reports (Completeness)",
    "_to_gemini23": "None",
    "ESRI_ISO-to-GEMINI_23": "ESRI to GEMINI 2.3",
    "MEDIN_2_GEMINI_23": "MEDIN 2.3 to GEMINI 2.3",
@@ -95,7 +93,8 @@
    "wcsLinkDetails": "This dataset is published in the download service (WCS) available at <a href='{{url}}' target='_blank' class='wcs'>{{url}}</a> with layer name <strong>{{layer}}</strong>.",
    "sosLinkDetails": "This dataset is published in the sensor observation service (SOS) available at <a href='{{url}}' target='_blank' class='sos'>{{url}}</a> with name <strong>{{layer}}</strong>.",
    "atomLinkDetails": "This dataset is published in the Atom Feed available at <a href='{{url}}' target='_blank' class='atom'>{{url}}</a> with name <strong>{{layer}}</strong>.",
-   "gmd:DQ_CompletenessOmission": "Data Quality Reports (Omission)",
+   "gmd:DQ_CompletenessCommission": "Data Quality Reports (Completeness Comission)",
+   "gmd:DQ_CompletenessOmission": "Data Quality Reports (Completeness Omission)",
    "gmd:DQ_ThematicAccuracy": "Data Quality Reports (Thematic Accuracy)",
    "gmd:DQ_TemporalAccuracy": "Data Quality Reports (Temporal Accuracy)",
    "gmd:DQ_PositionalAccuracy": "Data Quality Reports (Positional Accuracy)",
@@ -103,6 +102,7 @@
    "gmd:DQ_LogicalConsistency": "Data Quality Reports (Logical Consistency)",
    "gmd:DQ_FormatConsistency": "Data Quality Reports (Format Consistency)",
    "gmd:DQ_ConceptualConsistency": "Data Quality Reports (Conceptual Consistency)",
+   "gmd:DQ_DomainConsistency": "Data Quality Reports (Domain Consistency and INSPIRE)",
    "gmd:MD_LegalConstraints": "Legal Constraints",
    "dtechtive": "Dtechtive"
 }
