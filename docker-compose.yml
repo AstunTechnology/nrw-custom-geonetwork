@@ -46,6 +46,8 @@ services:
       # general overrides
       - geonetwork:/catalogue-data
       - ./thesauri/external/thesauri/theme:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/theme
+      - ./geonetwork/catalog/locales/en-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-admin.json
+
       # schema overrides
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
@@ -88,7 +90,6 @@ services:
       - ./scotgov/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl
       - ./scotgov/xsl/conversion/import/_to_gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/_to_gemini23.xsl
       - ./scotgov/xsl/conversion/import/xml_gemini22gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/xml_gemini22gemini23.xsl
-<<<<<<< HEAD
         # - ./scotgov/catalog/views/default/module.js:/var/lib/jetty/webapps/geonetwork/catalog/views/default/module.js
         # - ./scotgov/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html     
         # - ./scotgov/catalog/templates/admin/usergroup/users.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup/users.html
