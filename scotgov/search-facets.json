@@ -30,7 +30,7 @@
     "meta": {
       "decorator": {
         "type": "icon",
-        "prefix": "fa fa-2x pull-left gn-icon-"
+        "prefix": "fa fa-fw pull-left gn-icon-"
       }
     }
   },

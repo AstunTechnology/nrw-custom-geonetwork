@@ -98,7 +98,12 @@ services:
       # data quality snippets
       - ../geonetwork-snippets/gemini23-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl
       - ../geonetwork-snippets/iso19139-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl  
-
+      # group logo
+      - ./geonetwork/catalog/views/default/less/gn_search_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_search_default.less
+      - ./geonetwork/catalog/components/utility/UtilityDirective.js:/var/lib/jetty/webapps/geonetwork/catalog/components/utility/UtilityDirective.js
+      - ./geonetwork/catalog/components/utility/partials/recordOriginLogo.html:/var/lib/jetty/webapps/geonetwork/catalog/components/utility/partials/recordOriginLogo.html
+      - ./geonetwork/catalog/views/default/templates/recordView/metadata.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/metadata.html
+    
     networks:
       - esnet
 
@@ -110,6 +115,9 @@ services:
     environment:
       GN4_API_URL: http://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
     restart: unless-stopped
+    volumes:
+      #- ./datahub/assets:/assets
+      - ./datahub/conf/:/conf
     networks:
     - esnet
 

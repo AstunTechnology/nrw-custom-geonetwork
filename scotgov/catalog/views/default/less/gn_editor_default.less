@@ -6,6 +6,18 @@
 .gn-results-editor {
   .gn-status {
     font-weight: 500;
+    color: @text-muted;
+    border: 1px solid @btn-default-border;
+    padding: 0 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+  tr:hover {
+    background-color: @panel-footer-bg;
+    transition: background-color ease 0.5s;
+  }
+  .gn-record-details {
+    margin-top: 5px;
   }
 }
 
@@ -21,7 +33,7 @@
         margin: 0;
         padding: 0;
         display: inline-block;
-        color: #ffffff !important;
+        color: #fff !important;
       }
       span {
         font-weight: 200;
@@ -70,14 +82,19 @@
     }
   }
   .gn-editor-board {
+    padding-top: @gn-header-height;
     .gn-top-search {
-      padding-top: 0;
-      padding-bottom: 0;
+      background-color: #fff;
     }
   }
   .gn-search-facet {
-    padding-top: 55px;
     padding-bottom: 15px;
+  }
+  .modal-dialog {
+    .modal-body {
+      max-height: 85vh;
+      overflow: auto;
+    }
   }
   form.gn-editor {
     // tabs above editor
@@ -166,6 +183,9 @@
         font-size: 16px;
         margin-top: 0px;
       }
+      legend.collapsed[data-gn-slide-toggle]:before {
+        content: "\f105";
+      }
       table {
         .col-sm-2, .col-sm-9 {
           padding-right: 0;
@@ -224,17 +244,6 @@
         @media (max-width: @screen-xs-max) {
           padding-left: 15px !important;
         }
-      }
-    }
-    .gn-date-picker > input[type=date], .gn-date-picker > input[type=time] {
-      width: 50%;
-    }
-    .gn-date-picker.gn-time-with-ind-position {
-      input[type=month], input[type=number] {
-        width: 80%;
-      }
-      &> input[type=date], &> input[type=time] {
-        width: 40%;
       }
     }
     // default switch
@@ -333,6 +342,7 @@
     }
     // field in field
     .gn-field {
+      float: none;
       label {
         font-size: 12px;
         &:after {
@@ -405,8 +415,8 @@
     padding: 0 15px 15px 15px;
     position: relative;
     margin-top: 0;
-    border-radius: 0;
     [ol-map] {
+      border-radius: 0;
       .ol-attribution {
         .gn-attribution();
       }
@@ -418,6 +428,11 @@
     border: 1px solid @panel-default-border;
     background-color: @panel-default-heading-bg;
     border-bottom: 0;
+  }
+  .gn-editor-map + .gn-editor-map-toolbar {
+    margin: -15px 15px 0 15px;
+    border-top: 0;
+    border-bottom: 1px solid @panel-default-border;
   }
 }
 // online resource panel
@@ -610,20 +625,19 @@ form.gn-editor.gn-indent-bluescale {
 
 // inspire
 // md type widget (used only in editor for now)
-.fa-inspire {
-  /*background: url('../catalog/views/default/images/inspire.png');*/
-  /*background-repeat: no-repeat;*/
-  /*background-size: 16px 16px;*/
-  /*width: 16px;*/
-  /*height: 16px;*/
-  /*margin-top: 3px;*/
-  /*&:before {*/
-    /*content: "";*/
+/*.fa-inspire {
+  background: url('../catalog/views/default/images/inspire.png');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  &:before {
+    content: "";
 
-  /*}*/
-	display:none;
-}
+  }
+}*/
 
-.md-type-n.valid-inspire-status-1 {
-  display: none !important;
+gn-md-type-inspire-validation-widget {
+  display: none;
 }
