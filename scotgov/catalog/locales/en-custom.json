@@ -12,6 +12,8 @@
    "system/csw/transactionUpdateCreateXPath": "Create element if it does not exist when using XPath in CSW transaction.",
    "system/indexoptimizer/enable": "Enable index optimiser",
    "system/metadatacreate/generateUuid-help" : "GeoNetwork assigns a random metadata UUID to the metadata created by a user (default). To assign the metadata UUID manually disable this option and fill the metadata UUID prefix.",
+   "ui-mod-signin": "Sign in application",
+   "ui-mod-signout": "Sign out application",
    "Csw GetCapabilities": "CSW GetCapabilities",
    "workspace-help": "Namespace prefix and namespace URL corresponding to the workspace data has to be published in.",
    "os-update-revisiondate": "Update Ordnance Survey Revision Date",
