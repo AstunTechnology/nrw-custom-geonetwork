@@ -8,7 +8,7 @@
 			 we use this process to avoid having to make changes to GeoNetwork xslts
 			 to include presentation xslts from schemas that are plugged in -->
   <!-- plug in schemas - come next - managed by schema.add/update/delete -->
-  <rewriteURI uriStartString="blanks/metadata-schema01" rewritePrefix="/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23" />
-  <rewriteURI uriStartString="blanks/metadata-schema02" rewritePrefix="/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini22" />
+  <rewriteURI uriStartString="blanks/metadata-schema01" rewritePrefix="/usr/local/tomcat/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23" />
+  <rewriteURI uriStartString="blanks/metadata-schema02" rewritePrefix="/usr/local/tomcat/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini22" />
 </catalog>
 
