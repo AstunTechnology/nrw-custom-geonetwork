@@ -43,9 +43,9 @@ services:
     volumes:
       # general overrides
       - geonetwork:/catalogue-data
-      - ./thesauri/external/thesauri/theme:/usr/local/tomcat/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/theme
-      - ./geonetwork/catalog/locales/en-admin.json:/usr/local/tomcat/webapps/geonetwork/catalog/locales/en-admin.json
-
+      - ./thesauri/external/thesauri/theme:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/theme
+      - ./geonetwork/catalog/locales/en-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-admin.json
+      - ./geonetwork/catalog/locales/en-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-core.json
       # schema overrides
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/usr/local/tomcat/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
