@@ -75,7 +75,7 @@
         label: 'contentStatistics',
         icon: 'fa-bar-chart',
         href: '#/dashboard/statistics?dashboard=' +
-            encodeURIComponent('../../dashboards/s/geonetwork/app/kibana#/dashboard/853fef90-8dce-11e9-9bb7-5db216293bad?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15y%2Cto%3Anow))&embed=true')
+            encodeURIComponent('../../dashboards/app/kibana#/dashboard/853fef90-8dce-11e9-9bb7-5db216293bad?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15y%2Cto%3Anow))&embed=true')
       //TODO: The following dashboards need a rework
       }, {
         type: 'statistics',
