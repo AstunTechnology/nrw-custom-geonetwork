@@ -1,22 +1,48 @@
-/* create database <database-name>
-\c <database-name>
-create extension hstore
-create extension postgis
-restore public schema dump
-run audit.sql 
+/* 
+
+#log on to server as rds super-user and create new database with extensions and alter owner to geonetwork
 
 psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonet_root -W -d geonetwork310
+
 create database geonetwork423
 create database geohealthcheck423
 \c geonetwork423
 create extension postgis
 create extension hstore
+
+
 alter database geonetwork423 owner to geonetwork
 alter database geohealthcheck423 owner to geonetwork
 
-pg_restore -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -d geonetwork423 -F custom -U geonetwork -v geonetwork310.dump
+# run audit script
 
-psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonetwork -W -d geonetwork423*/
+psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonet_root -W -d geonetwork423 -q -f ./postgresql/audit.sql
+
+# dump and restore custom and public schemas
+
+pg_dump --schema=public -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -U geonetwork -W -F custom -v geonetwork310 > geonetwork310.dump
+pg_dump --schema=custom -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -U geonetwork -W -F custom -v geonetwork310 > geonetwork310custom.dump
+pg_restore -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -d geonetwork423 -F custom -U geonetwork -v geonetwork310.dump
+pg_restore -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -d geonetwork423 -F custom -U geonetwork -v geonetwork310custom.dump
+
+# create new read-only role for zeppelin and grant select and usage privileges on all three schemas and their tables
+
+create role geonetworkdbfro423 with login encrypted password '<redacted>';
+grant usage on schema public to geonetworkdbfro423;
+grant usage on schema audit to geonetworkdbfro423;
+grant usage on schema custom to geonetworkdbfro423;
+GRANT SELECT ON ALL TABLES IN SCHEMA audit TO geonetworkdbfro423;
+GRANT SELECT ON ALL TABLES IN SCHEMA custom TO geonetworkdbfro423;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO geonetworkdbfro423;
+ALTER DEFAULT PRIVILEGES IN SCHEMA audit GRANT SELECT ON TABLES TO geonetworkdbfro423;
+ALTER DEFAULT PRIVILEGES IN SCHEMA custom GRANT SELECT ON TABLES TO geonetworkdbfro423;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO geonetworkdbfro423;
+
+# re-connect to new database as geonetwork user and run the commands below to help update database from 3.10 to 4.2
+
+psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonetwork -W -d geonetwork423
+
+*/
 
 
 /* get rid of stuff relating to the dcat schema */
