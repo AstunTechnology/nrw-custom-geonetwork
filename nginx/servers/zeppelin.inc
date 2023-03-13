@@ -7,7 +7,7 @@ server  {
 	ssl_certificate /etc/nginx/certs/fullchain.pem;
 	ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
-	server_name sandpit.eametadata.com;
+	server_name _;
 
 	#valid_referers none server_names;
 	#if ($invalid_referer) {
