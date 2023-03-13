@@ -46,8 +46,8 @@ services:
     restart: unless-stopped
     environment:
       ELASTICSEARCH_URL: ${ES_URL}
-      ES_USERNAME: ${ES_USERNAME}
-      ES_PASSWORD: ${ES_PASSWORD}
+      #ES_USERNAME: ${ES_USERNAME}
+      #ES_PASSWORD: ${ES_PASSWORD}
       #XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED: 'true'
     volumes:
       - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
