@@ -4,9 +4,17 @@ services:
   geohealthcheck:
     image: geopython/geohealthcheck:latest
     container_name: geohealthcheck
+    hostname: geohealthcheck
     restart: unless-stopped
+    environment:
+      SCRIPT_NAME: ${SCRIPT_NAME}
     ports:
-      - 8082:80
+      - "8082:80"
+    networks:
+      esnet:
+        aliases:
+          - geohealthcheck
+
 
   ghc_runner:
     image: geopython/geohealthcheck:latest
@@ -14,3 +22,9 @@ services:
     restart: unless-stopped
     entrypoint:
       - /run-runner.sh
+    networks:
+    - esnet
+
+networks:
+  esnet:
+    driver: bridge

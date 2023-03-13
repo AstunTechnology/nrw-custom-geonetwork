@@ -14,9 +14,9 @@ add_header X-XSS-Protection "1; mode=block";
 add_header X-Permitted-Cross-Domain-Policies none;
 
 # content security policy
-# add_header Content-Security-Policy "default-src 'self';object-src 'none';child-src 'self';frame-src 'self'; script-src 'unsafe-inline'; upgrade-insecure-requests; block-all-mixed-content";
+# add_header Content-Security-Policy "default-src 'self';object-src 'none';child-src 'self';frame-src 'self'; script-src 'unsafe-inline'; upgrade-insecure-requests; #block-all-mixed-content";
 
-add_header Content-Security-Policy "frame-ancestors 'none'; child-src 'self', frame-src 'self'";
+#add_header Content-Security-Policy "frame-ancestors 'none'; child-src 'self', frame-src 'self'";
 
 # referrer policy
 add_header Referrer-Policy 'No-referrer';
@@ -24,13 +24,19 @@ add_header Referrer-Policy 'No-referrer';
 # rate limiting
 limit_req_zone $binary_remote_addr zone=ip:10m rate=60r/s;
 
+#resolver 127.0.0.11;
+
+upstream ghc {
+    server geohealthcheck:8082;
+}
+
 
 server {
     listen       80;
     listen  [::]:80;
     root /var/www/html;
 
-    
+
     server_name _;
 
     access_log /var/log/nginx/gn-access.log;
@@ -49,10 +55,10 @@ server {
     }
 	
     include locations/*.inc;
-    
-	
+
+
 }
 
 
 	 	
-include servers/*.inc;
+#include servers/*.inc;
