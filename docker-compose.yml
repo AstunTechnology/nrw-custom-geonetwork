@@ -79,6 +79,9 @@ services:
       - ./scotgov/catalog/views/default/less/gn_editor_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_editor_default.less
       - ./scotgov/catalog/views/default/templates/footer.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/footer.html
       - ./scotgov/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
+      # datepicker layout fix
+      - ./geonetwork/catalog/components/edit/datepicker/partials/datepicker.html:/var/lib/jetty/webapps/geonetwork/catalog/components/edit/datepicker/partials/datepicker.html
+
       # others   
       - ./scotgov/WEB-INF/config-lucene.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-lucene.xml
       - ./scotgov/WEB-INF/config-print/print-config.yaml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-print/print-config.yaml
