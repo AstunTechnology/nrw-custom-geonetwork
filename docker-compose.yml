@@ -81,7 +81,6 @@ services:
       - ./scotgov/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
       # datepicker layout fix
       - ./geonetwork/catalog/components/edit/datepicker/partials/datepicker.html:/var/lib/jetty/webapps/geonetwork/catalog/components/edit/datepicker/partials/datepicker.html
-
       # others   
       - ./scotgov/WEB-INF/config-lucene.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-lucene.xml
       - ./scotgov/WEB-INF/config-print/print-config.yaml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-print/print-config.yaml
@@ -94,7 +93,7 @@ services:
       - ./scotgov/xsl/conversion/import/_to_gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/_to_gemini23.xsl
       - ./scotgov/xsl/conversion/import/xml_gemini22gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/xml_gemini22gemini23.xsl
       # dtime integration
-      #- ./scotgov/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
+      - ./scotgov/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
       - ./scotgov/catalog/views/default/templates/dtechtive.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/dtechtive.html
       - ./scotgov/catalog/views/default/templates/index.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/index.html
       - ./scotgov/catalog/templates/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar.html
@@ -131,8 +130,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_DB_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_DB_PASSWORD}
-      GN_BASEURL: http://${GN_HOST}:${GN_PORT}/geonetwork/api
-      GN_LEGACY_URL: http://${GN_HOST}:${GN_PORT}/geonetwork
+      GN_BASEURL: https://${GN_HOST}:${GN_PORT}/geonetwork/api
+      GN_LEGACY_URL: https://${GN_HOST}:${GN_PORT}/geonetwork
       GN_INDEX_URL: ${ES_URL}
       SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
 
