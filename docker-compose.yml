@@ -115,7 +115,7 @@ services:
     ports:
       - 8081:80
     environment:
-      GN4_API_URL: http://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
+      GN4_API_URL: ${GN_PROTOCOL}://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
     restart: unless-stopped
     volumes:
       #- ./datahub/assets:/assets
@@ -130,8 +130,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_DB_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_DB_PASSWORD}
-      GN_BASEURL: https://${GN_HOST}:${GN_PORT}/geonetwork/api
-      GN_LEGACY_URL: https://${GN_HOST}:${GN_PORT}/geonetwork
+      GN_BASEURL: ${GN_PROTOCOL}://${GN_HOST}:${GN_PORT}/geonetwork/api
+      GN_LEGACY_URL: ${GN_PROTOCOL}://${GN_HOST}:${GN_PORT}/geonetwork
       GN_INDEX_URL: ${ES_URL}
       SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
 
