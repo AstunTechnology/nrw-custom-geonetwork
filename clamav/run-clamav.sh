@@ -5,7 +5,7 @@
 # move infected files to clamav-quarantine
 
 # make sure we have the environment variables available
-set -a; source /home/astun/docker-geonetwork/.env; set +a
+set -a; source /home/astun/docker-geonetwork/.env-local; set +a
 # make directories for quarantine and logs if they don't exist
 
 mkdir -p /home/astun/clamav-logs /home/astun/clamav-quarantine
@@ -22,7 +22,7 @@ if [ ! -f /home/astun/clamav-logs/output.txt ]; then
 fi
 
 # send email with output.txt as body
-curl -v --url smtps://$SMTP --ssl-reqd  --mail-from $EMAILADDR --mail-rcpt $EMAILADDR  --user $SMTPUSER:$SMTPPWD -F '=</home/astun/clamav-logs/output.txt;encoder=quoted-printable' -H "Subject: $ES_PREFIX  antivirus output $(date +%Y-%m-%d)" -H "From: $EMAILADDR <$EMAILADDR>" -H "To: $EMAILADDR <$EMAILADDR>"
+curl -v --url smtps://$SMTP_URL_CLAMAV --ssl-reqd  --mail-from $EMAIL_ADDR --mail-rcpt $EMAIL_ADDR  --user $SMTP_USERNAME:$SMTP_PASSWORD -F '=</home/astun/clamav-logs/output.txt;encoder=quoted-printable' -H "Subject: $GN_SITE_NAME  antivirus output $(date +%Y-%m-%d)" -H "From: $EMAIL_ADDR <$EMAIL_ADDR>" -H "To: $EMAIL_ADDR <$EMAIL_ADDR>"
 
 # remove the old log file
 rm /home/astun/clamav-logs/output.txt
