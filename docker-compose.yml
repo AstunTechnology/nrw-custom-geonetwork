@@ -47,6 +47,8 @@ services:
       - ./geonetwork/catalog/locales/en-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-admin.json
       - ./geonetwork/catalog/locales/en-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-core.json
       - ./geonetwork/catalog/locales/en-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-editor.json
+      # dashboards
+      - ./geonetwork/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
       # schema overrides
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
@@ -67,7 +69,6 @@ services:
       - ./scotgov/WEB-INF/data/data/resources/images/images/logos/scotgov.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/favicon.png
       # misc
       - ./scotgov/catalog/config/batch-process-cfg.json:/var/lib/jetty/webapps/geonetwork/catalog/config/batch-process-cfg.json
-      - ./scotgov/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
       #- ./scotgov/catalog/lib/angular/angular-sanitize.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular/angular-sanitize.js
       - ./scotgov/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
       # style
@@ -124,7 +125,7 @@ services:
     - esnet
 
   ogc-api-records-service:
-    image: geonetwork/gn-cloud-ogc-api-records-service:0.2.0
+    image: geonetwork/gn-cloud-ogc-api-records-service:4.2.3-0
     environment:
       SPRING_PROFILES_ACTIVE: standalone
       SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
