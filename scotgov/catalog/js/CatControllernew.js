@@ -116,6 +116,18 @@
             showMosaic: true,
             showMaps: true,
             facetConfig: {
+              "cl_topic.key": {
+                terms: {
+                  field: "cl_topic.key",
+                  size: 20
+                },
+                meta: {
+                  decorator: {
+                    type: "icon",
+                    prefix: "fa fa-2x pull-left gn-icon-"
+                  }
+                }
+              },
               "th_httpinspireeceuropaeutheme-theme_tree.key": {
                 terms: {
                   field: "th_httpinspireeceuropaeutheme-theme_tree.key",
@@ -127,18 +139,6 @@
                     type: "icon",
                     prefix: "fa fa-2x pull-left gn-icon iti-",
                     expression: "http://inspire.ec.europa.eu/theme/(.*)"
-                  }
-                }
-              },
-              "cl_topic.key": {
-                terms: {
-                  field: "cl_topic.key",
-                  size: 20
-                },
-                meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-2x pull-left gn-icon-"
                   }
                 }
               },
@@ -334,269 +334,139 @@
             // See https://github.com/geonetwork/core-geonetwork/pull/5349
             isVegaEnabled: true,
             facetConfig: {
-              resourceType: {
-                terms: {
-                  field: "resourceType"
+              "resourceType": {
+                "terms": {
+                  "field": "resourceType",
+                  "order": { 
+                      "_key": "asc" 
+                  },
+                  "size": 5
                 },
-                meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw gn-icon-"
+                "meta": {
+                  "decorator": {
+                    "type": "icon",
+                    "prefix": "fa fa-fw gn-icon-"
                   }
                 }
               },
-              // Use .default for not multilingual catalogue with one language only UI.
-              // 'cl_spatialRepresentationType.default': {
-              //   'terms': {
-              //     'field': 'cl_spatialRepresentationType.default',
-              //     'size': 10
-              //   }
-              // },
-              // Use .key for codelist for multilingual catalogue.
-              // The codelist translation needs to be loaded in the client app. See GnSearchModule.js
-              "cl_spatialRepresentationType.key": {
-                terms: {
-                  field: "cl_spatialRepresentationType.key",
-                  size: 10
+              "cat.keyword": {
+                "terms": {
+                  "field": "cat.keyword",
+                  "size": 5
                 }
               },
-              format: {
-                terms: {
-                  field: "format"
+              "cl_topic.key": {
+                "terms": {
+                  "field": "cl_topic.key",
+                  "size": 5
                 },
-                meta: {
-                  collapsed: true
+                "meta": {
+                  "decorator": {
+                    "type": "icon",
+                    "prefix": "fa fa-fw pull-left gn-icon-"
+                  }
                 }
               },
-              availableInServices: {
-                filters: {
-                  //"other_bucket_key": "others",
-                  // But does not support to click on it
-                  filters: {
-                    availableInViewService: {
-                      query_string: {
-                        query: "+linkProtocol:/OGC:WMS.*/"
+              "th_httpinspireeceuropaeutheme-theme_tree.key": {
+                "terms": {
+                  "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+                  "order": { 
+                      "_key": "asc"
+                  },
+                  "size": 5
+                },
+                "meta": {
+                  "decorator": {
+                    "type": "icon",
+                    "prefix": "fa fa-fw gn-icon iti-",
+                    "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+                  }
+                }
+              },
+              "tag.default": {
+                "terms": {
+                  "field": "tag.default",
+                  "include": ".*",
+                  "size": 5
+                },
+                "meta": {
+                  "caseInsensitiveInclude": true
+                }
+              },
+              "OrgForResource": {
+                "terms": {
+                  "field": "OrgForResource",
+                  "include": ".*",
+                  "size": 5
+                },
+                "meta": {
+                  "caseInsensitiveInclude": true
+                }
+              },
+              "creationYearForResource": {
+                "histogram": {
+                    "field": "creationYearForResource",
+                    "interval": 5,
+                    "keyed": true,
+                    "min_doc_count": 1
+                },
+                "meta": {
+                  "collapsed": true
+                }
+              },
+              "format": {
+                "terms": {
+                  "field": "format",
+                  "size": 5,
+                  "order": { 
+                      "_key": "asc"
+                  }
+                }
+              },
+              "availableInServices": {
+                "filters": {
+                  "filters": {
+                    "availableInViewService": {
+                      "query_string": {
+                        "query": "+linkProtocol:/OGC:WMS.*/"
                       }
                     },
-                    availableInDownloadService: {
-                      query_string: {
-                        query: "+linkProtocol:/OGC:WFS.*/"
+                    "availableInDownloadService": {
+                      "query_string": {
+                        "query": "+linkProtocol:/OGC:WFS.*/"
                       }
                     }
                   }
-                },
-                meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw ",
-                    map: {
-                      availableInViewService: "fa-globe",
-                      availableInDownloadService: "fa-download"
-                    }
-                  }
                 }
               },
-              // GEMET configuration for non multilingual catalog
-              "th_gemet_tree.default": {
-                terms: {
-                  field: "th_gemet_tree.default",
-                  size: 100,
-                  order: { _key: "asc" },
-                  include: "[^^]+^?[^^]+"
-                  // Limit to 2 levels
-                }
-              },
-              // GEMET configuration for multilingual catalog
-              // The key is translated on client side by loading
-              // required concepts
-              // 'th_gemet_tree.key': {
-              //   'terms': {
-              //     'field': 'th_gemet_tree.key',
-              //     'size': 100,
-              //     "order" : { "_key" : "asc" },
-              //     "include": "[^\^]+^?[^\^]+"
-              //     // Limit to 2 levels
-              //   }
-              // },
-              // (Experimental) A tree field which contains a URI
-              // eg. http://www.ifremer.fr/thesaurus/sextant/theme#52
-              // but with a translation which contains a hierarchy with a custom separator
-              // /Regulation and Management/Technical and Management Zonations/Sensitive Zones
-              // 'th_sextant-theme_tree.key': {
-              //   'terms': {
-              //     'field': 'th_sextant-theme_tree.key',
-              //     'size': 100,
-              //     "order" : { "_key" : "asc" }
-              //   },
-              //   'meta': {
-              //     'translateOnLoad': true,
-              //     'treeKeySeparator': '/'
-              //   }
-              // },
-
-              "th_httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset_tree.default":
-                {
-                  terms: {
-                    field:
-                      "th_httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset_tree.default",
-                    size: 100,
-                    order: { _key: "asc" }
-                  }
-                },
-              "th_httpinspireeceuropaeutheme-theme_tree.key": {
-                terms: {
-                  field: "th_httpinspireeceuropaeutheme-theme_tree.key",
-                  size: 34
-                  // "order" : { "_key" : "asc" }
-                },
-                meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw gn-icon iti-",
-                    expression: "http://inspire.ec.europa.eu/theme/(.*)"
-                  }
-                }
-              },
-              tag: {
-                terms: {
-                  field: "tag.${aggLang}",
-                  include: ".*",
-                  size: 10
-                },
-                meta: {
-                  caseInsensitiveInclude: true
-                }
-              },
-              "th_regions_tree.default": {
-                terms: {
-                  field: "th_regions_tree.default",
-                  size: 100,
-                  order: { _key: "asc" }
-                  //"include": "EEA.*"
-                }
-              },
-              // "resolutionScaleDenominator": {
-              //   "terms": {
-              //     "field": "resolutionScaleDenominator",
-              //     "size": 20,
-              //     "order": {
-              //       "_key": "asc"
-              //     }
-              //   }
-              // },
-              resolutionScaleDenominator: {
-                histogram: {
-                  field: "resolutionScaleDenominator",
-                  interval: 10000,
-                  keyed: true,
-                  min_doc_count: 1
-                },
-                meta: {
-                  collapsed: true
-                }
-              },
-              // "serviceType": {
-              //   'collapsed': true,
-              //   "terms": {
-              //     "field": "serviceType",
-              //     "size": 10
-              //   }
-              // },
-              // "resourceTemporalDateRange": {
-              //   "date_histogram": {
-              //     "field": "resourceTemporalDateRange",
-              //     "fixed_interval": "1900d",
-              //     "min_doc_count": 1
-              //   }
-              // },
-              creationYearForResource: {
-                histogram: {
-                  field: "creationYearForResource",
-                  interval: 5,
-                  keyed: true,
-                  min_doc_count: 1
-                },
-                meta: {
-                  collapsed: true
-                }
-              },
-              // "creationYearForResource": {
-              //   "terms": {
-              //     "field": "creationYearForResource",
-              //     "size": 10,
-              //     "order": {
-              //       "_key": "desc"
-              //     }
-              //   }
-              // },
-              OrgForResource: {
-                terms: {
-                  field: "OrgForResourceObject.${aggLang}",
-                  // field: "OrgForResourceObject.default",
-                  // field: "OrgForResourceObject.langfre",
-                  include: ".*",
-                  size: 20
-                },
-                meta: {
-                  // Always display filter even no more elements
-                  // This can be used when all facet values are loaded
-                  // with a large size and you want to provide filtering.
-                  // 'displayFilter': true,
-                  caseInsensitiveInclude: true
-                  // decorator: {
-                  //   type: 'img',
-                  //   map: {
-                  //     'EEA': 'https://upload.wikimedia.org/wikipedia/en/thumb/7/79/EEA_agency_logo.svg/220px-EEA_agency_logo.svg.png'
-                  //   }
-                  // }
+              "cl_spatialRepresentationType.key": {
+                "terms": {
+                  "field": "cl_spatialRepresentationType.key",
+                  "size": 5
                 }
               },
               "cl_maintenanceAndUpdateFrequency.key": {
-                terms: {
-                  field: "cl_maintenanceAndUpdateFrequency.key",
-                  size: 10
-                },
-                meta: {
-                  collapsed: true
+                "terms": {
+                  "field": "cl_maintenanceAndUpdateFrequency.key",
+                  "size": 5
                 }
-                // },
-                // Don't forget to enable Vega to use interactive graphic facets.
-                // See isVegaEnabled property.
-                // 'cl_status.key': {
-                //   'terms': {
-                //     'field': 'cl_status.key',
-                //     'size': 10
-                //   },
-                //   'meta': {
-                //     // 'vega': 'bar'
-                //     'vega': 'arc'
-                //   }
-                // },
-                //
-                // 'resourceTemporalDateRange': {
-                //   'gnBuildFilterForRange': {
-                //     field: "resourceTemporalDateRange",
-                //     buckets: 2021 - 1970,
-                //     dateFormat: 'YYYY',
-                //     dateSelectMode: 'years',
-                //     vegaDateFormat: '%Y',
-                //     from: 1970,
-                //     to: 2021,
-                //     mark: 'area'
-                //   },
-                //   'meta': {
-                //     'vega': 'timeline'
-                //   }
-                // },
-                // 'dateStamp' : {
-                //   'auto_date_histogram' : {
-                //     'field' : 'dateStamp',
-                //     'buckets': 50
-                //   },
-                //   "meta": {
-                //     'userHasRole': 'isReviewerOrMore',
-                //     'collapsed': true
-                //   }
+              },
+              "resolutionScaleDenominator": {
+                "histogram": {
+                  "field": "resolutionScaleDenominator",
+                  "interval": 10000,
+                  "keyed": true,
+                  "min_doc_count": 1
+                },
+                "meta": {
+                  "collapsed": true
+                }
+              },
+              "cl_resolutionDistance.key": {
+                "terms": {
+                  "field": "cl_resolutionDistance.key",
+                  "size": 5
+                }
               }
             },
             filters: null,
@@ -919,157 +789,85 @@
             editorIndentType: "",
             allowRemoteRecordLink: true,
             facetConfig: {
-              resourceType: {
-                terms: {
-                  field: "resourceType"
+              "resourceType": {
+                "terms": {
+                  "field": "resourceType"
                 },
-                meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw gn-icon-"
+                "meta": {
+                  "decorator": {
+                    "type": "icon",
+                    "prefix": "fa fa-fw gn-icon-"
                   }
                 }
               },
-              mdStatus: {
-                terms: {
-                  field: "statusWorkflow",
-                  size: 20
+              "cat.keyword": {
+                "terms": {
+                  "field": "cat.keyword"
+                }
+              },
+              "valid": {
+                "terms": {
+                  "field": "valid",
+                  "size": 10
+                }
+              },
+              "groupOwner": {
+                "terms": {
+                  "field": "groupOwner",
+                  "size": 200,
+                  "include": ".*"
                 },
-                meta: {
-                  field: "statusWorkflow"
+                "meta": {
+                  "orderByTranslation": true,
+                  "filterByTranslation": true,
+                  "displayFilter": true,
+                  "collapsed": true
                 }
               },
-              "cl_status.key": {
-                terms: {
-                  field: "cl_status.key",
-                  size: 15
-                }
-              },
-              valid: {
-                terms: {
-                  field: "valid",
-                  size: 10
-                }
-              },
-              valid_inspire: {
-                terms: {
-                  field: "valid_inspire",
-                  size: 10
+              "groupPublishedId": {
+                "terms": {
+                  "field": "groupPublishedId",
+                  "size": 200,
+                  "include": ".*"
                 },
-                meta: {
-                  collapsed: true
+                "meta": {
+                  "orderByTranslation": true,
+                  "filterByTranslation": true,
+                  "displayFilter": true,
+                  "collapsed": true
                 }
               },
-              sourceCatalogue: {
-                terms: {
-                  field: "sourceCatalogue",
-                  size: 100,
-                  include: ".*"
+              "documentStandard": {
+                "terms": {
+                  "field": "documentStandard",
+                  "size": 10
                 },
-                meta: {
-                  orderByTranslation: true,
-                  filterByTranslation: true,
-                  displayFilter: true,
-                  collapsed: true
-                  // decorator: {
-                  //   type: "img",
-                  //   path: "../../images/logos/{key}.png"
-                  // }
+                "meta": {
+                  "collapsed": true
                 }
               },
-              groupOwner: {
-                terms: {
-                  field: "groupOwner",
-                  size: 200,
-                  include: ".*"
+              "isHarvested": {
+                "terms": {
+                  "field": "isHarvested",
+                  "size": 2
                 },
-                meta: {
-                  orderByTranslation: true,
-                  filterByTranslation: true,
-                  displayFilter: true,
-                  collapsed: true
+                "meta": {
+                  "collapsed": true
                 }
               },
-              recordOwner: {
-                terms: {
-                  field: "recordOwner",
-                  size: 5,
-                  include: ".*"
+              "isTemplate": {
+                "terms": {
+                  "field": "isTemplate",
+                  "size": 5
                 },
-                meta: {
-                  collapsed: true
+                "meta": {
+                  "collapsed": true
                 }
               },
-              isPublishedToAll: {
-                terms: {
-                  field: "isPublishedToAll",
-                  size: 2
-                },
-                meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw ",
-                    map: {
-                      false: "fa-lock",
-                      true: "fa-unlock"
-                    }
-                  }
-                }
-              },
-              groupPublishedId: {
-                terms: {
-                  field: "groupPublishedId",
-                  size: 200,
-                  include: ".*"
-                },
-                meta: {
-                  orderByTranslation: true,
-                  filterByTranslation: true,
-                  displayFilter: true,
-                  collapsed: true
-                }
-              },
-              documentStandard: {
-                terms: {
-                  field: "documentStandard",
-                  size: 10
-                },
-                meta: {
-                  collapsed: true
-                }
-              },
-              isHarvested: {
-                terms: {
-                  field: "isHarvested",
-                  size: 2
-                },
-                meta: {
-                  collapsed: true,
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw ",
-                    map: {
-                      false: "fa-folder",
-                      true: "fa-cloud"
-                    }
-                  }
-                }
-              },
-              isTemplate: {
-                terms: {
-                  field: "isTemplate",
-                  size: 5
-                },
-                meta: {
-                  collapsed: true,
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw ",
-                    map: {
-                      n: "fa-file-text",
-                      y: "fa-file"
-                    }
-                  }
+              "isPublishedToAll": {
+                "terms": {
+                  "field": "isPublishedToAll",
+                  "size": 2
                 }
               }
             }
@@ -1186,6 +984,10 @@
             enabled: true,
             signinUrl: "../../{{node}}/{{lang}}/catalog.signin",
             signoutUrl: "../../signout"
+          },
+          dtechtive: {
+            enabled: true,
+            appUrl: "../../{{node}}/{{lang}}/catalog.search#/dtechtive"
           },
           page: {
             enabled: true,

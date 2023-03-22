@@ -94,33 +94,57 @@
         ]
       };
 
-      var dashboards = [
-        {
-          type: "statistics",
-          label: "contentStatistics",
-          icon: "fa-bar-chart",
-          href:
-            "#/dashboard/statistics?dashboard=" +
-            encodeURIComponent(
-              "../../dashboards/s/geonetwork/app/kibana#/dashboard/853fef90-8dce-11e9-9bb7-5db216293bad?_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15y%2Cto%3Anow))&embed=true"
-            )
-          // TODO: The following dashboards need a rework
-          // }, {
-          //   type: 'statistics',
-          //   label: 'validationStatistics',
-          //   icon: 'fa-bar-chart',
-          //   href: '#/dashboard/statistics?dashboard=' +
-          //       encodeURIComponent('../../dashboards/app/kibana#/dashboard/' +
-          //       '915983d0-2c2e-11e7-a889-7bfa00c573d3?embed=true&_g=()')
-          // }, {
-          //   type: 'statistics',
-          //   label: 'searchStatistics',
-          //   icon: 'fa-search',
-          //   href: '#/dashboard/statistics?dashboard=' +
-          //       encodeURIComponent('../../dashboards/app/kibana#/dashboard/' +
-          //       '5b407790-4fa1-11e7-a577-3197d1592a1d?embed=true&_g=()')
-        }
-      ];
+      var dashboards = [{
+        type: 'statistics',
+        label: 'contentStatistics',
+        icon: 'fa-bar-chart',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/app/kibana#/dashboard/'
+            + '853fef90-8dce-11e9-9bb7-5db216293bad?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))')
+      //TODO: The following dashboards need a rework
+      }, {
+        type: 'statistics',
+        label: 'validationStatistics',
+        icon: 'fa-bar-chart',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/app/kibana#/dashboard/' +
+            '915983d0-2c2e-11e7-a889-7bfa00c573d3?embed=true&_g=()')
+      }, {
+        type: 'statistics',
+        label: 'searchStatistics',
+        icon: 'fa-search',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/app/kibana#/dashboard/' +
+            '4b5edcf0-8be2-11eb-8255-7ba8c90e1ee6?embed=true&_g=()')
+      },  {
+        type: 'statistics',
+        label: 'filebeatNginxStatistics',
+        icon: 'fa-server',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/s/catalogue-monitor/app/kibana#/dashboard/' +
+            '55a9e6e0-a29e-11e7-928f-5dbe6f6f5519-ecs?embed=true&_g=()')
+      }, {
+        type: 'statistics',
+        label: 'metricbeatNginxStatistics',
+        icon: 'fa-server',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/s/catalogue-monitor/app/kibana#/dashboard/' +
+            '023d2930-f1a5-11e7-a9ef-93c69af7b129-ecs?embed=true&_g=()')
+      }, {
+        type: 'statistics',
+        label: 'filebeatDatabaseStatistics',
+        icon: 'fa-database',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/s/catalogue-monitor/app/kibana#/dashboard/' +
+            '158be870-87f4-11e7-ad9c-db80de0bf8d3-ecs?embed=true&_g=()')
+      }, {
+        type: 'statistics',
+        label: 'metricbeatDatabaseStatistics',
+        icon: 'fa-database',
+        href: '#/dashboard/statistics?dashboard=' +
+            encodeURIComponent('../../dashboards/s/catalogue-monitor/app/kibana#/dashboard/' +
+            '4288b790-b79f-11e9-a579-f5c0a5d81340?embed=true&_g=()')
+      }];
 
       function loadConditionalTabs() {
         if ($scope.user.profile === "UserAdmin") {
