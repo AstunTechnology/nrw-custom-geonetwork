@@ -93,7 +93,7 @@ services:
       - ./scotgov/xsl/conversion/import/_to_gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/_to_gemini23.xsl
       - ./scotgov/xsl/conversion/import/xml_gemini22gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/xml_gemini22gemini23.xsl
       # dtime integration
-      - ./scotgov/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
+      - ./scotgov/catalog/js/CatControllernew.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
       - ./scotgov/catalog/views/default/templates/dtechtive.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/dtechtive.html
       - ./scotgov/catalog/views/default/templates/index.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/index.html
       - ./scotgov/catalog/templates/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar.html
