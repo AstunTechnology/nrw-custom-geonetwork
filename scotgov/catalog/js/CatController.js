@@ -144,7 +144,7 @@
               },
               // 'OrgForResource': {
               //   'terms': {
-              //     'field': 'OrgForResource',
+              //     'field': 'OrgForResourceObject',
               //     'include': '.*',
               //     'missing': '- No org -',
               //     'size': 15
@@ -198,15 +198,19 @@
               exactMatch: true,
               language: true
             },
+            // The language strategy define how to search on multilingual content.
+            // It also applies to aggregation using ${aggLanguage} substitute.
             // Language strategy can be:
             // * searchInUILanguage: search in UI languages
-            // eg. full text field is any.langfre if French
-            // * searchInAllLanguages: search using any.* fields
+            // eg. full text field is any.langfre if French, aggLanguage is uiLanguage.
+            // * searchInAllLanguages: search using any.* fields, aggLanguage is default
             // (no analysis is done, more records are returned)
             // * searchInDetectedLanguage: restrict the search to the language detected
-            // based on user search. If language detection fails, search in all languages.
+            // based on user search. aggLanguage is detectedLanguage.
+            // If language detection fails, search in all languages and aggLanguage is uiLanguage
             // * searchInThatLanguage: Force a language using searchInThatLanguage:fre
             // 'languageStrategy': 'searchInThatLanguage:fre',
+            // aggLanguage is forcedLanguage.
             languageStrategy: "searchInAllLanguages",
             // Limit language detection to some languages only.
             // If empty, the list of languages in catalogue records is used
@@ -956,10 +960,7 @@
                   field: "resourceType"
                 },
                 meta: {
-                  decorator: {
-                    type: "icon",
-                    prefix: "fa fa-fw gn-icon-"
-                  }
+                  vega: "arc"
                 }
               },
               "tag.default": {
@@ -987,6 +988,10 @@
           dtechtive: {
             enabled: true,
             appUrl: "../../{{node}}/{{lang}}/catalog.search#/dtechtive"
+          },
+          page: {
+            enabled: true,
+            appUrl: "../../{{node}}/{{lang}}/catalog.search#/page"
           },
           workflowHelper: {
             enabled: false,
@@ -1060,10 +1065,17 @@
         isShowLoginAsLink: false,
         isUserProfileUpdateEnabled: true,
         isUserGroupUpdateEnabled: true,
-        init: function (configOverlay, gnUrl, gnViewerSettings, gnSearchSettings) {
+        init: function (
+          configOverlay,
+          gnUrl,
+          nodeUrl,
+          gnViewerSettings,
+          gnSearchSettings
+        ) {
           this.applyConfig(configOverlay !== null ? configOverlay : {});
           this.setLegacyOption(gnViewerSettings, gnSearchSettings);
           this.gnUrl = gnUrl || "../";
+          this.nodeUrl = nodeUrl || "../";
           this.proxyUrl = this.gnUrl + "../proxy?url=";
         },
         setLegacyOption: function (gnViewerSettings, gnSearchSettings) {
@@ -1546,25 +1558,25 @@
         // Retrieve site information
         // TODO: Add INSPIRE, harvester, ... information
         var catInfo = promiseStart.then(function (value) {
-          return $http
-            .get("../api/site")
-            .success(function (data, status) {
-              $scope.info = data;
+          return $http.get("../api/site").then(
+            function (response) {
+              $scope.info = response.data;
               // Add the last time catalog info where updated.
               // That could be useful to append to catalog image URL
               // in order to trigger a reload of the logo when info are
               // reloaded.
               $scope.info["system/site/lastUpdate"] = new Date().getTime();
               $scope.initialized = true;
-            })
-            .error(function (data, status, headers, config) {
+            },
+            function (response) {
               $rootScope.$broadcast("StatusUpdated", {
                 id: "catalogueStatus",
                 title: $translate.instant("somethingWrong"),
                 msg: $translate.instant("msgNoCatalogInfo"),
                 type: "danger"
               });
-            });
+            }
+          );
         });
 
         // Utility functions for user
@@ -1652,7 +1664,8 @@
         var userLogin = catInfo.then(function (value) {
           return $http
             .get("../api/me?_random=" + Math.floor(Math.random() * 10000))
-            .success(function (me, status) {
+            .then(function (response) {
+              var me = response.data;
               if (angular.isObject(me)) {
                 me["isAdmin"] = function (groupId) {
                   return me.admin;
@@ -1719,7 +1732,10 @@
                   var keys = Object.keys(gnGlobalSettings.gnCfg.mods.home.facetConfig);
                   selectedFacet = keys[0];
                   for (var i = 0; i < keys.length; i++) {
-                    if ($scope.searchInfo.aggregations[keys[i]].buckets.length > 0) {
+                    if (
+                      $scope.searchInfo.aggregations[keys[i]].buckets.length > 0 ||
+                      Object.keys($scope.searchInfo.aggregations[keys[i]]).length > 0
+                    ) {
                       selectedFacet = keys[i];
                       break;
                     }
