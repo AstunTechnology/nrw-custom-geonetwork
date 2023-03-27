@@ -99,7 +99,7 @@
         label: 'contentStatistics',
         icon: 'fa-bar-chart',
         href: '#/dashboard/statistics?dashboard=' +
-            encodeURIComponent('../../dashboards/app/kibana#/dashboard/'
+            encodeURIComponent('../../dashboards/app/kibana#/dashboard/' +
              '853fef90-8dce-11e9-9bb7-5db216293bad?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))')
       //TODO: The following dashboards need a rework
       }, {
