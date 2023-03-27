@@ -67,7 +67,7 @@ services:
       - ./scotgov/WEB-INF/data/data/resources/images/images/logos/scotgov.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/favicon.png
       # misc
       - ./scotgov/catalog/config/batch-process-cfg.json:/var/lib/jetty/webapps/geonetwork/catalog/config/batch-process-cfg.json
-      - ./scotgov/catalog/js/admin/DashboardControllernew.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
+      - ./scotgov/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
       #- ./scotgov/catalog/lib/angular/angular-sanitize.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular/angular-sanitize.js
       - ./scotgov/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
       # style
@@ -92,8 +92,8 @@ services:
       - ./scotgov/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl
       - ./scotgov/xsl/conversion/import/_to_gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/_to_gemini23.xsl
       - ./scotgov/xsl/conversion/import/xml_gemini22gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/xml_gemini22gemini23.xsl
-      # dtechtive integration
-      - ./scotgov/catalog/js/CatControllernew.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
+      # dtime integration
+      - ./scotgov/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
       - ./scotgov/catalog/views/default/templates/dtechtive.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/dtechtive.html
       - ./scotgov/catalog/views/default/templates/index.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/index.html
       - ./scotgov/catalog/templates/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar.html
