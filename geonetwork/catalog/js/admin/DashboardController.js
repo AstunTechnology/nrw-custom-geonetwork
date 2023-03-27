@@ -20,33 +20,34 @@
  * Contact: Jeroen Ticheler - FAO - Viale delle Terme di Caracalla 2,
  * Rome - Italy. email: geonetwork@osgeo.org
  */
-
-(function() {
-  goog.provide('gn_dashboard_controller');
-
-
-  goog.require('gn_dashboard_render_controller');
-  goog.require('gn_dashboard_status_controller');
-  goog.require('gn_dashboard_record_link_controller');
-  goog.require('gn_dashboard_wfs_indexing_controller');
-  goog.require('gn_vcs_controller');
-
-  var module = angular.module('gn_dashboard_controller',
-  ['gn_dashboard_status_controller',
-    'gn_dashboard_render_controller',
-    'gn_dashboard_record_link_controller',
-       'gn_vcs_controller']);
-
-
+ 
+(function () {
+  goog.provide("gn_dashboard_controller");
+  
+  goog.require("gn_dashboard_render_controller");
+  goog.require("gn_dashboard_status_controller");
+  goog.require("gn_dashboard_record_link_controller");
+  goog.require("gn_dashboard_wfs_indexing_controller");
+  goog.require("gn_vcs_controller");
+  
+  var module = angular.module("gn_dashboard_controller", [
+    "gn_dashboard_status_controller",
+    "gn_dashboard_render_controller",
+    "gn_dashboard_record_link_controller",
+    "gn_vcs_controller"
+  ]);
+  
   /**
    *
    */
-  module.controller('GnDashboardController', [
-    '$scope', '$http', 'gnGlobalSettings',
+  module.controller("GnDashboardController", [
+    "$scope",
+    "$http",
+    "gnGlobalSettings",
     function ($scope, $http, gnGlobalSettings) {
       $scope.info = {};
       $scope.gnUrl = gnGlobalSettings.gnUrl;
-
+      
       var userAdminTabs = [
         {
           type: "record-links",
@@ -55,7 +56,7 @@
           href: "#/dashboard/record-links"
         }
       ];
-
+      
       $scope.pageMenu = {
         folder: "dashboard/",
         defaultTab: "status",
@@ -92,14 +93,14 @@
           }
         ]
       };
-
+      
       var dashboards = [{
         type: 'statistics',
         label: 'contentStatistics',
         icon: 'fa-bar-chart',
         href: '#/dashboard/statistics?dashboard=' +
             encodeURIComponent('../../dashboards/app/kibana#/dashboard/'
-            + '853fef90-8dce-11e9-9bb7-5db216293bad?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))')
+             '853fef90-8dce-11e9-9bb7-5db216293bad?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))')
       //TODO: The following dashboards need a rework
       }, {
         type: 'statistics',
@@ -144,35 +145,34 @@
             encodeURIComponent('../../dashboards/s/catalogue-monitor/app/kibana#/dashboard/' +
             '4288b790-b79f-11e9-a579-f5c0a5d81340?embed=true&_g=()')
       }];
-
-
+      
       function loadConditionalTabs() {
         if ($scope.user.profile === "UserAdmin") {
           $scope.pageMenu.tabs = userAdminTabs;
           $scope.pageMenu.defaultTab = "record-links";
         }
-
+        
         if ($scope.healthCheck.DashboardAppHealthCheck === true) {
           $scope.pageMenu.tabs = $scope.pageMenu.tabs.concat(dashboards);
         }
       }
-
+      
       loadConditionalTabs();
-
+      
       $scope.$watch("healthCheck.DashboardAppHealthCheck", function (n, o) {
         if (n !== o) {
           loadConditionalTabs();
         }
       });
-
+      
       $scope.$watchCollection("user", function (n, o) {
         if (n !== o) {
           loadConditionalTabs();
         }
       });
-
-      $http.get("../api/site/info").success(function (data) {
-        $scope.info = data;
+      
+      $http.get("../api/site/info").then(function (response) {
+        $scope.info = response.data;
       });
     }
   ]);
