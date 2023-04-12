@@ -28,6 +28,8 @@ services:
       - "JDBC_DB_USER=${POSTGRES_DB_ROUSER}" 
       - "JDBC_DB_PASSWORD=${POSTGRES_DB_ROPASSWORD}" 
       - "HOSTNAME=0.0.0.0"
+      - "JDBC_MAX_ROWS=10000"
+      - "JDBC_MAX_COUNT=10000"
       # JAVA_OPTS:
       #   -Djavax.net.ssl.trustStore=/custom_keystore/cacerts -Djavax.net.ssl.trustStorePassword=changeit
     ports:
