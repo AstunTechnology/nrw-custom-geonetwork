@@ -39,7 +39,6 @@ services:
       GEONETWORK_DB_USERNAME: ${POSTGRES_DB_USERNAME}
       GEONETWORK_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
       GEONETWORK_MICROSERVICESPROXY_TARGETURI: http://ogc-api-records-service:8080
-  
     volumes:
       # general overrides
       - geonetwork:/catalogue-data
@@ -104,10 +103,11 @@ services:
       GN_LEGACY_URL: ${GN_PROTOCOL}://${GN_URL}/geonetwork
       GN_INDEX_URL: ${ES_URL}
       SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
-
     restart: unless-stopped
+    volumes:
+    - ./ogc-api/copy/copy-iso19139.gemini23.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini23.xsl
+    - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
     container_name: ogc-api-service
-
     networks:
       - esnet
 
