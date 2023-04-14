@@ -125,7 +125,7 @@ image: geonetwork:latest
 
 **If YES:**
 
-* It is HIGHLY recommended and preffered that you try not to make any changes and that you try to find a different way (maybe add docker volume overrides to files if possible; if it's a bug- or a more general issue with GeoNetwork- try to open a Github issue instead and hope it gets fixed by the developers in the core code). But if you absolutely have no way around and you must make core changes get yourself a big stick, loads of patience and a stress ball.
+* It is **HIGHLY** recommended and preferred that you try not to make any changes and that you try to find a different way (maybe add docker volume overrides to files if possible; if it's a bug- or a more general issue with GeoNetwork- try to open a Github issue instead and hope it gets fixed by the developers in the core code). But if you absolutely have no way around and you must make core changes get yourself a big stick, loads of patience and a stress ball.
 
 * You'll be working locally so use `docker-compose.yml` and comment out the `services\geonetwork\images` lines. Add `build` and `context` lines.
 
