@@ -12,6 +12,8 @@ Instructions for deploying a customised GeoNetwork install (from a web archive f
 
 It includes files for building and testing GeoNetwork locally.
 
+More detailed documentation on the various components can be found in [Confluence](https://astuntech.atlassian.net/wiki/spaces/MET/pages/2831286291/Other+components-+setup+and+usage).
+
 ## QUICK START
 
 **For local build optionally including Postgres and Zeppelin**
@@ -68,6 +70,7 @@ docker-compose --env-file .env-local up
 
 ### Datahub Prep
 
+* Make sure that the relevant service section in the `docker-compose.yml` is not commented out (i.e. that you have `services\datahub`)
 * Provide GeoNetwork with the server's external IP address in `.env-local` under:
 
 ```
@@ -77,6 +80,7 @@ DH_HOST=
 
 ### OGC-API records service Prep
 
+* Make sure that the relevant service section in the `docker-compose.yml` is not commented out (i.e. that you have `services\ogc-api-records-service`)
 * For Gemini records a couple of extra files need to be added as volume overrides in the `services\ogc-api-records-service` section of `docker-compose.yml`:
 
 ```
@@ -121,6 +125,8 @@ image: geonetwork:latest
 
 **If YES:**
 
+* It is HIGHLY recommended and preffered that you try not to make any changes and that you try to find a different way (maybe add docker volume overrides to files if possible; if it's a bug- or a more general issue with GeoNetwork- try to open a Github issue instead and hope it gets fixed by the developers in the core code). But if you absolutely have no way around and you must make core changes get yourself a big stick, loads of patience and a stress ball.
+
 * You'll be working locally so use `docker-compose.yml` and comment out the `services\geonetwork\images` lines. Add `build` and `context` lines.
 
 ```
@@ -157,6 +163,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version # check it's working
 ```
+
+For instructions on installing docker on Amazon Linux see this [GitHub Gist](https://gist.github.com/archaeogeek/97bb590e4cbc75a3d63a5b4de9bb0394).
 
 ### Set Up
 
