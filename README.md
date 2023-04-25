@@ -250,7 +250,7 @@ See <https://astuntech.atlassian.net/wiki/spaces/ITA/pages/1992097906/Docker+sec
 
 ## Antivirus
 
-SSH onto the server running the containers. Create `docker-geonetwork/clamav/.clamavenv` from `docker-geonetwork/clamav/.clamavenv.sample` and fill in the correct credentials. Note that the email address will be used as both the `FROM` address and the `TO` address, and if you are using Amazon SES then it needs to be a verified email.
+SSH onto the server running the containers. Ensure the correct credentials are completed in the SMTP section of `docker-geonetwork/.env-local` (or whatever `.env` file you're using). Note that the email address will be used as both the `FROM` address and the `TO` address, and if you are using Amazon SES then it needs to be a verified email.
 
 Edit `docker-geonetwork/clamav/run-clamav.sh` to scan the correct volume (the default is `/var/lib/docker/volumes`). If your login user is not `astun` then do a find and replace with the correct username to set the folder paths.
 
