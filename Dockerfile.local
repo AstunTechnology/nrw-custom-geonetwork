@@ -1,4 +1,4 @@
-FROM tomcat:8.5-jdk8
+FROM tomcat:8-jdk8-corretto
 
 ENV GN_FILE ./geonetwork/geonetwork.war
 
