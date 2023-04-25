@@ -7,7 +7,7 @@ server  {
 	ssl_certificate /etc/nginx/certs/fullchain.pem;
 	ssl_certificate_key /etc/nginx/certs/privkey.pem;
 
-	server_name sandpit.eametadata.com;
+	server_name _;
 
 	#valid_referers none server_names;
 	#if ($invalid_referer) {
@@ -28,8 +28,8 @@ server  {
 	
 	location /zeppelin/ {
 
-	 		#forward zeppelin requests to port 8081
-	         proxy_pass http://zeppelin:8081/;
+	 		#forward zeppelin requests to port 8083
+	         proxy_pass http://zeppelin:8083/;
 	         proxy_set_header X-Real-IP $remote_addr;
 	         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 	         proxy_set_header Host $http_host;
@@ -42,7 +42,7 @@ server  {
 	}
 
 	location /zeppelin/ws {
-	         proxy_pass http://zeppelin:8081/ws;
+	         proxy_pass http://zeppelin:8083/ws;
 	         proxy_http_version 1.1;
 	         proxy_set_header Upgrade $http_upgrade;
 	         proxy_set_header Connection "Upgrade";

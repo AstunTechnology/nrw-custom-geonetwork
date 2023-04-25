@@ -39,6 +39,7 @@ services:
       GEONETWORK_DB_USERNAME: ${POSTGRES_DB_USERNAME}
       GEONETWORK_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
       GEONETWORK_MICROSERVICESPROXY_TARGETURI: http://ogc-api-records-service:8080
+  
     volumes:
       # general overrides
       - geonetwork:/catalogue-data
@@ -135,6 +136,8 @@ services:
       timeout: 10s
       retries: 5
     restart: unless-stopped
+
+  
 
 networks:
   esnet:
