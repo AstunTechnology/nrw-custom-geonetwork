@@ -10,7 +10,7 @@ Instructions for deploying a customised GeoNetwork install (from a web archive f
 * Datahub (optional)
 * OGC-API records service (optional)
 
-It includes files for building and testing GeoNetwork locally.
+It includes files for building and testing GeoNetwork locally, and also on Docker.
 
 More detailed documentation on the various components can be found in [Confluence](https://astuntech.atlassian.net/wiki/spaces/MET/pages/2831286291/Other+components-+setup+and+usage).
 
