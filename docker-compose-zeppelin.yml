@@ -47,8 +47,12 @@ services:
     restart: unless-stopped
 
   nginx:
+    # override to add nginx config for zeppelin
     volumes:
-          - ./zeppelin/nginx/zeppelin.inc:/etc/nginx/servers/zeppelin.inc
+          # only needed for secure zeppelin
+          #- ./zeppelin/nginx/servers/zeppelin.inc:/etc/nginx/servers/zeppelin.inc
+          # default
+          - ./zeppelin/nginx/locations/zeppelin.inc:/etc/nginx/locations/zeppelin.inc
     
 networks:
   esnet:
