@@ -46,6 +46,10 @@ services:
       retries: 5
     restart: unless-stopped
 
+  nginx:
+    volumes:
+          - ./zeppelin/nginx/zeppelin.inc:/etc/nginx/servers/zeppelin.inc
+    
 networks:
   esnet:
     driver: bridge
