@@ -1,8 +1,8 @@
 /* 
 
-#log on to server as rds super-user and create new database with extensions and alter owner to geonetwork
+# log on to server as rds super-user and create new database with extensions and alter owner to geonetwork
 
-psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonet_root -W -d geonetwork310
+psql -h live.data.geonetwork.services.astun.co.uk -p 5432 -U geonework -W -d geonet38
 
 create database geonetwork423
 create database geohealthcheck423
@@ -16,14 +16,14 @@ alter database geohealthcheck423 owner to geonetwork
 
 # run audit script
 
-psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonet_root -W -d geonetwork423 -q -f ./postgresql/audit.sql
+psql -h live.data.geonetwork.services.astun.co.uk -p 5432 -U geonetwork -W -d geonetwork423 -q -f ./postgresql/audit.sql
 
 # dump and restore custom and public schemas
 
-pg_dump --schema=public -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -U geonetwork -W -F custom -v geonetwork310 > geonetwork310.dump
-pg_dump --schema=custom -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -U geonetwork -W -F custom -v geonetwork310 > geonetwork310custom.dump
-pg_restore -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -d geonetwork423 -F custom -U geonetwork -v geonetwork310.dump
-pg_restore -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -d geonetwork423 -F custom -U geonetwork -v geonetwork310custom.dump
+pg_dump --schema=public -h live.data.geonetwork.services.astun.co.uk -U geonetwork -W -F custom -v geonet38 > geonet38.dump
+pg_dump --schema=custom -h live.data.geonetwork.services.astun.co.uk -U geonetwork -W -F custom -v geonet38 > geonet38custom.dump
+pg_restore -h live.data.geonetwork.services.astun.co.uk -d geonetwork423 -F custom -U geonetwork -v geonet38.dump
+pg_restore -h live.data.geonetwork.services.astun.co.uk -d geonetwork423 -F custom -U geonetwork -v geonet38custom.dump
 
 # create new read-only role for zeppelin and grant select and usage privileges on all three schemas and their tables
 
@@ -40,7 +40,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO geonetworkdb
 
 # re-connect to new database as geonetwork user and run the commands below to help update database from 3.10 to 4.2
 
-psql -h geonetwork310.ccm2l2tvcpxk.eu-west-1.rds.amazonaws.com -p 5432 -U geonetwork -W -d geonetwork423
+psql -h live.data.geonetwork.services.astun.co.uk -p 5432 -U geonetwork -W -d geonetwork423
 
 */
 
