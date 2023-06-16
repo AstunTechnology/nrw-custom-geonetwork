@@ -46,6 +46,14 @@ services:
       retries: 5
     restart: unless-stopped
 
+  nginx:
+    # override to add nginx config for zeppelin
+    volumes:
+          # only needed for secure zeppelin
+          #- ./zeppelin/nginx/servers/zeppelin.inc:/etc/nginx/servers/zeppelin.inc
+          # default
+          - ./zeppelin/nginx/locations/zeppelin.inc:/etc/nginx/locations/zeppelin.inc
+    
 networks:
   esnet:
     driver: bridge
