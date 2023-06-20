@@ -47,6 +47,14 @@ services:
       - ./geonetwork/catalog/locales/en-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-admin.json
       - ./geonetwork/catalog/locales/en-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-core.json
       - ./geonetwork/catalog/locales/en-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-editor.json
+      # map configurations
+      - ./astun/geonetwork/data/resources/map:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map
+      # persistent portals logos and favicon
+      - ./astun/geonetwork/data/resources/images/logos:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/harvesting
+      - ./astun/geonetwork/data/resources/images/logos:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos
+      - ./astun/geonetwork/data/resources/images/logos/favicon.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/favicon.png
+      # sub-portals custom style
+      - ./astun/geonetwork/catalog/style/sub_portals:/var/lib/jetty/webapps/geonetwork/catalog/style/sub_portals
       # dashboards
       - ./geonetwork/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
       # datepicker layout fix
@@ -120,9 +128,10 @@ services:
     image: nginx
     container_name: nginx
     volumes:
-          - ./nginx/default.local:/etc/nginx/conf.d/default.conf
+          - ./nginx/default:/etc/nginx/conf.d/default.conf
           - ./nginx/servers:/etc/nginx/servers
           - ./nginx/locations:/etc/nginx/locations
+          - ./nginx/sites-available:/etc/nginx/sites-available
           - ./nginx/root/robots.txt:/var/www/html/robots.txt
           - nginxlog:/var/log/nginx
     ports:

@@ -1,0 +1,48 @@
+# change portal in location and return line to match correct sub-portal root
+location =  /geonetwork/hull-gov-uk/eng/csw {
+	allow all;
+	return 301 /geonetwork/hull-gov-uk/eng/csw-inspire?$query_string;
+}
+
+# change portal in location and return line to match correct sub-portal root
+location   /geonetwork/hull-gov-uk/eng/csw-inspire {
+	allow all;
+	proxy_pass http://127.0.0.1:8080/geonetwork/portal/eng/csw-inspire;
+}
+
+	
+# IP restriction if needed
+# NOT USED FOR INSPIRE ONLY CUSTOMERS
+# 1) add additional allow lines for customer's IP range
+# 2) change portal in location and proxy_pass to match correct sub-portal root
+location /geonetwork/hull-gov-uk {
+	set_real_ip_from 10.100.0.0/16; # Load balancer do not change
+	real_ip_header X-Forwarded-For;
+	allow 52.215.14.121; # Astun VPN do not change
+	allow 10.100.0.0/16; # Astun API gateway do not change
+	allow 195.195.236.127; # Hull external IP
+	allow 77.86.77.53; # Hull external IP
+	allow 83.100.153.129; # Hull external IP
+	allow 46.137.134.232; # Hull iShareGIS
+	allow 34.246.103.8; # Hull iShareGIS Test
+	allow 34.240.35.221; # Hull iShareGIS?
+	deny all;
+	proxy_pass http://127.0.0.1:8080/geonetwork/hull-gov-uk;
+	proxy_set_header Host $host;
+	proxy_intercept_errors on;
+	#error_page 500 =404 @null;
+	#error_page 301 =404 @null;
+        proxy_connect_timeout       1800;
+        proxy_send_timeout          1800;
+        proxy_read_timeout         1800;
+        send_timeout                1800;	
+
+}
+
+
+
+
+
+
+
+
