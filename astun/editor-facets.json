@@ -21,8 +21,7 @@
     "sourceCatalogue": {
         "terms": {
             "field": "sourceCatalogue",
-            "size": 5,
-            "include": ".*"
+            "size": 5
         }
     },
     "valid": {
@@ -43,22 +42,19 @@
     "groupOwner": {
       "terms": {
         "field": "groupOwner",
-        "size": 5,
-        "include": ".*"
+        "size": 5
       }
     },
     "recordOwner": {
       "terms": {
         "field": "recordOwner",
-        "size": 5,
-        "include": ".*"
+        "size": 5
       }
     },
     "groupPublishedId": {
       "terms": {
         "field": "groupPublishedId",
-        "size": 5,
-        "include": ".*"
+        "size": 5
       }
     },
     "documentStandard": {
