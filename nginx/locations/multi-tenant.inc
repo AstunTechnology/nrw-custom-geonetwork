@@ -1,11 +1,11 @@
 location = / {
-	return 301 https://metadata.astuntechnology.com/geonetwork/srv/api/sources;
+	return 301 https://uat.metadata.astuntechnology.com/geonetwork/srv/api/sources;
 	allow all;
 }
 
 location = /geonetwork/srv/api/sources {
 	allow all;
-	proxy_pass http://127.0.0.1:8080/geonetwork/srv/api/sources;	
+	proxy_pass http://geonetwork:8080/geonetwork/srv/api/sources;	
 }
 
 # IP restriction if needed
@@ -15,7 +15,7 @@ location = /geonetwork/srv/api/sources {
 #	allow 52.215.14.121; # Astun VPN do not change
 #	allow 54.229.227.107; # geohealthcheck and sitemonitor
 #	deny all;
-#	proxy_pass http://127.0.0.1:8080/geonetwork/srv;
+#	proxy_pass http://geonetwork:8080/geonetwork/srv;
 #	proxy_set_header Host $host;
 #	proxy_intercept_errors on;
 #	error_page 500 =404 @null;
