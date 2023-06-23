@@ -128,10 +128,11 @@ services:
     image: nginx
     container_name: nginx
     volumes:
-          - ./nginx/default:/etc/nginx/conf.d/default.conf
+          - ./nginx/default.local:/etc/nginx/conf.d/default.conf
           - ./nginx/servers:/etc/nginx/servers
           - ./nginx/locations:/etc/nginx/locations
-          - ./nginx/sites-available:/etc/nginx/sites-available
+          # commented out until we're ready to go live
+          #- ./nginx/sites-available:/etc/nginx/sites-available
           - ./nginx/root/robots.txt:/var/www/html/robots.txt
           - ./nginx/root/files:/var/www/html/files
           - nginxlog:/var/log/nginx
