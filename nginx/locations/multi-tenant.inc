@@ -1,5 +1,5 @@
 location = / {
-	return 301 https://uat.metadata.astuntechnology.com/geonetwork/srv/api/sources;
+	return 301 /geonetwork/srv/api/sources;
 	allow all;
 }
 
