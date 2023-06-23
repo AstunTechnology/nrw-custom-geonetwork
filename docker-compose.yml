@@ -55,6 +55,8 @@ services:
       - ./astun/geonetwork/data/resources/images/logos/favicon.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/favicon.png
       # sub-portals custom style
       - ./astun/geonetwork/catalog/style/sub_portals:/var/lib/jetty/webapps/geonetwork/catalog/style/sub_portals
+      # portal switcher limited to admins only
+      - ./astun/geonetwork/catalog/components/usersearches/partials/portalswitcher.html:/var/lib/jetty/webapps/geonetwork/catalog/components/usersearches/partials/portalswitcher.html
       # dashboards
       - ./geonetwork/catalog/js/admin/DashboardController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/admin/DashboardController.js
       # datepicker layout fix
