@@ -240,9 +240,6 @@ Then in your docker-compose file refer to this image for the geonetwork service
 
 The docker-compose files contain `healthcheck` sections for each service. If you run `docker ps -a` (when running locally) each service should report a healthy state. The commands being run in the healthcheck can generally be run manually to double-check the responses.
 
-## Integration Tests
-
-There is an additional `docker-compose-dev.yml` file to build a separate set of ephemeral containers to run the built-in GeoNetwork integration tests. To run the tests see the instructions at the top of `docker-compose-dev.yml`.
 
 ## Docker Security Tests
 
