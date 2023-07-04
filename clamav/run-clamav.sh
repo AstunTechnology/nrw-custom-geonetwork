@@ -13,6 +13,21 @@ mkdir -p /home/astun/clamav-logs /home/astun/clamav-quarantine
 # unset $DOCKER_CONTENT_TRUST because the av container is not signed
 unset DOCKER_CONTENT_TRUST
 
+# set custom ssmtp.conf
+
+# root=$SSMTP_TO
+cat << EOF > ssmtp.conf
+mailhub=$SMTP:$SMTP_PORT
+AuthUser=$SMTP_USERNAME
+AuthPass=$SMTP_PASSWORD
+AuthMethod=LOGIN
+UseSTARTTLS=YES
+useTLS=YES
+Hostname=uat.astuntechnology.com
+FromLineOverride=YES
+TLS_CA_File=/etc/pki/tls/certs/ca-bundle.crt
+EOF
+
 # set up output file from sample with environment variables and such like
 cp output.txt.sample output.txt
 sed -i -e "s|TOADDRESS|$EMAIL_ADDR|g" output.txt
@@ -32,11 +47,10 @@ cat /home/astun/clamav-logs/output.txt >> output.txt
 
 # send email with output.txt as body
 #curl -v --url smtps://$SMTP_URL_CLAMAV --ssl-reqd  --mail-from $EMAIL_ADDR --mail-rcpt $EMAIL_ADDR  --user $SMTP_USERNAME:$SMTP_PASSWORD -F '=</home/astun/clamav-logs/output.txt;encoder=quoted-printable' -H "Subject: $GN_SITE_NAME  antivirus output $(date +%Y-%m-%d)" -H "From: $EMAIL_ADDR <$EMAIL_ADDR>" -H "To: $EMAIL_ADDR <$EMAIL_ADDR>"
-ssmtp metadata@astuntechnology.com < output.txt
+ssmtp -v -C ssmtp.conf  metadata@astuntechnology.com < output.txt
 
-# remove the old log file and output email file
-rm /home/astun/clamav-logs/output.txt
-rm /home/astun/docker-geonetwork/clamav/output.txt
+# remove log file, output email and generated ssmtp.conf
+rm /home/astun/clamav-logs/output.txt output.txt ssmtp.conf
 
 # reset $DOCKER_CONTENT_TRUST
 export DOCKER_CONTENT_TRUST=1
