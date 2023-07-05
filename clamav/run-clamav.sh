@@ -13,6 +13,9 @@ mkdir -p /home/astun/clamav-logs /home/astun/clamav-quarantine
 # unset $DOCKER_CONTENT_TRUST because the av container is not signed
 unset DOCKER_CONTENT_TRUST
 
+# change to correct directory
+cd /home/astun/docker-geonetwork/clamav
+
 # set custom ssmtp.conf
 
 # root=$SSMTP_TO
