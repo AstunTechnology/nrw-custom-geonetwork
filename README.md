@@ -20,7 +20,8 @@ More detailed documentation on the various components can be found in [Confluenc
 
 ### Prep
 
-* Install docker and docker-compose (see below for instructions).
+* Install docker and docker-compose (see below for instructions). Note don't use the snap version of installing!
+* If you want antivirus (which you do) then you need to install ssmtp as well
 * Clone this repository locally and check out the correct branch for the client you are working for.
 * Look at the `services\geonetwork\volumes` section of `docker-compose.yml` and ensure that you match the file structure for any volumes that are not inside this repository, e.g. those where the local path starts with `../`. These are generally schema plugins and can be found on [Github](https://github.com/astuntechnology).
 * Clone the required repositories to the same level in your file system as `docker-geonetwork` and match the folder names so that you can refer to the mounted files using the location e.g. `../iso19139.gemini23/...`.
