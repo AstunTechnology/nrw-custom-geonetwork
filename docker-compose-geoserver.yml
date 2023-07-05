@@ -14,6 +14,7 @@ services:
       - INSTALL_EXTENSIONS=true
       - STABLE_EXTENSIONS=wps,csw
       - EXTRA_JAVA_OPTS=-Xms1G -Xmx2G
+      - GEOSERVER_CSRF_WHITELIST=${GN_URL}
       volumes:
       - ./geoserver_data:/opt/geoserver_data/:Z
       - ./additional_libs:/opt/additional_libs:Z
