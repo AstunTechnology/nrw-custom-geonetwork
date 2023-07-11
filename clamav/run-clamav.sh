@@ -50,7 +50,7 @@ cat /home/astun/clamav-logs/output.txt >> output.txt
 
 # send email with output.txt as body
 #curl -v --url smtps://$SMTP_URL_CLAMAV --ssl-reqd  --mail-from $EMAIL_ADDR --mail-rcpt $EMAIL_ADDR  --user $SMTP_USERNAME:$SMTP_PASSWORD -F '=</home/astun/clamav-logs/output.txt;encoder=quoted-printable' -H "Subject: $GN_SITE_NAME  antivirus output $(date +%Y-%m-%d)" -H "From: $EMAIL_ADDR <$EMAIL_ADDR>" -H "To: $EMAIL_ADDR <$EMAIL_ADDR>"
-ssmtp -v -C ssmtp.conf  metadata@astuntechnology.com < output.txt
+/usr/sbin/ssmtp -v -C ssmtp.conf  metadata@astuntechnology.com < output.txt
 
 # remove log file, output email and generated ssmtp.conf
 rm /home/astun/clamav-logs/output.txt output.txt ssmtp.conf
