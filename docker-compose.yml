@@ -9,7 +9,7 @@ volumes:
 
 services:
   geonetwork:
-    image: geonetwork:4.2
+    image: geonetwork:${GN_VERSION}
     restart: unless-stopped
     container_name: geonetwork
     ports:
@@ -81,22 +81,9 @@ services:
     networks:
       - esnet
 
-  datahub:
-    image: geonetwork/geonetwork-ui-datahub:master
-    container_name: datahub
-    ports:
-      - 8081:80
-    environment:
-      GN4_API_URL: ${GN_PROTOCOL}://${DH_HOST}:${DH_PORT}/geonetwork/srv/api
-    restart: unless-stopped
-    volumes:
-      #- ./datahub/assets:/assets
-      - ./datahub/conf/:/conf
-    networks:
-    - esnet
 
   ogc-api-records-service:
-    image: geonetwork/gn-cloud-ogc-api-records-service:4.2.3-0
+    image: geonetwork/gn-cloud-ogc-api-records-service:${GN_VERSION}-0
     environment:
       SPRING_PROFILES_ACTIVE: standalone
       SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
