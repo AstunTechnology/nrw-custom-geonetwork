@@ -9,9 +9,7 @@ volumes:
 
 services:
   geonetwork:
-    image: geonetwork:latest
-    #image: public.ecr.aws/i7c2f1z3/scotgov-custom-geonetwork:latest
-    #image: scotgov-custom-geonetwork:latest
+    image: geonetwork:4.2
     restart: unless-stopped
     container_name: geonetwork
     ports:
