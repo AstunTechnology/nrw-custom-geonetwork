@@ -30,8 +30,8 @@ location  = /geonetwork/cardiff/eng/csw-inspire {
 #      proxy_send_timeout          1800;
 #     proxy_read_timeout         1800;
 #    send_timeout                1800;	
-
-}
+#
+#}
 
 
 
