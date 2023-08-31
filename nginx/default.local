@@ -54,6 +54,8 @@ server {
 	
     include locations/*.inc;
 
+    include sites-available/*.inc;
+
 
 }
 

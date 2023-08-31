@@ -35,6 +35,11 @@ services:
     networks:
     - esnet
 
+  nginx:
+    # override to add nginx config for datahub
+    volumes:
+    - ./geohealthcheck/nginx/locations/geohealthcheck.inc:/etc/nginx/locations/geohealthcheck.inc
+
 networks:
   esnet:
     driver: bridge
