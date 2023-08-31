@@ -31,7 +31,7 @@ location  = /geonetwork/portal/eng/csw-inspire {
 #     proxy_read_timeout         1800;
 #    send_timeout                1800;	
 
-}
+#}
 
 
 
