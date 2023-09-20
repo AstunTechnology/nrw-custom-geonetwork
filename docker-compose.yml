@@ -47,7 +47,7 @@ services:
       - ./geonetwork/catalog/locales/en-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-core.json
       - ./geonetwork/catalog/locales/en-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-editor.json
       # update records.json file to match core
-      - ./astun/geonetwork/index/records.json:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/index/records.json
+      - ./elasticsearch/records.json:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/index/records.json
       # map configurations
       - ./astun/geonetwork/data/resources/map:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map
       # persistent portals logos and favicon
@@ -114,7 +114,7 @@ services:
       - esnet
 
   datahub:
-    image: geonetwork/geonetwork-ui-datahub:master
+    image: geonetwork/geonetwork-ui-datahub:latest
     container_name: datahub
     ports:
       - 8081:80
