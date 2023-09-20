@@ -1,27 +1,27 @@
 # change portal in location and return line to match correct sub-portal root
-location =  /geonetwork/cardiff/eng/csw {
+location =  /geonetwork/planninginspectorate/eng/csw {
 	allow all;
-	return 301 /geonetwork/cardiff-inspire/eng/csw?$query_string;
+	return 301 /geonetwork/planninginspectorate-inspire/eng/csw?$query_string;
 }
 
 # forward old-style virtual csw endpoints to the correct sub-portal
 # change portal in location and return line to match correct sub-portal root
-location  = /geonetwork/cardiff/eng/csw-inspire {
+location  = /geonetwork/planninginspectorate/eng/csw-inspire {
 	allow all;
-	proxy_pass http://geonetwork:8080/geonetwork/cardiff-inspire/eng/csw;
+	proxy_pass http://geonetwork:8080/geonetwork/planninginspectorate-inspire/eng/csw;
 }
 
 # IP restriction if needed
 # NOT USED FOR INSPIRE ONLY CUSTOMERS
 # 1) add additional allow lines for customer's IP range
 # 2) change portal in location and proxy_pass to match correct sub-portal root
-#location /geonetwork/cardiff {
+#location /geonetwork/planninginspectorate {
 #	set_real_ip_from 10.100.0.0/16; # Load balancer do not change
 #	real_ip_header X-Forwarded-For;
 #	allow 52.215.14.121; # Astun VPN do not change
 #	allow 10.100.0.0/16; # Astun API gateway do not change
 #	deny all;
-#	proxy_pass http://geonetwork:8080/geonetwork/cardiff;
+#	proxy_pass http://geonetwork:8080/geonetwork/planninginspectorate;
 #	proxy_set_header Host $host;
 #	proxy_intercept_errors on;
 #	#error_page 500 =404 @null;

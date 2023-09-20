@@ -46,6 +46,8 @@ services:
       - ./geonetwork/catalog/locales/en-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-admin.json
       - ./geonetwork/catalog/locales/en-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-core.json
       - ./geonetwork/catalog/locales/en-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-editor.json
+      # update records.json file to match core
+      - ./astun/geonetwork/index/records.json:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/index/records.json
       # map configurations
       - ./astun/geonetwork/data/resources/map:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map
       # persistent portals logos and favicon
@@ -54,7 +56,25 @@ services:
       - ./astun/geonetwork/data/resources/images/logos/favicon.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/favicon.png
       # sub-portals
       - ./astun/geonetwork/catalog/style/sub_portals:/var/lib/jetty/webapps/geonetwork/catalog/style/sub_portals
-      #- ./astun/sub-portal-postprocessing/gmd-sub-portal-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-sub-portal-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-cardiff-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-cardiff-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-allerdale-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-allerdale-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-blaby-gov-uk-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-blaby-gov-uk-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-bolton-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-bolton-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-carlisle-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-carlisle-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-centralbedfordshire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-centralbedfordshire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-essex-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-essex-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-haringey-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-haringey-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-harlow-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-harlow-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-hull-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-hull-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-miltonkeynes-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-miltonkeynes-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-northlincs-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-northlincs-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-planninginspectorate-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-planninginspectorate-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-somerset-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-somerset-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-sthelens-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-sthelens-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-stockton-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-stockton-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-trafford-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-trafford-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-walsall-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-walsall-gov-uk-inspire-inspire-postprocessing.xsl
+      - ./astun/sub-portal-postprocessing/gmd-wycombe-gov-uk-inspire-inspire-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/present/csw/gmd-wycombe-gov-uk-inspire-inspire-postprocessing.xsl
       # portal switcher limited to admins only
       - ./astun/geonetwork/catalog/components/usersearches/partials/portalswitcher.html:/var/lib/jetty/webapps/geonetwork/catalog/components/usersearches/partials/portalswitcher.html
       # dashboards
@@ -142,6 +162,7 @@ services:
           - ./nginx/sites-available:/etc/nginx/sites-available
           - ./nginx/root/robots.txt:/var/www/html/robots.txt
           - ./nginx/root/files:/var/www/html/files
+          - ../geonetwork-data/overviews:/var/www/html/files/overviews
           - nginxlog:/var/log/nginx
     ports:
       - "80:80"
