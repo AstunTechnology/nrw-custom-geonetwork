@@ -6,6 +6,7 @@ volumes:
   pglog:
   nginxlog:
   apachelog:
+  ogcapiconfig:
 
 services:
   geonetwork:
@@ -126,24 +127,29 @@ services:
     networks:
     - esnet
 
-  # ogc-api-records-service:
-  #   image: geonetwork/gn-cloud-ogc-api-records-service:4.2.3-0
-  #   environment:
-  #     SPRING_PROFILES_ACTIVE: standalone
-  #     SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
-  #     SPRING_DATASOURCE_USERNAME: ${POSTGRES_DB_USERNAME}
-  #     SPRING_DATASOURCE_PASSWORD: ${POSTGRES_DB_PASSWORD}
-  #     GN_BASEURL: ${GN_PROTOCOL}://${GN_URL}/geonetwork/api
-  #     GN_LEGACY_URL: ${GN_PROTOCOL}://${GN_URL}/geonetwork
-  #     GN_INDEX_URL: ${ES_URL}
-  #     SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
-  #   restart: unless-stopped
-  #   volumes:
-  #   - ./ogc-api/copy/copy-iso19139.gemini23.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini23.xsl
-  #   - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
-  #   container_name: ogc-api-service
-  #   networks:
-  #     - esnet
+  ogc-api-records-service:
+    #image: geonetwork/gn-cloud-ogc-api-records-service:4.2.3-0
+    image: geonetwork/gn-cloud-ogc-api-records-service:4.2.5-1
+    environment:
+      SPRING_PROFILES_ACTIVE: standalone
+      SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_DB_PASSWORD}
+      SPRING_CONFIG_LOCATION: /ogcapiconfig/
+      GN_BASEURL: ${GN_PROTOCOL}://${GN_URL}/geonetwork/api
+      GN_LEGACY_URL: ${GN_PROTOCOL}://${GN_URL}/geonetwork
+      GN_INDEX_URL: ${ES_URL}
+      SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
+    restart: unless-stopped
+    volumes:
+    - ogcapiconfig:/ogcapiconfig
+    - ./ogc-api/application.yml:/ogcapiconfig/application.yml
+    - ./ogc-api/bootstrap.yml:/ogcapiconfig/bootstrap.yml
+    - ./ogc-api/copy/copy-iso19139.gemini23.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini23.xsl
+    - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
+    container_name: ogc-api-service
+    networks:
+      - esnet
 
   nginx:
     image: nginx
