@@ -156,6 +156,7 @@ services:
           - ./nginx/sites-available:/etc/nginx/sites-available
           - ./nginx/root/robots.txt:/var/www/html/robots.txt
           - ./nginx/root/files:/var/www/html/files
+          - ../geonetwork-data/overviews:/var/www/html/files/overviews
           - nginxlog:/var/log/nginx
     ports:
       - "80:80"
