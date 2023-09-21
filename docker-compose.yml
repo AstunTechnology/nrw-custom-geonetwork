@@ -110,6 +110,57 @@ services:
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/default.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/default.xsl
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/eng/labels.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/eng/labels.xml
+<<<<<<< HEAD
+=======
+      # scotgov specifics
+      # persistent logo and favicon
+      - ./scotgov/WEB-INF/data/data/resources/images/images/logos/scotgov.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/48e84e1c-d7ac-4c19-a03f-2689dc991a51.png
+      - ./scotgov/WEB-INF/data/data/resources/images/images/logos/scotgov.png:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/logos/favicon.png
+      # misc
+      - ./scotgov/catalog/config/batch-process-cfg.json:/var/lib/jetty/webapps/geonetwork/catalog/config/batch-process-cfg.json
+      #- ./scotgov/catalog/lib/angular/angular-sanitize.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular/angular-sanitize.js
+      - ./scotgov/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
+      # style
+      - ./scotgov/catalog/style/gn.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn.less   
+      - ./scotgov/catalog/style/gn_login.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_login.less
+      - ./scotgov/catalog/style/gn_metadata.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_metadata.less
+      - ./scotgov/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
+      - ./scotgov/catalog/views/default/less/gn_admin_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_admin_default.less
+      - ./scotgov/catalog/views/default/less/gn_editor_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_editor_default.less
+      - ./scotgov/catalog/views/default/templates/footer.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/footer.html
+      - ./scotgov/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
+      - ./scotgov/catalog/views/default/templates/recordView.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView.html
+      # datepicker layout fix
+      - ./geonetwork/catalog/components/edit/datepicker/partials/datepicker.html:/var/lib/jetty/webapps/geonetwork/catalog/components/edit/datepicker/partials/datepicker.html
+      # others   
+      - ./scotgov/WEB-INF/config-lucene.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-lucene.xml
+      - ./scotgov/WEB-INF/config-print/print-config.yaml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-print/print-config.yaml
+      - ./scotgov/WEB-INF/config-summary.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-summary.xml
+      - ./scotgov/WEB-INF/data/data/resources/map/config-viewer.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map/config-viewer.xml
+      - ./scotgov/WEB-INF/data/data/resources/map/config-viewer-search.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/map/config-viewer-search.xml
+      - ./scotgov/WEB-INF/data/data/resources/images/images/logos:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/resources/images/harvesting
+      - ./scotgov/xsl/conversion/import/ESRI_ISO-to-GEMINI_23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/ESRI_ISO-to-GEMINI_23.xsl
+      - ./scotgov/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/MEDIN_2_GEMINI_22.xsl
+      - ./scotgov/xsl/conversion/import/_to_gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/_to_gemini23.xsl
+      - ./scotgov/xsl/conversion/import/xml_gemini22gemini23.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/import/xml_gemini22gemini23.xsl
+      # dtime integration
+      - ./scotgov/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
+      - ./scotgov/catalog/views/default/templates/dtechtive.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/dtechtive.html
+      - ./scotgov/catalog/views/default/templates/index.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/index.html
+      - ./scotgov/catalog/templates/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar.html
+      - ./scotgov/catalog/templates/top-toolbar-accessible.html:/var/lib/jettwebapps/geonetwork/catalog/templates/webapps/geonetwork/catalog/templates/top-toolbar-accessible.html
+      # data quality snippets
+      - ../geonetwork-snippets/gemini23-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl
+      - ../geonetwork-snippets/iso19139-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl  
+      # group logo
+      - ./geonetwork/catalog/views/default/less/gn_search_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_search_default.less
+      - ./geonetwork/catalog/components/utility/UtilityDirective.js:/var/lib/jetty/webapps/geonetwork/catalog/components/utility/UtilityDirective.js
+      - ./geonetwork/catalog/components/utility/partials/recordOriginLogo.html:/var/lib/jetty/webapps/geonetwork/catalog/components/utility/partials/recordOriginLogo.html
+      - ./geonetwork/catalog/views/default/templates/recordView/metadata.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/metadata.html
+      - ./geonetwork/catalog/templates/admin/usergroup.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup.html
+      # date display view
+      - ./geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
+>>>>>>> ff2b9de (fix for untranslated userRecord and userRecords strings and better explanation for what the counts actually mean)
     networks:
       - esnet
 

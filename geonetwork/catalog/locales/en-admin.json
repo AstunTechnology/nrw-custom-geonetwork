@@ -942,7 +942,7 @@
     "useLogoForCatalog": "Use it for the node",
     "useLogoForCatalogFavicon": "Use it for the node favorite icon",
     "userRecord": " record found for ",
-    "userRecords": " records found for ",
+    "userRecords": " records, including templates but excluding records with indexing errors, found for ",
     "userUpdateError": "User can't be created or updated",
     "userUpdated": "User updated",
     "users": "Users",
