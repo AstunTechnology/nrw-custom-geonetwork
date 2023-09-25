@@ -50,7 +50,7 @@
         <xsl:with-param name="title">
           <xsl:value-of select="$mainCollectionName"/>
         </xsl:with-param>
-        <xsl:with-param name="link" select="$requestUrl"/>
+        <xsl:with-param name="link" select="$baseUrl"/>
         <xsl:with-param name="content">
 
           <xsl:call-template name="html-breadcrumb">
