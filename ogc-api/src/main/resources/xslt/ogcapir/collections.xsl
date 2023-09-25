@@ -50,7 +50,7 @@
         <xsl:with-param name="title">
           <xsl:value-of select="$mainCollectionName"/>
         </xsl:with-param>
-        <xsl:with-param name="link" select="concat($baseUrl, '/main')"/>
+        <xsl:with-param name="link" select="concat($baseUrl, '/collections/main')"/>
         <xsl:with-param name="content">
 
           <div class="container mx-auto flex flex-wrap text-gray-800 md:pr-4">
