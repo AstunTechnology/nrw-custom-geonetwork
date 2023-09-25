@@ -150,6 +150,7 @@ services:
     - ./ogc-api/bootstrap.yml:/ogcapiconfig/bootstrap.yml
     - ./ogc-api/copy/copy-iso19139.gemini23.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini23.xsl
     - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
+    - ./ogc-api/src/main/resources/xslt/ogcapir/landingpage.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/landingpage.xsl
     container_name: ogc-api-service
     networks:
       - esnet
