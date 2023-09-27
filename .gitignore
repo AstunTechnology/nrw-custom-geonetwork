@@ -19,3 +19,5 @@ certs/letsencrypt
 certs/cacerts
 kibana/kibana.yml
 kibana/export.ndjson
+astun/*
+scotgov/*
