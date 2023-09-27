@@ -97,7 +97,7 @@ services:
       - ./geonetwork/catalog/style/gn_metadata.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_metadata.less
       - ./geonetwork/catalog/locales/en-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-search.json
       # date display view
-      - ./geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
+     # - ./geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
       # schema overrides
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
@@ -150,6 +150,9 @@ services:
     - ./ogc-api/bootstrap.yml:/ogcapiconfig/bootstrap.yml
     - ./ogc-api/copy/copy-iso19139.gemini23.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini23.xsl
     - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
+    - ./ogc-api/src/main/resources/xslt/ogcapir/landingpage.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/landingpage.xsl
+    - ./ogc-api/src/main/resources/xslt/ogcapir/collections.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/collections.xsl
+    - ./ogc-api/src/main/resources/xslt/ogcapir/collection.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/collection.xsl
     container_name: ogc-api-service
     networks:
       - esnet
