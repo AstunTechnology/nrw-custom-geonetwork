@@ -194,7 +194,7 @@
         </li>
         <li class="gn-menuitem-xs"role="menuitem">
                       <a
-            data-ng-show="user.isUserAdminOrMore()"
+            data-ng-show="authenticated"
             target="_blank"
             href="../../api/collections"
             >
@@ -203,7 +203,7 @@
         </li>
         <li class="gn-menuitem-xs" role="menuitem">
                       <a
-            data-ng-show="user.isUserAdminOrMore()"
+            data-ng-show="user.isAdministratorOrMore()"
             target="_blank"
             href="../../../datahub/home/news"
           >

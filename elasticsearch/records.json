@@ -1,8 +1,50 @@
 {
   "settings": {
     "index": {
+      "max_result_window": 15000,
+      "query.default_field": "any.default",
+      "mapping.total_fields.limit": 4000,
       "analysis": {
+        "normalizer": {
+          "sorting": {
+            "filter": ["lowercase", "asciifolding"]
+          }
+        },
         "analyzer": {
+          "trigram": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["shingle"]
+          },
+          "reverse": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["reverse"]
+          },
+          "french_rebuilt": {
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "french_synonym",
+              "french_elision",
+              "french_stop",
+              "asciifolding",
+              "french_keywords",
+              "french_stemmer"
+            ]
+          },
+          "english_rebuilt": {
+            "tokenizer": "standard",
+            "filter": [
+              "english_possessive_stemmer",
+              "lowercase",
+              "asciifolding",
+              "english_synonym",
+              "english_stop",
+              "english_keywords",
+              "english_stemmer"
+            ]
+          },
           "synInspireAnnexes": {
             "tokenizer": "keyword",
             "filter": [
@@ -12,39 +54,95 @@
               "keepInspireAnnexes"
             ]
           },
+          "synInspireThemeUris": {
+            "tokenizer": "keyword",
+            "filter": ["lowercase", "synInspireThemeUris"]
+          },
           "synInspireThemes": {
             "tokenizer": "keyword",
-            "filter": [
-              "lowercase",
-              "synInspireThemes"
-            ]
+            "filter": ["lowercase", "synInspireThemes"]
           },
           "keepInspireServiceTypes": {
             "tokenizer": "keyword",
-            "filter": [
-              "lowercase", "keepInspireServiceTypes"
-            ]
+            "filter": ["lowercase", "keepInspireServiceTypes"]
           },
           "keepInspireAnnexes": {
             "tokenizer": "keyword",
-            "filter": [
-              "lowercase", "keepInspireAnnexes"
-            ]
+            "filter": ["lowercase", "keepInspireAnnexes"]
           },
           "keepInspireThemes": {
             "tokenizer": "keyword",
-            "filter": [
-              "lowercase", "keepInspireThemes"
-            ]
-          },
-          "synCheckpoint": {
-            "tokenizer": "keyword",
-            "filter": [
-              "synCheckpoint"
-            ]
+            "filter": ["lowercase", "keepInspireThemes"]
           }
         },
         "filter": {
+          "shingle": {
+            "type": "shingle",
+            "min_shingle_size": 2,
+            "max_shingle_size": 3
+          },
+          "french_elision": {
+            "type": "elision",
+            "articles_case": true,
+            "articles": [
+              "l",
+              "m",
+              "t",
+              "qu",
+              "n",
+              "s",
+              "j",
+              "d",
+              "c",
+              "jusqu",
+              "quoiqu",
+              "lorsqu",
+              "puisqu"
+            ]
+          },
+          "french_synonym": {
+            "type": "synonym",
+            "expand": true,
+            "synonyms": [
+              "sig, systeme d'information geographique, ids, gis, sdi",
+              "shp, shapefile",
+              "raster, image",
+              "bathy, bathymetrie"
+            ]
+          },
+          "french_stop": {
+            "type": "stop",
+            "stopwords": "_french_"
+          },
+          "french_keywords": {
+            "type": "keyword_marker",
+            "keywords": []
+          },
+          "french_stemmer": {
+            "type": "stemmer",
+            "language": "light_french"
+          },
+          "english_stop": {
+            "type": "stop",
+            "stopwords": "_english_"
+          },
+          "english_synonym": {
+            "type": "synonym",
+            "expand": true,
+            "synonyms": []
+          },
+          "english_keywords": {
+            "type": "keyword_marker",
+            "keywords": ["example"]
+          },
+          "english_stemmer": {
+            "type": "stemmer",
+            "language": "english"
+          },
+          "english_possessive_stemmer": {
+            "type": "stemmer",
+            "language": "possessive_english"
+          },
           "keepInspireServiceTypes": {
             "type": "keep",
             "keep_words": [
@@ -58,11 +156,7 @@
           },
           "keepInspireAnnexes": {
             "type": "keep",
-            "keep_words": [
-              "i",
-              "ii",
-              "iii"
-            ]
+            "keep_words": ["i", "ii", "iii"]
           },
           "keepInspireThemes": {
             "type": "keep",
@@ -889,32 +983,44 @@
               "http://rdfdata.eionet.europa.eu/inspirethemes/themes/9 => protected sites"
             ]
           },
-          "synCheckpoint": {
+          "synInspireThemeUris": {
             "type": "synonym",
             "tokenizer": "keyword",
             "synonyms": [
-             "no charge => free",
-              "distribution cost charge => cost charge",
-              "collection cost charge => cost charge",
-              "commercial cost charge => commercial cost",
-              "cost charge depends on intented use and category of users => cost charge",
-              "cost charge depends on intended use and category of users => cost charge",
-              "restricted => restricted",
-              "accessible under moratorium => partially restricted",
-              "unrestricted => unrestricted",
-              "&lt;15mn (on-line download) => high response",
-              "less than 3 hours => medium response",
-              "less than 24 hours => medium response",
-              "less than 1 week => medium response",
-              "more than 1 week => low response",
-              "not documented => unknown",
-              "unknown => unknown",
-              "order form/envoice => manual",
-              "order form/invoice => manual",
-              "on-line downloading services => partial inspire function",
-              "on-line discovery+viewing + downloading services => full inspire function",
-              "on-line discovery + viewing + downloading services => full inspire function",
-              "on-line discovery + viewing + downloading + advanced services (high resolution viewing,3d viewing services, processing/mapping services...) => full inspire function"
+              "coordinate reference systems => http://inspire.ec.europa.eu/theme/rs",
+              "geographical grid systems => http://inspire.ec.europa.eu/theme/gg",
+              "geographical names => http://inspire.ec.europa.eu/theme/gn",
+              "administrative units => http://inspire.ec.europa.eu/theme/au",
+              "addresses => http://inspire.ec.europa.eu/theme/ad",
+              "cadastral parcels => http://inspire.ec.europa.eu/theme/cp",
+              "transport networks => http://inspire.ec.europa.eu/theme/tn",
+              "hydrography => http://inspire.ec.europa.eu/theme/hy",
+              "protected sites => http://inspire.ec.europa.eu/theme/ps",
+              "elevation => http://inspire.ec.europa.eu/theme/el",
+              "land cover => http://inspire.ec.europa.eu/theme/lc",
+              "orthoimagery => http://inspire.ec.europa.eu/theme/oi",
+              "geology => http://inspire.ec.europa.eu/theme/ge",
+              "statistical units => http://inspire.ec.europa.eu/theme/su",
+              "buildings => http://inspire.ec.europa.eu/theme/bu",
+              "soil => http://inspire.ec.europa.eu/theme/so",
+              "land use => http://inspire.ec.europa.eu/theme/lu",
+              "human health and safety => http://inspire.ec.europa.eu/theme/hh",
+              "utility and governmental services => http://inspire.ec.europa.eu/theme/us",
+              "environmental monitoring facilities => http://inspire.ec.europa.eu/theme/ef",
+              "production and industrial facilities => http://inspire.ec.europa.eu/theme/pf",
+              "agricultural and aquaculture facilities => http://inspire.ec.europa.eu/theme/af",
+              "population distribution — demography => http://inspire.ec.europa.eu/theme/pd",
+              "area management/restriction/regulation zones and reporting units => http://inspire.ec.europa.eu/theme/am",
+              "natural risk zones => http://inspire.ec.europa.eu/theme/nz",
+              "atmospheric conditions => http://inspire.ec.europa.eu/theme/ac",
+              "meteorological geographical features => http://inspire.ec.europa.eu/theme/mf",
+              "oceanographic geographical features => http://inspire.ec.europa.eu/theme/of",
+              "sea regions => http://inspire.ec.europa.eu/theme/sr",
+              "bio-geographical regions => http://inspire.ec.europa.eu/theme/br",
+              "habitats and biotopes => http://inspire.ec.europa.eu/theme/hb",
+              "species distribution => http://inspire.ec.europa.eu/theme/sd",
+              "energy resources => http://inspire.ec.europa.eu/theme/er",
+              "mineral resources => http://inspire.ec.europa.eu/theme/mr"
             ]
           }
         }
@@ -924,14 +1030,202 @@
   "mappings": {
     "dynamic_templates": [
       {
-        "codelist": {
-          "match": "codelist_*",
+        "conformTo": {
+          "match": "conformTo_*",
           "mapping": {
             "type": "keyword"
           }
         }
-      },{
+      },
+      {
+        "numbers": {
+          "match": "*Number",
+          "mapping": {
+            "type": "short"
+          }
+        }
+      },
+      {
+        "org": {
+          "match": "*Org*Object",
+          "mapping": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "keyword",
+                "copy_to": ["any.default"]
+              },
+              "langeng": {
+                "type": "keyword",
+                "copy_to": ["any.langeng"]
+              },
+              "langfre": {
+                "type": "keyword",
+                "copy_to": ["any.langfre"]
+              },
+              "langger": {
+                "type": "keyword",
+                "copy_to": ["any.langger"]
+              },
+              "langita": {
+                "type": "keyword",
+                "copy_to": ["any.langita"]
+              },
+              "langdut": {
+                "type": "keyword",
+                "copy_to": ["any.langdut"]
+              },
+              "langspa": {
+                "type": "keyword",
+                "copy_to": ["any.langspa"]
+              },
+              "link": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      {
+        "textField": {
+          "match": "*Object",
+          "mapping": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "text",
+                "analyzer": "standard",
+                "copy_to": ["any.default", "anytext"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  },
+                  "sort": {
+                    "type": "keyword",
+                    "ignore_above": 256,
+                    "normalizer": "sorting"
+                  },
+                  "trigram": {
+                    "type": "text",
+                    "analyzer": "trigram"
+                  },
+                  "reverse": {
+                    "type": "text",
+                    "analyzer": "reverse"
+                  }
+                }
+              },
+              "langeng": {
+                "type": "text",
+                "analyzer": "english_rebuilt",
+                "copy_to": ["any.langeng"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "langfre": {
+                "type": "text",
+                "analyzer": "french_rebuilt",
+                "copy_to": ["any.langfre"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "langger": {
+                "type": "text",
+                "analyzer": "german",
+                "copy_to": ["any.langger"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "langdut": {
+                "type": "text",
+                "analyzer": "dutch",
+                "copy_to": [
+                  "any.langdut"
+                ],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "langita": {
+                "type": "text",
+                "analyzer": "italian",
+                "copy_to": ["any.langita"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "langspa": {
+                "type": "text",
+                "analyzer": "spanish",
+                "copy_to": ["any.langspa"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "langroh": {
+                "type": "text",
+                "analyzer": "standard",
+                "copy_to": ["any.langroh"],
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "link": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      {
         "codelist": {
+          "match": "cl_*",
+          "mapping": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "keyword"
+              },
+              "default": {
+                "type": "keyword"
+              },
+              "text": {
+                "type": "text"
+              },
+              "link": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      {
+        "linkUrlProtocol": {
           "match": "linkUrlProtocol*",
           "mapping": {
             "type": "keyword"
@@ -939,10 +1233,81 @@
         }
       },
       {
-        "org": {
-          "match": "*Org*",
+        "tree": {
+          "match": "th_*_tree",
           "mapping": {
-            "type": "keyword"
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "keyword"
+              },
+              "key": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      {
+        "tag": {
+          "match": "th_*",
+          "mapping": {
+            "type": "object",
+            "copy_to": ["tag"],
+            "properties": {
+              "default": {
+                "type": "keyword",
+                "copy_to": ["any.default"]
+              },
+              "langeng": {
+                "type": "keyword",
+                "copy_to": ["any.langeng"]
+              },
+              "langfre": {
+                "type": "keyword",
+                "copy_to": ["any.langfre"]
+              },
+              "langger": {
+                "type": "keyword",
+                "copy_to": ["any.langger"]
+              },
+              "langdut": {
+                "type": "keyword",
+                "copy_to": [
+                  "any.langdut"
+                ]
+              },
+              "langita": {
+                "type": "keyword",
+                "copy_to": ["any.langita"]
+              },
+              "langspa": {
+                "type": "keyword",
+                "copy_to": ["any.langspa"]
+              },
+              "text": {
+                "type": "keyword"
+              },
+              "link": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      {
+        "keywordType": {
+          "match": "keywordType-*",
+          "mapping": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "keyword"
+              },
+              "link": {
+                "type": "keyword"
+              }
+            }
           }
         }
       },
@@ -950,7 +1315,40 @@
         "contact": {
           "match": "*contact*",
           "mapping": {
-            "type": "keyword"
+            "type": "nested",
+            "properties": {
+              "organisation": {
+                "type": "keyword"
+              },
+              "email": {
+                "type": "keyword",
+                "copy_to": ["any.default"]
+              },
+              "individual": {
+                "type": "keyword",
+                "copy_to": ["any.default"]
+              },
+              "role": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      },
+      {
+        "integerRange": {
+          "match": "*IntegerRange",
+          "mapping": {
+            "type": "integer_range"
+          }
+        }
+      },
+      {
+        "dateRange": {
+          "match": "*DateRange",
+          "mapping": {
+            "type": "date_range",
+            "format": "date_optional_time||yyyy-MM-dd||yyyy-MM||yyyy||epoch_millis"
           }
         }
       },
@@ -1006,7 +1404,7 @@
         "synInspireAnnexesType": {
           "match": "inspireAnnex*",
           "mapping": {
-            "type":     "keyword",
+            "type": "keyword",
             "fielddata": true,
             "analyzer": "synInspireAnnexes",
             "search_analyzer": "keyword"
@@ -1017,7 +1415,7 @@
         "synInspireThemeType": {
           "match": "inspireTheme*",
           "mapping": {
-            "type":     "keyword",
+            "type": "keyword",
             "fielddata": true,
             "analyzer": "synInspireThemes",
             "search_analyzer": "keyword"
@@ -1028,7 +1426,7 @@
         "inspireServiceType": {
           "match": "inspireServiceType",
           "mapping": {
-            "type":     "keyword",
+            "type": "keyword",
             "fielddata": true,
             "analyzer": "keepInspireServiceTypes",
             "search_analyzer": "keyword"
@@ -1037,42 +1435,115 @@
       }
     ],
     "properties": {
-      "accessConstraints": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
+      "any": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "type": "text",
+            "analyzer": "standard"
+          },
+          "common": {
+            "type": "text",
+            "analyzer": "standard"
+          },
+          "langeng": {
+            "type": "text",
+            "analyzer": "english_rebuilt"
+          },
+          "langfre": {
+            "type": "text",
+            "analyzer": "french_rebuilt"
+          },
+          "langger": {
+            "type": "text",
+            "analyzer": "german"
+          },
+          "langdut": {
+            "type": "text",
+            "analyzer": "dutch"
+          },
+          "langita": {
+            "type": "text",
+            "analyzer": "italian"
+          },
+          "langspa": {
+            "type": "text",
+            "analyzer": "spanish"
+          },
+          "langroh": {
+            "type": "text",
+            "analyzer": "standard"
           }
         }
       },
-      "coordinateSystem": {
-        "type": "text",
-        "fields": {
-          "keyword": {
+      "anytext": {
+        "type": "search_as_you_type"
+      },
+      "tag": {
+        "type": "object",
+        "properties": {
+          "default": {
             "type": "keyword",
-            "ignore_above": 256
+            "copy_to": ["any.default", "anytext"]
+          },
+          "langeng": {
+            "type": "keyword",
+            "copy_to": ["any.langeng"]
+          },
+          "langfre": {
+            "type": "keyword",
+            "copy_to": ["any.langfre"]
+          },
+          "langger": {
+            "type": "keyword",
+            "copy_to": ["any.langger"]
+          },
+          "langdut": {
+            "type": "keyword",
+            "copy_to": [
+              "any.langdut"
+              ]
+          },
+          "langita": {
+            "type": "keyword",
+            "copy_to": ["any.langita"]
+          },
+          "langspa": {
+            "type": "keyword",
+            "copy_to": ["any.langspa"]
+          },
+          "link": {
+            "type": "keyword"
           }
         }
       },
       "dateStamp": {
         "type": "date"
       },
+      "changeDate": {
+        "type": "date"
+      },
       "document": {
-        "type" : "text",
-        "index" : false,
+        "type": "text",
+        "index": false,
         "doc_values": false
       },
       "documentStandard": {
         "type": "keyword"
       },
-      "documentType": {
+      "docType": {
+        "type": "keyword"
+      },
+      "sourceCatalogue": {
         "type": "keyword"
       },
       "geom": {
         "type": "geo_shape",
-        "tree": "quadtree",
-        "precision": "10km"
+        "ignore_malformed": true
+      },
+      "shape": {
+        "type": "geo_shape",
+        "ignore_malformed": true
       },
       "location": {
         "type": "geo_point"
@@ -1095,10 +1566,17 @@
       "harvesterUuid": {
         "type": "keyword"
       },
+      "uuid": {
+        "type": "keyword",
+        "copy_to": "any.common"
+      },
       "id": {
         "type": "keyword"
       },
       "hasInspireTheme": {
+        "type": "boolean"
+      },
+      "hasBoundingPolygon": {
         "type": "boolean"
       },
       "hasOverview": {
@@ -1106,6 +1584,9 @@
       },
       "isValid": {
         "type": "boolean"
+      },
+      "isValidInspire": {
+        "type": "keyword"
       },
       "isSchemaValid": {
         "type": "boolean"
@@ -1116,19 +1597,96 @@
       "isOpenData": {
         "type": "keyword"
       },
-      "lineage": {
-        "type": "text"
-      },
       "resolutionScaleDenominator": {
         "type": "integer"
+      },
+      "resourceDate": {
+        "type": "nested",
+        "properties": {
+          "type": {
+            "type": "keyword"
+          },
+          "date": {
+            "type": "date"
+          }
+        }
+      },
+      "specificationConformance": {
+        "type": "nested",
+        "properties": {
+          "title": {
+            "type": "keyword"
+          },
+          "date": {
+            "type": "date"
+          },
+          "link": {
+            "type": "keyword"
+          },
+          "explanation": {
+            "type": "keyword"
+          },
+          "pass": {
+            "type": "keyword"
+          }
+        }
+      },
+      "processSteps": {
+        "type": "nested",
+        "properties": {
+          "descriptionObject": {
+            "type": "object"
+          },
+          "date": {
+            "type": "date"
+          },
+          "source": {
+            "type": "object"
+          },
+          "processor": {
+            "type": "object"
+          }
+        }
       },
       "link": {
         "type": "nested",
         "properties": {
-          "protocol": {"type": "keyword"},
-          "link": {"type": "text"},
-          "name": {"type": "text"},
-          "description": {"type": "text"}
+          "protocol": {
+            "type": "keyword",
+            "copy_to": "any.common"
+          },
+          "link": {
+            "type": "text",
+            "copy_to": "any.common"
+          },
+          "linkObject": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "keyword",
+                "copy_to": "any.common"
+              }
+            }
+          },
+          "name": {
+            "type": "text",
+            "copy_to": "any.common"
+          },
+          "nameObject": {
+            "type": "object",
+            "properties": {
+              "default": {
+                "type": "keyword",
+                "copy_to": "any.common"
+              }
+            }
+          },
+          "description": {
+            "type": "text"
+          },
+          "descriptionObject": {
+            "type": "object"
+          }
         }
       },
       "linkProtocol": {
@@ -1137,14 +1695,32 @@
       "linkUrl": {
         "type": "keyword"
       },
+      "coordinateSystem": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "accessConstraints": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
       "mainLanguage": {
+        "type": "keyword"
+      },
+      "otherLanguage": {
         "type": "keyword"
       },
       "metadataIdentifier": {
         "type": "keyword"
-      },
-      "inspireThemeNumber": {
-        "type": "short"
       },
       "otherConstraints": {
         "type": "text",
@@ -1170,75 +1746,161 @@
       "recordOperateOn": {
         "type": "keyword"
       },
-      "resolutionDistance": {
+      "parentUuid": {
         "type": "keyword"
       },
-      "resourceAbstract": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
+      "recordGroup": {
+        "type": "keyword"
+      },
+      "recordJoin": {
+        "type": "join",
+        "relations": {
+          "record": ["children", "dataset", "sibling", "feature"]
+        }
+      },
+      "recordLink": {
+        "type": "nested",
+        "properties": {
+          "type": {
+            "type": "keyword"
+          },
+          "subtype": {
+            "type": "keyword"
+          },
+          "created": {
+            "type": "keyword"
+          },
+          "to": {
+            "type": "keyword"
+          },
+          "url": {
+            "type": "keyword"
+          },
+          "title": {
+            "type": "keyword"
+          },
+          "origin": {
+            "type": "keyword"
           }
         }
       },
-      "resourceAltTitle": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
-      "resourceCredit": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
+      "resolutionDistance": {
+        "type": "keyword"
       },
       "resourceLanguage": {
         "type": "keyword"
       },
-      "resourceTitle": {
-        "type": "text",
-        "fields": {
-          "keyword": {
-            "type": "keyword",
-            "ignore_above": 256
-          }
-        }
-      },
       "resourceType": {
         "type": "keyword"
       },
+      "resourceTypeNameObject": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "type": "keyword"
+          }
+        }
+      },
+      "resourceIdentifier": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "keyword",
+            "copy_to": "any.common"
+          },
+          "codeSpace": {
+            "type": "keyword"
+          },
+          "link": {
+            "type": "keyword"
+          }
+        }
+      },
+      "featureTypes": {
+        "type": "object",
+        "properties": {
+          "aliases": {
+            "type": "keyword",
+            "copy_to": "any.common"
+          },
+          "code": {
+            "type": "keyword"
+          },
+          "definition": {
+            "type": "text"
+          },
+          "typeName": {
+            "type": "keyword",
+            "copy_to": "any.common"
+          },
+          "isAbstract": {
+            "type": "boolean"
+          },
+          "attributeTable": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "keyword",
+                "copy_to": "any.common"
+              },
+              "definition": {
+                "type": "text"
+              },
+              "link": {
+                "type": "keyword"
+              },
+              "name": {
+                "type": "keyword",
+                "copy_to": "any.common"
+              },
+              "type": {
+                "type": "keyword"
+              },
+              "cardinality": {
+                "type": "keyword"
+              },
+              "values": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "keyword",
+                    "copy_to": "any.common"
+                  },
+                  "definition": {
+                    "type": "text"
+                  },
+                  "label": {
+                    "type": "keyword",
+                    "copy_to": "any.common"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "serviceType": {
+        "type": "keyword"
+      },
+      "format": {
         "type": "keyword"
       },
       "spatialRepresentationType": {
         "type": "keyword"
       },
-      "standardName": {
+      "schema": {
         "type": "keyword"
       },
-      "tagNumber": {
-        "type": "short"
-      },
-      "tag": {
-        "type": "keyword"
+      "allKeywords": {
+        "type": "object",
+        "enabled": false
       },
       "scope": {
         "type": "keyword"
       },
-      "topic": {
-        "type": "keyword"
-      },
       "validReport": {
-        "type" : "text",
-        "index" : false,
+        "type": "text",
+        "index": false,
         "doc_values": false
       },
       "useLimitation": {
@@ -1250,10 +1912,23 @@
           }
         }
       },
+      "email": {
+        "type": "keyword",
+        "copy_to": "any.common"
+      },
       "groupPublished": {
         "type": "keyword"
       },
+      "groupPublishedId": {
+        "type": "keyword"
+      },
+      "isPublishedToAll": {
+        "type": "keyword"
+      },
       "groupOwner": {
+        "type": "keyword"
+      },
+      "recordOwner": {
         "type": "keyword"
       },
       "hasxlinks": {
@@ -1262,16 +1937,19 @@
       "isTemplate": {
         "type": "keyword"
       },
+      "draft": {
+        "type": "keyword"
+      },
       "isHarvested": {
         "type": "boolean"
       },
       "popularity": {
-        "type": "short"
+        "type": "long"
       },
       "rating": {
         "type": "short"
       },
-      "status": {
+      "mdStatus": {
         "type": "short"
       },
       "owner": {
@@ -1282,6 +1960,38 @@
       },
       "root": {
         "type": "keyword"
+      },
+      "indexingError": {
+        "type": "boolean"
+      },
+      "indexingErrorMsg": {
+        "type": "keyword"
+      },
+      "statusWorkflow": {
+        "type": "keyword"
+      },
+      "userSavedCount": {
+        "type": "long"
+      },
+      "resourceTemporalExtentDetails": {
+        "properties": {
+          "start": {
+            "properties": {
+              "date": {
+                "type": "date",
+                "format": "date_optional_time"
+              }
+            }
+          },
+          "end": {
+            "properties": {
+              "date": {
+                "type": "date",
+                "format": "date_optional_time"
+              }
+            }
+          }
+        }
       }
     }
   }
