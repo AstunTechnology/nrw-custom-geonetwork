@@ -46,6 +46,7 @@ services:
       - ./geonetwork/catalog/locales/en-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-admin.json
       - ./geonetwork/catalog/locales/en-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-core.json
       - ./geonetwork/catalog/locales/en-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-editor.json
+      - ./geonetwork/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
       - ./geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
       - ./geonetwork/catalog/templates/admin/usergroup/users.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup/users.html
       # update records.json file to match core
