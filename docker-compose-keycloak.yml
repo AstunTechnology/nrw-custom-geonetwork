@@ -1,0 +1,39 @@
+version: '3'
+
+volumes:
+  kcdata:
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    ports:
+      - 8180:8180
+    security_opt:
+      - no-new-privileges=true
+    container_name: keycloak
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: ${KEYCLOAK_DB_HOST}
+      DB_DATABASE: ${KEYCLOAK_DB}
+      DB_USER: ${KEYCLOAK_DB_USER}
+      DB_SCHEMA: ${KEYCLOAK_DB_SCHEMA}
+      DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
+      KEYCLOAK_USER: ${KEYCLOAK_ADMIN_USER}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      logger.level: INFO
+    command: ["-Djboss.http.port=8180"]
+    volumes:
+      - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
+    logging:
+          driver: "json-file"
+    networks:
+      - esnet
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8180/auth || exit 1"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+networks:
+  esnet:
+    driver: bridge
