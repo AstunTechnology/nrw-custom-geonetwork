@@ -30,7 +30,9 @@ services:
       ES_HOST: ${ES_HOST}
       ES_PROTOCOL: ${ES_PROTOCOL}
       ES_PORT: ${ES_PORT}
-      ES_URL: ${ES_URL}
+      #ES_URL: ${ES_URL}
+      #ES_USERNAME: ${ES_USERNAME}
+      #ES_PASSWORD: ${ES_PASSWORD}
       KB_URL: ${KB_URL}
       GEONETWORK_DB_TYPE: postgres
       GEONETWORK_DB_HOST: ${POSTGRES_DB_HOST}
