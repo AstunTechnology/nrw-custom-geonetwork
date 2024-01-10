@@ -4,43 +4,43 @@ volumes:
   esdata:
 
 services:
-    elasticsearch:
-      image: elasticsearch:7.12.1
-      # build:
-      #   context: ./elasticsearch
-      container_name: elasticsearch
-      restart: unless-stopped
-      logging:
-        driver: "json-file"
-      networks:
-        - esnet
-      ports:
-        - "9200:9200"
-      security_opt:
-        - no-new-privileges=true
-      ulimits:
-        memlock:
-          soft: -1
-          hard: -1
-        nofile:
-          soft: 65535
-          hard: 65535
-      environment:
-        - "ES_JAVA_OPTS=-Xms1G -Xmx1G" 
-        - discovery.type=single-node
-        # - logger.discovery.name=org.elasticsearch.discovery
-        - logger.deprecation.level=OFF
-        #- logger.level=WARN
-      volumes:
-        - esdata:/usr/share/elasticsearch/data
-      healthcheck:
-        test: ["CMD-SHELL", "curl -i -H \"Accept: application/json\" -f http://localhost:9200/gn-records || exit 1"]
-        interval: 3m
-        timeout: 10s
-        retries: 3
+  elasticsearch:
+    image: elasticsearch:7.12.1
+    # build:
+    #   context: ./elasticsearch
+    container_name: elasticsearch
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+    networks:
+      - esnet
+    ports:
+      - "9200:9200"
+    security_opt:
+      - no-new-privileges=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65535
+        hard: 65535
+    environment:
+      - "ES_JAVA_OPTS=-Xms1G -Xmx1G" 
+      - discovery.type=single-node
+      # - logger.discovery.name=org.elasticsearch.discovery
+      - logger.deprecation.level=OFF
+      #- logger.level=WARN
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -i -H \"Accept: application/json\" -f http://localhost:9200/gn-records || exit 1"]
+      interval: 3m
+      timeout: 10s
+      retries: 3
 
 
-   kibana:
+  kibana:
     image: kibana:7.12.1
     #image: amazon/opendistro-for-elasticsearch-kibana:1.9.0
     container_name: kibana
