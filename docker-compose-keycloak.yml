@@ -18,12 +18,13 @@ services:
       DB_USER: ${KEYCLOAK_DB_USER}
       DB_SCHEMA: ${KEYCLOAK_DB_SCHEMA}
       DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
-      KEYCLOAK_USER: ${KEYCLOAK_ADMIN_USER}
-      KEYCLOAK_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN_USER}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       logger.level: INFO
-    command: ["-Djboss.http.port=8180"]
-    #volumes:
-    #  - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
+    # use dev mode until everything is properly set up
+    command: start-dev --http-port=8180 --hostname-port=8180 --hostname-strict=false
+    volumes:
+      - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
     logging:
           driver: "json-file"
     networks:
