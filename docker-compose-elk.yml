@@ -4,8 +4,7 @@ volumes:
   esdata:
 
 services:
-<<<<<<< HEAD
-  elasticsearch:
+    elasticsearch:
       image: elasticsearch:7.12.1
       # build:
       #   context: ./elasticsearch
