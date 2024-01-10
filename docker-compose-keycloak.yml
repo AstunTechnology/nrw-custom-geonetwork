@@ -22,8 +22,8 @@ services:
       KEYCLOAK_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       logger.level: INFO
     command: ["-Djboss.http.port=8180"]
-    volumes:
-      - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
+    #volumes:
+    #  - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
     logging:
           driver: "json-file"
     networks:

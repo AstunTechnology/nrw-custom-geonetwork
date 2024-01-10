@@ -22,3 +22,6 @@ services:
       - ./nrw/geonetwork/catalog/locales/cy-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-custom.json
       - ./nrw/geonetwork/catalog/locales/cy-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-editor.json
       - ./nrw/geonetwork/catalog/locales/cy-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-search.json
+      # sub-portals
+      - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-gemini-postprocessing.xsl
+      - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
