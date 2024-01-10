@@ -22,9 +22,18 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       logger.level: INFO
     # use dev mode until everything is properly set up
-    command: start-dev --http-port=8180 --hostname-port=8180 --hostname-strict=false
-    volumes:
-      - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
+    command: 
+      - start-dev
+      - --http-port=8180 
+      - --http-relative-path=/keycloak 
+      - --hostname-port=8180 
+      - --hostname-strict=false
+      - --hostname-strict-https=false
+      - --proxy=edge
+      - --hostname-url=http://localhost/keycloak/
+      - --hostname-admin-url=http://localhost/keycloak/
+    # volumes:
+    #   - ./keycloak/singular-user-storage-provider-bundle-1.4.ear:/opt/jboss/keycloak/standalone/deployments/singular-user-storage-provider-bundle-1.4.ear
     logging:
           driver: "json-file"
     networks:
@@ -34,6 +43,11 @@ services:
       interval: 1m
       timeout: 10s
       retries: 3
+  nginx:
+      # override to add nginx config for geoserver
+      volumes:
+            # default
+            - ./keycloak/nginx/locations/keycloak.inc:/etc/nginx/locations/keycloak.inc
 
 networks:
   esnet:
