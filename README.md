@@ -30,13 +30,13 @@ Install (please don't use the snap version for installing):
 * Look at the `services\geonetwork\volumes` section of `docker-compose.yml` and ensure that you match the file structure for any volumes that are not inside this repository, e.g. those where the local path starts with `../`. These are generally schema plugins and can be found on [Github](https://github.com/astuntechnology).
 * Clone the required repositories to the same level in your file system as `docker-geonetwork` and match the folder names so that you can refer to the mounted files using the location e.g. `../iso19139.gemini23/...`.
 
-Copy `.env-local.sample` to `.env-local` and edit the credentials for any services that you are using. For the optional services, ensure that their `docker-compose-XXX.yml` file is included in the colon-delimited `COMPOSE_FILE` variable at the top of the file. 
+Copy `.env.sample` to `.env` and edit the credentials for any services that you are using. For the optional services, ensure that their `docker-compose-XXX.yml` file is included in the colon-delimited `COMPOSE_FILE` variable at the top of the file. 
 
 ### Database Prep- Existing PostgreSQL server (i.e. RDS)
 
 * Create an appropriate database on your server and note the credentials. 
 * For good measure enable the postgis and hstore extensions.
-* Ensure that the followin credentials are correct in `.env-local`:
+* Ensure that the followin credentials are correct in `.env`:
 
 ```
 POSTGRES_DB_NAME=
@@ -60,23 +60,23 @@ POSTGRES_DB_PORT=5432
 * Start just the postgres container so that you can create the database:
 
 ```
-docker-compose --env-file .env-local -f docker-compose-postgres.yml up -d
+docker-compose --env-file .env -f docker-compose-postgres.yml up -d
 ```
 
-* Then edit `.env-local` to reference the correct `POSTGRES_DB_NAME` and start up all of the containers:
+* Then edit `.env` to reference the correct `POSTGRES_DB_NAME` and start up all of the containers:
 
 ```
-docker-compose --env-file .env-local up -d
+docker-compose --env-file .env up -d
 ```
 
 ### Optional services
 
-* Ensure that their section in `.env-local` is filled in, that their `docker-compose-XXX.yml` file is included in the `COMPOSE_FILE` variable in `.env-local` and that any mapped volume overrides are correct on the local side.
+* Ensure that their section in `.env` is filled in, that their `docker-compose-XXX.yml` file is included in the `COMPOSE_FILE` variable in `.env` and that any mapped volume overrides are correct on the local side.
 
 
 ## Antivirus
 
-SSH onto the server running the containers. Ensure the correct credentials are completed in the SMTP section of `docker-geonetwork/.env-local`. Note that the email address will be used as both the `FROM` address and the `TO` address, and if you are using Amazon SES then it needs to be a verified email.
+SSH onto the server running the containers. Ensure the correct credentials are completed in the SMTP section of `docker-geonetwork/.env`. Note that the email address will be used as both the `FROM` address and the `TO` address, and if you are using Amazon SES then it needs to be a verified email.
 
 Edit `docker-geonetwork/clamav/run-clamav.sh` to scan the correct volume (the default is `/var/lib/docker/volumes`). If your login user is not `astun` then do a find and replace with the correct username to set the folder paths.
 
