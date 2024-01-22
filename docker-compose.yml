@@ -30,7 +30,9 @@ services:
       ES_HOST: ${ES_HOST}
       ES_PROTOCOL: ${ES_PROTOCOL}
       ES_PORT: ${ES_PORT}
-      ES_URL: ${ES_URL}
+      #ES_URL: ${ES_URL}
+      #ES_USERNAME: ${ES_USERNAME}
+      #ES_PASSWORD: ${ES_PASSWORD}
       KB_URL: ${KB_URL}
       GEONETWORK_DB_TYPE: postgres
       GEONETWORK_DB_HOST: ${POSTGRES_DB_HOST}
@@ -39,11 +41,6 @@ services:
       GEONETWORK_DB_USERNAME: ${POSTGRES_DB_USERNAME}
       GEONETWORK_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
       GEONETWORK_MICROSERVICESPROXY_TARGETURI: http://ogc-api-records-service:8080
-      #KEYCLOAK_AUTH_SERVER_URL: ${KEYCLOAK_AUTH_SERVER_URL}
-      #KEYCLOAK_REALM: ${KEYCLOAK_REALM}
-      #KEYCLOAK_RESOURCE: ${KEYCLOAK_CLIENT}
-      #KEYCLOAK_SECRET: ${KEYCLOAK_SECRET}
-      #KEYCLOAK_DISABLE_TRUST_MANAGER: ${KEYCLOAK_DISABLE_TRUST_MANAGER}
   
     volumes:
       # general overrides
@@ -64,6 +61,8 @@ services:
       - ./geonetwork/catalog/templates/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar.html
       - ./geonetwork/catalog/templates/top-toolbar-accessible.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/top-toolbar-accessible.html
       - ./geonetwork/catalog/views/default/less/gn_editor_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_editor_default.less
+      # remove service records info from homepage
+      - ./geonetwork/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html
       # data quality snippets
       - ../geonetwork-snippets/gemini23-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23/index-fields/index-subtemplate.xsl
       - ../geonetwork-snippets/iso19139-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/index-fields/index-subtemplate.xsl
