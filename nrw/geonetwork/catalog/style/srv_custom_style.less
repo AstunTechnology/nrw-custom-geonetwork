@@ -130,6 +130,14 @@ a.pull-left.gn-logo-link :hover{
     color: #007485;
 }
 
+.dropdown-menu > .active > a:hover {
+    color: #007485 !important;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus {
+    background-color: unset !important;
+}
+
 span.gn-user-name.ng-binding :hover {
     text-decoration: underline;
 }
@@ -163,10 +171,6 @@ span.gn-user-name.ng-binding :hover {
 
 .gn-facet .gn-facet-container .gn-facet-label {
     color: #007485;
-}
-
-.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-    color: #fff !important;
 }
 
 [ng-app="gn_admin"] [data-ng-controller="GnAdminController"] .sidebar ul li a:hover {
