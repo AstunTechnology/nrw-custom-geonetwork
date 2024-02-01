@@ -69,7 +69,7 @@
 
           var helpBaseUrl =
             gnGlobalSettings.docUrl ||
-            "https://docs.geonetwork-opensource.org/latest/eng";
+            "https://docs.geonetwork-opensource.org/latest/{lang}";
 
           /**
            * load the JSON file with all the documentation links and put the links in the scope
