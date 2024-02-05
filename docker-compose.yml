@@ -38,6 +38,7 @@ services:
       GEONETWORK_DB_HOST: ${POSTGRES_DB_HOST}
       GEONETWORK_DB_PORT: ${POSTGRES_DB_PORT}
       GEONETWORK_DB_NAME: ${POSTGRES_DB_NAME}
+      GEONETWORK_DB_POOL_MAXACTIVE: ${POSTGRES_DB_MAXACTIVE}
       GEONETWORK_DB_USERNAME: ${POSTGRES_DB_USERNAME}
       GEONETWORK_DB_PASSWORD: ${POSTGRES_DB_PASSWORD}
       GEONETWORK_MICROSERVICESPROXY_TARGETURI: http://ogc-api-records-service:8080
@@ -78,6 +79,8 @@ services:
       - ./geonetwork/catalog/views/default/templates/recordView/metadata.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/metadata.html
       - ./geonetwork/catalog/style/gn_metadata.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gn_metadata.less
       - ./geonetwork/catalog/locales/en-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-search.json
+      # help link override
+      - ./geonetwork/catalog/components/common/needhelp/NeedHelpDirective.js:/var/lib/jetty/webapps/geonetwork/catalog/components/common/needhelp/NeedHelpDirective.js
       # schema overrides
       # gemini 2.3
       - ../iso19139.gemini23/src/main/plugin/iso19139.gemini23:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.gemini23
