@@ -27,3 +27,7 @@ services:
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
       # custom branding
       - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
+
+    ogc-api:
+      volumes:
+        - ./nrw/ogc-api/copy/copy-iso19139.nrw.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.nrw.xsl
