@@ -4,5 +4,10 @@
 	"passwordMinlength": "Password must contain at least 10 characters!",
 	"gmd:DQ_CompletenessCommission": "Data Quality Reports (Completeness)",
 	"gmd:DQ_DomainConsistency": "Data Quality Reports",
-	"gmd:MD_LegalConstraints": "Constraints Snippets"
+	"gmd:MD_LegalConstraints": "Constraints Snippets",
+	"SortBy-dateStampDesc":"last updates",
+    "SortBy-createDateDesc":"new records",
+    "SortBy-resourceTitleObject.default.sort":"title",
+    "SortBy-ratingDesc":"rating",
+    "SortBy-popularityDesc":"popularity"
 }

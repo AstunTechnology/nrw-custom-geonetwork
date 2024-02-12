@@ -2,7 +2,6 @@ version: '3'
 
 volumes:
   esdata:
-  pglog:
   nginxlog:
   apachelog:
   ogcapiconfig:
@@ -15,9 +14,13 @@ services:
     ports:
       - 8080:8080
     user: 0:0
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "250m"
     environment:
       DATA_DIR: /catalogue-data
-      JAVA_OPTS: 
+      JAVA_OPTS:
         -Dorg.eclipse.jetty.annotations.AnnotationParser.LEVEL=OFF
         -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true
         -Xms512M -Xss512M -Xmx2G -XX:+UseConcMarkSweepGC
@@ -47,7 +50,7 @@ services:
       #KEYCLOAK_RESOURCE: ${KEYCLOAK_CLIENT}
       #KEYCLOAK_SECRET: ${KEYCLOAK_SECRET}
       #KEYCLOAK_DISABLE_TRUST_MANAGER: ${KEYCLOAK_DISABLE_TRUST_MANAGER}
-  
+
     volumes:
       # general overrides
       - /data/geonetwork:/catalogue-data
@@ -155,7 +158,7 @@ services:
       retries: 5
     restart: unless-stopped
 
-  
+
 
 networks:
   esnet:
