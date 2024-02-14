@@ -34,4 +34,4 @@ services:
 
   nginx:
     volumes:
-      - ./nrw/nginx/servers/nrw.inc:/etc/nginx/servers/nrw.inc
+      - ./nrw/nginx/servers/cyfoethnaturiol_cymru.inc:/etc/nginx/servers/cyfoethnaturiol_cymru.inc
