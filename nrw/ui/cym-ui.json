@@ -1,0 +1,25 @@
+{
+  "mods": {
+    "header": {
+      "languages": {
+        "eng": "en",
+        "cym": "cy"
+      },
+      "showPortalSwitcher": "false"
+    },
+    "home": {
+      "showMosaic": false
+    },
+    "authentication": {
+      "enabled": false
+    },
+    "editor": {
+      "enabled": false
+    }
+  },
+  "langDetector": {
+    "fromHtmlTag": false,
+    "regexp": "^(?:/.+)?/.+/([a-z]{2,3})/.+",
+    "default": "eng"
+  }
+}

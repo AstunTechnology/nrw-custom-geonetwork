@@ -8,7 +8,7 @@ server {
 
     # redirect welsh URLs to the geonetwork/cym URL
     location /geonetwork/cym {
-        rewrite ^/cym(.*)$  https://metadata.naturalresources.wales/geonetwork/eng$1 permanent;
+        rewrite ^/cym(.*)$  https://metadata.naturalresources.wales/geonetwork/srv$1 permanent;
     }
 
     # Redirect all other requests to the English site

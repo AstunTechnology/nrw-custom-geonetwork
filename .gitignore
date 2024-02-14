@@ -21,3 +21,4 @@ kibana/kibana.yml
 kibana/export.ndjson
 astun/*
 scotgov/*
+servers/*
