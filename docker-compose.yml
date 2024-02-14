@@ -124,7 +124,7 @@ services:
     - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
     - ./ogc-api/src/main/resources/xslt/ogcapir/landingpage.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/landingpage.xsl
     - ./ogc-api/src/main/resources/xslt/ogcapir/collections.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/collections.xsl
-    - ./ogc-api/src/main/resources/xslt/ogcapir/collection.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/collection.xsl
+    #- ./ogc-api/src/main/resources/xslt/ogcapir/collection.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/collection.xsl
     container_name: ogc-api-service
     networks:
       - esnet
