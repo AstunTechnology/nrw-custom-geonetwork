@@ -31,3 +31,7 @@ services:
   ogc-api-records-service:
     volumes:
       - ./nrw/ogc-api/copy/copy-iso19139.nrw.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.nrw.xsl
+
+  nginx:
+    volumes:
+      - ./nrw/nginx/servers/nrw.inc:/etc/nginx/servers/nrw.inc
