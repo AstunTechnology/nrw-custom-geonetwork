@@ -1,25 +1,41 @@
 {
   "mods": {
+    "home": {
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/home",
+      "showMosaic": false
+    },
+    "search": {
+      "languageWhitelist": [],
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/search"
+    },
     "header": {
       "languages": {
-        "eng": "en",
         "cym": "cy"
       },
-      "showPortalSwitcher": "false"
-    },
-    "home": {
-      "showMosaic": false
+      "showPortalSwitcher": false
     },
     "authentication": {
       "enabled": false
     },
-    "editor": {
-      "enabled": false
+    "map": {
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/map"
     }
   },
   "langDetector": {
     "fromHtmlTag": false,
     "regexp": "^(?:/.+)?/.+/([a-z]{2,3})/.+",
-    "default": "eng"
+    "default": "cym"
+  },
+  "nodeDetector": {
+    "regexp": "^(?:/.+)?/(.+)/[a-z]{2,3}/.+",
+    "default": "cym"
+  },
+  "baseURLDetector": {
+    "regexp": "^((?:/.+)?)+/.+/[a-z]{2,3}/.+",
+    "default": "/geonetwork"
+  },
+  "serviceDetector": {
+    "regexp": "^(?:/.+)?/.+/[a-z]{2,3}/(.+)",
+    "default": "catalog.search"
   }
 }
