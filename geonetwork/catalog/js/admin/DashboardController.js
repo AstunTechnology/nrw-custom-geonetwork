@@ -99,8 +99,8 @@
         label: 'contentStatistics',
         icon: 'fa-bar-chart',
         href: '#/dashboard/statistics?dashboard=' +
-            encodeURIComponent('../../dashboards/app/kibana#/dashboard/' +
-             '853fef90-8dce-11e9-9bb7-5db216293bad?embed=true&_g=(refreshInterval:(pause:!t,value:0),time:(from:now-30d,to:now))')
+            encodeURIComponent('dashboards/app/dashboards?auth_provider_hint=anonymous1#/view/cf5d74b0-2c25-11e7-8cd9-338183f2da0f?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-1y%2Fd%2Cto%3Anow))')
+
       //TODO: The following dashboards need a rework
       }, {
         type: 'statistics',

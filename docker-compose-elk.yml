@@ -2,6 +2,9 @@ version: '3'
 
 volumes:
   esdata:
+  esconfig:
+  kbdata:
+  kbconfig:
 
 services:
   elasticsearch:
@@ -30,11 +33,10 @@ services:
       - "ES_JAVA_OPTS=-Xms1G -Xmx1G" 
       - discovery.type=single-node
       - xpack.security.enabled=true
-      # - logger.discovery.name=org.elasticsearch.discovery
       - logger.deprecation.level=OFF
-      #- logger.level=WARN
     volumes:
       - esdata:/usr/share/elasticsearch/data
+      - esconfig:/usr/share/elasticsearch/config
     healthcheck:
       test: ["CMD-SHELL", "curl -i -H \"Accept: application/json\" -f http://localhost:9200/gn-records || exit 1"]
       interval: 3m
@@ -50,11 +52,12 @@ services:
     restart: unless-stopped
     environment:
       ELASTICSEARCH_URL: ${ES_URL}
-      #ES_USERNAME: ${ES_USERNAME}
-      #ES_PASSWORD: ${ES_PASSWORD}
-      #XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED: 'true'
+      ES_USERNAME: ${ES_USERNAME}
+      ES_PASSWORD: ${ES_PASSWORD}
     volumes:
       - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - kbdata:/usr/share/kibana/data
+      - kbconfig:/usr/share/kibana/config
     logging:
           driver: "json-file"
     ports:
