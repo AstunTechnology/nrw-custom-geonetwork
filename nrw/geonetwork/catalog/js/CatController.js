@@ -23,7 +23,7 @@
 
 (function () {
     goog.provide("gn_cat_controller");
-  
+
     goog.require("gn_admin_menu");
     goog.require("gn_external_viewer");
     goog.require("gn_history");
@@ -32,7 +32,7 @@
     goog.require("gn_session_service");
     goog.require("gn_alert");
     goog.require("gn_es");
-  
+
     var module = angular.module("gn_cat_controller", [
       "gn_search_manager",
       "gn_session_service",
@@ -43,7 +43,7 @@
       "gn_alert",
       "gn_es"
     ]);
-  
+
     module.constant("gnSearchSettings", {});
     module.constant("gnViewerSettings", {});
     module.constant(
@@ -449,7 +449,7 @@
                 //     'treeKeySeparator': '/'
                 //   }
                 // },
-  
+
                 "th_httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset_tree.default":
                   {
                     terms: {
@@ -1217,7 +1217,7 @@
             }
           }
         };
-  
+
         return {
           proxyUrl: "",
           locale: {},
@@ -1305,7 +1305,7 @@
               gnViewerSettings.mapConfig["map-viewer"].context;
             gnViewerSettings.geocoder =
               this.gnCfg.mods.geocoder.appUrl || defaultConfig.mods.geocoder.appUrl;
-  
+
             // Map protocols used to load layers/services in the map viewer
             gnSearchSettings.mapProtocols = {
               layers: [
@@ -1351,7 +1351,7 @@
             var i;
             path = path.split(".");
             for (i = 0; i < path.length - 1; i++) obj = obj[path[i]];
-  
+
             delete obj[path[i]];
             return obj;
           },
@@ -1429,7 +1429,7 @@
         };
       })()
     );
-  
+
     module.constant("gnLangs", {
       langs: {},
       current: null,
@@ -1438,12 +1438,12 @@
         if (gnGlobalSettings.iso3lang) {
           return gnGlobalSettings.iso3lang;
         }
-  
+
         var iso2lang, iso3lang;
-  
+
         // Init language list
         this.langs = gnGlobalSettings.gnCfg.mods.header.languages;
-  
+
         // Detect language from HTML lang tag, regex on URL
         if (detector) {
           if (detector.fromHtmlTag) {
@@ -1466,7 +1466,7 @@
           iso3lang = this.getIso3Lang(iso2lang || detector.default);
         }
         this.current = iso3lang || "eng";
-  
+
         // Set locale to global settings. This is
         // used by locale loader.
         gnGlobalSettings.iso3lang = this.current;
@@ -1502,7 +1502,7 @@
         return "eng";
       }
     });
-  
+
     /**
      * The catalogue controller takes care of
      * loading site information, check user login state
@@ -1557,7 +1557,7 @@
       ) {
         $scope.version = "0.0.1";
         var defaultNode = "srv";
-  
+
         // Links for social media
         $scope.socialMediaLink = $location.absUrl();
         $scope.getPermalink = gnUtilityService.getPermalink;
@@ -1568,23 +1568,23 @@
         $scope.isMenubarAccessible = gnGlobalSettings.gnCfg.mods.header.isMenubarAccessible;
         $scope.isLogoInHeader = gnGlobalSettings.gnCfg.mods.header.isLogoInHeader;
         $scope.isFooterEnabled = gnGlobalSettings.gnCfg.mods.footer.enabled;
-  
+
         // If gnLangs current already set by config, do not use URL
         $scope.langs = gnGlobalSettings.gnCfg.mods.header.languages;
         $scope.lang = gnLangs.detectLang(null, gnGlobalSettings);
         $scope.iso2lang = gnLangs.getIso2Lang($scope.lang);
-  
+
         $scope.rssFeeds = gnGlobalSettings.gnCfg.mods.footer.rssFeeds;
-  
+
         $scope.getSocialLinksVisible = function () {
           var onMdView = $location.absUrl().indexOf("/metadata/") > -1;
           return !onMdView && gnGlobalSettings.gnCfg.mods.footer.showSocialBarInFooter;
         };
-  
+
         $scope.getApplicationInfoVisible = function () {
           return gnGlobalSettings.gnCfg.mods.footer.showApplicationInfoAndLinksInFooter;
         };
-  
+
         function detectNode(detector) {
           if (detector.regexp) {
             var res = new RegExp(detector.regexp).exec(location.pathname);
@@ -1594,7 +1594,7 @@
           }
           return detector.default || defaultNode;
         }
-  
+
         function detectService(detector) {
           if (detector.regexp) {
             var res = new RegExp(detector.regexp).exec(location.pathname);
@@ -1604,7 +1604,7 @@
           }
           return detector.default;
         }
-  
+
         function detectBaseURL(detector) {
           if (detector.regexp) {
             var res = new RegExp(detector.regexp).exec(location.pathname);
@@ -1618,14 +1618,14 @@
         $scope.isDefaultNode = $scope.nodeId === defaultNode;
         $scope.service = detectService(gnGlobalSettings.gnCfg.serviceDetector);
         $scope.redirectUrlAfterSign = window.location.href;
-  
+
         gnGlobalSettings.nodeId = $scope.nodeId;
         gnGlobalSettings.isDefaultNode = $scope.isDefaultNode;
         gnConfig.env = gnConfig.env || {};
         gnConfig.env.node = $scope.nodeId;
         gnConfig.env.defaultNode = defaultNode;
         gnConfig.env.baseURL = detectBaseURL(gnGlobalSettings.gnCfg.baseURLDetector);
-  
+
         $scope.signoutUrl =
           gnGlobalSettings.gnCfg.mods.authentication.signoutUrl +
           "?redirectUrl=" +
@@ -1633,7 +1633,7 @@
             0,
             window.location.href.indexOf(gnConfig.env.node) + gnConfig.env.node.length
           );
-  
+
         // Lang names to be displayed in language selector
         $scope.langLabels = {
           eng: "English",
@@ -1669,27 +1669,27 @@
         $scope.isExternalViewerEnabled = gnExternalViewer.isEnabled();
         $scope.externalViewerUrl = gnExternalViewer.getBaseUrl();
         $scope.publicationOptions = [];
-  
+
         $http.get("../api/records/sharing/options").then(function (response) {
           $scope.publicationOptions = response.data;
         });
-  
+
         $scope.isSelfRegisterPossible = function () {
           return gnConfig["system.userSelfRegistration.enable"];
         };
-  
+
         $scope.isHostDefined = function () {
           return gnConfig["system.feedback.mailServer.hostIsDefined"];
         };
-  
+
         $scope.layout = {
           hideTopToolBar: false
         };
-  
+
         /**
          * CSRF support
          */
-  
+
         //Comment the following lines if you want to remove csrf support
         $http.defaults.xsrfHeaderName = "X-XSRF-TOKEN";
         $http.defaults.xsrfCookieName = "XSRF-TOKEN";
@@ -1706,13 +1706,13 @@
           $http.get("../api/me");
         }
         //Comment the upper lines if you want to remove csrf support
-  
+
         /**
          * Number of selected metadata records.
          * Only one selection per session is allowed.
          */
         $scope.selectedRecordsCount = 0;
-  
+
         /**
          * An ordered list of profiles
          */
@@ -1728,7 +1728,7 @@
         $rootScope.user = $scope.user;
         $scope.authenticated = false;
         $scope.initialized = false;
-  
+
         /**
          * Keep a reference on main cat scope
          * @return {*}
@@ -1736,7 +1736,7 @@
         $scope.getCatScope = function () {
           return $scope;
         };
-  
+
         gnConfigService.load().then(function (c) {
           // Config loaded
           if (proj4 && angular.isArray(gnConfig["map.proj4js"])) {
@@ -1746,10 +1746,10 @@
             ol.proj.proj4.register(proj4);
           }
         });
-  
+
         // login url for inline signin form in top toolbar
         $scope.signInFormAction = "../../signin#" + $location.url();
-  
+
         // when the login input have focus, do not close the dropdown/popup
         $scope.focusLoginPopup = function () {
           $(".signin-dropdown #inputUsername, .signin-dropdown #inputPassword").one(
@@ -1765,13 +1765,13 @@
             }
           );
         };
-  
+
         /**
          * Catalog facet summary providing
          * a global overview of the catalog content.
          */
         $scope.searchInfo = {};
-  
+
         var defaultStatus = {
           title: "",
           link: "",
@@ -1780,10 +1780,10 @@
           type: "info",
           timeout: -1
         };
-  
+
         $scope.loadCatalogInfo = function () {
           var promiseStart = $q.when("start");
-  
+
           // Retrieve site information
           // TODO: Add INSPIRE, harvester, ... information
           var catInfo = promiseStart.then(function (value) {
@@ -1807,7 +1807,7 @@
               }
             );
           });
-  
+
           // Utility functions for user
           var userFn = {
             isAnonymous: function () {
@@ -1867,7 +1867,7 @@
               if (!md || this.isAnonymous()) {
                 return false;
               }
-  
+
               // A second filter is for harvested record
               // if the catalogue admin defined that those
               // records could be harvested.
@@ -1904,7 +1904,7 @@
               return allowedProfiles.indexOf(this.profile) !== -1;
             };
           });
-  
+
           // Retrieve user information if catalog is online
           // append a random number to avoid caching in IE11
           var userLogin = catInfo.then(function (value) {
@@ -1916,7 +1916,7 @@
                   me["isAdmin"] = function (groupId) {
                     return me.admin;
                   };
-  
+
                   angular.forEach($scope.profiles, function (profile) {
                     // Builds is<ProfileName>ForGroup methods
                     // to check the profile in the group
@@ -1942,7 +1942,7 @@
                 }
               });
           });
-  
+
           // Retrieve the publication options
           userLogin.then(function (value) {
             if ($scope.user && $scope.user.isReviewerOrMore()) {
@@ -1951,13 +1951,13 @@
               });
             }
           });
-  
+
           // Retrieve main search information
           var searchInfo = userLogin.then(function (value) {
             // Check index status.
             $http.get("../api/site/index/status").then(function (r) {
               gnConfig["indexStatus"] = r.data;
-  
+
               if (r.data.state.id.match(/^(green|yellow)$/) == null) {
                 $rootScope.$broadcast("StatusUpdated", {
                   id: "indexStatus",
@@ -1986,7 +1986,7 @@
                     $scope.searchInfo = r.data;
                     var keys = Object.keys(gnGlobalSettings.gnCfg.mods.home.facetConfig);
                     selectedFacet = keys[0];
-  
+
                     for (var i = 0; i < keys.length; i++) {
                       if (
                         $scope.searchInfo.aggregations[keys[i]].buckets.length > 0 ||
@@ -2018,15 +2018,15 @@
         $scope.$on("loadCatalogInfo", function (event, status) {
           $scope.loadCatalogInfo();
         });
-  
+
         $scope.allowPublishInvalidMd = function () {
           return gnConfig["metadata.workflow.allowPublishInvalidMd"];
         };
-  
+
         $scope.allowPublishNonApprovedMd = function () {
           return gnConfig["metadata.workflow.allowPublishNonApprovedMd"];
         };
-  
+
         $scope.getPublicationOptionClass = function (
           md,
           user,
@@ -2048,7 +2048,7 @@
               return "";
           }
         };
-  
+
         // Function to get the title name to be used when displaying the publish item in the menu
         $scope.getPublicationOptionTitle = function (
           md,
@@ -2090,34 +2090,34 @@
           }
           return publicationOptionTitle;
         };
-  
+
         $scope.$on("StatusUpdated", function (event, status) {
           var statusToApply = {};
           $.extend(statusToApply, defaultStatus, status);
-  
+
           if ($scope.showHealthIndexError !== true) {
             gnAlertService.addAlert(statusToApply, statusToApply.timeout);
           }
         });
-  
+
         gnSessionService.scheduleCheck($scope.user);
         $scope.session = gnSessionService.getSession();
-  
+
         $scope.loadCatalogInfo();
-  
+
         $scope.healthCheck = {};
         // Flag to show the health index error panel
         // By default hidden, only to be displayed if the
         // health check for the index returns an error.
         $scope.showHealthIndexError = false;
-  
+
         function healthCheckStatus(r) {
           var data = r.data,
             isCritical = r.config.url.indexOf("critical") !== -1;
           angular.forEach(data, function (o) {
             $scope.healthCheck[o.name] = o.status === "OK";
           });
-  
+
           if (isCritical) {
             $scope.showHealthIndexError =
               !$scope.healthCheck ||
@@ -2129,4 +2129,3 @@
       }
     ]);
   })();
-  

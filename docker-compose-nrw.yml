@@ -15,7 +15,7 @@ services:
       - ./nrw/xslt/base-layout.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout.xsl
       - ./nrw/xslt/render-html.xsl:/var/lib/jetty/webapps/geonetwork/xslt/common/render-html.xsl
       # add Welsh to the language selector
-      - ./nrw/geonetwork/catalog/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
+      - ./nrw/geonetwork/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
       # Welsh translation files
       - ./nrw/geonetwork/catalog/locales/cym-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cym-admin.json
       - ./nrw/geonetwork/catalog/locales/cym-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cym-core.json
@@ -27,6 +27,19 @@ services:
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
       # custom branding
       - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
+      - ./nrw/geonetwork/catalog/style/GothamRnd-Medium.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Medium.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-MedIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-MediumIta.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-Bold.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Bold.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-BoldIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-BoldIta.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-Book.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Book.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-BookIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-BookIta.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-Light.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Light.otf
+      - ./nrw/geonetwork/catalog/style/GothamRnd-LightIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-LightIta.otf
+      # remove extraneous advanced search options
+      - ./nrw/geonetwork/catalog/components/search/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
+      - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
+      # hide search minimap
+      - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
 
   ogc-api-records-service:
     volumes:
