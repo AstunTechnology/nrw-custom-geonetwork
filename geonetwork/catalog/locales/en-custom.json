@@ -9,5 +9,6 @@
     "SortBy-createDateDesc":"new records",
     "SortBy-resourceTitleObject.default.sort":"title",
     "SortBy-ratingDesc":"rating",
-    "SortBy-popularityDesc":"popularity"
+    "SortBy-popularityDesc":"popularity",
+	"facet-OwnerForResource":"Responsible Organisation (Owner)"
 }
