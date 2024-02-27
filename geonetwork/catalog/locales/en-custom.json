@@ -10,5 +10,6 @@
     "SortBy-resourceTitleObject.default.sort":"title",
     "SortBy-ratingDesc":"rating",
     "SortBy-popularityDesc":"popularity",
-	"facet-OwnerForResource":"Responsible Organisation (Owner)"
+	"facet-OwnerForResource":"Responsible Organisation (Owner)",
+	"searchOver":"Welcome to the Natural Resources Wales Discovery Metadata Catalogue, where you can search for information on <strong>{{records}}</strong> datasets that are held by Natural Resources Wales. Read more about metadata and how to use this site in the <a href='https://nrw-metadata-portal.readthedocs.io/en/stable' target='_blank'>online documentation</a>. For more information on how you can access our datasets please visit <a href='https://naturalresources.wales/evidence-and-data/accessing-our-data/?lang=en' target='_blank'>Accessing our Data</a>."
 }
