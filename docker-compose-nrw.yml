@@ -8,6 +8,8 @@ services:
       - ../iso19139.nrw/src/main/plugin/iso19139.nrw:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw
       #- ../iso19139.nrw/src/main/config/translations/en-schema-iso19139.nrw.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.nrw.json
       - ../iso19139.nrw/target/gn-schema-iso19139.nrw-4.2.8-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.nrw-4.2.8-SNAPSHOT.jar
+      # data quality snippets
+      - ../geonetwork-snippets/nrw-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/index-fields/index-subtemplate.xsl
       # post-processing scripts
       - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/gmd-gemini-postprocessing.xsl
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/gmd-medin-postprocessing.xsl
@@ -40,6 +42,8 @@ services:
       - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
       # hide search minimap
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
+      # make settings read-only
+      - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
 
   ogc-api-records-service:
     volumes:
