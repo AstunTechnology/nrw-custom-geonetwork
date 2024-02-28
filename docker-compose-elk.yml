@@ -54,8 +54,10 @@ services:
       ELASTICSEARCH_URL: ${ES_URL}
       ES_USERNAME: ${ES_USERNAME}
       ES_PASSWORD: ${ES_PASSWORD}
+      SERVER_PUBLICBASEURL: ${KB_BASE_URL}/geonetwork/dashboards
     volumes:
       - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./kibana/node.options:/usr/share/kibana/config/node.options
       - kbdata:/usr/share/kibana/data
       - kbconfig:/usr/share/kibana/config
     logging:
