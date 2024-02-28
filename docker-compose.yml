@@ -109,6 +109,8 @@ services:
       GN_LEGACY_URL: ${GN_PROTOCOL}://${GN_URL}/geonetwork
       GN_INDEX_URL: ${ES_URL}
       SERVER_FORWARDHEADERSSTRATEGY: FRAMEWORK
+      ES_USERNAME: ${ES_USERNAME}
+      ES_PASSWORD: ${ES_PASSWORD}
     restart: unless-stopped
     volumes:
     - ogcapiconfig:/ogcapiconfig
