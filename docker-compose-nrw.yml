@@ -38,12 +38,16 @@ services:
       - ./nrw/geonetwork/catalog/style/GothamRnd-Light.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Light.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-LightIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-LightIta.otf
       # remove extraneous advanced search options
-      - ./nrw/geonetwork/catalog/components/search/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
+      - ./nrw/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
       - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
       # hide search minimap
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
       # make settings read-only
       - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
+      # make map on default record view portrait
+      - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/type-dataset.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/type-dataset.html
+
 
   ogc-api-records-service:
     volumes:

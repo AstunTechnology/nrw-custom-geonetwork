@@ -347,11 +347,10 @@
                           class="form-control"
                           id="{{s['name']}}"
                           name="{{s.name}}"
-                          >
+                        >
                           {{s.value}}
                         </textarea>
 
-                        <!-- changed to read-only for NRW -->
                         <textarea
                           data-gn-autogrow=""
                           data-ng-switch-when="system/harvesting/mail/templateError"
@@ -359,18 +358,16 @@
                           class="form-control"
                           id="{{s['name']}}"
                           name="{{s.name}}"
-                          readonly>
+                        >
                           {{s.value}}
                         </textarea>
 
-                        <!-- changed to read-only input for NRW -->
                         <input
                           data-ng-switch-when="system/harvesting/mail/subject"
                           class="form-control"
                           type="text"
                           name="{{s.name}}"
                           value="{{s.value}}"
-                          readonly="readonly"
                         />
 
                         <textarea
@@ -394,12 +391,10 @@
                             <option value="https" ng-selected="'https' == s.value">https</option>
                           </select>
 
-                        <!-- changed to read-only for NRW -->
                           <select
                             data-ng-switch-when="system/server/log"
                             class="form-control"
                             name="{{s.name}}"
-                            disabled
                           >
                             <option
                             data-ng-repeat="log in logfiles"
@@ -625,6 +620,43 @@
                           readonly="readonly"
                         />
 
+                        <!-- changed to read-only for NRW -->
+                        <input
+                          data-ng-switch-when="system/proxy/host"
+                          type="password"
+                          autocomplete="new-password"
+                          class="form-control"
+                          id="{{s['name']}}"
+                          name="{{s.name}}"
+                          value="{{s.value}}"
+                          readonly="readonly"
+                        />
+
+                        <!-- changed to read-only for NRW -->
+                        <input
+                          data-ng-switch-when="system/proxy/port"
+                          type="password"
+                          autocomplete="new-password"
+                          class="form-control"
+                          id="{{s['name']}}"
+                          name="{{s.name}}"
+                          value="{{s.value}}"
+                          readonly="readonly"
+                        />
+
+                        <!-- changed to read-only for NRW -->
+                        <input
+                          data-ng-switch-when="system/proxy/username"
+                          type="password"
+                          autocomplete="new-password"
+                          class="form-control"
+                          id="{{s['name']}}"
+                          name="{{s.name}}"
+                          value="{{s.value}}"
+                          readonly="readonly"
+                        />
+
+                        <!-- changed to read-only for NRW -->
                         <input
                           data-ng-switch-when="system/proxy/password"
                           type="password"
@@ -633,9 +665,21 @@
                           id="{{s['name']}}"
                           name="{{s.name}}"
                           value="{{s.value}}"
+                          readonly="readonly"
                         />
 
                         <!-- changed to read-only for NRW -->
+                        <input
+                          data-ng-switch-when="system/proxy/ignorehostlist"
+                          type="password"
+                          autocomplete="new-password"
+                          class="form-control"
+                          id="{{s['name']}}"
+                          name="{{s.name}}"
+                          value="{{s.value}}"
+                          readonly="readonly"
+                        />
+
                         <input
                           data-ng-switch-when="system/selectionmanager/maxrecords"
                           type="text"
@@ -643,7 +687,6 @@
                           id="{{s['name']}}"
                           name="{{s.name}}"
                           value="{{s.value}}"
-                          readonly="readonly"
                         />
 
                         <!-- changed to read-only for NRW -->
@@ -792,6 +835,17 @@
                         <!-- changed to read-only for NRW -->
                         <input
                           data-ng-switch-when="system/inspire/atomProtocol"
+                          type="text"
+                          class="form-control"
+                          id="{{s['name']}}"
+                          name="{{s.name}}"
+                          value="{{s.value}}"
+                          readonly="readonly"
+                        />
+
+                        <!-- changed to read-only for NRW -->
+                        <input
+                          data-ng-switch-when="system/harvester/disabledHarvesterTypes"
                           type="text"
                           class="form-control"
                           id="{{s['name']}}"
@@ -1039,6 +1093,7 @@
                           </div>
                         </div>
 
+                        <!-- changed to read-only for NRW -->
                         <div data-ng-switch-when="system/server/port">
                           <input
                             type="text"
@@ -1047,7 +1102,8 @@
                             name="{{s.name}}"
                             value="{{s.value}}"
                             data-ng-model="s.value"
-                            data-ng-change="processRecommended('siteIdChange', s['name'])" />
+                            data-ng-change="processRecommended('siteIdChange', s['name'])"
+                            readonly="readonly" />
                         </div>
 
                         <div
