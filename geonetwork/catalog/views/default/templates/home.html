@@ -57,12 +57,24 @@
         </span>
       </div>
 
+      <!-- This is displayed in NRW for non-logged in users-->
       <div
         data-translate=""
         class="search-over"
         data-translate-values="{records: '{{searchInfo.hits.total.value}}'}"
+        data-ng-if="!user.isConnected()"
       >
         searchOver
+      </div>
+
+      <!-- This is displayed in NRW for logged in users-->
+      <div
+        data-translate=""
+        class="search-over"
+        data-translate-values="{records: '{{searchInfo.hits.total.value}}'}"
+        data-ng-if="user.isConnected()"
+      >
+        searchOver-loggedIn
       </div>
     </div>
   </div>
