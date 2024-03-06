@@ -4,7 +4,7 @@ server {
     listen 80;
     listen  [::]:80;
     root /var/www/html;
-    server_name metadata.cyfoethnaturiol.cymru;
+    server_name test.metadata.cyfoethnaturiol.cymru;
 
     # default geonetwork in docker
 
