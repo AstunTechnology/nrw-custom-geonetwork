@@ -37,6 +37,7 @@ services:
       - ./nrw/geonetwork/catalog/style/GothamRnd-BookIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-BookIta.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-Light.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Light.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-LightIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-LightIta.otf
+      - ./nrw/geonetwork/catalog/style/gn_topics_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_topics_default.less
       # remove extraneous advanced search options
       - ./nrw/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
       - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html

@@ -1579,6 +1579,9 @@
       "hasBoundingPolygon": {
         "type": "boolean"
       },
+      "hasOnlineResource": {
+        "type": "boolean"
+      },
       "hasOverview": {
         "type": "boolean"
       },
@@ -1883,6 +1886,9 @@
         "type": "keyword"
       },
       "format": {
+        "type": "keyword"
+      },
+      "formatSpecification": {
         "type": "keyword"
       },
       "spatialRepresentationType": {

@@ -1,136 +1,50 @@
 {
-    "resourceType": {
-      "terms": {
-        "field": "resourceType"
-      },
-      "meta": {
-        "decorator": {
-          "type": "icon",
-          "prefix": "fa fa-fw gn-icon-"
-        }
-      }
+  "resourceType": {
+    "terms": {
+      "field": "resourceType"
     },
-    "OwnerForResource": {
-      "terms": {
-        "field": "ownerOrgForResourceObject.default",
-        "include": ".*",
-        "size": 10,
-        "order": {
-            "_key": "asc"
-          }
-      },
-      "meta": {
-        "caseInsensitiveInclude": true
-      }
-    },
-    "cl_spatialRepresentationType.key": {
-        "terms": {
-          "field": "cl_spatialRepresentationType.key",
-          "size": 10
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-      "format": {
-        "terms": {
-          "field": "format"
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-      "th_gemet_tree.default": {
-        "terms": {
-          "field": "th_gemet_tree.default",
-          "size": 100,
-          "order": {
-            "_key": "asc"
-          },
-          "include": "[^^]+^?[^^]+"
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-      "th_httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset_tree.default": {
-        "terms": {
-          "field": "th_httpinspireeceuropaeumetadatacodelistPriorityDataset-PriorityDataset_tree.default",
-          "size": 100,
-          "order": {
-            "_key": "asc"
-          }
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-      "th_httpinspireeceuropaeutheme-theme_tree.key": {
-        "terms": {
-          "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
-          "size": 34
-        },
-        "meta": {
-            "collapsed": true,
-            "decorator": {
-                "type": "icon",
-                "prefix": "fa fa-fw gn-icon iti-",
-                "expression": "http://inspire.ec.europa.eu/theme/(.*)"
-            }
-        }
-      },
-      "tag": {
-        "terms": {
-          "field": "tag.${aggLang}",
-          "include": ".*",
-          "size": 10
-        },
-        "meta": {
-          "caseInsensitiveInclude": true,
-          "collapsed": true
-        }
-      },
-      "th_regions_tree.default": {
-        "terms": {
-          "field": "th_regions_tree.default",
-          "size": 100,
-          "order": {
-            "_key": "asc"
-          }
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-      "resolutionScaleDenominator": {
-        "histogram": {
-          "field": "resolutionScaleDenominator",
-          "interval": 10000,
-          "keyed": true,
-          "min_doc_count": 1
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-      "creationYearForResource": {
-        "histogram": {
-          "field": "creationYearForResource",
-          "interval": 5,
-          "keyed": true,
-          "min_doc_count": 1
-        },
-        "meta": {
-          "collapsed": true
-        }
-      },
-    "cl_maintenanceAndUpdateFrequency.key": {
-      "terms": {
-        "field": "cl_maintenanceAndUpdateFrequency.key",
-        "size": 10
-      },
-      "meta": {
-        "collapsed": true
+    "meta": {
+      "decorator": {
+        "type": "icon",
+        "prefix": "fa fa-fw gn-icon-"
       }
     }
+  },
+  "formatSpecification": {
+    "terms": {
+      "field": "formatSpecification"
+    }
+  },
+  "hasOnlineResource": {
+    "terms": {
+      "field": "hasOnlineResource"
+    }
+  },
+  "OwnerForResource": {
+    "terms": {
+      "field": "ownerOrgForResourceObject.default",
+      "include": ".*",
+      "size": 10,
+      "order": {
+          "_count": "desc"
+        }
+    },
+    "meta": {
+      "caseInsensitiveInclude": true
+    }
+  },
+  "th_httpinspireeceuropaeutheme-theme_tree.key": {
+    "terms": {
+      "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+      "size": 34
+    },
+    "meta": {
+        "collapsed": true,
+        "decorator": {
+            "type": "icon",
+            "prefix": "fa fa-fw gn-icon iti-",
+            "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+        }
+    }
   }
+}
