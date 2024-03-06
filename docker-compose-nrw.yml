@@ -44,7 +44,7 @@ services:
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
       # make settings read-only
       - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
-
+ 
   ogc-api-records-service:
     volumes:
       - ./nrw/ogc-api/copy/copy-iso19139.nrw.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.nrw.xsl
