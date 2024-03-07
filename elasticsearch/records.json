@@ -1891,6 +1891,9 @@
       "formatSpecification": {
         "type": "keyword"
       },
+      "license": {
+        "type": "keyword"
+      },
       "spatialRepresentationType": {
         "type": "keyword"
       },

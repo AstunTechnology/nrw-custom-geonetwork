@@ -20,6 +20,11 @@
       "field": "hasOnlineResource"
     }
   },
+  "license": {
+    "terms": {
+      "field": "license"
+    }
+  },
   "OwnerForResource": {
     "terms": {
       "field": "ownerOrgForResourceObject.default",
