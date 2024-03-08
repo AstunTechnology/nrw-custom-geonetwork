@@ -404,14 +404,12 @@
                             </option>
                           </select>
 
-                        <!-- changed to read-only for NRW -->
                           <select
                             data-ng-switch-when="system/localrating/notificationLevel"
                             class="form-control"
                             name="{{s.name}}"
                             data-ng-model="s.value"
                             data-ng-change="changeLocalRatingNotificationLevel(s.value)"
-                            disabled
                           >
                             <option
                               data-ng-repeat="l in notificationLevels"
@@ -452,12 +450,10 @@
                             </option>
                           </select>
 
-                        <!-- changed to read-only for NRW -->
                           <select
                             data-ng-switch-when="system/localrating/enable"
                             class="form-control"
                             name="{{s.name}}"
-                            disabled
                           >
                             <option value="" ng-selected="'' == s.value">
                               {{'off' | translate}}
