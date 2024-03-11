@@ -11,6 +11,7 @@
     "SortBy-popularityDesc":"popularity",
 	"facet-OwnerForResource":"Responsible Organisation (Owner)",
 	"searchOver":"Welcome to the Natural Resources Wales Discovery Metadata Catalogue, where you can search for information on <strong>{{records}}</strong> datasets that are held by Natural Resources Wales. Read more about metadata and how to use this site in the <a href='https://nrw-metadata-portal.readthedocs.io/en/stable' target='_blank'>online documentation</a>. For more information on how you can access our datasets please visit <a href='https://naturalresources.wales/evidence-and-data/accessing-our-data/?lang=en' target='_blank'>Accessing our Data</a>.",
+	"searchOver-loggedIn": "Welcome to the Natural Resources Wales Discovery Metadata Catalogue, where you can search for information on <strong>{{records}}</strong> datasets that are held by Natural Resources Wales. Read more about metadata and how to use this site in the <a href='https://nrw-metadata-portal.readthedocs.io/en/stable' target='_blank'>online documentation</a>.<br/><br/>If you have created or acquired a dataset that requires metadata or would like to add information to our current metadata then please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>",
 	"gmd:DQ_CompletenessOmission": "Data Quality Reports (Omission)",
 	"gmd:DQ_ThematicAccuracy": "Data Quality Reports (Thematic Accuracy)",
 	"gmd:DQ_TemporalAccuracy": "Data Quality Reports (Temporal Accuracy)",
@@ -21,5 +22,12 @@
 	"gmd:DQ_ConceptualConsistency": "Data Quality Reports (Conceptual Consistency)",
 	"gmd:DQ_DomainConsistency": "Data Quality Reports (Domain Consistency and INSPIRE)",
 	"gmd:LI_Lineage": "Data Quality Reports (Lineage)",
-	"searchAlineage": "Search for a lineage report ..."
+	"searchAlineage": "Search for a lineage report ...",
+	"wel": "Cymraeg",
+	"zarooResult": "No results found. If you are searching by the metadata URI please include the wildcard * in your search e.g. *98736. If you need assistance in finding metadata records, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>",
+	"anyFieldTitle": "For precise search results please use “ “ for exact matches. e.g. “Areas of Outstanding Natural Beauty”. To search using the metadata URI, please include the wildcard * in your search e.g. *98736",
+	"recordNotFound": "The metadata entry you are looking for is no longer available. If you need assistance in finding metadata records, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a> or for NRW staff please ensure you are <a href=\"catalog.signin?redirect={{url}}\">signed in</a>.",
+	"facet-formatSpecification": "Format specification",
+	"facet-hasOnlineResource": "Available to download",
+	"facet-license": "License"
 }
