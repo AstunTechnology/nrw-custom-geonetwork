@@ -94,7 +94,7 @@
               enabled: true,
               languages: {
                 eng: "en",
-                cym: "cy",
+                wel: "cy",
                 cat: "ca",
                 chi: "zh",
                 cze: "cs",

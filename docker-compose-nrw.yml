@@ -26,6 +26,8 @@ services:
       - ./nrw/geonetwork/catalog/locales/cy-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-search.json
       - ./nrw/geonetwork/catalog/locales/cy-v4.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-v4.json
       - ./nrw/geonetwork/catalog/locales/cy-gnui.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-gnui.json
+      - ./nrw/geonetwork/catalog/sql/loc-wel-default.sql:/var/lib/jetty/webapps/geonetwork/WEB-INF/classes/setup/sql/data/loc-wel-default.sql
+      - ./nrw/geonetwork/config-spring-geonetwork.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-spring-geonetwork.xml
       # sub-portals
       - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-gemini-postprocessing.xsl
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
