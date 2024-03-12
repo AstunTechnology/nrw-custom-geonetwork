@@ -115,6 +115,18 @@
     <div ng-include="'../../catalog/views/default/templates/recordView/contact.html'" />
   </div>
 
+  <!-- metadata information-->
+  <div class="col-md-4">
+    <h2 data-translate="">metadataInformation</h2>
+    <div class="col-md-12">
+      <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/metadata.html'" />
+    </div>
+
+    <div class="col-md-12 hidden-print">
+      <div ng-include="'../../catalog/views/default/templates/recordView/share.html'" />
+    </div>
+  </div>
+
   <!-- children records -->
   <div class="row">
     <div class="col-md-12 gn-record">
@@ -128,19 +140,6 @@
       ></div>
     </div>
   </div>
-
-  <!-- metadata information-->
-  <div class="col-md-4">
-    <h2 data-translate="">metadataInformation</h2>
-    <div class="col-md-8">
-      <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/metadata.html'" />
-    </div>
-
-    <div class="col-md-12 hidden-print">
-      <div ng-include="'../../catalog/views/default/templates/recordView/share.html'" />
-    </div>
-  </div>
-
 </div>
 
 <div class="hidden-print" ng-include="'../../catalog/views/default/templates/recordView/footer.html'" />
