@@ -53,6 +53,9 @@ services:
       # custom default record view
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
       - ./nrw/geonetwork/catalog/views/default/templates/recordView/type-dataset.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/type-dataset.html
+      - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/constraints.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/constraints.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/title.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/title.html
 
 
   ogc-api-records-service:
