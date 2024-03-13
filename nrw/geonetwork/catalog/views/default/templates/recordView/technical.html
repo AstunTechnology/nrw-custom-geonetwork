@@ -1,0 +1,163 @@
+<div>
+  <section
+    class="gn-md-side-dates"
+    data-ng-if="mdView.current.record.resourceDate.length > 0"
+    >
+    <ul>
+      <li data-ng-repeat="date in mdView.current.record.resourceDate">
+        <div
+          class="badge badge-rounded"
+          data-ng-class="{'danger': date.type === 'deprecated'}"
+        >
+          <i
+            class="fa fa-fw"
+            data-ng-class="{'fa-chevron-right': date.type === 'creation', 'fa-code-fork': date.type === 'superseded','fa-ban': date.type === 'deprecated', 'fa-retweet': date.type === 'revision', 'fa-check': date.type === 'publication', 'fa-calendar': date.type === 'nextUpdate'}"
+          />
+        </div>
+        <span>
+          <h3 data-translate>{{date.type | translate}}</h3>
+          <!-- <span data-gn-humanize-time="{{date.date}}"></span> -->
+          <span>{{date.date}}</span>
+        </span>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<!-- temporal extent -->
+<div
+  data-ng-show="mdView.current.record.resourceTemporalExtentDetails"
+  class="gn-margin-bottom flex-row"
+  >
+  <span class="badge badge-rounded">
+    <i class="fa fa-fw fa-calendar"></i>
+  </span>
+  <div>
+    <h3 data-translate="">tempExtent</h3>
+    <br />
+    <p data-ng-repeat="range in mdView.current.record.resourceTemporalExtentDetails">
+      <span data-ng-show="range.start">
+        <span data-ng-show="range.start.indeterminatePosition"
+          >{{range.start.indeterminatePosition | translate}}&nbsp;</span
+        >
+        <span data-gn-humanize-time="{{range.start.date}}" />
+        <span data-ng-show="range.start.calendarEraName"
+          >{{range.start.calendarEraName | translate}}</span
+        >
+      </span>
+      <span class="spacer" data-ng-show="range.start.date !== range.end.date">
+        <i class="fa fa-long-arrow-right"></i>
+      </span>
+      <span data-ng-show="range.end && range.start.date !== range.end.date">
+        <span data-ng-show="range.end.indeterminatePosition"
+          >{{range.end.indeterminatePosition | translate}}&nbsp;</span
+        >
+        <span data-gn-humanize-time="{{range.end.date}}" />
+        <span data-ng-show="range.end.calendarEraName"
+          >{{range.end.calendarEraName | translate}}</span
+        >
+      </span>
+    </p>
+  </div>
+</div>
+
+<div>
+  <div
+    data-ng-repeat="(key, t) in mdView.current.record.allKeywords"
+    data-ng-if="(user.canEditRecord(mdView.current.record)
+                 && viewConfig.internalThesaurus
+                 && viewConfig.internalThesaurus.indexOf(key) !== -1)
+                || highlightedThesaurus.indexOf(key) === -1
+                && !['Integrated Public Sector Vocabulary', 'SeaDataNet Parameter Discovery Vocabulary', 'NRW SMNR Vocabulary', 'GEMET - INSPIRE themes, version 1.0'].includes(t.title)"
+    class="gn-margin-bottom flex-row"
+  >
+    <span class="badge badge-rounded">
+      <i class="fa fa-fw fa-tags"></i>
+    </span>
+    <div>
+      <h3 data-translate="">{{(t.title || key) | translate}}</h3>
+
+      <div data-gn-keyword-badges="mdView.current.record" data-thesaurus="key" />
+    </div>
+  </div>
+</div>
+
+<div>
+  <!-- File identifier-->
+  <div
+    data-ng-if="mdView.current.record.fileIdentifier"
+    class="gn-margin-bottom flex-row"
+    >
+    <span class="badge badge-rounded" title="{{fileIdentifier | translate}}">
+      <i class="fa fa-fw fa-info"></i>
+    </span>
+    <div>
+      <h3 data-translate="">fileIdentifier</h3>
+      <p data-ng-show="mdView.current.record.fileIdentifier">{{mdView.current.record.fileIdentifier}}</p>
+    </div>
+  </div>
+</div>
+
+<div>
+  <!-- Parent dataset -->
+  <div
+  data-ng-if="mdView.current.record.related.parent.length > 0"
+  class="gn-margin-bottom flex-row"
+>
+  <span class="badge badge-rounded" title="{{parentRecord | translate}}">
+    <i class="fa fa-fw fa-link"></i>
+  </span>
+  <div>
+    <h3 data-translate="">parentRecord</h3>
+    <div
+      data-ng-if="mdView.current.record.related.uuids"
+      data-gn-related="mdView.current.record"
+      data-user="user"
+      data-alt-title="{{'memberOf' | translate}}"
+      data-layout="title"
+      data-types="parent"
+      style="padding: 0 !important;"
+    />
+  </div>
+</div>
+
+<div>
+  <!-- Language-->
+  <div
+    data-ng-if="mdView.current.record.resourceLanguage.length > 0"
+    class="gn-margin-bottom flex-row"
+  >
+    <span class="badge badge-rounded" title="{{'language' | translate}}">
+      <i class="fa fa-fw fa-language"></i>
+    </span>
+    <div>
+      <h3 data-translate="">language</h3>
+      <ul class="gn-comma-list">
+        <li data-ng-repeat="l in mdView.current.record.resourceLanguage">
+          {{l | translate}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div ng-include="'../../catalog/views/default/templates/recordView/categories.html'" />
+
+  <div
+    data-ng-if="mdView.current.record.cl_classification > 0"
+    class="gn-margin-bottom flex-row"
+    >
+    <span class="badge badge-rounded" title="{{'classification' | translate}}">
+      <i class="fa fa-fw fa-tags"></i>
+    </span>
+    <div>
+      <h3 data-translate="">classification</h3>
+      <ul>
+        <li data-ng-repeat="c in mdView.current.record.cl_classification">
+          {{c.default}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

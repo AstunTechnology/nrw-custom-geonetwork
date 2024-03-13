@@ -31,5 +31,7 @@
 	"facet-formatSpecification": "Format specification",
 	"facet-hasOnlineResource": "Available to download",
 	"facet-license": "License",
-	"parentRecord": "Parent record"
+	"parentRecord": "Parent record",
+	"fileIdentifier": "File identifier",
+	"uuid": "Resource identifier"
 }

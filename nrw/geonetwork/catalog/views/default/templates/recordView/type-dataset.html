@@ -13,8 +13,6 @@
       <div gn-record-is-replaced-by="mdView.current.record.uuid"></div>
 
       <div class="gn-margin-top" ng-include="'../../catalog/views/default/templates/recordView/thumbnails.html'" />
-
-      <div class="gn-margin-top" ng-include="'../../catalog/views/default/templates/recordView/summary.html'" />
     </div>
 
     <div class="row">
@@ -34,7 +32,12 @@
       </div>
       <!-- add license -->
       <div data-ng-if="mdView.current.record.license">
-        <h3>{{'license' | translate}}</h3>
+        <div class="gn-margin-bottom flex-row">
+          <span class="badge badge-rounded" title="{{'license' | translate}}">
+            <i class="fa fa-fw fa-registered"></i>
+          </span>
+          <h3>{{'license' | translate}}</h3>
+        </div>
         <ul class="gn-label-list">
           <li style="background-color: #fff;">
             <a data-gn-search-filter-popup-link="license"
@@ -43,7 +46,12 @@
         </ul>
       </div>
       <div data-ng-if="mdView.current.record.geom">
-        <h3>{{'spatialExtent' | translate}}</h3>
+        <div class="gn-margin-bottom flex-row">
+          <span class="badge badge-rounded" title="{{'spatialExtent' | translate}}">
+            <i class="fa fa-fw fa-map-marker"></i>
+          </span>
+          <h3>{{'spatialExtent' | translate}}</h3>
+        </div>
         <div data-gn-data-preview="mdView.current.record" />
         <br />
       </div>
