@@ -1,17 +1,20 @@
-<div
-  data-ng-if="mdView.current.record.MD_LegalConstraintsUseLimitation
-                     || mdView.current.record.MD_LegalConstraintsOtherConstraints"
-  class="gn-margin-bottom flex-row"
->
-  <span class="badge badge-rounded" title="{{'legalConstraints' | translate}}">
-    <i class="fa fa-fw fa-gavel"></i>
-  </span>
+<div data-ng-if="mdView.current.record.accessConstraints"
+  class="gn-margin-bottom row"
+  >
   <div>
-    <h2 data-translate="">accessAndUseConstraints</h2>
+    <h2 data-translate="">accessConstraints</h2>
     <div data-ng-if="mdView.current.record.limitationsPublicAccess">
       <h3 data-translate="">limitationsPublicAccess</h3>
       <p>{{mdView.current.record.limitationsPublicAccess}}</p>
     </div>
+  </div>
+</div>
+
+<div data-ng-if="mdView.current.record.useConstraints"
+  class="gn-margin-bottom row"
+  >
+  <h2 data-translate="">useConstraints</h2>
+  <div>
     <div data-ng-if="mdView.current.record.useConstraints">
       <h3 data-translate="">useConstraints</h3>
       <p>{{mdView.current.record.useConstraints}}</p>
