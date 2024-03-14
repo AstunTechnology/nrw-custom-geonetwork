@@ -33,5 +33,9 @@
 	"facet-license": "License",
 	"parentRecord": "Parent record",
 	"fileIdentifier": "File identifier",
-	"uuid": "Resource identifier"
+	"uuid": "Resource identifier",
+	"NRWcustomElements": "NRW Profile (Custom Elements)",
+	"NRW_relatedTitles": "NRW Related titles",
+	"NRW_internalContact": "NRW Internal Contact",
+	"NRW_internalLocation": "NRW Internal Location"
 }

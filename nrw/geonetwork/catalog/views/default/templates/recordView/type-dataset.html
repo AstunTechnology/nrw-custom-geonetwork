@@ -65,10 +65,25 @@
 
 <!-- links (Download, API, Others) -->
 <div class="row gn-section gn-section-{{mdView.current.record.resourceType[0]}}">
-  <div class="col-md-8 gn-record">
-    <div ng-include="'../../catalog/views/default/templates/recordView/downloads.html'" />
-    <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/constraints.html'" />
+  <div class="col-md-8 gn-record gn-page-break-avoid">
+    <div class="row">
+      <div ng-include="'../../catalog/views/default/templates/recordView/downloads.html'" />
+      <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/constraints.html'" />
+    </div>
+
+    <div data-ng-if="mdView.current.record.lineage
+                  || mdView.current.record.sourceDescription
+                  || mdView.current.record.supplementalInformation"
+      class="row"
+      >
+
+      <div ng-include="'../../catalog/views/default/templates/recordView/lineage.html'" />
+
+
+      <p data-ng-bind-html="(mdView.current.record.contentInfo) | linky | newlines"></p>
+    </div>
   </div>
+
 
   <div class="gn-md-side col-md-4 gn-record">
 
@@ -102,19 +117,31 @@
   </div>
 </div>
 
-<div class="row" data-ng-if="mdView.current.record.lineage
-                 || mdView.current.record.sourceDescription
-                 || mdView.current.record.supplementalInformation">
-  <div class="col-md-8 gn-record gn-page-break-avoid">
-    <div ng-include="'../../catalog/views/default/templates/recordView/lineage.html'" />
+<!-- NRW Custom elements -->
+<div class="col-md-8 gn-record gn-page-break-avoid"
+    data-ng-if="user.isConnected()">
+  <h2 data-translate=""
+    data-ng-if="mdView.current.record.NRW_relatedTitle ||
+                mdView.current.record.NRW_internalLocationInfo ||
+                mdView.current.record.NRW_internalContactInfo">NRWcustomElements</h2>
+  <div class="row" data-ng-if="mdView.current.record.NRW_relatedTitle">
+    <!-- NRW Related Titles -->
+    <h3 data-translate="">NRW_relatedTitles</h3>
+    <ul>
+      <li data-ng-repeat="r in [].concat(mdView.current.record.NRW_relatedTitle)">
+        {{r}}
+      </li>
+    </ul>
   </div>
-  <div class="gn-md-side gn-page-break-avoid">
-    <div ng-include="'../../catalog/views/default/templates/recordView/sources.html'" />
+  <div class="row" data-ng-if="mdView.current.record.NRW_internalContactInfo">
+    <h3 data-translate="">NRW_internalContact</h3>
+    <p>{{mdView.current.record.NRW_internalContactInfo}}</p>
   </div>
-
-  <p data-ng-bind-html="(mdView.current.record.contentInfo) | linky | newlines"></p>
+  <div class="row" data-ng-if="mdView.current.record.NRW_internalLocationInfo">
+    <h3 data-translate="">NRW_internalLocation</h3>
+    <p>{{mdView.current.record.NRW_internalLocationInfo}}</p>
+  </div>
 </div>
-
 
 <div class="row gn-section gn-section-{{mdView.current.record.resourceType[0]}}">
 

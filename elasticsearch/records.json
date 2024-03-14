@@ -1576,6 +1576,15 @@
       "fileIdentifier": {
         "type": "keyword"
       },
+      "NRW_internalLocationInfo": {
+        "type": "keyword"
+      },
+      "NRW_internalContactInfo": {
+        "type": "keyword"
+      },
+      "NRW_relatedTitle": {
+        "type": "keyword"
+      },
       "hasInspireTheme": {
         "type": "boolean"
       },
