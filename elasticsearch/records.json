@@ -1577,10 +1577,10 @@
         "type": "keyword"
       },
       "NRW_internalLocationInfo": {
-        "type": "keyword"
+        "type": "text"
       },
       "NRW_internalContactInfo": {
-        "type": "keyword"
+        "type": "text"
       },
       "NRW_relatedTitle": {
         "type": "keyword"
@@ -1905,6 +1905,15 @@
       },
       "license": {
         "type": "keyword"
+      },
+      "limitationsPublicAccess": {
+        "type": "text"
+      },
+      "useConstraints": {
+        "type": "text"
+      },
+      "attributionStatement": {
+        "type": "text"
       },
       "spatialRepresentationType": {
         "type": "keyword"

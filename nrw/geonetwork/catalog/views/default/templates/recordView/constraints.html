@@ -8,16 +8,18 @@
   </span>
   <div>
     <h2 data-translate="">accessAndUseConstraints</h2>
-
-    <p
-      data-gn-metadata-object-field="MD_LegalConstraintsOtherConstraints"
-      data-record="mdView.current.record"
-    />
-
-    <p
-      data-gn-metadata-object-field="MD_LegalConstraintsUseLimitation"
-      data-record="mdView.current.record"
-    />
+    <div data-ng-if="mdView.current.record.limitationsPublicAccess">
+      <h3 data-translate="">limitationsPublicAccess</h3>
+      <p>{{mdView.current.record.limitationsPublicAccess}}</p>
+    </div>
+    <div data-ng-if="mdView.current.record.useConstraints">
+      <h3 data-translate="">useConstraints</h3>
+      <p>{{mdView.current.record.useConstraints}}</p>
+    </div>
+    <div data-ng-if="mdView.current.record.attributionStatement">
+      <h3 data-translate="">attributionStatement</h3>
+      <p>{{mdView.current.record.attributionStatement}}</p>
+    </div>
   </div>
 </div>
 
