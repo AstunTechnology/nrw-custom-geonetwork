@@ -44,6 +44,10 @@
               data-filter="mdView.current.record.license">{{mdView.current.record.license}}</a>
           </li>
         </ul>
+        <img data-ng-if="mdView.current.record.license === 'Open Government Licence' ||
+                            mdView.current.record.license === 'Open Government Licence (OGL)'"
+            class="gn-margin-bottom gn-margin-top"
+            data-ng-src="/geonetwork/srv/api/logos/ogl-symbol.png" alt="Open Government Licence">
       </div>
       <div data-ng-if="mdView.current.record.geom">
         <div class="gn-margin-bottom flex-row">
@@ -52,7 +56,7 @@
           </span>
           <h3>{{'spatialExtent' | translate}}</h3>
         </div>
-        <div data-gn-data-preview="mdView.current.record" />
+        <div data-gn-data-preview="mdView.current.record" class="col-md-10 gn-margin-left"/>
         <br />
       </div>
       <div data-gn-keyword-badges="mdView.current.record" data-thesaurus="viewConfig.locationThesaurus" />
@@ -117,12 +121,11 @@
 </div>
 
 <!-- NRW Custom elements -->
-<div class="col-md-8 gn-record gn-page-break-avoid"
-    data-ng-if="user.isConnected()">
+<div class="col-md-8 gn-record gn-page-break-avoid">
   <h2 data-translate=""
     data-ng-if="mdView.current.record.NRW_relatedTitle ||
-                mdView.current.record.NRW_internalLocationInfo ||
-                mdView.current.record.NRW_internalContactInfo">NRWcustomElements</h2>
+                ((mdView.current.record.NRW_internalLocationInfo ||
+                mdView.current.record.NRW_internalContactInfo) && user.isConnected())">NRWcustomElements</h2>
   <div class="row" data-ng-if="mdView.current.record.NRW_relatedTitle">
     <!-- NRW Related Titles -->
     <h3 data-translate="">NRW_relatedTitles</h3>
@@ -132,11 +135,11 @@
       </li>
     </ul>
   </div>
-  <div class="row" data-ng-if="mdView.current.record.NRW_internalContactInfo">
+  <div class="row" data-ng-if="mdView.current.record.NRW_internalContactInfo && user.isConnected()">
     <h3 data-translate="">NRW_internalContact</h3>
     <p>{{mdView.current.record.NRW_internalContactInfo}}</p>
   </div>
-  <div class="row" data-ng-if="mdView.current.record.NRW_internalLocationInfo">
+  <div class="row" data-ng-if="mdView.current.record.NRW_internalLocationInfo && user.isConnected()">
     <h3 data-translate="">NRW_internalLocation</h3>
     <p>{{mdView.current.record.NRW_internalLocationInfo}}</p>
   </div>
