@@ -34,7 +34,7 @@
 	"parentRecord": "Parent record",
 	"fileIdentifier": "File identifier",
 	"uuid": "Resource identifier",
-	"NRWcustomElements": "NRW Profile (Custom elements)",
+	"NRWcustomElements": "NRW Profile",
 	"NRW_relatedTitles": "NRW Related titles",
 	"NRW_internalContact": "NRW Internal contact",
 	"NRW_internalLocation": "NRW Internal location",
