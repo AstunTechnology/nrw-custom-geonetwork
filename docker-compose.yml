@@ -138,6 +138,7 @@ services:
           - ./nginx/root/files:/var/www/html/files
           - ../geonetwork-data/overviews:/var/www/html/files/overviews
           - nginxlog:/var/log/nginx
+          - ./nginx/html/custom_404.html:/usr/share/nginx/html/custom_404.html
     ports:
       - "80:80"
       - "8443:8443"

@@ -1573,6 +1573,18 @@
       "id": {
         "type": "keyword"
       },
+      "fileIdentifier": {
+        "type": "keyword"
+      },
+      "NRW_internalLocationInfo": {
+        "type": "text"
+      },
+      "NRW_internalContactInfo": {
+        "type": "text"
+      },
+      "NRW_relatedTitle": {
+        "type": "keyword"
+      },
       "hasInspireTheme": {
         "type": "boolean"
       },
@@ -1893,6 +1905,15 @@
       },
       "license": {
         "type": "keyword"
+      },
+      "limitationsPublicAccess": {
+        "type": "text"
+      },
+      "useConstraints": {
+        "type": "text"
+      },
+      "attributionStatement": {
+        "type": "text"
       },
       "spatialRepresentationType": {
         "type": "keyword"

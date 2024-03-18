@@ -160,7 +160,7 @@
     "exportPDF": "Allforio (PDF)",
     "exportMEF": "Allforio (ZIP)",
     "welcomeText": "Yma fe welwch ddata, gwasanaethau a mapiau a mwy.",
-    "searchOver": "Chwilio setiau data, gwasanaethau a mapiau <strong>{{records}</strong>},...",
+    "searchOver": "Chwilio <strong>{{records}}</strong> setiau data, gwasanaethau a mapiau ...",
     "browseBy": "Pori yn ôl",
     "browseTopics": "Pori pynciau",
     "browseTypes": "Pori adnoddau",

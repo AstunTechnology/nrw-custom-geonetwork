@@ -1637,7 +1637,7 @@
         // Lang names to be displayed in language selector
         $scope.langLabels = {
           eng: "English",
-          cym: "Cymraeg",
+          wel: "Cymraeg",
           dut: "Nederlands",
           fre: "Français",
           ger: "Deutsch",

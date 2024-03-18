@@ -29,7 +29,7 @@ server {
     }
 
     location = / {
-        return 301 /geonetwork/cym/cym/catalog.search;
+        return 301 /geonetwork/cym/wel/catalog.search;
     }
 
     
