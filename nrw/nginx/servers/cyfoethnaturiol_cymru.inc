@@ -6,9 +6,7 @@ server {
     root /var/www/html;
     server_name test.metadata.cyfoethnaturiol.cymru;
 
-    # default geonetwork in docker
-
-    location /geonetwork {
+location /geonetwork {
 
         add_header X-Frame-Options "SAMEORIGIN" always;
         proxy_set_header Host $host;
@@ -28,10 +26,19 @@ server {
          #      }
     }
 
-    location = / {
+
+
+location /geonetwork/cym/eng {
         return 301 /geonetwork/cym/wel/catalog.search;
     }
 
+#location /geonetwork/cym/wel {
+#	return 301 /geonetwork/cym/catalog.search;
+#	}
+
+location /geonetwork/srv/eng {
+	return 301 /geonetwork/cym/wel/catalog.search;
+   }
     
     access_log /var/log/nginx/cy-access.log;
     error_log /var/log/nginx/cy-error.log;
