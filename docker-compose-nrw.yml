@@ -33,6 +33,9 @@ services:
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
       # custom branding
       - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
+      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/medin_custom_style.less
+      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gemini_custom_style.less
+      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/cym_custom_style.less
       - ./nrw/geonetwork/catalog/style/GothamRnd-Medium.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Medium.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-MedIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-MediumIta.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-Bold.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Bold.otf
