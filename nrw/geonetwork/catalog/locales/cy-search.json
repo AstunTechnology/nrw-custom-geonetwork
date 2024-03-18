@@ -164,7 +164,7 @@
     "browseBy": "Pori yn ôl",
     "browseTopics": "Pori pynciau",
     "browseTypes": "Pori adnoddau",
-    "versionDetails": "Wedi'i bweru gan GeoNetwork <span class='gn-version'>>{{platform}} {{version}}. {{subversion}}<<span class='gn-version'>",
+    "versionDetails": "Wedi'i bweru gan GeoNetwork <span class='gn-version'>{{platform}} {{version}}. {{subversion}}</span>",
     "lastRecords": "Newyddion diweddaraf",
     "preferredRecords": "Mwyaf poblogaidd",
     "about": "Ynghylch",
