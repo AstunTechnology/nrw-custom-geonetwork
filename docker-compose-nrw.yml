@@ -3,11 +3,11 @@ version: '3'
 services:
   geonetwork:
     volumes:
-      # client-specific customisations
-      # nrw profile
+      ### Schema overrides ###
+      # NRW profile
       - ../iso19139.nrw/src/main/plugin/iso19139.nrw:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw
-      #- ../iso19139.nrw/src/main/config/translations/en-schema-iso19139.nrw.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.nrw.json
       - ../iso19139.nrw/target/gn-schema-iso19139.nrw-4.2.8-SNAPSHOT.jar:/var/lib/jetty/webapps/geonetwork/WEB-INF/lib/gn-schema-iso19139.nrw-4.2.8-SNAPSHOT.jar
+      #- ../iso19139.nrw/src/main/config/translations/en-schema-iso19139.nrw.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-schema-iso19139.nrw.json
       # data quality snippets
       - ../geonetwork-snippets/nrw-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/index-fields/index-subtemplate.xsl
       # post-processing scripts
@@ -16,9 +16,19 @@ services:
       # Google Analytics code
       - ./nrw/xslt/base-layout.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout.xsl
       - ./nrw/xslt/render-html.xsl:/var/lib/jetty/webapps/geonetwork/xslt/common/render-html.xsl
-      # add Welsh to the language selector
+      # sub-portals
+      - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-gemini-postprocessing.xsl
+      - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
+      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/medin_custom_style.less
+      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gemini_custom_style.less
+      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/cym_custom_style.less
+      ### UI Changes ###
+      # custom strings
+      - ./nrw/geonetwork/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
+      # Welsh translation
       - ./nrw/geonetwork/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
-      # Welsh translation files
+      - ./nrw/geonetwork/catalog/sql/loc-wel-default.sql:/var/lib/jetty/webapps/geonetwork/WEB-INF/classes/setup/sql/data/loc-wel-default.sql
+      - ./nrw/geonetwork/config-spring-geonetwork.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-spring-geonetwork.xml
       - ./nrw/geonetwork/catalog/locales/cy-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-admin.json
       - ./nrw/geonetwork/catalog/locales/cy-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-core.json
       - ./nrw/geonetwork/catalog/locales/cy-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-custom.json
@@ -26,16 +36,23 @@ services:
       - ./nrw/geonetwork/catalog/locales/cy-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-search.json
       - ./nrw/geonetwork/catalog/locales/cy-v4.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-v4.json
       - ./nrw/geonetwork/catalog/locales/cy-gnui.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-gnui.json
-      - ./nrw/geonetwork/catalog/sql/loc-wel-default.sql:/var/lib/jetty/webapps/geonetwork/WEB-INF/classes/setup/sql/data/loc-wel-default.sql
-      - ./nrw/geonetwork/config-spring-geonetwork.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/config-spring-geonetwork.xml
-      # sub-portals
-      - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-gemini-postprocessing.xsl
-      - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
-      # custom branding
+      # custom branding (*.less / *.css files)
       - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
-      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/medin_custom_style.less
-      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/gemini_custom_style.less
-      - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/cym_custom_style.less
+      - ./nrw/geonetwork/catalog/style/gn_topics_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_topics_default.less
+      - ./nrw/geonetwork/catalog/style/iti.css:/var/lib/jetty/webapps/geonetwork/catalog/style/inspire/iti.css
+      # layout changes (*.html files)
+      - ./nrw/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
+      - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
+      - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
+      - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/type-dataset.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/type-dataset.html
+      - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/constraints.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/constraints.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/title.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/title.html
+      - ./nrw/geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
+      # hide minimap on Search page
+      - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
+      ### NRW font files ###
       - ./nrw/geonetwork/catalog/style/GothamRnd-Medium.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Medium.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-MedIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-MediumIta.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-Bold.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Bold.otf
@@ -44,22 +61,6 @@ services:
       - ./nrw/geonetwork/catalog/style/GothamRnd-BookIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-BookIta.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-Light.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Light.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-LightIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-LightIta.otf
-      - ./nrw/geonetwork/catalog/style/gn_topics_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_topics_default.less
-      - ./nrw/geonetwork/catalog/style/iti.css:/var/lib/jetty/webapps/geonetwork/catalog/style/inspire/iti.css
-      # remove extraneous advanced search options
-      - ./nrw/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
-      - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
-      # hide search minimap
-      - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
-      # make settings read-only
-      - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
-      # custom default record view
-      - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
-      - ./nrw/geonetwork/catalog/views/default/templates/recordView/type-dataset.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/type-dataset.html
-      - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
-      - ./nrw/geonetwork/catalog/views/default/templates/recordView/constraints.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/constraints.html
-      - ./nrw/geonetwork/catalog/views/default/templates/recordView/title.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/title.html
-      - ./nrw/geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
 
   ogc-api-records-service:
     volumes:
