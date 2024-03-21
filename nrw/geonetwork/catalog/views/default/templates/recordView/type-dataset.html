@@ -30,22 +30,22 @@
           </div>
         </div>
       </div>
-      <!-- add license -->
-      <div data-ng-if="mdView.current.record.license">
+      <!-- add licence -->
+      <div data-ng-if="mdView.current.record.licence">
         <div class="gn-margin-bottom flex-row">
-          <span class="badge badge-rounded" title="{{'license' | translate}}">
+          <span class="badge badge-rounded" title="{{'licence' | translate}}">
             <i class="fa fa-fw fa-registered"></i>
           </span>
-          <h3>{{'license' | translate}}</h3>
+          <h3>{{'licence' | translate}}</h3>
         </div>
         <ul class="gn-label-list">
           <li style="background-color: #fff;">
-            <a data-gn-search-filter-popup-link="license"
-              data-filter="mdView.current.record.license">{{mdView.current.record.license}}</a>
+            <a data-gn-search-filter-popup-link="licence"
+              data-filter="mdView.current.record.licence">{{mdView.current.record.licence}}</a>
           </li>
         </ul>
-        <img data-ng-if="mdView.current.record.license === 'Open Government Licence' ||
-                            mdView.current.record.license === 'Open Government Licence (OGL)'"
+        <img data-ng-if="mdView.current.record.licence === 'Open Government Licence' ||
+                            mdView.current.record.licence === 'Open Government Licence (OGL)'"
             class="gn-margin-bottom gn-margin-top"
             data-ng-src="/geonetwork/srv/api/logos/ogl-symbol.png" alt="Open Government Licence">
       </div>

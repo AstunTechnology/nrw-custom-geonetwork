@@ -1903,7 +1903,7 @@
       "formatSpecification": {
         "type": "keyword"
       },
-      "license": {
+      "licence": {
         "type": "keyword"
       },
       "limitationsPublicAccess": {
