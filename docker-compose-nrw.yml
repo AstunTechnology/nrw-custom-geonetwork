@@ -21,7 +21,7 @@ services:
       # Welsh translation files
       - ./nrw/geonetwork/catalog/locales/cy-admin.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-admin.json
       - ./nrw/geonetwork/catalog/locales/cy-core.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-core.json
-      #- ./nrw/geonetwork/catalog/locales/cy-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-custom.json
+      - ./nrw/geonetwork/catalog/locales/cy-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-custom.json
       - ./nrw/geonetwork/catalog/locales/cy-editor.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-editor.json
       - ./nrw/geonetwork/catalog/locales/cy-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-search.json
       - ./nrw/geonetwork/catalog/locales/cy-v4.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-v4.json
