@@ -1909,6 +1909,9 @@
       "limitationsPublicAccess": {
         "type": "text"
       },
+      "limitationsPublicAccessLink": {
+        "type": "text"
+      },
       "useConstraints": {
         "type": "text"
       },
