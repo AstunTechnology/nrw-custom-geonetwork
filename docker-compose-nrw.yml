@@ -36,6 +36,8 @@ services:
       - ./nrw/geonetwork/catalog/locales/cy-search.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-search.json
       - ./nrw/geonetwork/catalog/locales/cy-v4.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-v4.json
       - ./nrw/geonetwork/catalog/locales/cy-gnui.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-gnui.json
+      - ./nrw/geonetwork/catalog/style/inspire/iti-i18n-code.css:/var/lib/jetty/webapps/geonetwork/catalog/style/inspire/iti-i18n-code.css
+      - ./nrw/geonetwork/catalog/schemas/iso19139/src/main/plugin/iso19139/loc/wel:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/wel
       # custom branding (*.less / *.css files)
       - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
       - ./nrw/geonetwork/catalog/style/gn_topics_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_topics_default.less

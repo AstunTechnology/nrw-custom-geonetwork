@@ -27,7 +27,7 @@
 	"cym": "Cymraeg",
 	"zarooResult": "No results found. If you are searching by the metadata URI please include the wildcard * in your search e.g. *98736. If you need assistance in finding metadata records, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>",
 	"anyFieldTitle": "For precise search results please use “ “ for exact matches. e.g. “Areas of Outstanding Natural Beauty”. To search using the metadata URI, please include the wildcard * in your search e.g. *98736",
-	"recordNotFound": "The metadata entry you are looking for is no longer available. If you need assistance in finding metadata records, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a> or for NRW staff please ensure you are <a href=\"catalog.signin?redirect={{url}}\">signed in</a>.",
+	"recordNotFound": "The metadata entry you are looking for is no longer available. If you need assistance in finding metadata records, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a> or for NRW staff please ensure you are <a href='catalog.signin?redirect={{url}}'>signed in</a>.",
 	"facet-formatSpecification": "Format specification",
 	"facet-hasOnlineResource": "Available to download",
 	"facet-licence": "Licence",
