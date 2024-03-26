@@ -93,7 +93,11 @@
     </span>
     <div>
       <h3 data-translate="">fileIdentifier</h3>
-      <p data-ng-show="mdView.current.record.fileIdentifier">{{mdView.current.record.fileIdentifier}}</p>
+      <ul style="margin-left: -12px; word-break: break-all !important;">
+        <li style="list-style: none;" data-ng-repeat="f in [].concat(mdView.current.record.fileIdentifier) track by $index">
+          {{f}}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

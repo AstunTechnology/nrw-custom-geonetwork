@@ -1903,10 +1903,13 @@
       "formatSpecification": {
         "type": "keyword"
       },
-      "license": {
+      "licence": {
         "type": "keyword"
       },
       "limitationsPublicAccess": {
+        "type": "text"
+      },
+      "limitationsPublicAccessLink": {
         "type": "text"
       },
       "useConstraints": {

@@ -30,24 +30,22 @@
           </div>
         </div>
       </div>
-      <!-- add license -->
-      <div data-ng-if="mdView.current.record.license">
+      <!-- add licence -->
+      <div data-ng-if="mdView.current.record.licence">
         <div class="gn-margin-bottom flex-row">
-          <span class="badge badge-rounded" title="{{'license' | translate}}">
+          <span class="badge badge-rounded" title="{{'licence' | translate}}">
             <i class="fa fa-fw fa-registered"></i>
           </span>
-          <h3>{{'license' | translate}}</h3>
+          <h3>{{'licence' | translate}}</h3>
         </div>
         <ul class="gn-label-list">
-          <li style="background-color: #fff;">
-            <a data-gn-search-filter-popup-link="license"
-              data-filter="mdView.current.record.license">{{mdView.current.record.license}}</a>
+          <li data-ng-repeat="l in [].concat(mdView.current.record.licence)" style="background-color: #fff;">
+            <a data-gn-search-filter-popup-link="licence" data-filter="l">{{l}}</a>
           </li>
         </ul>
-        <img data-ng-if="mdView.current.record.license === 'Open Government Licence' ||
-                            mdView.current.record.license === 'Open Government Licence (OGL)'"
-            class="gn-margin-bottom gn-margin-top"
-            data-ng-src="/geonetwork/srv/api/logos/ogl-symbol.png" alt="Open Government Licence">
+        <img data-ng-if="([].concat(mdView.current.record.licence) | filter: filterLicence).length > 0"
+          class="gn-margin-bottom gn-margin-top"
+          data-ng-src="/geonetwork/srv/api/logos/ogl-symbol.png" alt="Open Government Licence">
       </div>
       <div data-ng-if="mdView.current.record.geom">
         <div class="gn-margin-bottom flex-row">

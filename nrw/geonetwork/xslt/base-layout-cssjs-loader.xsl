@@ -235,16 +235,13 @@
       <script src="{$uiResourcesPath}lib/vega/vega.js"></script>
     </xsl:if>
 
+    <!-- Hide minimap for NRW on Search page first load -->
     <xsl:if test = "$angularApp = 'gn_search'">
         <script type="text/javascript">
-            // Trigger the button click event as soon as the script is executed
             window.onload = function() {
-                // Select the button element using its class or ID
-                var button = document.querySelector(".gn-minimap-toggle"); // Adjust the selector as needed
+                var button = document.querySelector(".gn-minimap-toggle");
 
-                // Check if the button element exists
                 if (button) {
-                    // Trigger a click event on the button
                     button.click();
                 }
             };

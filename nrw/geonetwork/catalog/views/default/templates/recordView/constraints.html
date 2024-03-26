@@ -1,41 +1,41 @@
-<div data-ng-if="mdView.current.record.accessConstraints"
-  class="gn-margin-bottom row"
-  >
+<div data-ng-if="mdView.current.record.accessConstraints || mdView.current.record.limitationsPublicAccess"
+  class="row">
   <div>
     <h2 data-translate="">accessConstraints</h2>
+    <div data-ng-if="mdView.current.record.accessConstraints">
+      <h3 data-translate="">restrictionType</h3>
+      <p data-translate="">{{mdView.current.record.accessConstraints}}</p>
+    </div>
     <div data-ng-if="mdView.current.record.limitationsPublicAccess">
-      <h3 data-translate="">limitationsPublicAccess</h3>
-      <p>{{mdView.current.record.limitationsPublicAccess}}</p>
+      <h3 data-translate="">otherConstraints</h3>
+      <a href="{{mdView.current.record.limitationsPublicAccessLink}}" target="_blank">{{mdView.current.record.limitationsPublicAccess}}</a>
     </div>
   </div>
 </div>
 
-<div data-ng-if="mdView.current.record.useConstraints"
-  class="gn-margin-bottom row"
-  >
+<div data-ng-if="mdView.current.record.useConstraints || mdView.current.record.attributionStatement"
+  class="row">
   <h2 data-translate="">useConstraints</h2>
   <div>
     <div data-ng-if="mdView.current.record.useConstraints">
-      <h3 data-translate="">useConstraints</h3>
-      <p>{{mdView.current.record.useConstraints}}</p>
+      <h3 data-translate="">useConstraintsType</h3>
+      <p data-translate="">{{mdView.current.record.useConstraints}}</p>
     </div>
     <div data-ng-if="mdView.current.record.attributionStatement">
       <h3 data-translate="">attributionStatement</h3>
-      <p>{{mdView.current.record.attributionStatement}}</p>
+      <p data-ng-repeat="s in [].concat(mdView.current.record.attributionStatement)">{{s}}</p>
     </div>
   </div>
 </div>
 
 <div
   data-ng-if="mdView.current.record.MD_SecurityConstraintsUseLimitation"
-  class="gn-margin-bottom flex-row"
->
+  class="gn-margin-bottom flex-row">
   <span class="badge badge-rounded" title="{{'securityConstraints' | translate}}">
     <i class="fa fa-fw fa-lock"></i>
   </span>
   <div>
     <h2 data-translate="">securityConstraints</h2>
-
     <p
       data-gn-metadata-object-field="MD_SecurityConstraintsUseLimitation"
       data-record="mdView.current.record"
@@ -45,14 +45,12 @@
 
 <div
   data-ng-if="mdView.current.record.MD_ConstraintsUseLimitation"
-  class="flex-row gn-margin-bottom"
-  >
+  class="flex-row gn-margin-bottom">
   <span class="badge badge-rounded" title="{{'resourceConstraints' | translate}}">
     <i class="fa fa-fw fa-lock"></i>
   </span>
   <div>
     <h2 data-translate="">resourceConstraints</h2>
-
     <p
       data-gn-metadata-object-field="MD_ConstraintsUseLimitation"
       data-record="mdView.current.record"
