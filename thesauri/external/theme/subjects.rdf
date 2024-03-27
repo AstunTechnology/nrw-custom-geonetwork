@@ -5,8 +5,8 @@
     <dc:description>Generated from standards.esd.org.uk.</dc:description>
     <dc:creator>ESD-toolkit programme</dc:creator>
     <dc:rights>http://www.nationalarchives.gov.uk/doc/open-government-licence/</dc:rights>
-    <dcterms:issued>2020-11-18 10:00:00</dcterms:issued>
-    <dcterms:modified>2020-11-18 10:00:00</dcterms:modified>
+    <dcterms:issued>2020-11-18</dcterms:issued>
+    <dcterms:modified>2020-11-18</dcterms:modified>
   </skos:ConceptScheme>
   <rdf:Description rdf:about="http://id.esd.org.uk/list/subjects">
     <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme" />

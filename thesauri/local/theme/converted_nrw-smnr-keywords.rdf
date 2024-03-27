@@ -2,8 +2,8 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <skos:ConceptScheme xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/">
     <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">NRW SMNR Keywords</dc:title>
-    <dct:issued xmlns:dct="http://purl.org/dc/terms/">2024-03-05T11:12:33.477Z</dct:issued>
-    <dct:issued xmlns:dct="http://purl.org/dc/terms/">2024-03-05T11:12:33.477Z</dct:issued>
+    <dct:issued xmlns:dct="http://purl.org/dc/terms/">2024-03-05</dct:issued>
+    <dct:issued xmlns:dct="http://purl.org/dc/terms/">2024-03-05</dct:issued>
   </skos:ConceptScheme>
   <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/air">
     <skos:prefLabel xml:lang="en">Air (SMNR)</skos:prefLabel>
