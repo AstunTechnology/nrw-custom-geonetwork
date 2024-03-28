@@ -49,5 +49,6 @@
 	"restricted": "Restricted",
 	"useConstraintsType": "Use constraints type",
 	"ui-showMosaic": "Show planned outage message on Home page",
-	"plannedOutage": "Please be aware that Data Discovery will be unavailable from <strong>Time, Date</strong> to <strong>Time, Date</strong>. Apologies for any inconvenience, if you have any queries, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>"
+	"plannedOutage": "Please be aware that Data Discovery will be unavailable from <strong>Time, Date</strong> to <strong>Time, Date</strong>. Apologies for any inconvenience, if you have any queries, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>",
+	"contactUs": "Contact Us"
 }
