@@ -52,6 +52,7 @@ services:
       - ./nrw/geonetwork/catalog/views/default/templates/recordView/constraints.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/constraints.html
       - ./nrw/geonetwork/catalog/views/default/templates/recordView/title.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/title.html
       - ./nrw/geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
+      - ./nrw/geonetwork/catalog/views/default/templates/footer.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/footer.html
       # hide minimap on Search page
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
       # show OGL logo on record page
