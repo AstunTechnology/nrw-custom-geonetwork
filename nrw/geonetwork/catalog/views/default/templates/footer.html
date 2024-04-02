@@ -41,10 +41,9 @@ data-language="{{lang}}"
     </li>
 </ul>
 
-<ul class="nav navbar-nav" ng-show="getSocialLinksVisible()">
-    <li class="navbar-text">
-        <span data-translate="">shareOn</span>
-    </li>
+<div style="clear: both;" ng-show="getSocialLinksVisible()">
+  <span class="navbar-text" data-translate="">shareOn</span>
+  <ul class="nav navbar-nav social-media-list">
     <li>
         <a
         href="https://twitter.com/share?url={{socialMediaLink | encodeURIComponent}}"
@@ -108,4 +107,5 @@ data-language="{{lang}}"
         <span class="fa fa-fw fa-rss" />
         </a>
     </li>
-</ul>
+  </ul>
+</div>
