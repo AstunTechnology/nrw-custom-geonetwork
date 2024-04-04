@@ -106,9 +106,8 @@
           <div>
             <h3 data-translate="">format</h3>
             <ul class="gn-label-list">
-              <li>
-                <a data-gn-search-filter-popup-link="formatSpecification"
-                  data-filter="mdView.current.record.formatSpecification">{{mdView.current.record.formatSpecification}}</a>
+              <li data-ng-repeat="format in [].concat(mdView.current.record.formatSpecification)" style="background-color: #fff;">
+                <a data-gn-search-filter-popup-link="formatSpecification" data-filter="format">{{format}}</a>
               </li>
             </ul>
           </div>
