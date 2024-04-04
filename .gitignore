@@ -10,7 +10,6 @@ testing/target
 *.dump
 *.log
 *.err
-thesauri/local
 Tiltfile
 *.yaml
 tilt_modules

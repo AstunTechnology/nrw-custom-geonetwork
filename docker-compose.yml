@@ -48,6 +48,9 @@ services:
       ### General overrides ###
       - /data/geonetwork:/catalogue-data
       - ./thesauri/external/theme:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/theme
+      - ./thesauri/external/place:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/external/thesauri/place
+      - ./thesauri/local/theme:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/local/thesauri/theme
+      - ./thesauri/local/place:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/codelist/local/thesauri/place
       - ./elasticsearch/records.json:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/index/records.json
       ### UI overrides ###
       # Style changes (*.less / *.css files)
