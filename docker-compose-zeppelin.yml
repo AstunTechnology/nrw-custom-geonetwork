@@ -11,12 +11,13 @@ services:
     container_name: zeppelin
     volumes: 
       - ./zeppelin/zeppelin-notebook:/notebook
-      - ./shiro-geonetwork/geonetwork-integration/target/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar:/usr/local/tomcat/webapps/zeppelin/lib/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar
+      - ./shiro-geonetwork/geonetwork-integration/target/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar:/opt/zeppelin/lib/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar
       - ./zeppelin/zeppelin-logs:/zeppelin/logs
-      - ./shiro-geonetwork/lib/postgresql-42.3.3.jar:/usr/local/tomcat/webapps/zeppelin/lib/postgresql-42.3.3.jar
-      - ./shiro-geonetwork/conf/shiro.ini:/usr/local/tomcat/webapps/zeppelin/conf/shiro.ini
-      - ./zeppelin/zeppelin-conf/interpreter-setting.json:/usr/local/tomcat/webapps/zeppelin/interpreter/jdbc/interpreter-setting.json
-      - ./zeppelin/zeppelin-conf/zeppelin-site.xml:/usr/local/tomcat/webapps/zeppelin/conf/zeppelin-site.xml
+      - ./shiro-geonetwork/lib/postgresql-42.3.3.jar:/opt/zeppelin/lib/postgresql-42.3.3.jar
+      - ./shiro-geonetwork/conf/shiro.ini:/opt/zeppelin/conf/shiro.ini
+      - ./zeppelin/zeppelin-conf/interpreter-setting.json:/opt/zeppelin/interpreter/jdbc/interpreter-setting.json
+      - ./zeppelin/zeppelin-conf/zeppelin-site.xml:/opt/zeppelin/conf/zeppelin-site.xml
+      - ./zeppelin/zeppelin-conf/zeppelin-env.sh:/opt/zeppelin/conf/zeppelin-env.sh
       #- ./certs/cacerts:/custom_keystore/cacerts
     environment:
       - "ZEPPELIN_INTERPRETER_OUTPUT_LIMIT=10490000"

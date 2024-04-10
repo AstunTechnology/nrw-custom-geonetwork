@@ -1,0 +1,164 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%jdbc(saveAs=maxid, interpolation=\"true\")\nSELECT max(identifier) + 1 as maxid\nFROM (select regexp_replace(uuid, '\\D','','g')::numeric as identifier from metadata order by identifier desc) as foo;\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-04-08T16:21:26+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "maxid": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "maxid\n92702785146691205389890293\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1712310295821_1789657951",
+      "id": "paragraph_1712310295821_1789657951",
+      "dateCreated": "2024-04-05T09:44:55+0000",
+      "dateStarted": "2024-04-08T16:21:26+0000",
+      "dateFinished": "2024-04-08T16:21:26+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:261"
+    },
+    {
+      "text": "%python.ipython\nresult= z.getAsDataFrame('maxid')\nprint(result.values[0][0])",
+      "user": "anonymous",
+      "dateUpdated": "2024-04-08T16:21:29+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "92702785146691205389890293\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1712588955407_13758961",
+      "id": "paragraph_1712588955407_13758961",
+      "dateCreated": "2024-04-08T15:09:15+0000",
+      "dateStarted": "2024-04-08T16:21:29+0000",
+      "dateFinished": "2024-04-08T16:21:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:262"
+    },
+    {
+      "text": "%jdbc\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-04-08T15:38:46+0000",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1712590726311_871373845",
+      "id": "paragraph_1712590726311_871373845",
+      "dateCreated": "2024-04-08T15:38:46+0000",
+      "status": "READY",
+      "$$hashKey": "object:263"
+    }
+  ],
+  "name": "NRW Next Identifier",
+  "id": "2JUBZJ4VH",
+  "defaultInterpreterGroup": "jdbc",
+  "version": "0.11.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/NRW Next Identifier"
+}
