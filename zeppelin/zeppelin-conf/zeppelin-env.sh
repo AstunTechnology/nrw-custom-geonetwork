@@ -1,0 +1,3 @@
+      export JDBC_DB_URL=${JDBC_DB_URL}
+      export JDBC_DB_USER=${JDBC_DB_USER}
+      export JDBC_DB_PASSWORD=${JDBC_DB_PASSWORD}
