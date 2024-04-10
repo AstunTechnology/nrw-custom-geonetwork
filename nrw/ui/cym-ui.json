@@ -1,41 +1,67 @@
 {
+  "langDetector": {
+    "fromHtmlTag": false,
+    "regexp": "^(?:/.+)?/.+/([a-z]{2,3})/.+",
+    "default": "wel"
+  },
   "mods": {
-    "home": {
-      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/home",
-      "showMosaic": false
-    },
-    "search": {
-      "languageWhitelist": [],
-      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/search"
-    },
     "header": {
       "languages": {
-        "cym": "cy"
+        "wel": "cy"
       },
-      "showPortalSwitcher": false
+      "showPortalSwitcher": "",
+      "topCustomMenu": [
+        "gn-site-name-menu",
+        "gn-portal-switcher",
+        "gn-search-menu",
+        "gn-map-menu",
+        "gn-contribute-menu",
+        "gn-admin-menu",
+        "ogc-api-welsh",
+        "english-portal"
+      ]
+    },
+    "home": {
+      "appUrl": "../../cym/wel/catalog.search#/home",
+      "showMosaic": false,
+      "showSocialBarInFooter": false
+    },
+    "search": {
+      "appUrl": "../../cym/wel/catalog.search#/search",
+      "savedSelection": {
+        "enabled": true
+      },
+      "usersearches": {
+        "enabled": true,
+        "includePortals": true,
+        "displayFeaturedSearchesPanel": false
+      }
+    },
+    "editor": {
+      "enabled": false
+    },
+    "admin": {
+      "enabled": false
     },
     "authentication": {
       "enabled": false
     },
     "map": {
-      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/map"
+      "enabled": false
+    },
+    "footer": {
+      "showSocialBarInFooter": false
+    },
+    "recordview": {
+      "isSocialbarEnabled": false
     }
-  },
-  "langDetector": {
-    "fromHtmlTag": false,
-    "regexp": "^(?:/.+)?/.+/([a-z]{2,3})/.+",
-    "default": "cym"
-  },
-  "nodeDetector": {
-    "regexp": "^(?:/.+)?/(.+)/[a-z]{2,3}/.+",
-    "default": "cym"
   },
   "baseURLDetector": {
     "regexp": "^((?:/.+)?)+/.+/[a-z]{2,3}/.+",
     "default": "/geonetwork"
   },
-  "serviceDetector": {
-    "regexp": "^(?:/.+)?/.+/[a-z]{2,3}/(.+)",
-    "default": "catalog.search"
+  "nodeDetector": {
+    "regexp": "^(?:/.+)?/(.+)/[a-z]{2,3}/.+",
+    "default": "srv"
   }
 }
