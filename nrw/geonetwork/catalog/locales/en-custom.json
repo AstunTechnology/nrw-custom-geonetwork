@@ -51,5 +51,6 @@
 	"ui-showMosaic": "Show planned outage message on Home page",
 	"plannedOutage": "Please be aware that Data Discovery will be unavailable from <strong>28/03/2024 (15:00)</strong> to <strong>28/03/2024 (16:00)</strong>. Apologies for any inconvenience, if you have any queries, please contact <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>",
 	"contactUs": "Contact Us",
-	"createMetadataError-duplicateUUID": "There is already an existing record with this resource identifier. Get the next available identifier <a target='_blank' href='http://localhost/geonetwork/srv/eng/catalog.search#/page/get-next-identifier?page=get-next-identifier'>here</a>"
+	"createMetadataError-duplicateUUID": "There is already an existing record with this resource identifier. Get the next available identifier <a target='_blank' href='http://localhost/geonetwork/srv/eng/catalog.search#/page/get-next-identifier?page=get-next-identifier'>here</a>",
+	"facet-tag.\\*": "Keyword"
 }
