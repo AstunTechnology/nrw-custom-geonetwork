@@ -39,5 +39,6 @@
 	"accessConstraints": "Limitations on Public Access and Use",
 	"attributionStatement": "Attribution statement",
 	"ui-showMosaic": "Show planned outage message on Home page",
-	"plannedOutage": "Byddwch yn ymwybodol na fydd Darganfod Data ar gael o <strong>Time, Date</strong> at <strong>Time, Date</strong>. Ymddiheurwn am unrhyw anghyfleustra, os oes gennych unrhyw ymholiadau, cysylltwch ag <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>"
+	"plannedOutage": "Byddwch yn ymwybodol na fydd Darganfod Data ar gael o <strong>Time, Date</strong> at <strong>Time, Date</strong>. Ymddiheurwn am unrhyw anghyfleustra, os oes gennych unrhyw ymholiadau, cysylltwch ag <a href='mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry' target='_blank'>opendata@cyfoethnaturiolcymru.gov.uk</a>",
+	"contactUs": "Cysylltu â Ni"
 }
