@@ -9,29 +9,9 @@
 
 
     
-    <xsl:strip-space elements="*"/>
+    <!-- Import base formatter -->
 
-
-    <!-- Template for Copy data -->
-    <xsl:template name="copyData" match="@*|node()">
-        <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/>
-        </xsl:copy>
-    </xsl:template>
-    
-    <!-- example from docs <xsl:template match="*[gmd:CI_OnlineResource
-                         and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[not(starts-with(text(), 'http'))]) > 0]"
-                priority="2"/> -->
-    
-    <!-- remove PostGIS protocol resources -->
-    <xsl:template match="*[gmd:CI_OnlineResource and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[(starts-with(text(), 'PG'))]) > 0]" priority="1000">
-        <xsl:message>=== Stripping Online Resources where the URL is a PostgreSQL DSN ===</xsl:message>
-    </xsl:template>
-
-        <!-- Don't copy elements from the NRW namespace -->
-    <xsl:template match="nrw:*">
-        <xsl:message>== Discarding elements from the NRW namespace ===</xsl:message>
-    </xsl:template>
+    <xsl:import href="generic-postprocessing.xsl"/>
     
     <!--  Change standard to UK GEMINI  -->
     <xsl:template match="//gmd:metadataStandardName"  priority="10">

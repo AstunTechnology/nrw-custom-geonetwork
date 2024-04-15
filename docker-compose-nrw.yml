@@ -11,6 +11,7 @@ services:
       # data quality snippets
       - ../geonetwork-snippets/nrw-index-fields/index-subtemplate.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/index-fields/index-subtemplate.xsl
       # post-processing scripts
+      - ./nrw/sub-portal-postprocessing/generic-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/generic-postprocessing.xsl
       - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/gmd-gemini-postprocessing.xsl
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/gmd-medin-postprocessing.xsl
       # Google Analytics code
