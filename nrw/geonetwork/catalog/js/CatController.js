@@ -144,7 +144,7 @@
                     prefix: "fa fa-2x pull-left gn-icon iti-",
                     expression: "http://inspire.ec.europa.eu/theme/(.*)"
                   },
-                  orderByTranslation: true
+                  // orderByTranslation: true
                 }
               },
               "cl_topic.key": {
@@ -157,7 +157,7 @@
                     type: "icon",
                     prefix: "fa fa-2x pull-left gn-icon-"
                   },
-                  orderByTranslation: true
+                  // orderByTranslation: true
                 }
               },
               // 'OrgForResource': {
