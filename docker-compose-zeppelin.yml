@@ -10,7 +10,7 @@ services:
     #   dockerfile: dockerfile.zeppelin
     container_name: zeppelin
     volumes: 
-      - ./zeppelin/zeppelin-notebook:/notebook
+      - /data/zeppelin/notebook:/notebook
       - ./shiro-geonetwork/geonetwork-integration/target/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar:/opt/zeppelin/lib/testshiro-1.0-SNAPSHOT-jar-with-dependencies.jar
       - ./zeppelin/zeppelin-logs:/zeppelin/logs
       - ./shiro-geonetwork/lib/postgresql-42.3.3.jar:/opt/zeppelin/lib/postgresql-42.3.3.jar
