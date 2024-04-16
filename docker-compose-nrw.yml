@@ -58,6 +58,8 @@ services:
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html
       - ./nrw/geonetwork/catalog/templates/editor/new-metadata-horizontal.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/new-metadata-horizontal.html
       ## *.xsl file changes ##
+      # adjust the header in the permalink view
+      - ./nrw/geonetwork/xslt/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
       # hide minimap on Search page
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
       ## functionality changes (*.js files) ##
