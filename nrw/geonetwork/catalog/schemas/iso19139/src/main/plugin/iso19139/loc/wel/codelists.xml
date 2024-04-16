@@ -1520,7 +1520,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
     <entry>
       <code>collectionSession</code>
-      <label>Collection session</label>
+      <label>Sesiwn casglu</label>
       <description>Information applies to the collection session</description>
     </entry>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -1532,7 +1532,7 @@
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
     <entry>
       <code>series</code>
-      <label>Series</label>
+      <label>Cyfres</label>
       <description>Information applies to the series</description>
     </entry>
     <!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -1642,7 +1642,7 @@
     </entry>
     <entry hideInEditMode="true">
       <code>featureCatalog</code>
-      <label>Feature catalog</label>
+      <label>Catalog nodwedd</label>
       <description></description>
     </entry>
   </codelist>
