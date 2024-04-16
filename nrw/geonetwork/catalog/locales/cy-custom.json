@@ -53,5 +53,7 @@
 	"featureCatalog": "Catalog nodwedd",
 	"List": "Rhestr",
 	"Table": "Tabl",
-	"facet-tag.\\*": "Allweddair"
+	"facet-tag.\\*": "Allweddair",
+	"nextAvailableIdentifier": "Next available identifier:",
+	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below."
 }
