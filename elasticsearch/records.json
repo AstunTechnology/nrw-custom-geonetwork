@@ -1719,7 +1719,7 @@
           }
         }
       },
-      "accessConstraints": {
+      "accessConstraintsRestrictionType": {
         "type": "text",
         "fields": {
           "keyword": {
@@ -1906,13 +1906,19 @@
       "licence": {
         "type": "keyword"
       },
-      "limitationsPublicAccess": {
+      "limitationsPublicAccessLinkText": {
         "type": "text"
       },
       "limitationsPublicAccessLink": {
         "type": "text"
       },
-      "useConstraints": {
+      "accessConstraintsText": {
+        "type": "text"
+      },
+      "useConstraintsType": {
+        "type": "text"
+      },
+      "useConstraintsText": {
         "type": "text"
       },
       "attributionStatement": {
