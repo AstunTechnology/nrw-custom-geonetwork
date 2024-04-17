@@ -88,7 +88,7 @@
                 </xsl:if>
               </xsl:if>
 
-              <xsl:if test="$output != 'pdf' and $lang != 'all'">
+              <xsl:if test="$output != 'pdf' and $lang = ''">
                 <xsl:variable name="isSearchEnabled"
                               select="if (util:getUiConfigurationJsonProperty(/root/request/ui, 'mods.search.enabled') = 'false')
                                     then false()
@@ -125,7 +125,7 @@
               </xsl:if>
             </ul>
 
-            <xsl:if test="$output != 'pdf' and $lang != 'all'">
+            <xsl:if test="$output != 'pdf' and $lang = ''">
               <xsl:variable name="isAuthenticated"
                             select="util:isAuthenticated()"/>
               <xsl:variable name="isSigninEnabled"
@@ -189,7 +189,7 @@
   </xsl:template>
 
   <xsl:template name="footer">
-    <xsl:if test="$output != 'pdf' and $lang != 'all'">
+    <xsl:if test="$output != 'pdf' and $lang = ''">
       <xsl:variable name="isFooterEnabled"
                     select="if (util:getUiConfigurationJsonProperty(/root/request/ui, 'mods.footer.enabled') = 'false')
                           then false()
