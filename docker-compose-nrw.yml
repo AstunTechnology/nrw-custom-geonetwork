@@ -39,11 +39,11 @@ services:
       - ./nrw/geonetwork/catalog/locales/cy-gnui.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/cy-gnui.json
       - ./nrw/geonetwork/catalog/style/inspire/iti-i18n-code.css:/var/lib/jetty/webapps/geonetwork/catalog/style/inspire/iti-i18n-code.css
       - ./nrw/geonetwork/catalog/schemas/iso19139/src/main/plugin/iso19139/loc/wel:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/wel
-      # custom branding (*.less / *.css files)
+      ## custom branding (*.less / *.css files) ##
       - ./nrw/geonetwork/catalog/style/srv_custom_style.less:/var/lib/jetty/webapps/geonetwork/catalog/style/srv_custom_style.less
       - ./nrw/geonetwork/catalog/style/gn_topics_default.less:/var/lib/jetty/webapps/geonetwork/catalog/views/default/less/gn_topics_default.less
       - ./nrw/geonetwork/catalog/style/iti.css:/var/lib/jetty/webapps/geonetwork/catalog/style/inspire/iti.css
-      # layout changes (*.html files)
+      ## layout changes (*.html files) ##
       - ./nrw/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
       - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
       - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
@@ -56,8 +56,13 @@ services:
       - ./nrw/geonetwork/catalog/views/default/templates/footer.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/footer.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html
+      - ./nrw/geonetwork/catalog/templates/editor/new-metadata-horizontal.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/new-metadata-horizontal.html
+      ## *.xsl file changes ##
+      # adjust the header in the permalink view
+      - ./nrw/geonetwork/xslt/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
       # hide minimap on Search page
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
+      ## functionality changes (*.js files) ##
       # show OGL logo on record page
       - ./nrw/geonetwork/catalog/js/mdviewModule.js:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/mdviewModule.js
       # change error for creating records with duplicate UUIDs
