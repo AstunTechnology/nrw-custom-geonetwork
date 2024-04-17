@@ -57,6 +57,7 @@ services:
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html
       - ./nrw/geonetwork/catalog/templates/editor/new-metadata-horizontal.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/new-metadata-horizontal.html
+      - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-signin.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-signin.html
       ## *.xsl file changes ##
       # adjust the header in the permalink view
       - ./nrw/geonetwork/xslt/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
