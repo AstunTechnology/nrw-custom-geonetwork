@@ -1,4 +1,5 @@
-<ul class="nav navbar-nav" ng-show="::getApplicationInfoVisible()">
+<!-- Add role attribute for accessibility purposes -->
+<ul class="nav navbar-nav" ng-show="::getApplicationInfoVisible()" role="menu">
     <li class="navbar-text">
       <span
         data-translate=""
@@ -23,15 +24,17 @@
     </li>
 </ul>
 
+<!-- Add role attribute for accessibility purposes -->
 <ul
 class="nav navbar-nav"
 gn-static-pages-list-viewer
 data-section="footer"
 data-language="{{lang}}"
+role="menu"
 ></ul>
 
 <!-- Add Contact Us link for NRW -->
-<ul class="nav navbar-nav">
+<ul class="nav navbar-nav" role="menu">
     <li>
         <a href="mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry"
         target="_blank"
@@ -45,7 +48,8 @@ data-language="{{lang}}"
 
 <div style="clear: both;" ng-show="getSocialLinksVisible()">
   <span class="navbar-text" data-translate="">shareOn</span>
-  <ul class="nav navbar-nav social-media-list">
+  <!-- Add role attribute for accessibility purposes -->
+  <ul class="nav navbar-nav social-media-list" role="menu">
     <li>
         <a
         href="https://twitter.com/share?url={{socialMediaLink | encodeURIComponent}}"
