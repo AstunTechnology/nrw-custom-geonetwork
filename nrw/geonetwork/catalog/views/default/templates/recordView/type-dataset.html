@@ -23,7 +23,8 @@
         <div>
           <h3 data-translate="">uuid</h3>
           <div class="input-group">
-            <input type="text" class="form-control" value="{{::mdView.current.record.uuid}}" readonly="readonly" />
+            <!-- Add aria-label attribute to improve accessibility -->
+            <input type="text" class="form-control" aria-label="{{::mdView.current.record.uuid}}" value="{{::mdView.current.record.uuid}}" readonly="readonly" />
             <span gn-copy-to-clipboard-button="" data-btn-class="input-group-addon"
               data-text="{{::mdView.current.record.uuid}}">
             </span>
