@@ -1,0 +1,21 @@
+<li class="clearfix hidden-xs" data-ng-show="gnCfg.mods.home.enabled" role="menuitem">
+    <!-- Remove link to homepage for NRW accessibility -->
+    <!-- Set the alt attribute to be empty for NRW accessibility - previously set to {{'siteLogo' | translate}} -->
+    <img
+        class="pull-left"
+        style="margin-top: 12px; max-height: 30px;"
+        data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}"
+        alt=""
+        data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
+      />
+    <a class="pull-left gn-logo-link" data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
+        <span
+            class="gn-name gn-margin-left hidden-sm"
+            data-ng-if="gnCfg.mods.header.showGNName"
+            data-ng-class="authenticated && user.isEditorOrMore() ? 'gn-truncate' : ''"
+            title="{{info['node/name'] || info['system/site/name']}}"
+        >
+            {{info['node/name'].split('|')[0] || info['system/site/name']}}
+        </span>
+    </a>
+</li>
