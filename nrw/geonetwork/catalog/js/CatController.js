@@ -143,7 +143,7 @@
                     type: "icon",
                     prefix: "fa fa-2x pull-left gn-icon iti-",
                     expression: "http://inspire.ec.europa.eu/theme/(.*)"
-                  },
+                  }
                   // orderByTranslation: true
                 }
               },
@@ -156,7 +156,7 @@
                   decorator: {
                     type: "icon",
                     prefix: "fa fa-2x pull-left gn-icon-"
-                  },
+                  }
                   // orderByTranslation: true
                 }
               },
