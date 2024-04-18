@@ -1066,10 +1066,12 @@
       return {
         restrict: "A",
         replace: true,
+        // Added aria-label to meet accessibility requirements
         template:
           "<a class=\"{{::btnClass || 'btn btn-default btn-xs'}}\" " +
           '           ng-click="copy()" ' +
           '           href=""' +
+          '           aria-label="Copy to clipboard."' +
           '           title="{{::title | translate}}">' +
           '  <i class="fa fa-fw" ' +
           "   ng-class=\"{'fa-copy': !copied, 'fa-check': copied}\"/>" +
