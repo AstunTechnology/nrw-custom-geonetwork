@@ -59,6 +59,7 @@ services:
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-signin.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-signin.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-sitename.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-sitename.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/top-toolbar.html
+      - ./nrw/geonetwork/catalog/components/pages/partials/top.html:/var/lib/jetty/webapps/geonetwork/catalog/components/pages/partials/top.html
       - ./nrw/geonetwork/catalog/views/default/templates/index.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/index.html
       ## *.xsl file changes ##
       # correct aria-label for map coordinates fields #

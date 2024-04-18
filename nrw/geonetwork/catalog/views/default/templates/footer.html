@@ -1,27 +1,31 @@
 <!-- Add role attribute for accessibility purposes -->
 <ul class="nav navbar-nav" ng-show="::getApplicationInfoVisible()" role="menu">
-    <li class="navbar-text">
-      <span
-        data-translate=""
-        data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}"
-      >
-        versionDetails</span
-      >
-    </li>
-    <li>
-      <a href="http://geonetwork-opensource.org/">
-        <span data-translate="">about</span>
-      </a>
-    </li>
-    <li class="hidden-sm">
-      <a href="https://github.com/geonetwork/core-geonetwork">
-        <span class="fa fa-fw fa-github"></span>
-        <span data-translate="">github</span>
-      </a>
-    </li>
-    <li>
-      <a href="../../doc/api" title="{{'learnTheApi' | translate}}">API</a>
-    </li>
+  <!-- Add role attribute for accessibility purposes -->
+  <li class="navbar-text" role="menuitem">
+    <span
+      data-translate=""
+      data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}"
+    >
+      versionDetails</span
+    >
+  </li>
+  <!-- Add role attribute for accessibility purposes -->
+  <li role="menuitem">
+    <a href="http://geonetwork-opensource.org/">
+      <span data-translate="">about</span>
+    </a>
+  </li>
+  <!-- Add role attribute for accessibility purposes -->
+  <li class="hidden-sm" role="menuitem">
+    <a href="https://github.com/geonetwork/core-geonetwork">
+      <span class="fa fa-fw fa-github"></span>
+      <span data-translate="">github</span>
+    </a>
+  </li>
+  <!-- Add role attribute for accessibility purposes -->
+  <li role="menuitem">
+    <a href="../../doc/api" title="{{'learnTheApi' | translate}}">API</a>
+  </li>
 </ul>
 
 <!-- Add role attribute for accessibility purposes -->
@@ -35,15 +39,16 @@ role="menu"
 
 <!-- Add Contact Us link for NRW -->
 <ul class="nav navbar-nav" role="menu">
-    <li>
-        <a href="mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry"
-        target="_blank"
-        title="{{'contactUs' | translate}}"
-        aria-label="{{'contactUs' | translate}}"
-        data-translate=""
-        data-language="{{lang}}"
-        >contactUs</a>
-    </li>
+  <!-- Add role attribute for accessibility purposes -->
+  <li role="menuitem">
+    <a href="mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry"
+    target="_blank"
+    title="{{'contactUs' | translate}}"
+    aria-label="{{'contactUs' | translate}}"
+    data-translate=""
+    data-language="{{lang}}"
+    >contactUs</a>
+  </li>
 </ul>
 
 <div style="clear: both;" ng-show="getSocialLinksVisible()">
@@ -101,17 +106,17 @@ role="menu"
         ></a>
     </li>
     <li
-        data-ng-if="info['microservices/enabled'] === true"
-        data-ng-repeat="rssFeed in rssFeeds"
+      data-ng-if="info['microservices/enabled'] === true"
+      data-ng-repeat="rssFeed in rssFeeds"
     >
-        <a
-        href="../../api/collections/{{nodeId === 'srv' ? 'main' : nodeId}}/items?{{rssFeed.url}}"
-        title="{{rssFeed.label | translate}}"
-        aria-label="{{rssFeed.label | translate}}"
-        >
-        <span data-ng-if="rssFeeds.length > 1"> {{rssFeed.label | translate}} </span>
-        <span class="fa fa-fw fa-rss" />
-        </a>
+      <a
+      href="../../api/collections/{{nodeId === 'srv' ? 'main' : nodeId}}/items?{{rssFeed.url}}"
+      title="{{rssFeed.label | translate}}"
+      aria-label="{{rssFeed.label | translate}}"
+      >
+      <span data-ng-if="rssFeeds.length > 1"> {{rssFeed.label | translate}} </span>
+      <span class="fa fa-fw fa-rss" />
+      </a>
     </li>
   </ul>
 </div>

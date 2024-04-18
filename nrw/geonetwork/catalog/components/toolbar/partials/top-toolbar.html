@@ -42,18 +42,21 @@
     <div id="navbar" class="navbar-accessible navbar-collapse collapse">
       <!-- Add role attribute for accessibility purposes -->
       <ul class="nav navbar-nav gn-menu-xs" role="menu">
-        <li data-ng-repeat-start="menu in toolbarMenu"></li>
+        <!-- Add role attribute for accessibility purposes -->
+        <li data-ng-repeat-start="menu in toolbarMenu" role="menuitem"></li>
         <li data-ng-if="menu == 'gn-site-name-menu'" gn-site-name-menu=""></li>
         <li data-ng-if="menu == 'gn-portal-switcher'" gn-portal-switcher=""></li>
         <li data-ng-if="menu == 'gn-search-menu'" gn-search-menu=""></li>
         <li data-ng-if="menu == 'gn-map-menu'" gn-map-menu=""></li>
         <li data-ng-if="menu == 'gn-contribute-menu'" gn-contribute-menu=""></li>
         <li data-ng-if="menu == 'gn-admin-menu'" gn-admin-menu=""></li>
+        <!-- Add role attribute for accessibility purposes -->
         <li
           data-ng-if="isPage(menu)"
           gn-static-page-menu="menu"
           language="{{lang}}"
           section="top"
+          role="menuitem"
         ></li>
         <!-- Add role attribute for accessibility purposes -->
         <ul
@@ -64,7 +67,8 @@
           class="nav navbar-nav gn-menu-xs"
           role="menu"
         ></ul>
-        <li data-ng-repeat-end=""></li>
+        <!-- Add role attribute for accessibility purposes -->
+        <li data-ng-repeat-end="" role="menuitem"></li>
       </ul>
       <div class="navbar-right">
         <!-- Add role attribute for accessibility purposes -->

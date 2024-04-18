@@ -3,7 +3,7 @@
   class="nav navbar-nav username-dropdown accessible-dropdown"
 >
   <!-- logged in -->
-  <li class="dropdown" data-ng-show="authenticated">
+  <li class="dropdown" data-ng-show="authenticated" role="menuitem">
     <a
       title="{{'userDetails' | translate}}"
       href
@@ -33,7 +33,9 @@
             sessionWillExpireIn
         </span>
     </a>
-    <ul class="dropdown-menu gn-menuitem-xs">
+    <!-- Add role attribute for accessibility purposes -->
+    <ul class="dropdown-menu gn-menuitem-xs" role="menu">
+      <!-- Add role attribute for accessibility purposes -->
       <li class="text-center hidden-xs" role="menuitem">
         <!-- Removed alt attribute for NRW accessibility testing fixes - previously set to {{'avatar' | translate}} -->
         <img
@@ -67,9 +69,11 @@
       </li>
     </ul>
   </li>
+  <!-- Add role attribute for accessibility purposes -->
   <li
     class="open signin-dropdown"
     data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && isShowLoginAsLink"
+    role="menuitem"
   >
     <a
       href="{{signInFormAction}}?_csrf={{csrf}}&redirectUrl={{redirectUrlAfterSign}}"
@@ -83,9 +87,11 @@
     </a>
   </li>
   <!-- not logged in -->
+  <!-- Add role attribute for accessibility purposes -->
   <li
     class="dropdown signin-dropdown"
     data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && !isShowLoginAsLink && !isDisableLoginForm"
+    role="menuitem"
   >
     <a
       href="{{gnCfg.mods.authentication.signinUrl | signInLink}}"
@@ -100,7 +106,8 @@
       {{'signIn' | translate}}
       <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu">
+    <!-- Add role attribute for accessibility purposes -->
+    <ul class="dropdown-menu" role="menu">
       <form
         name="gnSigninForm"
         class="navbar-form"
