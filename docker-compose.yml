@@ -61,7 +61,7 @@ services:
       - ./geonetwork/catalog/views/default/templates/recordView/technical.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/technical.html
       - ./geonetwork/catalog/templates/admin/usergroup/users.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/usergroup/users.html
       - ./geonetwork/catalog/components/edit/datepicker/partials/datepicker.html:/var/lib/jetty/webapps/geonetwork/catalog/components/edit/datepicker/partials/datepicker.html
-      - ./geonetwork/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html
+      #- ./geonetwork/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html
       - ./geonetwork/catalog/components/utility/partials/recordOriginLogo.html:/var/lib/jetty/webapps/geonetwork/catalog/components/utility/partials/recordOriginLogo.html
       - ./geonetwork/catalog/views/default/templates/recordView/metadata.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/metadata.html
       # Functionality changes (*.js files)
