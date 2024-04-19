@@ -71,6 +71,8 @@ services:
       # hide minimap on Search page
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
       ## functionality changes (*.js files) ##
+      # remove hotkey to navigate to the map page
+      - ./nrw/geonetwork/catalog/views/default/module.js:/var/lib/jetty/webapps/geonetwork/catalog/views/default/module.js
       # show OGL logo on record page
       - ./nrw/geonetwork/catalog/js/mdviewModule.js:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/mdviewModule.js
       # change error for creating records with duplicate UUIDs
