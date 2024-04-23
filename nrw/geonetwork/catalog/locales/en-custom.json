@@ -56,5 +56,6 @@
 	"facet-tag.\\*": "Keyword",
 	"nextAvailableIdentifier": "Next available identifier:",
 	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below.",
-	"signIn": "NRW Staff Sign in"
+	"signIn": "NRW Staff Sign in",
+	"skipToResults": "Skip to search results"
 }
