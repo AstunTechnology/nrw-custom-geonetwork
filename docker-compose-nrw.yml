@@ -59,6 +59,9 @@ services:
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html
+      - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facets.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facets.html
+      - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet.html
+      - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/FacetDirective.js:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/FacetDirective.js
       - ./nrw/geonetwork/catalog/components/metadataactions/partials/metadataCard.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/metadataCard.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-signin.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-signin.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-sitename.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-sitename.html
