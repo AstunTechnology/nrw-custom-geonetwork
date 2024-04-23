@@ -58,6 +58,7 @@ services:
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
+      - ./nrw/geonetwork/catalog/components/search/resultsview/partials/templateswitcher.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/templateswitcher.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facets.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facets.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet.html
