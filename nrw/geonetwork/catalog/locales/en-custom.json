@@ -55,5 +55,6 @@
 	"createMetadataError-duplicateUUID": "There is already an existing record with this resource identifier. Get the next available identifier <a target='_blank' href='../eng/catalog.search#/page/get-next-identifier?page=get-next-identifier'>here</a>",
 	"facet-tag.\\*": "Keyword",
 	"nextAvailableIdentifier": "Next available identifier:",
-	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below."
+	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below.",
+	"skipToResults": "Skip to search results"
 }
