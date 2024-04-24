@@ -86,12 +86,18 @@ services:
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/layout/tpl-rdf.xsl
       - ./geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/eng/labels.xml:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139/loc/eng/labels.xml
 
+    healthcheck:
+      test: ["CMD-SHELL", "curl -X GET http://localhost:8080/geonetwork/srv/api/site -H  \"accept: application/json\" || exit 1"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
     networks:
       - esnet
 
 
   ogc-api-records-service:
     image: geonetwork/gn-cloud-ogc-api-records-service:4.2.9-0
+    container_name: ogc-api-service
     environment:
       SPRING_PROFILES_ACTIVE: standalone
       SPRING_DATASOURCE_URL: jdbc:postgresql://${POSTGRES_DB_HOST}:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME}
@@ -113,7 +119,6 @@ services:
     - ./ogc-api/copy/copy-iso19139.gemini22.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/formats/copy/copy-iso19139.gemini22.xsl
     - ./ogc-api/src/main/resources/xslt/ogcapir/landingpage.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/landingpage.xsl
     - ./ogc-api/src/main/resources/xslt/ogcapir/collections.xsl:/workspace/BOOT-INF/classes/xslt/ogcapir/collections.xsl
-    container_name: ogc-api-service
     networks:
       - esnet
 
