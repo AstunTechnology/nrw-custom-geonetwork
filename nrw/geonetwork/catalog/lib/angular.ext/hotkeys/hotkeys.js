@@ -38,8 +38,9 @@
        */
 
       // removed h4 element above table to imrpove accessibility
+      // added a role attribute to the table to improve accessibility
       this.template = '<div class="cfp-hotkeys-container fade" ng-class="{in: helpVisible}" style="display: none;"><div class="cfp-hotkeys">' +
-                        '<table><tbody>' +
+                        '<table role="presentation"><tbody>' +
                           '<tr ng-repeat="hotkey in hotkeys | filter:{ description: \'!$$undefined$$\' }">' +
                             '<td class="cfp-hotkeys-keys">' +
                               '<span ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key">{{ key }}</span>' +
