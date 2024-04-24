@@ -10,8 +10,9 @@
     style="{{::facetValue | facetBgUrlBuilder:decorator}}"
   >
     <div class="panel-body">
+      <!-- Changed the h2 elements to span elements for accessibility reasons -->
       <a
-        class="clearfix"
+        class="clearfix flex-align-items-center"
         title="{{::facetValue}}"
         role="link"
         data-ng-init="response = aggregations[key];
@@ -23,18 +24,20 @@
           data-es-facet-decorator="decorator"
           data-key="facetValue"
         />
-        <h2
+        <!-- previously h2 -->
+        <span
           data-ng-show="isInspire"
-          class="inspire-{{::(facetValue | facetCssClassCode: isInspire)}}-{{::iso2lang}}"
+          class="inspire-{{::(facetValue | facetCssClassCode: isInspire)}}-{{::iso2lang}} facets-homepage"
         >
           <span class="inspire-label clamp-2"></span>
-        </h2>
-        <h2 data-ng-hide="isInspire">
+        </span>
+        <!-- previously h2 -->
+        <span data-ng-hide="isInspire" class="facets-homepage">
           <span class="clamp-2"
             >{{::facetValue | facetTranslator: (response.meta && response.meta.field) ||
             key | capitalize}}</span
           >
-        </h2>
+        </span>
       </a>
     </div>
     <div class="panel-footer">
