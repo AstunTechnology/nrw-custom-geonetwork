@@ -83,6 +83,9 @@ services:
       - ./nrw/geonetwork/catalog/js/mdviewModule.js:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/mdviewModule.js
       # change error for creating records with duplicate UUIDs
       - ./nrw/geonetwork/catalog/js/NewMetadataController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/edit/NewMetadataController.js
+      ## Hotkeys Angular extension ##
+      - ./nrw/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.js
+      - ./nrw/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.min.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.min.js
       ### NRW font files ###
       - ./nrw/geonetwork/catalog/style/GothamRnd-Medium.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Medium.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-MedIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-MediumIta.otf
