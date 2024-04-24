@@ -34,11 +34,13 @@ services:
       - discovery.type=single-node
       - xpack.security.enabled=true
       - logger.deprecation.level=OFF
+      - ES_USERNAME=${ES_USERNAME}
+      - ES_PASSWORD=${ES_PASSWORD}
     volumes:
       - esdata:/usr/share/elasticsearch/data
       - esconfig:/usr/share/elasticsearch/config
     healthcheck:
-      test: ["CMD-SHELL", "curl -i -H \"Accept: application/json\" -f http://localhost:9200/gn-records || exit 1"]
+      test: ["CMD-SHELL", "curl -u $ES_USERNAME:$ES_PASSWORD -i -H \"Accept: application/json\" -f http://localhost:9200/_cat/health || exit 1"]
       interval: 3m
       timeout: 10s
       retries: 3
