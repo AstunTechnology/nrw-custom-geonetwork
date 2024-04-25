@@ -60,10 +60,14 @@ services:
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
       - ./nrw/geonetwork/catalog/components/search/resultsview/partials/templateswitcher.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/templateswitcher.html
       - ./nrw/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/grid.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/grid.html
+      - ./nrw/geonetwork/catalog/components/search/resultsview/partials/selection-widget.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/selection-widget.html
+      - ./nrw/geonetwork/catalog/components/search/formfields/partials/sortByCombo.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/formfields/partials/sortByCombo.html
+      - ./nrw/geonetwork/catalog/components/search/pagination/partials/pagination.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/pagination/partials/pagination.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet-cards.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facets.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facets.html
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/facet.html:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/partials/facet.html
       - ./nrw/geonetwork/catalog/components/metadataactions/partials/metadataCard.html:/var/lib/jetty/webapps/geonetwork/catalog/components/metadataactions/partials/metadataCard.html
+      - ./nrw/geonetwork/catalog/components/common/savedselections/partials/action.html:/var/lib/jetty/webapps/geonetwork/catalog/components/common/savedselections/partials/action.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-signin.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-signin.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-sitename.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-sitename.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/top-toolbar.html
