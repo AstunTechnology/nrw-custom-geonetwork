@@ -1,30 +1,31 @@
 <!-- Add role attribute for accessibility purposes -->
-<ul class="nav navbar-nav" ng-show="::getApplicationInfoVisible()" role="menu">
+<ul class="nav navbar-nav" ng-show="::getApplicationInfoVisible()">
   <!-- Add role attribute for accessibility purposes -->
-  <li class="navbar-text" role="menuitem">
+  <li class="navbar-text">
     <span
       data-translate=""
-      data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}"
-    >
+      data-translate-values="{platform: '{{info['system/platform/name']}}', version: '{{info['system/platform/version']}}', subversion: '{{info['system/platform/subVersion']}}'}">
       versionDetails</span
     >
   </li>
   <!-- Add role attribute for accessibility purposes -->
-  <li role="menuitem">
-    <a href="http://geonetwork-opensource.org/">
+  <li>
+    <a href="http://geonetwork-opensource.org/" role="link">
       <span data-translate="">about</span>
     </a>
   </li>
   <!-- Add role attribute for accessibility purposes -->
-  <li class="hidden-sm" role="menuitem">
-    <a href="https://github.com/geonetwork/core-geonetwork">
+  <li class="hidden-sm">
+    <a href="https://github.com/geonetwork/core-geonetwork" role="link">
       <span class="fa fa-fw fa-github"></span>
       <span data-translate="">github</span>
     </a>
   </li>
   <!-- Add role attribute for accessibility purposes -->
-  <li role="menuitem">
-    <a href="../../doc/api" title="{{'learnTheApi' | translate}}">API</a>
+  <li>
+    <a href="../../doc/api" title="{{'learnTheApi' | translate}}" role="link">
+      <span>API</span>
+    </a>
   </li>
 </ul>
 
@@ -34,20 +35,20 @@ class="nav navbar-nav"
 gn-static-pages-list-viewer
 data-section="footer"
 data-language="{{lang}}"
-role="menu"
+role="presentation"
 ></ul>
 
 <!-- Add Contact Us link for NRW -->
-<ul class="nav navbar-nav" role="menu">
+<ul class="nav navbar-nav" role="presentation">
   <!-- Add role attribute for accessibility purposes -->
-  <li role="menuitem">
+  <li>
     <a href="mailto:opendata@cyfoethnaturiolcymru.gov.uk?subject=Data Discovery Enquiry"
     target="_blank"
-    title="{{'contactUs' | translate}}"
-    aria-label="{{'contactUs' | translate}}"
-    data-translate=""
-    data-language="{{lang}}"
-    >contactUs</a>
+    role="link">
+      <span title="{{'contactUs' | translate}}" data-translate="" data-language="{{lang}}">
+        contactUs
+      </span>
+    </a>
   </li>
 </ul>
 

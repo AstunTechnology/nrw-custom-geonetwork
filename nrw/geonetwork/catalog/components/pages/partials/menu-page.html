@@ -1,0 +1,83 @@
+<!-- Add roles to elements to improve accessibility -->
+<li data-ng-class="{'dropdown': isSubmenu}" role="presentation">
+  <a
+    data-ng-if="isSubmenu"
+    class="dropdown-toggle gn-menuheader-xs"
+    role="button"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="true"
+  >
+    <span
+      data-ng-show="page.icon && page.icon.length > 0"
+      class="fa fa-fw {{page.icon}}"
+    ></span>
+    <span>{{page.label}}</span>
+    <span class="caret hidden-xs"></span>
+  </a>
+  <ul data-ng-if="isSubmenu" class="dropdown-menu gn-menu-xs clearfix" role="menu">
+    <li
+      data-ng-repeat="page in page.pages"
+      class="gn-menuitem-xs"
+      role="presentation"
+      data-ng-init="submenuExternalLink = (page.format == 'LINK' || page.format == 'HTMLPAGE');"
+    >
+      <a
+        data-ng-show="submenuExternalLink"
+        title="{{page.label}}"
+        href="{{page.link}}"
+        target="{{page.link.indexOf('http') === 0 ? '_blank' : '_self'}}"
+      >
+        <span
+          data-ng-show="page.icon && page.icon.length > 0"
+          class="fa fa-fw {{page.icon}}"
+        ></span>
+        <span>{{page.label}}</span>
+      </a>
+      <a
+        data-ng-show="!submenuExternalLink"
+        data-gn-active-tb-item="{{gnCfg.mods.page.appUrl + '/' + page.pageId}}?page={{page.pageId}}"
+        title="{{page.pageId}}"
+        data-ng-click="changePage($event)"
+      >
+        <span
+          data-ng-show="page.icon && page.icon.length > 0"
+          class="fa fa-fw {{page.icon}}"
+        ></span>
+        <span>{{page.label}}</span>
+      </a>
+    </li>
+  </ul>
+  <a
+    data-ng-if="!isSubmenu && page"
+    data-ng-show="isExternalLink"
+    title="{{page.label}}"
+    href="{{page.link}}"
+    target="_blank"
+    role="link"
+    aria-label="{{page.label}}"
+  >
+    <span
+      data-ng-show="page.icon && page.icon.length > 0"
+      class="fa fa-fw {{page.icon}}"
+      role="presentation"
+    ></span>
+    <span role="presentation">{{page.label}}</span>
+  </a>
+  <a
+    data-ng-if="!isSubmenu && page"
+    data-ng-show="!isExternalLink"
+    data-gn-active-tb-item="{{gnCfg.mods.page.appUrl + '/' + page.pageId}}?page={{page.pageId}}"
+    title="{{page.pageId}}"
+    data-ng-click="changePage($event)"
+    role="link"
+    aria-label="{{page.label}}"
+  >
+    <span
+      data-ng-show="page.icon && page.icon.length > 0"
+      class="fa fa-fw {{page.icon}}"
+      role="presentation"
+    ></span>
+    <span role="presentation">{{page.label}}</span>
+  </a>
+</li>
