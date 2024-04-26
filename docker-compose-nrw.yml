@@ -70,6 +70,8 @@ services:
       - ./nrw/geonetwork/catalog/components/common/savedselections/partials/action.html:/var/lib/jetty/webapps/geonetwork/catalog/components/common/savedselections/partials/action.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-signin.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-signin.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-sitename.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-sitename.html
+      - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-languages.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-languages.html
+      - ./nrw/geonetwork/catalog/components/toolbar/partials/menu-search.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/menu-search.html
       - ./nrw/geonetwork/catalog/components/toolbar/partials/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/top-toolbar.html
       - ./nrw/geonetwork/catalog/components/pages/partials/top.html:/var/lib/jetty/webapps/geonetwork/catalog/components/pages/partials/top.html
       - ./nrw/geonetwork/catalog/components/pages/partials/menu-page.html:/var/lib/jetty/webapps/geonetwork/catalog/components/pages/partials/menu-page.html

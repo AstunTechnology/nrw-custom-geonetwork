@@ -1,21 +1,20 @@
 <!-- Removed class to reduce padding - previously set to data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'" -->
 <div>
     <!-- Add role attribute for accessibility purposes -->
-    <div class="navbar-header" role="menubar">
-      <a
-        class="hidden-sm hidden-md hidden-lg pull-left gn-logo-link"
-        data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}"
+    <div class="navbar-header" role="navigation">
+      <!-- Removed redundant link behind logo to improve accessibility -->
+      <img
+        class="gn-logo hidden-sm hidden-md hidden-lg pull-left"
+        style="margin-top: 13px; margin-left:13px;"
+        alt=""
+        data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
         data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}"
-      >
-        <img
-          class="gn-logo"
-          alt="{{'siteLogo' | translate}}"
-          data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
-        />
-      </a>
+        role="presentation"
+      />
       <a
         class="hidden-sm hidden-md hidden-lg btn btn-link pull-left"
         data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}"
+        role="link"
       >
         <span
           class="gn-name"
@@ -41,22 +40,22 @@
     </div>
     <div id="navbar" class="navbar-accessible navbar-collapse collapse">
       <!-- Add role attribute for accessibility purposes -->
-      <ul class="nav navbar-nav gn-menu-xs" role="menu">
+      <ul class="nav navbar-nav gn-menu-xs" role="navigation">
         <!-- Add role attribute for accessibility purposes -->
-        <li data-ng-repeat-start="menu in toolbarMenu" role="menuitem"></li>
-        <li data-ng-if="menu == 'gn-site-name-menu'" gn-site-name-menu=""></li>
-        <li data-ng-if="menu == 'gn-portal-switcher'" gn-portal-switcher=""></li>
-        <li data-ng-if="menu == 'gn-search-menu'" gn-search-menu=""></li>
-        <li data-ng-if="menu == 'gn-map-menu'" gn-map-menu=""></li>
-        <li data-ng-if="menu == 'gn-contribute-menu'" gn-contribute-menu=""></li>
-        <li data-ng-if="menu == 'gn-admin-menu'" gn-admin-menu=""></li>
+        <li data-ng-repeat-start="menu in toolbarMenu" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-site-name-menu'" gn-site-name-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-portal-switcher'" gn-portal-switcher="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-search-menu'" gn-search-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-map-menu'" gn-map-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-contribute-menu'" gn-contribute-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-admin-menu'" gn-admin-menu="" role="navigation"></li>
         <!-- Add role attribute for accessibility purposes -->
         <li
           data-ng-if="isPage(menu)"
           gn-static-page-menu="menu"
           language="{{lang}}"
           section="top"
-          role="menuitem"
+          role="navigation"
         ></li>
         <!-- Add role attribute for accessibility purposes -->
         <ul
@@ -65,15 +64,15 @@
           language="{{lang}}"
           section="top"
           class="nav navbar-nav gn-menu-xs"
-          role="menu"
+          role="navigation"
         ></ul>
         <!-- Add role attribute for accessibility purposes -->
-        <li data-ng-repeat-end="" role="menuitem"></li>
+        <li data-ng-repeat-end="" aria-hidden="true"></li>
       </ul>
       <div class="navbar-right">
         <!-- Add role attribute for accessibility purposes -->
-        <ul gn-signin-menu="" role="menu"></ul>
-        <div gn-languages-menu="" role="menu"></div>
+        <ul gn-signin-menu="" role="navigation"></ul>
+        <div gn-languages-menu="" role="navigation"></div>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@
   class="nav navbar-nav username-dropdown accessible-dropdown"
 >
   <!-- logged in -->
-  <li class="dropdown" data-ng-show="authenticated" role="menuitem">
+  <li class="dropdown" data-ng-show="authenticated" role="navigation">
     <a
       title="{{'userDetails' | translate}}"
       href
@@ -34,9 +34,9 @@
         </span>
     </a>
     <!-- Add role attribute for accessibility purposes -->
-    <ul class="dropdown-menu gn-menuitem-xs" role="menu">
+    <ul class="dropdown-menu gn-menuitem-xs" role="navigation">
       <!-- Add role attribute for accessibility purposes -->
-      <li class="text-center hidden-xs" role="menuitem">
+      <li class="text-center hidden-xs" role="presentation">
         <!-- Removed alt attribute for NRW accessibility testing fixes - previously set to {{'avatar' | translate}} -->
         <img
           class="img-circle"
@@ -91,36 +91,38 @@
   <li
     class="dropdown signin-dropdown"
     data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && !isShowLoginAsLink && !isDisableLoginForm"
-    role="menuitem"
+    role="presentation"
   >
     <a
       href="{{gnCfg.mods.authentication.signinUrl | signInLink}}"
-      title="{{'signIn'|translate}}"
       class="dropdown-toggle gn-menuheader-xs"
       data-ng-keypress="$event"
       data-toggle="dropdown"
       aria-haspopup="true"
       data-ng-mouseover="focusLoginPopup()"
+      role="button"
     >
       <span class="fa fa-fw fa-sign-in hidden-sm"></span>
       {{'signIn' | translate}}
       <span class="caret"></span>
     </a>
     <!-- Add role attribute for accessibility purposes -->
-    <ul class="dropdown-menu" role="menu">
+    <ul class="dropdown-menu" role="navigation">
+      <!-- Added max-width to prevent horizontal scrolling -->
       <form
         name="gnSigninForm"
         class="navbar-form"
         action="{{signInFormAction}}"
         method="post"
         role="form"
+        style="max-width: fit-content;"
       >
         <input type="hidden" name="_csrf" value="{{csrf}}" />
-        <li role="menuitem">
+        <li role="presentation">
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon">
-                <span class="fa fa-fw fa-user"></span>
+              <span class="input-group-addon" role="presentation">
+                <span class="fa fa-fw fa-user" aria-hidden="true"></span>
               </span>
               <input
                 type="text"
@@ -128,19 +130,19 @@
                 id="inputUsername"
                 name="username"
                 autofocus=""
-                aria-label="{{'username' | translate}}"
                 placeholder="{{'username' | translate}}"
                 data-ng-model="signinUsername"
                 required=""
+                role="textbox"
               />
             </div>
           </div>
         </li>
-        <li role="menuitem">
+        <li role="presentation">
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon">
-                <span class="fa fa-fw fa-lock"></span>
+              <span class="input-group-addon" role="presentation">
+                <span class="fa fa-fw fa-lock" aria-hidden="true"></span>
               </span>
               <input
                 type="password"
@@ -149,20 +151,21 @@
                 name="password"
                 autocomplete="off"
                 data-ng-model="signinPassword"
-                aria-label="{{'password' | translate}}"
                 placeholder="{{'password' | translate}}"
                 required=""
+                role="textbox"
               />
             </div>
           </div>
         </li>
         <input type="hidden" name="redirectUrl" value="{{redirectUrlAfterSign}}" />
-        <li role="menuitem">
+        <li role="presentation">
           <button
             type="submit"
             class="btn btn-primary btn-block"
             aria-label="{{'signIn' | translate}}"
             data-ng-disabled="!gnSigninForm.$valid"
+            role="button"
           >
             <span class="fa fa-sign-in"></span>
             <span translate="">signIn</span>
