@@ -21,7 +21,8 @@
           <i class="fa fa-fw fa-info"></i>
         </span>
         <div>
-          <h3 data-translate="">uuid</h3>
+          <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+          <h2 data-translate="" style="font-size: 14px; margin-bottom: 5px;">uuid</h2>
           <div class="input-group">
             <!-- Add aria-label attribute to improve accessibility -->
             <input type="text" class="form-control" aria-label="{{::mdView.current.record.uuid}}" value="{{::mdView.current.record.uuid}}" readonly="readonly" />
@@ -37,7 +38,8 @@
           <span class="badge badge-rounded" title="{{'licence' | translate}}">
             <i class="fa fa-fw fa-registered"></i>
           </span>
-          <h3>{{'licence' | translate}}</h3>
+          <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+          <h2 style="font-size: 14px; margin-bottom: 5px;">{{'licence' | translate}}</h2>
         </div>
         <ul class="gn-label-list">
           <li data-ng-repeat="l in [].concat(mdView.current.record.licence)" style="background-color: #fff;">
@@ -53,7 +55,8 @@
           <span class="badge badge-rounded" title="{{'spatialExtent' | translate}}">
             <i class="fa fa-fw fa-map-marker"></i>
           </span>
-          <h3>{{'spatialExtent' | translate}}</h3>
+          <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+          <h2 style="font-size: 14px; margin-bottom: 5px;">{{'spatialExtent' | translate}}</h2>
         </div>
         <div data-gn-data-preview="mdView.current.record" class="col-md-10 gn-margin-left"/>
         <br />

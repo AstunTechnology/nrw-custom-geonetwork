@@ -16,12 +16,15 @@
       />
       <span class="caret"></span>
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" role="menu">
+      <!-- Add the correct role to improve accessibility -->
       <li
         data-ng-repeat="t in listOfResultTemplate"
         data-ng-hide="t.tplUrl == resultTemplate.tplUrl"
+        role="presentation"
       >
-        <a href="" data-ng-click="setResultTemplate(t);" title="{{t.tooltip | translate}}">
+        <!-- Add the correct role to improve accessibility -->
+        <a href="" data-ng-click="setResultTemplate(t);" role="option">
           <i class="fa {{t.icon}}" />&nbsp; {{t.tooltip | translate}}
         </a>
       </li>

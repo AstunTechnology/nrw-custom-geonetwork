@@ -1,0 +1,14 @@
+<!-- Hidden on mobile -->
+<form class="navbar-form language-switcher pull-right hidden-xs">
+  <span
+    class="gn-menuheader-xs visible-xs"
+    data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && !isShowLoginAsLink && !isDisableLoginForm"
+    data-translate=""
+  >language</span>
+  <div
+    class="form-group"
+    data-gn-language-switcher="lang"
+    data-langs="langs"
+    data-lang-labels="langLabels"
+  ></div>
+</form>
