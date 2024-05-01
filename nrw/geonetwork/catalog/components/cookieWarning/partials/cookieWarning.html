@@ -1,0 +1,18 @@
+<div class="cookie-warning ng-cloak" data-ng-show="showCookieWarning()">
+    <p class="cookie-warning-header" data-translate="">cookieWarning</p>
+    <p class="cookie-warning-link ng-cloak" data-ng-if="cookieWarningMoreInfoLink">
+      <a data-ng-href="{{cookieWarningMoreInfoLink}}" target="cookie_law" data-translate=""
+        >moreOnCookie</a
+      >
+    </p>
+    <!-- Added autofocus attribute for accessibility -->
+    <p class="cookie-warning-actions" autofocus="">
+      <button class="btn btn-info" data-ng-click="acceptCookies()" data-translate="">
+        acceptCookie
+      </button>
+      <span data-translate="">or</span>
+      <button class="btn btn-info" data-ng-click="goAway()" data-translate="">
+        rejectCookie
+      </button>
+    </p>
+  </div>

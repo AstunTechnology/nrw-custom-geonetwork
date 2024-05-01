@@ -56,6 +56,7 @@ services:
       - ./nrw/geonetwork/catalog/views/default/templates/home.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/home.html
       - ./nrw/geonetwork/catalog/views/default/templates/results.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/results.html
       - ./nrw/geonetwork/catalog/views/default/directives/partials/mdactionmenu.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/directives/partials/mdactionmenu.html
+      - ./nrw/geonetwork/catalog/components/cookieWarning/partials/cookieWarning.html:/var/lib/jetty/webapps/geonetwork/catalog/components/cookieWarning/partials/cookieWarning.html
       - ./nrw/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/searchoptions/partials/searchoptions.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html
