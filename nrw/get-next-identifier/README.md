@@ -2,35 +2,42 @@
 
 ## PostgreSQL
 
-Check there's a read-only user with permission to connect to the database and view all tables in public and custom schema. If not:
+We're just using this to sanity-check the value from ElasticSearch now
 
-	GRANT CONNECT ON DATABASE db TO readonly_user;
-	GRANT USAGE ON SCHEMA public TO readonly_user;
-	GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly_user;
-	GRANT USAGE ON SCHEMA custom TO readonly_user;
-	GRANT SELECT ON ALL TABLES IN SCHEMA custom TO readonly_user;
-	ALTER DEFAULT PRIVILEGES IN SCHEMA public
-	GRANT SELECT ON TABLES TO readonly_user;
-	ALTER DEFAULT PRIVILEGES IN SCHEMA custom
-	GRANT SELECT ON SEQUENCES TO readonly_user;
+Create the following query to return the 5 or 6 numeric characters from a standard formatted UUID and output them in descending order:
 
-## Zeppelin
+	select uuid, substring(uuid from'\d{5,}')::numeric as identifier from metadata where length(uuid) < 13 order by identifier desc;
 
-Enable `docker-compose-zeppelin.yml` in `.env`
 
-* Go to zeppelin interpreter page and check that the jdbc interpreter `default.url`, `default.user` and `default.password` are filled in (they should be)
-* Import the notebook ./NRW Next Identifier_2JUBZJ4VH.zpln
-* Check the two paragraphs run without error and that the result is sensible
+## ElasticSearch
+
+Load the three included ndjson files as Kibana saved objects. This should add an additional field to the `gn-records` index pattern called `Identifier`, a visualisation called `newmaxid` and a dashboard called `get-next-identifier`.
+
+If not, the additional field in the gn-records index pattern should be named Identifier and have this as the value:
+
+```
+def uuid = doc['uuid'].value;
+if (uuid.length() > 12) {
+    emit(1.0);
+} else {
+    int stripped_uuid_index = uuid.lastIndexOf('_');
+    String stripped_uuid = uuid.substring(stripped_uuid_index+1);
+    if (stripped_uuid.startsWith("DS")) {
+        double numeric_uuid = Double.parseDouble(stripped_uuid.substring(2));
+        emit(numeric_uuid + 1.0);
+    } else {
+        emit(Double.parseDouble(uuid.substring(stripped_uuid_index+1)));
+    }
+    
+}
+```
+
+newmaxid should be a classic kibana aggregation metric that returns the max of the above Identifier.
+
+get-next-identifier should be a dashboard containing the above metric with an auto-refreshing interval of 5 seconds. Get a sharing link as a saved object, with no filter bar, using the short url and public url.
+
 
 ## GeoNetwork
 
-In admin console -> settings create a static page with the following information:
-
-* Language: English
-* Page identifier: get-next-identifier
-* Page label: Get Next Record Identifier
-* Format: HTML content displayed embedded in the app
-* Page content: *copy text from ../get-next-identifier-pagecontent.txt*
-* Page section: SUBMENU
-* Sttatus: Visible to logged users
+Paste the iframe code above into `nrw/geonetwork/catalog/templates/editor/new-metadata-horizontal.html`
 
