@@ -20,13 +20,13 @@
   <div data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'">
     <div class="row">
       <div class="col-md-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
-        <a data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}">
-          <img
-            class="{{gnCfg.mods.header.logoInHeaderPosition}}"
-            alt="{{'siteLogo' | translate}}"
-            data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
-          />
-        </a>
+        <!-- Removed redundant link for accessibility
+        Added classes to improve appearance on different screen sizes -->
+        <img
+          class="{{gnCfg.mods.header.logoInHeaderPosition}} col-lg-4 col-md-6 col-sm-8 col-xs-12"
+          alt=""
+          data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
+        />
       </div>
     </div>
   </div>
