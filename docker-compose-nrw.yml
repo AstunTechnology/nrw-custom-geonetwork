@@ -14,8 +14,8 @@ services:
       - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/gmd-gemini-postprocessing.xsl
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/xsl/conversion/export/gmd-medin-postprocessing.xsl
       # Google Analytics code
-      - ./nrw/xslt/base-layout.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout.xsl
-      - ./nrw/xslt/render-html.xsl:/var/lib/jetty/webapps/geonetwork/xslt/common/render-html.xsl
+      - ./nrw/geonetwork/xslt/base-layout.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout.xsl
+      - ./nrw/geonetwork/xslt/render-html.xsl:/var/lib/jetty/webapps/geonetwork/xslt/common/render-html.xsl
       # sub-portals
       - ./nrw/sub-portal-postprocessing/gmd-gemini-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-gemini-postprocessing.xsl
       - ./nrw/sub-portal-postprocessing/gmd-medin-postprocessing.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins/iso19139.nrw/present/csw/gmd-medin-postprocessing.xsl
@@ -80,11 +80,14 @@ services:
       - ./nrw/geonetwork/catalog/components/pages/partials/menu-page.html:/var/lib/jetty/webapps/geonetwork/catalog/components/pages/partials/menu-page.html
       ## *.xsl file changes ##
       # correct aria-label for map coordinates fields #
-      - ./nrw/xslt/render-functions.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/formatter/xslt/render-functions.xsl
+      - ./nrw/geonetwork/xslt/render-functions.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/formatter/xslt/render-functions.xsl
       # adjust the header in the permalink view
       - ./nrw/geonetwork/xslt/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
       # hide minimap on Search page
       - ./nrw/geonetwork/xslt/base-layout-cssjs-loader.xsl:/var/lib/jetty/webapps/geonetwork/xslt/base-layout-cssjs-loader.xsl
+      # alterations to pdf
+      - ./nrw/geonetwork/xslt/services/pdf/metadata-fop.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/pdf/metadata-fop.xsl
+      - ./nrw/geonetwork/xslt/services/pdf/portal-present-fop.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/pdf/portal-present-fop.xsl
       ## functionality changes (*.js files) ##
       # add guid to facets
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/FacetDirective.js:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/FacetDirective.js

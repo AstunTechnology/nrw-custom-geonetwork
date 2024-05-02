@@ -10,16 +10,7 @@
         "wel": "cy"
       },
       "showPortalSwitcher": "",
-      "topCustomMenu": [
-        "gn-site-name-menu",
-        "gn-portal-switcher",
-        "gn-search-menu",
-        "gn-map-menu",
-        "gn-contribute-menu",
-        "gn-admin-menu",
-        "ogc-api-welsh",
-        "english-portal"
-      ]
+      "topCustomMenu": []
     },
     "home": {
       "appUrl": "../../cym/wel/catalog.search#/home",
@@ -129,7 +120,26 @@
             }
           }
         }
-      }
+      },
+      "resultViewTpls": [
+        {
+          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/grid.html",
+          "tooltip": "Grid",
+          "icon": "fa-th",
+          "related": []
+        },
+        {
+          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/list.html",
+          "tooltip": "List",
+          "icon": "fa-bars",
+          "related": [
+            "parent",
+            "children",
+            "services",
+            "datasets"
+          ]
+        }
+      ]
     },
     "editor": {
       "enabled": false

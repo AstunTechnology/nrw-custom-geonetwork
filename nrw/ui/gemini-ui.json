@@ -303,17 +303,19 @@
         {
           "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/grid.html",
           "tooltip": "Grid",
-          "icon": "fa-th"
+          "icon": "fa-th",
+          "related": []
         },
         {
           "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/list.html",
           "tooltip": "List",
-          "icon": "fa-bars"
-        },
-        {
-          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/table.html",
-          "tooltip": "Table",
-          "icon": "fa-table"
+          "icon": "fa-bars",
+          "related": [
+            "parent",
+            "children",
+            "services",
+            "datasets"
+          ]
         }
       ],
       "resultTemplate": "../../catalog/components/search/resultsview/partials/viewtemplates/grid.html",
