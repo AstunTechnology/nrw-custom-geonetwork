@@ -1,3 +1,6 @@
+// variables for manipulating the theme
+@import "../views/default/less/gn_variables_default.less";
+
 /* Define custom node style here */
 @font-face {
     font-family: "Gotham Round";
@@ -293,4 +296,11 @@ span.gn-user-name.ng-binding :hover {
 .flex-align-items-center {
     display: flex !important;
     align-items: center;
+}
+
+//change style to match default view to improve accessibility
+.better-tags {
+    word-break: break-word;
+    white-space: normal;
+    text-align: left;
 }
