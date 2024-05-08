@@ -31,11 +31,27 @@
       "include": ".*",
       "size": 10,
       "order": {
-          "_count": "desc"
-        }
+        "_count": "desc"
+      }
     },
     "meta": {
       "caseInsensitiveInclude": true
+    }
+  },
+  "isPublishedToAll": {
+    "terms": {
+      "field": "isPublishedToAll",
+      "size": 2
+    },
+    "meta": {
+      "decorator": {
+        "type": "icon",
+        "prefix": "fa fa-fw ",
+        "map": {
+          "false": "fa-lock",
+          "true": "fa-unlock"
+        }
+      }
     }
   },
   "th_httpinspireeceuropaeutheme-theme_tree.key": {
@@ -44,12 +60,12 @@
       "size": 34
     },
     "meta": {
-        "collapsed": true,
-        "decorator": {
-            "type": "icon",
-            "prefix": "fa fa-fw gn-icon iti-",
-            "expression": "http://inspire.ec.europa.eu/theme/(.*)"
-        }
+      "collapsed": true,
+      "decorator": {
+        "type": "icon",
+        "prefix": "fa fa-fw gn-icon iti-",
+        "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+      }
     }
   }
 }
