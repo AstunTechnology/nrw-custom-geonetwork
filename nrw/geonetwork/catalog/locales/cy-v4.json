@@ -69,7 +69,7 @@
   "accessManager": "Access rights",
   "facetIncludeFilter": "Filter values. Regular expression can be used using '/Land.*/'",
   "allValuesExcept": "Holl werthoedd heblaw",
-  "filterWithValue": "Filter with this value",
+  "filterWithValue": "Hidlo gyda'r gwerth hwn",
   "indexNotAvailable": "No search service available currently!",
   "facet-cat": "Category",
   "cat": "Category",
