@@ -90,6 +90,8 @@ a:focus {
     color: #007485 !important;
     font-weight: bold;
     text-decoration: underline;
+    // changed button colour for accessibility
+    background-color: #F5F5F5 !important;
 }
 
 .btn {
@@ -111,6 +113,19 @@ a:focus {
 
 .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary, .btn-primary {
     color: #fff !important;
+}
+
+// changed button colours for accessibility
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background-color: #F5F5F5 !important;
+}
+
+.btn-default:focus, .btn-default.focus {
+    background-color: #F5F5F5 !important;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #F5F5F5 !important;
 }
 
 .panel-default > .panel-heading {
@@ -309,7 +324,30 @@ span.gn-user-name.ng-binding :hover {
     padding: 2px 5px;
 }
 
-// change element colour to imrpove accessibility
+// change element colour to improve accessibility
 [data-ng-search-form] .gn-top-search .gn-form-any .btn-favorites .text-warning {
     color: #007485;
+}
+
+// change placeholder colour to improve accessibility
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #58595B !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #58595B !important;
+   opacity:  1 !important;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #58595B !important;
+   opacity: 1 !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #58595B !important;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: #58595B !important;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color: #58595B !important;
 }
