@@ -56,5 +56,7 @@
 	"facet-tag.\\*": "Allweddair",
 	"nextAvailableIdentifier": "Next available identifier:",
 	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below.",
-	"skipToResults": "Skip to search results"
+	"skipToResults": "Skip to search results",
+	"similarDataset": "Set ddata debyg",
+	"similarDatasets": "Setiau ddata tebyg"
 }
