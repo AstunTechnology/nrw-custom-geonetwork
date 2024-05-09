@@ -11,8 +11,9 @@
     content: "Cyfleusterau amaethyddol a dyframaethu";
   }
 
+  /* added spaces to help text wrapping */
   .inspire-am-cy .inspire-label:before {
-    content: "Parthau rheoli/cyfyngu/rheoleiddio ac unedau adrodd";
+    content: "Parthau rheoli / cyfyngu / rheoleiddio ac unedau adrodd";
   }
 
   .inspire-au-cy .inspire-label:before {
@@ -137,7 +138,7 @@
 
   /* English translations */
 
-.inspire-ac-en .inspire-label:before {
+  .inspire-ac-en .inspire-label:before {
     content: "Atmospheric conditions";
   }
 
@@ -149,8 +150,9 @@
     content: "Agricultural and\A aquaculture facilities";
   }
 
+   /* added spaces to help text wrapping */
   .inspire-am-en .inspire-label:before {
-    content: "Area management/restriction/\A regulation zones and reporting units";
+    content: "Area management / restriction / \A regulation zones and reporting units";
   }
 
   .inspire-au-en .inspire-label:before {
