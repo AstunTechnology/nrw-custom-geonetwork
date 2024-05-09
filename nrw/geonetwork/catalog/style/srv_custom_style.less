@@ -18,14 +18,14 @@
 
 @font-face {
     font-family: "Gotham Round";
-    src: url("../catalog/style/GothamRnd-Book.otf") format("opentype");
+    src: url("../catalog/style/GothamRnd-Medium.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Gotham Round";
-    src: url("../catalog/style/GothamRnd-BookIta.otf") format("opentype");
+    src: url("../catalog/style/GothamRnd-MedIta.otf") format("opentype");
     font-weight: normal;
     font-style: italic;
 }
@@ -44,18 +44,37 @@
     font-style: italic;
 }
 
+// increase font size for accessibility
 body {
     font-family: "Gotham Round", Arial;
     word-break: keep-all;
     word-wrap: normal;
     line-break: normal;
     color: #58595B !important;
+    font-size: 16px;
 }
 
+// increase font size for accessibility
 a {
     font-weight: bold !important;
     color: #007485 !important;
     line-break: normal !important;
+    font-size: 16px;
+}
+
+// increase font size for accessibility
+.gn-search-facet .panel .panel-heading {
+    font-size: 19px;
+}
+
+// increase font size for accessibility
+.gn-facet .gn-facet-more, .gn-facet .gn-facet-less {
+    font-size: 19px;
+}
+
+// increase font size for accessibility
+.gn-topic .panel .panel-footer {
+    font-size: 19px;
 }
 
 a:hover {
@@ -94,8 +113,21 @@ a:focus {
     background-color: #F5F5F5 !important;
 }
 
+// increase font size for accessibility
 .btn {
     font-weight: bold;
+    font-size: 16px;
+}
+
+// enforcing font size for large buttons
+.btn-lg, .btn-group-lg > .btn {
+    font-size: 18px !important;
+}
+
+// increase size for accessibility
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+    height: 50px;
+    font-size: 19px;
 }
 
 .btn-link {
@@ -265,6 +297,16 @@ span.gn-user-name.ng-binding :hover {
     color: #007485;
 }
 
+// increase font size for accessibility
+.gn-facet .gn-facet-container a {
+    font-size: 19px;
+}
+
+// increase font size for accessibility
+.gn-facet .gn-facet-header {
+    font-size: 19px;
+}
+
 .ellipsis:after {
     display: none;
 }
@@ -300,10 +342,11 @@ span.gn-user-name.ng-binding :hover {
     }
 }
 
+// increase font size for accessibility
 .facets-homepage {
     font-weight: bold;
     color: #fff;
-    font-size: 14px;
+    font-size: 19px;
 }
 
 .facets-homepage :hover {
