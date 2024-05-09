@@ -179,6 +179,9 @@
             case url.includes("catalog.edit"):
             fragment = "edit";
             break;
+            case url.includes("catalog.signin"):
+            fragment = "sign-in";
+            break;
           }
 
           document.title = titlePrefix + fragment;
