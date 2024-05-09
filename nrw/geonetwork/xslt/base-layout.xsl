@@ -29,35 +29,40 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="2.0"
                 xmlns:util="java:org.fao.geonet.util.XslUtil"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:gn-fn-render="http://geonetwork-opensource.org/xsl/functions/render"
                 exclude-result-prefixes="#all">
+
 
   <xsl:output omit-xml-declaration="yes" method="html" doctype-system="html" indent="yes"
               encoding="UTF-8"/>
 
+<!--   <xsl:include href="../WEB-INF/data/data/formatter/xslt/render-variables.xsl"/>
+  <xsl:include href="../WEB-INF/data/data/formatter/xslt/render-functions.xsl"/> -->
   <xsl:include href="common/base-variables.xsl"/>
   <xsl:include href="base-layout-cssjs-loader.xsl"/>
   <xsl:include href="skin/default/skin.xsl"/>
 
+  <xsl:variable name="discoveryServiceRecordUuid"
+                select="util:getDiscoveryServiceUuid('')"/>
+  <xsl:variable name="nodeName"
+                select="util:getNodeName('', $lang, true())"/>
+  <xsl:variable name="htmlHeadTitle"
+                select="if ($discoveryServiceRecordUuid != '')
+                        then util:getIndexField(
+                                  $lang,
+                                  $discoveryServiceRecordUuid,
+                                  'resourceTitleObject',
+                                  $lang)
+                        else if (contains($nodeName, '|'))
+                        then substring-before($nodeName, '|')
+                        else $nodeName"/>
+
+
   <xsl:template match="/">
-    <html ng-app="{$angularModule}" lang="{$lang2chars}" id="ng-app">
+      <html ng-app="{$angularModule}" lang="{$lang2chars}" id="ng-app">
       <head>
-        <xsl:variable name="discoveryServiceRecordUuid"
-                      select="util:getDiscoveryServiceUuid('')"/>
-        <xsl:variable name="nodeName"
-                      select="util:getNodeName('', $lang, true())"/>
-
-        <xsl:variable name="htmlHeadTitle"
-                      select="if ($discoveryServiceRecordUuid != '')
-                              then util:getIndexField(
-                                        $lang,
-                                        $discoveryServiceRecordUuid,
-                                        'resourceTitleObject',
-                                        $lang)
-                              else if (contains($nodeName, '|'))
-                              then substring-before($nodeName, '|')
-                              else $nodeName"/>
-
-
+        
         <xsl:variable name="htmlHeadDescription"
                       select="if ($discoveryServiceRecordUuid != '')
                               then util:getIndexField(
@@ -68,8 +73,8 @@
                               else if (contains($nodeName, '|'))
                               then substring-after($nodeName, '|')
                               else $nodeName"/>
+        
 
-        <title><xsl:value-of select="$htmlHeadTitle"/></title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="initial-scale=1.0"/>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -141,6 +146,57 @@
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
+        
+        <!-- JavaScript for dynamically updating the page title from the URL fragment -->
+        <script type="text/javascript">
+          
+          // Define JavaScript function to set the document title
+          // getting the titlePrefix from the catalogue name setting
+          function setDocumentTitle() {
+            var titlePrefix = "<xsl:value-of select="$htmlHeadTitle"/> | ";
+            // Return the text after the #/ from the URL hash
+            var fragment = window.location.hash.substring(2); 
+
+            // return the whole URL for special case handling
+            var url = window.location.href
+            
+          // Remove any query parameters
+            if (fragment.includes('?')) {
+              fragment = fragment.substring(0, fragment.indexOf('?'));
+            }
+
+          // replace any '/' with spaces
+            fragment = fragment.replace(/\//g, ' ');
+
+
+          // special cases to fix up admin and contribute sections based on
+          // URLs rather than fragments
+
+          switch(true) {
+            case url.includes("admin.console"):
+            fragment = "admin";
+            break;
+            case url.includes("catalog.edit"):
+            fragment = "edit";
+            break;
+          }
+
+          document.title = titlePrefix + fragment;
+         
+         // Update the title element in the head of the page
+            var titleElement = document.querySelector("head title");
+            if (titleElement) {
+              titleElement.textContent = document.title;
+            }
+          }
+
+          // Call setDocumentTitle() when the hash changes
+          window.addEventListener("hashchange", setDocumentTitle);
+
+          // Call setDocumentTitle() on initial page load
+          setDocumentTitle();
+        </script>
+        
       </body>
     </html>
   </xsl:template>
@@ -170,4 +226,5 @@
     </noscript>
   </xsl:template>
 
+  
 </xsl:stylesheet>
