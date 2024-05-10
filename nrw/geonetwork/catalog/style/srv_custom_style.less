@@ -403,3 +403,29 @@ span.gn-user-name.ng-binding :hover {
 .gn-facet .gn-facet-input-group input, .gn-facet .gn-facet-input-group .input-group-addon, .gn-facet .gn-facet-input-group .btn {
     border-bottom: 1px solid #8f8f8f !important;
 }
+
+// prevent horizontal scroll at 400% zoom
+.list-group-item {
+    max-width: 100%;
+}
+
+// enforce correct font-size
+.gn-md-view .ol-attribution ul a {
+    font-size: 0.7rem !important;
+}
+
+// fix contacts grid on small screens
+@media (max-width: 600px) {
+    [data-gn-metadata-contacts] ul, [gn-metadata-contacts] ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+// move elements to the left to prevent horizontal scroll
+@media (min-width:300px) and (max-width:600px) {
+    .move-left {
+        left: 0;
+        right: auto;
+        transform: translateX(-45%);
+    }
+}
