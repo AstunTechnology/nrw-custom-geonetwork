@@ -58,5 +58,9 @@
 	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below.",
 	"skipToResults": "Skip to search results",
 	"similarDataset": "Set ddata debyg",
-	"similarDatasets": "Setiau ddata tebyg"
+	"similarDatasets": "Setiau ddata tebyg",
+	"targetLang": "en",
+	"switchToPortal": "English",
+	"switchToPortalTitle": "Switch to English",
+	"portalURL": "../../srv/eng/catalog.search#/home"
 }
