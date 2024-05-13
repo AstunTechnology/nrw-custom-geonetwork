@@ -70,6 +70,7 @@
   <!-- this is called when you select one or more records from the search page and click to download a pdf,
   after calling portal-present-fop.xsl -->
   <xsl:template name="fop-master">
+    <xsl:message>=== fop-master ===</xsl:message>
     <fo:layout-master-set>
       <fo:simple-page-master master-name="simpleA4" page-height="29.7cm" page-width="21cm"
                              margin-top=".5cm" margin-bottom=".5cm" margin-left="2cm"
@@ -86,11 +87,30 @@
         <fo:region-before extent=".4cm"/>
         <fo:region-after extent=".4cm"/>
       </fo:simple-page-master>
-
+    
       <fo:page-sequence-master master-name="PSM_Name">
         <fo:single-page-master-reference master-reference="simpleA4"/>
       </fo:page-sequence-master>
-    </fo:layout-master-set>
+      </fo:layout-master-set>
+      <fo:declarations>
+      <x:xmpmeta xmlns:x="adobe:ns:meta/">
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+          xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <!-- Dublin Core properties go here -->
+        <dc:title>Document title</dc:title>
+        <dc:creator>Document author</dc:creator>
+        <dc:description>Document subject</dc:description>
+        <dc:language><rdf:Bag><rdf:li>en</rdf:li></rdf:Bag></dc:language>
+      </rdf:Description>
+      <rdf:Description rdf:about=""
+          xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+        <!-- XMP properties go here -->
+        <xmp:CreatorTool>GeoNetwork</xmp:CreatorTool>
+      </rdf:Description>
+    </rdf:RDF>
+    </x:xmpmeta>
+    </fo:declarations>
   </xsl:template>
 
 
@@ -214,7 +234,6 @@
   <xsl:template name="fo">
     <xsl:param name="res"/>
     <xsl:variable name="url" select="$nodeUrl"/>
-    <xsl:message>=== <xsl:value-of select="/root/response"/> ===</xsl:message>
     <fo:table>
       <fo:table-column column-width="17cm"/>
       <fo:table-body>
