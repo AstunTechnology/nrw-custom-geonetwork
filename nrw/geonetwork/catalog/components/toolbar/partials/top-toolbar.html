@@ -70,6 +70,16 @@
         <li data-ng-repeat-end="" aria-hidden="true"></li>
       </ul>
       <div class="navbar-right">
+        <!-- Add custom button to switch between welsh/english NRW portals -->
+        <ul class="nav navbar-nav gn-menu-xs ng-scope ng-isolate-scope" role="navigation">
+          <li role="presentation"
+          language="{{'targetLang' | translate}}"
+          class="ng-scope ng-isolate-scope">
+            <a title="{{'switchToPortalTitle' | translate}}" role="link" class="ng-scope" target="_blank" href="{{'portalURL' | translate}}">
+              <span role="presentation" class="ng-binding" data-translate="">switchToPortal</span>
+            </a>
+          </li>
+        </ul>
         <!-- Add role attribute for accessibility purposes -->
         <ul gn-signin-menu="" role="navigation"></ul>
         <div gn-languages-menu="" role="navigation"></div>

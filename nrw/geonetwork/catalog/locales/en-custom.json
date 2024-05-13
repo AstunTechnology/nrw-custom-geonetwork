@@ -59,5 +59,9 @@
 	"signIn": "NRW Sign in",
 	"skipToResults": "Skip to search results",
 	"similarDataset": "Similar dataset",
-	"similarDatasets": "Similar datasets"
+	"similarDatasets": "Similar datasets",
+	"targetLang": "cy",
+	"switchToPortal": "Cymraeg",
+	"switchToPortalTitle": "Newid i Cymraeg",
+	"portalURL": "../../cym/wel/catalog.search#/home"
 }
