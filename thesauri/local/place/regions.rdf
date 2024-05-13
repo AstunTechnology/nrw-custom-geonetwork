@@ -11,14 +11,11 @@
   </skos:ConceptScheme>
   <skos:Concept rdf:about="http://www.naturalearthdata.com/ne_admin#Country">
     <skos:prefLabel xml:lang="en">Countries</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Pays</skos:prefLabel>
-    <skos:prefLabel xml:lang="de">Länder</skos:prefLabel>
     <skos:inScheme rdf:resource="http://geonetwork-opensource.org/thesaurus/nrw-custom-regions" />
   </skos:Concept>
   <!-- Countries -->
   <skos:Concept rdf:about="http://www.naturalearthdata.com/ne_admin#Country/GBR">
     <skos:prefLabel xml:lang="en">United Kingdom</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">United Kingdom</skos:prefLabel>
     <skos:altLabel>GBR</skos:altLabel>
     <gml:BoundedBy>
       <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
@@ -30,13 +27,12 @@
   </skos:Concept>
   <skos:Concept rdf:about="http://www.naturalearthdata.com/ne_admin#Country/WLS">
     <skos:prefLabel xml:lang="en">Wales</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Wales</skos:prefLabel>
     <skos:altLabel>WLS</skos:altLabel>
     <gml:BoundedBy>
-      <gml:Enveloppe gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
         <gml:lowerCorner>-5.311 51.384</gml:lowerCorner>
         <gml:upperCorner>-2.647 53.427</gml:upperCorner>
-      </gml:Enveloppe>
+      </gml:Envelope>
     </gml:BoundedBy>
     <skos:broader rdf:resource="http://www.naturalearthdata.com/ne_admin#Country" />
   </skos:Concept>
