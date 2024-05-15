@@ -57,5 +57,11 @@
 	"nextAvailableIdentifier": "Next available identifier:",
 	"nextAvailableIdentifierGuidance": "Copy the identifier above into the correct identifier template below.",
 	"signIn": "NRW Sign in",
-	"skipToResults": "Skip to search results"
+	"skipToResults": "Skip to search results",
+	"similarDataset": "Similar dataset",
+	"similarDatasets": "Similar datasets",
+	"targetLang": "cy",
+	"switchToPortal": "Cymraeg",
+	"switchToPortalTitle": "Newid i Cymraeg",
+	"portalURL": "../../cym/wel/catalog.search#/home"
 }

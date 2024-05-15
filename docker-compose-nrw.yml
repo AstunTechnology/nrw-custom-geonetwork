@@ -61,6 +61,7 @@ services:
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/datapreview.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/datapreview.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/keywordBadges.html
       - ./nrw/geonetwork/catalog/components/search/mdview/partials/contact.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/contact.html
+      - ./nrw/geonetwork/catalog/components/search/mdview/partials/morelikethis.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/mdview/partials/morelikethis.html
       - ./nrw/geonetwork/catalog/components/search/resultsview/partials/templateswitcher.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/templateswitcher.html
       - ./nrw/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/grid.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/viewtemplates/grid.html
       - ./nrw/geonetwork/catalog/components/search/resultsview/partials/selection-widget.html:/var/lib/jetty/webapps/geonetwork/catalog/components/search/resultsview/partials/selection-widget.html
@@ -89,6 +90,8 @@ services:
       - ./nrw/geonetwork/xslt/services/pdf/metadata-fop.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/pdf/metadata-fop.xsl
       - ./nrw/geonetwork/xslt/services/pdf/portal-present-fop.xsl:/var/lib/jetty/webapps/geonetwork/xslt/services/pdf/portal-present-fop.xsl
       ## functionality changes (*.js files) ##
+      # add language to permalink URL
+      - ./nrw/geonetwork/catalog/components/utility/UtilityService.js:/var/lib/jetty/webapps/geonetwork/catalog/components/utility/UtilityService.js
       # add guid to facets
       - ./nrw/geonetwork/catalog/components/elasticsearch/directives/partials/FacetDirective.js:/var/lib/jetty/webapps/geonetwork/catalog/components/elasticsearch/directives/FacetDirective.js
       # remove hotkey to navigate to the map page

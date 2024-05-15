@@ -18,14 +18,14 @@
 
 @font-face {
     font-family: "Gotham Round";
-    src: url("../catalog/style/GothamRnd-Book.otf") format("opentype");
+    src: url("../catalog/style/GothamRnd-Medium.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Gotham Round";
-    src: url("../catalog/style/GothamRnd-BookIta.otf") format("opentype");
+    src: url("../catalog/style/GothamRnd-MedIta.otf") format("opentype");
     font-weight: normal;
     font-style: italic;
 }
@@ -44,18 +44,37 @@
     font-style: italic;
 }
 
+// increase font size for accessibility
 body {
     font-family: "Gotham Round", Arial;
     word-break: keep-all;
     word-wrap: normal;
     line-break: normal;
     color: #58595B !important;
+    font-size: 16px;
 }
 
+// increase font size for accessibility
 a {
     font-weight: bold !important;
     color: #007485 !important;
     line-break: normal !important;
+    font-size: 16px;
+}
+
+// increase font size for accessibility
+.gn-search-facet .panel .panel-heading {
+    font-size: 19px;
+}
+
+// increase font size for accessibility
+.gn-facet .gn-facet-more, .gn-facet .gn-facet-less {
+    font-size: 19px;
+}
+
+// increase font size for accessibility
+.gn-topic .panel .panel-footer {
+    font-size: 19px;
 }
 
 a:hover {
@@ -90,10 +109,25 @@ a:focus {
     color: #007485 !important;
     font-weight: bold;
     text-decoration: underline;
+    // changed button colour for accessibility
+    background-color: #F5F5F5 !important;
 }
 
+// increase font size for accessibility
 .btn {
     font-weight: bold;
+    font-size: 16px;
+}
+
+// enforcing font size for large buttons
+.btn-lg, .btn-group-lg > .btn {
+    font-size: 18px !important;
+}
+
+// increase size for accessibility
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+    height: 50px;
+    font-size: 19px;
 }
 
 .btn-link {
@@ -111,6 +145,19 @@ a:focus {
 
 .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary, .btn-primary {
     color: #fff !important;
+}
+
+// changed button colours for accessibility
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background-color: #F5F5F5 !important;
+}
+
+.btn-default:focus, .btn-default.focus {
+    background-color: #F5F5F5 !important;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #F5F5F5 !important;
 }
 
 .panel-default > .panel-heading {
@@ -197,6 +244,8 @@ span.gn-user-name.ng-binding :hover {
 
 .gn-facet .gn-facet-container a span {
     color: #007485;
+    // add padding to improve accessibility
+    padding: 4px 0px;
 }
 
 .gn-facet .gn-facet-container a span :hover{
@@ -248,6 +297,16 @@ span.gn-user-name.ng-binding :hover {
     color: #007485;
 }
 
+// increase font size for accessibility
+.gn-facet .gn-facet-container a {
+    font-size: 19px;
+}
+
+// increase font size for accessibility
+.gn-facet .gn-facet-header {
+    font-size: 19px;
+}
+
 .ellipsis:after {
     display: none;
 }
@@ -283,10 +342,11 @@ span.gn-user-name.ng-binding :hover {
     }
 }
 
+// increase font size for accessibility
 .facets-homepage {
     font-weight: bold;
     color: #fff;
-    font-size: 14px;
+    font-size: 19px;
 }
 
 .facets-homepage :hover {
@@ -303,5 +363,69 @@ span.gn-user-name.ng-binding :hover {
     word-break: break-word;
     white-space: normal;
     text-align: left;
+    // add padding to improve accessibility
     padding: 2px 5px;
+}
+
+// change element colour to improve accessibility
+[data-ng-search-form] .gn-top-search .gn-form-any .btn-favorites .text-warning {
+    color: #007485;
+}
+
+// change placeholder colour to improve accessibility
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #58595B !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #58595B !important;
+   opacity:  1 !important;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #58595B !important;
+   opacity: 1 !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #58595B !important;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: #58595B !important;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color: #58595B !important;
+}
+
+// change border colours to improve accessibility
+.form-control, .gn-row-main .gn-form-any .btn, .btn-default {
+    border-color: #8f8f8f !important;
+}
+
+.gn-facet .gn-facet-input-group input, .gn-facet .gn-facet-input-group .input-group-addon, .gn-facet .gn-facet-input-group .btn {
+    border-bottom: 1px solid #8f8f8f !important;
+}
+
+// prevent horizontal scroll at 400% zoom
+.list-group-item {
+    max-width: 100%;
+}
+
+// enforce correct font-size
+.gn-md-view .ol-attribution ul a {
+    font-size: 0.7rem !important;
+}
+
+// fix contacts grid on small screens
+@media (max-width: 600px) {
+    [data-gn-metadata-contacts] ul, [gn-metadata-contacts] ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+// move elements to the left to prevent horizontal scroll
+@media (min-width:300px) and (max-width:600px) {
+    .move-left {
+        left: 0;
+        right: auto;
+        transform: translateX(-45%);
+    }
 }

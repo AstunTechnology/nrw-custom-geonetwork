@@ -12,8 +12,9 @@
         <span data-translate="" class="hidden-xs">manageRecord</span>
         <span class="caret"></span>
       </button>
+      <!-- add class to shift the menu to the left on small screen to avoid horizontal scroll -->
       <ul
-        class="dropdown-menu"
+        class="dropdown-menu move-left"
         role="menu"
         data-ng-init="isReviewer = user.isAdmin() || user.isReviewerForGroup(md.groupOwner);
                       isRecordWorkflowEnabled = isMdWorkflowEnable && md.isWorkflowEnabled();"
@@ -214,7 +215,8 @@
         <span data-translate="" class="hidden-xs">download</span>
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu" role="menu">
+      <!-- add class to shift the menu to the left on small screen to avoid horizontal scroll -->
+      <ul class="dropdown-menu move-left" role="menu">
         <li data-ng-class="{'disabled': md.draft === 'y'}" role="presentation">
           <a href="" data-ng-click="mdService.getPermalink(md)" role="menuitem">
             <span class="fa fa-fw fa-link"></span>&nbsp;
