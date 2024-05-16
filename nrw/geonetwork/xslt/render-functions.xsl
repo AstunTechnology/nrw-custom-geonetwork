@@ -48,17 +48,18 @@
 
     <div class="thumbnail extent">
         <!-- Set aria-label attributes to match the value attributes - previously set to e.g. {$schemaStrings/north} -->
+        <!-- Changed the order of these to tab through them from top to bottom and from left to right -->
         <div class="input-group coord coord-north">
           <input type="text" class="form-control"
                  aria-label="{format-number($north, $numberFormat)}"
                  value="{format-number($north, $numberFormat)}" readonly=""/>
           <span class="input-group-addon">N</span>
         </div>
-        <div class="input-group coord coord-south">
+        <div class="input-group coord coord-west">
           <input type="text" class="form-control"
-                 aria-label="{format-number($south, $numberFormat)}"
-                 value="{format-number($south, $numberFormat)}" readonly=""/>
-          <span class="input-group-addon">S</span>
+                 aria-label="{format-number($west, $numberFormat)}"
+                 value="{format-number($west, $numberFormat)}" readonly=""/>
+          <span class="input-group-addon">W</span>
         </div>
         <div class="input-group coord coord-east">
           <input type="text" class="form-control"
@@ -66,11 +67,11 @@
                  value="{format-number($east, $numberFormat)}" readonly=""/>
           <span class="input-group-addon">E</span>
         </div>
-        <div class="input-group coord coord-west">
+        <div class="input-group coord coord-south">
           <input type="text" class="form-control"
-                 aria-label="{format-number($west, $numberFormat)}"
-                 value="{format-number($west, $numberFormat)}" readonly=""/>
-          <span class="input-group-addon">W</span>
+                 aria-label="{format-number($south, $numberFormat)}"
+                 value="{format-number($south, $numberFormat)}" readonly=""/>
+          <span class="input-group-addon">S</span>
         </div>
       <xsl:copy-of select="gn-fn-render:geometry($boxGeometry)"/>
     </div>
