@@ -74,12 +74,18 @@
                                     then geonet:updateUrlPlaceholder(util:getUiConfigurationJsonProperty(/root/request/ui, 'mods.home.appUrl'), /root/gui/nodeId, $lang)
                                     else /root/gui/nodeUrl"/>
                   <li>
+                    <!-- Added the logo back in PDFs and Permalink view for NRW -->
+                    <xsl:if test="$output != 'pdf'">
+                      <img style="width: 450px; margin-left: -30px;"
+                            alt=""
+                            src="{/root/gui/nodeUrl}../images/logos/{$env//system/site/siteId}.png"/>
+                    </xsl:if>
+                    <xsl:if test="$output = 'pdf'">
+                      <img class="gn-logo"
+                      alt=""
+                      src="{/root/gui/nodeUrl}../images/logos/{$env//system/site/siteId}.png"/>
+                    </xsl:if>
                     <a href="{$appUrl}">
-                      <xsl:if test="not($isLogoInHeader)">
-                        <img class="gn-logo"
-                             alt="{$i18n/siteLogo}"
-                             src="{/root/gui/nodeUrl}../images/logos/{$env//system/site/siteId}.png"/>
-                      </xsl:if>
                       <xsl:if test="$isShowGNName">
                         <xsl:value-of select="$env//system/site/name"/>
                       </xsl:if>

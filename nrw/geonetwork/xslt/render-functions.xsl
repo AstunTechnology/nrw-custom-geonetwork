@@ -48,17 +48,18 @@
 
     <div class="thumbnail extent">
         <!-- Set aria-label attributes to match the value attributes - previously set to e.g. {$schemaStrings/north} -->
+        <!-- Changed the order of these to tab through them from top to bottom and from left to right -->
         <div class="input-group coord coord-north">
           <input type="text" class="form-control"
                  aria-label="{format-number($north, $numberFormat)}"
                  value="{format-number($north, $numberFormat)}" readonly=""/>
           <span class="input-group-addon">N</span>
         </div>
-        <div class="input-group coord coord-south">
+        <div class="input-group coord coord-west">
           <input type="text" class="form-control"
-                 aria-label="{format-number($south, $numberFormat)}"
-                 value="{format-number($south, $numberFormat)}" readonly=""/>
-          <span class="input-group-addon">S</span>
+                 aria-label="{format-number($west, $numberFormat)}"
+                 value="{format-number($west, $numberFormat)}" readonly=""/>
+          <span class="input-group-addon">W</span>
         </div>
         <div class="input-group coord coord-east">
           <input type="text" class="form-control"
@@ -66,11 +67,11 @@
                  value="{format-number($east, $numberFormat)}" readonly=""/>
           <span class="input-group-addon">E</span>
         </div>
-        <div class="input-group coord coord-west">
+        <div class="input-group coord coord-south">
           <input type="text" class="form-control"
-                 aria-label="{format-number($west, $numberFormat)}"
-                 value="{format-number($west, $numberFormat)}" readonly=""/>
-          <span class="input-group-addon">W</span>
+                 aria-label="{format-number($south, $numberFormat)}"
+                 value="{format-number($south, $numberFormat)}" readonly=""/>
+          <span class="input-group-addon">S</span>
         </div>
       <xsl:copy-of select="gn-fn-render:geometry($boxGeometry)"/>
     </div>
@@ -82,8 +83,9 @@
     <xsl:param name="geometry" as="xs:string"/>
 
     <xsl:if test="$geometry">
+      <!-- Change alt attribute to have better text -->
       <img class="gn-img-extent"
-           alt="{$schemaStrings/thumbnail}"
+           alt="Map representing the geographic extent of the dataset"
            src="{$nodeUrl}api/regions/geom.png?geomsrs=EPSG:4326&amp;geom={$geometry}"/>
     </xsl:if>
 
@@ -93,8 +95,9 @@
   <xsl:function name="gn-fn-render:extent">
     <xsl:param name="uuid" as="xs:string"/>
     <xsl:if test="$uuid">
+      <!-- Change alt attribute to have better text -->
       <img class="gn-img-extent"
-           alt="{$schemaStrings/thumbnail}"
+           alt="Map representing the geographic extent of the dataset"
            src="{$nodeUrl}api/records/{$uuid}/extents.png"/>
     </xsl:if>
   </xsl:function>
@@ -103,8 +106,9 @@
     <xsl:param name="uuid" as="xs:string"/>
     <xsl:param name="index" as="xs:integer"/>
     <xsl:if test="$uuid">
+      <!-- Change alt attribute to have better text -->
       <img class="gn-img-extent"
-           alt="{$schemaStrings/thumbnail}"
+           alt="Map representing the geographic extent of the dataset"
            src="{$nodeUrl}api/records/{$uuid}/extents/{$index}.png"/>
     </xsl:if>
 
