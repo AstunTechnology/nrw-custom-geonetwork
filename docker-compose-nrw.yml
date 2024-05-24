@@ -25,6 +25,7 @@ services:
       ### UI Changes ###
       # custom strings
       - ./nrw/geonetwork/catalog/locales/en-custom.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-custom.json
+      - ./nrw/geonetwork/catalog/locales/en-v4.json:/var/lib/jetty/webapps/geonetwork/catalog/locales/en-v4.json
       # Welsh translation
       - ./nrw/geonetwork/catalog/js/CatController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/CatController.js
       - ./nrw/geonetwork/catalog/sql/loc-wel-default.sql:/var/lib/jetty/webapps/geonetwork/WEB-INF/classes/setup/sql/data/loc-wel-default.sql

@@ -70,7 +70,7 @@
   <!-- this is called when you select one or more records from the search page and click to download a pdf,
   after calling portal-present-fop.xsl -->
   <xsl:template name="fop-master">
-    <xsl:message>=== fop-master ===</xsl:message>
+    <!-- <xsl:message>=== fop-master ===</xsl:message> -->
     <fo:layout-master-set>
       <fo:simple-page-master master-name="simpleA4" page-height="29.7cm" page-width="21cm"
                              margin-top=".5cm" margin-bottom=".5cm" margin-left="2cm"
@@ -374,7 +374,7 @@
                                         select="changeDate"/>
                       </xsl:call-template>
 
-                      <xsl:call-template name="metadata-resources"/>
+                      <!-- <xsl:call-template name="metadata-resources"/> -->
 
                       <xsl:call-template name="info-rows">
                         <xsl:with-param name="label" select="$onTheWeb"/>
@@ -397,7 +397,7 @@
                               <xsl:attribute name="external-destination">url('<xsl:value-of
                                 select="concat($nodeUrl, 'api/records/', uuid, '/formatters/xml')"
                               />')
-                              </xsl:attribute>XML (<xsl:value-of select="if (standardName != '') then standardName else schema"/>)
+                              </xsl:attribute>XML
                             </fo:basic-link>
                           </fo:inline>
 
@@ -453,13 +453,15 @@
 
 
 
-  <xsl:template name="metadata-resources">
+  <!-- <xsl:template name="metadata-resources"> -->
     <!-- display metadata url but only if its not a remote result -->
-    <xsl:call-template name="info-rows">
+    <!-- <xsl:call-template name="info-rows">
       <xsl:with-param name="label" select="$translations/downloadsAndResources"/>
       <xsl:with-param name="content">
           <xsl:for-each select="link">
             <xsl:variable name="link" select="tokenize(., '\|')"/>
+            <xsl:message>=== Tokenised: <xsl:value-of select="$link"/> ===</xsl:message>
+            <xsl:message>=== Raw: <xsl:value-of select="/root/response/metadata/link"/> ===</xsl:message>
 
             <fo:basic-link text-decoration="underline" color="{$link-color}">
               <xsl:attribute name="external-destination">url('<xsl:value-of select="$link[3]"/>')
@@ -471,7 +473,7 @@
           </xsl:for-each>
       </xsl:with-param>
     </xsl:call-template>
-  </xsl:template>
+  </xsl:template> -->
 
 
   <xsl:template name="info-rows">
