@@ -69,8 +69,6 @@
 
       <xsl:variable name="formatter"
                     select="/root/request/formatter"/>
-      <xsl:message>=== <xsl:value-of select="/root/response"/> ===</xsl:message>
-      <xsl:message>=== <xsl:value-of select="/root/response/metadata/uuid"/> ===</xsl:message>
 
       <xsl:choose>
         <xsl:when test="$formatter != ''">
@@ -81,7 +79,6 @@
           <xsl:for-each select="/root/response/metadata" >
             <xsl:variable name="uuid" select="/root/response/metadata/uuid"/>
             <xsl:variable name="formatterURL" select="concat(/root/gui/serverURL, 'api/records/', $uuid, '/formatters/xsl-view?output=pdf')"/>
-            <xsl:message>=== <xsl:value-of select="$formatterURL"/> ===</xsl:message>
 
             <fox:external-document content-type="pdf"
                                    src="{$formatterURL}" />
