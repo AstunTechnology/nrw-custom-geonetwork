@@ -70,10 +70,11 @@
     </ul>
   </li>
   <!-- Add role attribute for accessibility purposes -->
+  <!-- TEST -->
   <li
     class="open signin-dropdown"
     data-ng-if="!authenticated && service !== 'catalog.signin' && service !== 'new.account' && isShowLoginAsLink"
-    role="menuitem"
+    role="navigation"
   >
     <a
       href="{{signInFormAction}}?_csrf={{csrf}}&redirectUrl={{redirectUrlAfterSign}}"
