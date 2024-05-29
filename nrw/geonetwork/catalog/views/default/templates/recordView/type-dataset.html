@@ -103,15 +103,15 @@
     <div class="row">
       <div class="col-md-12 gn-record">
         <!-- format -->
-        <div data-ng-if="mdView.current.record.formatSpecification" class="gn-margin-bottom flex-row">
+        <div data-ng-if="mdView.current.record.format" class="gn-margin-bottom flex-row">
           <span class="badge badge-rounded">
             <i class="fa fa-fw fa-globe"></i>
           </span>
           <div>
             <h3 data-translate="">format</h3>
             <ul class="gn-label-list">
-              <li data-ng-repeat="format in [].concat(mdView.current.record.formatSpecification)" style="background-color: #fff;">
-                <a data-gn-search-filter-popup-link="formatSpecification" data-filter="format">{{format}}</a>
+              <li data-ng-repeat="format in [].concat(mdView.current.record.format)" style="background-color: #fff;">
+                <a data-gn-search-filter-popup-link="format" data-filter="format">{{format}}</a>
               </li>
             </ul>
           </div>
