@@ -31,6 +31,7 @@
 	"facet-formatSpecification": "Format specification",
 	"facet-hasOnlineResource": "Available to download",
 	"facet-licence": "Licence type",
+	"facet-statusWorkflow": "Workflow status",
 	"licence": "Licence type",
 	"parentRecord": "Parent record",
 	"fileIdentifier": "File identifier",
