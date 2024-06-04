@@ -87,7 +87,7 @@
         <fo:region-before extent=".4cm"/>
         <fo:region-after extent=".4cm"/>
       </fo:simple-page-master>
-    
+
       <fo:page-sequence-master master-name="PSM_Name">
         <fo:single-page-master-reference master-reference="simpleA4"/>
       </fo:page-sequence-master>
@@ -285,7 +285,7 @@
 
 
                       <xsl:call-template name="info-rows">
-                        
+
                         <xsl:with-param name="label" select="$abstract"/>
                         <xsl:with-param name="value" select="resourceAbstractObject"/>
                       </xsl:call-template>
@@ -357,7 +357,8 @@
                       <xsl:call-template name="info-rows">
                         <xsl:with-param name="label" select="$uuid"/>
                         <xsl:with-param name="value" select="uuid"/>
-                        <xsl:with-param name="content">
+                        <!-- removed logo from the UUID section -->
+                        <!-- <xsl:with-param name="content">
                           <fo:external-graphic padding-left="4pt"
                                                content-width="9pt">
                             <xsl:attribute name="src">url('<xsl:value-of
@@ -365,7 +366,7 @@
                             />')"
                             </xsl:attribute>
                           </fo:external-graphic>
-                        </xsl:with-param>
+                        </xsl:with-param> -->
                       </xsl:call-template>
 
                       <xsl:call-template name="info-rows">
