@@ -30,6 +30,8 @@ services:
         -Dgeonetwork.schema.dir=/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins
         -Dorg.eclipse.jetty.server.Request.maxFormContentSize=500000
         -Dorg.eclipse.jetty.server.Request.maxFormKeys=8000
+        -Dgeonetwork.ESFeaturesProxy.username=${ES_USERNAME} 
+        -Dgeonetwork.ESFeaturesProxy.password=${ES_PASSWORD} 
       ES_HOST: ${ES_HOST}
       ES_PROTOCOL: ${ES_PROTOCOL}
       ES_PORT: ${ES_PORT}
