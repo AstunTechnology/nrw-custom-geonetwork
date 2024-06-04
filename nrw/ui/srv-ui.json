@@ -39,7 +39,7 @@
       "languages": {
         "eng": "en"
       },
-      "isLogoInHeader": false,
+      "isLogoInHeader": true,
       "logoInHeaderPosition": "left",
       "fluidHeaderLayout": true,
       "showGNName": true,
@@ -108,7 +108,7 @@
         120
       ],
       "paginationInfo": {
-        "hitsPerPage": 30
+        "hitsPerPage": 200
       },
       "queryBase": "any.${searchLang}:(${any}) OR any.common:(${any}) OR resourceTitleObject.${searchLang}:(${any})^2 OR resourceTitleObject.\\*:\"${any}\"^6",
       "queryBaseOptions": {
@@ -227,9 +227,9 @@
             }
           }
         },
-        "formatSpecification": {
+        "format": {
           "terms": {
-            "field": "formatSpecification"
+            "field": "format"
           }
         },
         "hasOnlineResource": {
@@ -253,6 +253,22 @@
           },
           "meta": {
             "caseInsensitiveInclude": true
+          }
+        },
+        "isPublishedToAll": {
+          "terms": {
+            "field": "isPublishedToAll",
+            "size": 2
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw ",
+              "map": {
+                "false": "fa-lock",
+                "true": "fa-unlock"
+              }
+            }
           }
         },
         "th_httpinspireeceuropaeutheme-theme_tree.key": {
@@ -320,7 +336,7 @@
           },
           {
             "label": "full",
-            "url": "/formatters/xsl-view?root=div&view=advanced"
+            "url": "/formatters/full-view?root=div&view=advanced"
           }
         ]
       },
@@ -374,7 +390,7 @@
       "showBatchDropdown": true,
       "usersearches": {
         "enabled": true,
-        "includePortals": true,
+        "includePortals": false,
         "displayFeaturedSearchesPanel": false
       },
       "savedSelection": {
