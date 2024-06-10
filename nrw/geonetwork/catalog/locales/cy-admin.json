@@ -757,7 +757,7 @@
     "system/oai/mdmode": "Datesearch",
     "system/oai/mdmode-help": "Influences the behaviour of OAI when parameters from or until are supplied. If set to temporal extent, the temporal extent of the date described by the metadata is searched. If set to modification date, the date at which the metadata was last modified is searched. Please note: restart GeoNetwork to make this change active.",
     "system/oai/mdmode-valueModificationDate": "Modification date",
-    "system/oai/mdmode-valueTemporaExtent": "Maint tymhorol",
+    "system/oai/mdmode-valueTemporaExtent": "Ystod amser",
     "system/oai/tokentimeout": "ResumptionToken Timeout",
     "system/oai/tokentimeout-help": "The number of seconds a OAI resultset stays in the cache and can be scrolled using the OAI resumptionToken Please note: restart GeoNetwork to make this change active.",
     "system/oai/maxrecords": "Maximum records",
