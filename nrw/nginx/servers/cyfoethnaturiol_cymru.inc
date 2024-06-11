@@ -4,26 +4,42 @@ server {
     listen 80;
     listen  [::]:80;
     root /var/www/html;
-    server_name metadata.cyfoethnaturiol.cymru;
+    server_name test.metadata.cyfoethnaturiol.cymru;
 
-    # redirect welsh URLs to the geonetwork/cym URL
-    location /geonetwork/cym {
-        rewrite ^/cym(.*)$  https://metadata.naturalresources.wales/geonetwork/eng$1 permanent;
+location /geonetwork {
+
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass      http://geonetwork:8080;
+        add_header Cache-Control "no-store";
+        #limit_req zone=ip burst=100 delay=75;
+        client_max_body_size 30M;
+        proxy_send_timeout          36000;
+        proxy_read_timeout         36000;
+        send_timeout                36000;
+        proxy_intercept_errors on;
+        error_page 404 /404.html;
+        #if ($http_x_forwarded_proto = "http") {
+         #           rewrite ^/(.*)$ https://$host$request_uri;
+         #      }
     }
 
-    # Redirect all other requests to the English site
-    location / {
-        rewrite ^/(.*)$ https://metadata.naturalresources.wales/$1 permanent;
+
+
+location /geonetwork/cym/eng {
+        return 301 /geonetwork/cym/wel/catalog.search;
     }
 
-    location ^~ /files {
-        alias /var/www/html/files;
-    }
+#location /geonetwork/cym/wel {
+#	return 301 /geonetwork/cym/catalog.search;
+#	}
+
+location /geonetwork/srv/eng {
+	return 301 /geonetwork/cym/wel/catalog.search;
+   }
     
-    include locations/*.inc;
-
-    include sites-available/*.inc;
-
     access_log /var/log/nginx/cy-access.log;
     error_log /var/log/nginx/cy-error.log;
 }

@@ -19,9 +19,6 @@
         </xsl:copy>
     </xsl:template>
     
-    <!-- example from docs <xsl:template match="*[gmd:CI_OnlineResource
-                         and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[not(starts-with(text(), 'http'))]) > 0]"
-                priority="2"/> -->
     
     <!-- remove PostGIS protocol resources -->
     <xsl:template match="*[gmd:CI_OnlineResource and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[(starts-with(text(), 'PG'))]) > 0]" priority="1000">
@@ -32,10 +29,16 @@
     <xsl:template match="nrw:*">
         <xsl:message>== Discarding elements from the NRW namespace ===</xsl:message>
     </xsl:template>
+
+        <!-- Don't copy elements from the NRW namespace -->
+    <xsl:template match="gmd:specification" priority="1000">
+        <xsl:message>== Discarding Format Specification Element ===</xsl:message>
+    </xsl:template>
+  
     
     <!--  Change standard to UK GEMINI  -->
     <xsl:template match="//gmd:metadataStandardName"  priority="10">
-        <xsl:message>=== Updating Metadata Standard Name ===</xsl:message>
+        <xsl:message>=== Updating Metadata Standard Name to Gemini ===</xsl:message>
         <gmd:metadataStandardName>
             <gmx:Anchor xlink:href="http://vocab.nerc.ac.uk/collection/M25/current/GEMINI/">UK GEMINI</gmx:Anchor>
         </gmd:metadataStandardName>

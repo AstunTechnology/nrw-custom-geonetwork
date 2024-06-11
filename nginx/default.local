@@ -23,7 +23,7 @@ add_header X-Permitted-Cross-Domain-Policies none;
 add_header Referrer-Policy 'No-referrer';
 
 # rate limiting
-limit_req_zone $binary_remote_addr zone=ip:10m rate=60r/s;
+#limit_req_zone $binary_remote_addr zone=ip:10m rate=60r/s;
 
 # disable absolute redirects
 absolute_redirect off;
@@ -64,4 +64,4 @@ server {
 
 
 	 	
-#include servers/*.inc;
+include servers/*.inc;

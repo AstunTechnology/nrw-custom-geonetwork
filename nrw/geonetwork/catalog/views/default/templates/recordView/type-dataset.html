@@ -1,0 +1,185 @@
+<!-- title, summary, map & extent -->
+<div
+  class="row gn-card gn-card-{{mdView.current.record.resourceType[0]}} gn-margin-top gn-margin-bottom gn-padding-top gn-padding-bottom">
+
+  <div ng-include="'../../catalog/views/default/templates/recordView/status.html'" />
+
+  <div class="col-md-8 gn-record">
+    <div ng-include="'../../catalog/views/default/templates/recordView/title.html'" />
+  </div>
+
+  <div class="col-md-4 gn-md-side">
+    <div class="row">
+      <div gn-record-is-replaced-by="mdView.current.record.uuid"></div>
+
+      <div class="gn-margin-top" ng-include="'../../catalog/views/default/templates/recordView/thumbnails.html'" />
+    </div>
+
+    <div class="row">
+      <div data-ng-if="mdView.current.record.uuid" class="gn-margin-bottom gn-md-side-uuid flex-row">
+        <span class="badge badge-rounded" title="{{'uuid' | translate}}">
+          <i class="fa fa-fw fa-info"></i>
+        </span>
+        <div>
+          <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+          <h2 data-translate="" style="font-size: 14px; margin-bottom: 5px;">uuid</h2>
+          <div class="input-group">
+            <!-- Add aria-label attribute to improve accessibility -->
+            <input type="text" class="form-control" aria-label="{{::mdView.current.record.uuid}}" value="{{::mdView.current.record.uuid}}" readonly="readonly" />
+            <span gn-copy-to-clipboard-button="" data-btn-class="input-group-addon"
+              data-text="{{::mdView.current.record.uuid}}">
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- add licence -->
+      <div data-ng-if="mdView.current.record.licence">
+        <div class="gn-margin-bottom flex-row">
+          <span class="badge badge-rounded" title="{{'licence' | translate}}">
+            <i class="fa fa-fw fa-registered"></i>
+          </span>
+          <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+          <h2 style="font-size: 14px; margin-bottom: 5px;">{{'licence' | translate}}</h2>
+        </div>
+        <ul class="gn-label-list">
+          <li data-ng-repeat="l in [].concat(mdView.current.record.licence)" style="background-color: #fff;">
+            <a data-gn-search-filter-popup-link="licence" data-filter="l">{{l}}</a>
+          </li>
+        </ul>
+        <img data-ng-if="([].concat(mdView.current.record.licence) | filter: filterLicence).length > 0"
+          class="gn-margin-bottom gn-margin-top"
+          data-ng-src="/geonetwork/srv/api/logos/ogl-symbol.png" alt="Open Government Licence">
+      </div>
+      <div data-ng-if="mdView.current.record.geom">
+        <div class="gn-margin-bottom flex-row">
+          <span class="badge badge-rounded" title="{{'spatialExtent' | translate}}">
+            <i class="fa fa-fw fa-map-marker"></i>
+          </span>
+          <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+          <h2 style="font-size: 14px; margin-bottom: 5px;">{{'spatialExtent' | translate}}</h2>
+        </div>
+        <div data-gn-data-preview="mdView.current.record" class="col-md-10 gn-margin-left"/>
+        <br />
+      </div>
+      <div data-gn-keyword-badges="mdView.current.record" data-thesaurus="viewConfig.locationThesaurus" />
+      <div class="col-md-4 gn-md-side gn-nopadding-top" data-ng-if="!showDataBrowser">
+        <div ng-include="'../../catalog/views/default/templates/recordView/spatial.html'" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- links (Download, API, Others) -->
+<div class="row gn-section gn-section-{{mdView.current.record.resourceType[0]}}">
+  <div class="col-md-8 gn-record gn-page-break-avoid">
+    <div class="row">
+      <div ng-include="'../../catalog/views/default/templates/recordView/downloads.html'" />
+      <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/constraints.html'" />
+    </div>
+
+    <div data-ng-if="mdView.current.record.lineage
+                  || mdView.current.record.sourceDescription
+                  || mdView.current.record.supplementalInformation"
+      class="row">
+
+      <div ng-include="'../../catalog/views/default/templates/recordView/lineage.html'" />
+
+
+      <p data-ng-bind-html="(mdView.current.record.contentInfo) | linky | newlines"></p>
+    </div>
+  </div>
+
+
+  <div class="gn-md-side col-md-4 gn-record">
+
+    <div class="=row">
+      <!-- technical information -->
+      <div class="col-md-12 gn-record">
+        <h2 data-translate="">technicalInformation</h2>
+        <div ng-include="'../../catalog/views/default/templates/recordView/technical.html'" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 gn-record">
+        <!-- format -->
+        <div data-ng-if="mdView.current.record.format" class="gn-margin-bottom flex-row">
+          <span class="badge badge-rounded">
+            <i class="fa fa-fw fa-globe"></i>
+          </span>
+          <div>
+            <h3 data-translate="">format</h3>
+            <ul class="gn-label-list">
+              <li data-ng-repeat="format in [].concat(mdView.current.record.format)" style="background-color: #fff;">
+                <a data-gn-search-filter-popup-link="format" data-filter="format">{{format}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NRW Custom elements -->
+<div class="col-md-8 gn-record gn-page-break-avoid">
+  <h2 data-translate=""
+    data-ng-if="mdView.current.record.NRW_relatedTitle ||
+                ((mdView.current.record.NRW_internalLocationInfo ||
+                mdView.current.record.NRW_internalContactInfo) && user.isConnected())">NRWcustomElements</h2>
+  <div class="row" data-ng-if="mdView.current.record.NRW_relatedTitle">
+    <!-- NRW Related Titles -->
+    <h3 data-translate="">NRW_relatedTitles</h3>
+    <ul>
+      <li data-ng-repeat="r in [].concat(mdView.current.record.NRW_relatedTitle)">
+        {{r}}
+      </li>
+    </ul>
+  </div>
+  <div class="row" data-ng-if="mdView.current.record.NRW_internalContactInfo && user.isConnected()">
+    <h3 data-translate="">NRW_internalContact</h3>
+    <p>{{mdView.current.record.NRW_internalContactInfo}}</p>
+  </div>
+  <div class="row" data-ng-if="mdView.current.record.NRW_internalLocationInfo && user.isConnected()">
+    <h3 data-translate="">NRW_internalLocation</h3>
+    <p>{{mdView.current.record.NRW_internalLocationInfo}}</p>
+  </div>
+</div>
+
+<div class="row gn-section gn-section-{{mdView.current.record.resourceType[0]}}">
+
+  <div class="row">
+    <!-- contact information -->
+    <div class="col-md-8 col-xs-12 gn-record gn-break">
+      <div ng-include="'../../catalog/views/default/templates/recordView/contact.html'" />
+    </div>
+
+    <!-- metadata information-->
+    <div class="col-md-4">
+      <h2 data-translate="">metadataInformation</h2>
+      <div class="col-md-12">
+        <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/metadata.html'" />
+      </div>
+
+      <div class="col-md-12 hidden-print">
+        <div ng-include="'../../catalog/views/default/templates/recordView/share.html'" />
+      </div>
+    </div>
+  </div>
+
+  <!-- children records -->
+  <div class="row">
+    <div class="col-md-12 gn-record">
+      <div
+        data-ng-if="mdView.current.record.related.uuids"
+        data-gn-related="mdView.current.record"
+        data-user="user"
+        data-layout="card"
+        data-types="children"
+        data-title="{{'seriesComposedOf' | translate}}"
+      ></div>
+    </div>
+  </div>
+</div>
+
+<div class="hidden-print" ng-include="'../../catalog/views/default/templates/recordView/footer.html'" />

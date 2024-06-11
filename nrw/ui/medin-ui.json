@@ -1,0 +1,874 @@
+{
+  "langDetector": {
+    "fromHtmlTag": false,
+    "regexp": "^(?:/.+)?/.+/([a-z]{2,3})/.+",
+    "default": "eng"
+  },
+  "nodeDetector": {
+    "regexp": "^(?:/.+)?/(.+)/[a-z]{2,3}/.+",
+    "default": "srv"
+  },
+  "serviceDetector": {
+    "regexp": "^(?:/.+)?/.+/[a-z]{2,3}/(.+)",
+    "default": "catalog.search"
+  },
+  "baseURLDetector": {
+    "regexp": "^((?:/.+)?)+/.+/[a-z]{2,3}/.+",
+    "default": "/geonetwork"
+  },
+  "mods": {
+    "global": {
+      "humanizeDates": true,
+      "dateFormat": "DD-MM-YYYY",
+      "timezone": "Browser"
+    },
+    "footer": {
+      "enabled": true,
+      "showSocialBarInFooter": false,
+      "showApplicationInfoAndLinksInFooter": true,
+      "footerCustomMenu": [],
+      "rssFeeds": [
+        {
+          "url": "f=rss&sortby=-createDate&size=30",
+          "label": "lastCreatedRecords"
+        }
+      ]
+    },
+    "header": {
+      "enabled": true,
+      "languages": {
+        "eng": "en",
+        "wel": "cy"
+      },
+      "isLogoInHeader": false,
+      "logoInHeaderPosition": "left",
+      "fluidHeaderLayout": true,
+      "showGNName": true,
+      "isHeaderFixed": false,
+      "showPortalSwitcher": "false",
+      "topCustomMenu": []
+    },
+    "cookieWarning": {
+      "enabled": true,
+      "cookieWarningMoreInfoLink": "",
+      "cookieWarningRejectLink": ""
+    },
+    "home": {
+      "enabled": true,
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/home",
+      "showSocialBarInFooter": false,
+      "showMosaic": false,
+      "showMaps": true,
+      "facetConfig": {
+        "cl_topic.key": {
+          "terms": {
+            "field": "cl_topic.key",
+            "size": 20
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-2x pull-left gn-icon-"
+            }
+          }
+        },
+        "th_httpinspireeceuropaeutheme-theme_tree.key": {
+          "terms": {
+            "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+            "size": 34
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-2x pull-left gn-icon iti-",
+              "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+            }
+          }
+        },
+        "resourceType": {
+          "terms": {
+            "field": "resourceType",
+            "size": 10
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-2x pull-left gn-icon-"
+            }
+          }
+        }
+      },
+      "fluidLayout": true
+    },
+    "search": {
+      "enabled": true,
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/search",
+      "hitsperpageValues": [
+        30,
+        60,
+        120
+      ],
+      "paginationInfo": {
+        "hitsPerPage": 30
+      },
+      "queryBase": "any.${searchLang}:(${any}) OR any.common:(${any}) OR resourceTitleObject.${searchLang}:(${any})^2 OR resourceTitleObject.\\*:\"${any}\"^6",
+      "queryBaseOptions": {
+        "default_operator": "AND"
+      },
+      "queryExactMatch": "any.${searchLang}:\"${any})\" OR any.common:\"${any}\" OR resourceTitleObject.\\*:\"${any}\"^2",
+      "queryTitle": "resourceTitleObject.\\*:(${any})",
+      "queryTitleExactMatch": "resourceTitleObject.\\*:\"${any}\"",
+      "searchOptions": {
+        "fullText": true,
+        "titleOnly": true,
+        "exactMatch": true,
+        "language": true
+      },
+      "languageStrategy": "searchInAllLanguages",
+      "languageWhitelist": [],
+      "scoreConfig": {
+        "boost": "5",
+        "functions": [
+          {
+            "filter": {
+              "match": {
+                "resourceType": "series"
+              }
+            },
+            "weight": 1.5
+          },
+          {
+            "filter": {
+              "exists": {
+                "field": "parentUuid"
+              }
+            },
+            "weight": 0.3
+          },
+          {
+            "filter": {
+              "match": {
+                "cl_status.key": "obsolete"
+              }
+            },
+            "weight": 0.2
+          },
+          {
+            "filter": {
+              "match": {
+                "cl_status.key": "superseded"
+              }
+            },
+            "weight": 0.3
+          },
+          {
+            "gauss": {
+              "dateStamp": {
+                "scale": "365d",
+                "offset": "90d",
+                "decay": 0.5
+              }
+            }
+          }
+        ],
+        "score_mode": "multiply"
+      },
+      "autocompleteConfig": {
+        "query": {
+          "bool": {
+            "must": [
+              {
+                "multi_match": {
+                  "query": "",
+                  "type": "bool_prefix",
+                  "fields": [
+                    "resourceTitleObject.${searchLang}^6",
+                    "resourceAbstractObject.${searchLang}^.5",
+                    "tag",
+                    "uuid",
+                    "resourceIdentifier"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "_source": [
+          "resourceTitle*",
+          "resourceType"
+        ],
+        "size": 20
+      },
+      "moreLikeThisSameType": true,
+      "moreLikeThisConfig": {
+        "more_like_this": {
+          "fields": [
+            "resourceTitleObject.default",
+            "resourceAbstractObject.default",
+            "tag.raw"
+          ],
+          "like": null,
+          "min_term_freq": 1,
+          "min_word_length": 3,
+          "max_query_terms": 35,
+          "minimum_should_match": "70%"
+        }
+      },
+      "facetTabField": "",
+      "isVegaEnabled": true,
+      "facetConfig": {
+        "resourceType": {
+          "terms": {
+            "field": "resourceType"
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw gn-icon-"
+            }
+          }
+        },
+        "formatSpecification": {
+          "terms": {
+            "field": "formatSpecification"
+          }
+        },
+        "hasOnlineResource": {
+          "terms": {
+            "field": "hasOnlineResource"
+          }
+        },
+        "license": {
+          "terms": {
+            "field": "license"
+          }
+        },
+        "OwnerForResource": {
+          "terms": {
+            "field": "ownerOrgForResourceObject.default",
+            "include": ".*",
+            "size": 10,
+            "order": {
+              "_count": "desc"
+            }
+          },
+          "meta": {
+            "caseInsensitiveInclude": true
+          }
+        },
+        "th_httpinspireeceuropaeutheme-theme_tree.key": {
+          "terms": {
+            "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+            "size": 34
+          },
+          "meta": {
+            "collapsed": true,
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw gn-icon iti-",
+              "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+            }
+          }
+        }
+      },
+      "filters": null,
+      "sortbyValues": [
+        {
+          "sortBy": "relevance",
+          "sortOrder": ""
+        },
+        {
+          "sortBy": "dateStamp",
+          "sortOrder": "desc"
+        },
+        {
+          "sortBy": "createDate",
+          "sortOrder": "desc"
+        },
+        {
+          "sortBy": "resourceTitleObject.default.sort",
+          "sortOrder": ""
+        },
+        {
+          "sortBy": "rating",
+          "sortOrder": "desc"
+        },
+        {
+          "sortBy": "popularity",
+          "sortOrder": "desc"
+        }
+      ],
+      "sortBy": "relevance",
+      "resultViewTpls": [
+        {
+          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/grid.html",
+          "tooltip": "Grid",
+          "icon": "fa-th"
+        },
+        {
+          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/list.html",
+          "tooltip": "List",
+          "icon": "fa-bars"
+        }
+      ],
+      "resultTemplate": "../../catalog/components/search/resultsview/partials/viewtemplates/grid.html",
+      "searchResultContact": "OrgForResource",
+      "formatter": {
+        "list": [
+          {
+            "label": "full",
+            "url": "/formatters/medin?root=div&view=advanced"
+          }
+        ]
+      },
+      "downloadFormatter": [
+        {
+          "label": "exportMEF",
+          "url": "/formatters/zip?withRelated=false",
+          "class": "fa-file-zip-o"
+        },
+        {
+          "label": "exportPDF",
+          "url": "/formatters/medin?output=pdf&language=${lang}",
+          "class": "fa-file-pdf-o"
+        },
+        {
+          "label": "exportXML",
+          "url": "/formatters/medin-xml?output=xml",
+          "class": "fa-file-code-o"
+        }
+      ],
+      "grid": {
+        "related": [
+          "parent",
+          "children",
+          "services",
+          "datasets"
+        ]
+      },
+      "linkTypes": {
+        "links": [
+          "LINK"
+        ],
+        "downloads": [
+          "WWW:DOWNLOAD",
+          "WWW:OPENDAP",
+          "WWW:FTP",
+          "KML"
+        ],
+        "layers": [
+          "OGC:WMS",
+          "OGC:WMTS",
+          "ESRI:REST"
+        ],
+        "maps": [
+          "ows"
+        ]
+      },
+      "isFilterTagsDisplayedInSearch": true,
+      "searchMapPlacement": "results",
+      "showStatusFooterFor": "historicalArchive,obsolete,superseded",
+      "showBatchDropdown": true,
+      "usersearches": {
+        "enabled": false,
+        "includePortals": true,
+        "displayFeaturedSearchesPanel": false
+      },
+      "savedSelection": {
+        "enabled": false
+      },
+      "addWMSLayersToMap": {
+        "urlLayerParam": ""
+      }
+    },
+    "map": {
+      "enabled": false,
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/map",
+      "externalViewer": {
+        "enabled": false,
+        "enabledViewAction": false,
+        "baseUrl": "http://www.example.com/viewer",
+        "urlTemplate": "http://www.example.com/viewer?url=${service.url}&type=${service.type}&layer=${service.title}&lang=${iso2lang}&title=${md.defaultTitle}",
+        "openNewWindow": false,
+        "valuesSeparator": ","
+      },
+      "is3DModeAllowed": false,
+      "isSaveMapInCatalogAllowed": true,
+      "isExportMapAsImageEnabled": false,
+      "isAccessible": false,
+      "storage": "sessionStorage",
+      "bingKey": "",
+      "listOfServices": {
+        "wms": [],
+        "wmts": []
+      },
+      "projection": "EPSG:3857",
+      "projectionList": [
+        {
+          "code": "urn:ogc:def:crs:EPSG:6.6:4326",
+          "label": "WGS84 (EPSG:4326)"
+        },
+        {
+          "code": "EPSG:3857",
+          "label": "Google mercator (EPSG:3857)"
+        }
+      ],
+      "switcherProjectionList": [
+        {
+          "code": "EPSG:3857",
+          "label": "Google mercator (EPSG:3857)"
+        }
+      ],
+      "disabledTools": {
+        "processes": false,
+        "addLayers": false,
+        "projectionSwitcher": false,
+        "layers": false,
+        "legend": false,
+        "filter": false,
+        "contexts": false,
+        "print": false,
+        "mInteraction": false,
+        "graticule": false,
+        "mousePosition": true,
+        "syncAllLayers": false,
+        "drawVector": false
+      },
+      "defaultTool": "layers",
+      "defaultToolAfterMapLoad": "layers",
+      "graticuleOgcService": {},
+      "map-viewer": {
+        "context": "../../map/config-viewer.xml",
+        "extent": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "layers": []
+      },
+      "map-search": {
+        "context": "../../map/config-viewer.xml",
+        "extent": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "layers": [],
+        "geodesicExtents": false
+      },
+      "map-editor": {
+        "context": "",
+        "extent": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "layers": [
+          {
+            "type": "osm"
+          }
+        ]
+      },
+      "map-thumbnail": {
+        "context": "../../map/config-viewer.xml",
+        "extent": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "layers": []
+      },
+      "autoFitOnLayer": false
+    },
+    "geocoder": {
+      "enabled": true,
+      "appUrl": "https://secure.geonames.org/searchJSON"
+    },
+    "recordview": {
+      "isSocialbarEnabled": false,
+      "showStatusWatermarkFor": "",
+      "showStatusTopBarFor": "",
+      "showCitation": {
+        "enabled": false,
+        "if": {
+          "resourceType": [
+            "series",
+            "dataset",
+            "nonGeographicDataset"
+          ]
+        }
+      },
+      "sortKeywordsAlphabetically": true,
+      "mainThesaurus": [
+        "th_gemet",
+        "th_gemet-theme"
+      ],
+      "locationThesaurus": [
+        "th_regions",
+        "th_httpinspireeceuropaeumetadatacodelistSpatialScope-SpatialScope"
+      ],
+      "internalThesaurus": [],
+      "collectionTableConfig": {
+        "labels": "title,cl_status,format,download,WMS,WFS,Atom,Links",
+        "columns": "resourceTitle,cl_status[0].key,format,link/protocol:WWW:DOWNLOAD.*,link/protocol:OGC:WMS,link/protocol:OGC:WFS,link/protocol:atom:feed,link/protocol:WWW:LINK.*"
+      },
+      "distributionConfig": {
+        "layout": "",
+        "sections": [
+          {
+            "types": "onlines",
+            "filter": "protocol:OGC:.*|ESRI:.*|atom.*",
+            "title": "API"
+          },
+          {
+            "types": "onlines",
+            "filter": "protocol:.*DOWNLOAD.*|DB:.*|FILE:.*",
+            "title": "download"
+          },
+          {
+            "types": "onlines",
+            "filter": "function:legend",
+            "title": "mapLegend"
+          },
+          {
+            "types": "onlines",
+            "filter": "function:featureCatalogue",
+            "title": "featureCatalog"
+          },
+          {
+            "types": "onlines",
+            "filter": "function:dataQualityReport",
+            "title": "quality"
+          },
+          {
+            "types": "onlines",
+            "filter": "-protocol:OGC:.*|ESRI:.*|atom.*|.*DOWNLOAD.*|DB:.*|FILE:.* AND -function:legend|featureCatalogue|dataQualityReport",
+            "title": "links"
+          }
+        ]
+      },
+      "relatedFacetConfig": {
+        "cl_status": {
+          "terms": {
+            "field": "cl_status.default",
+            "order": {
+              "_key": "asc"
+            }
+          }
+        },
+        "creationYearForResource": {
+          "terms": {
+            "field": "creationYearForResource",
+            "size": 100,
+            "order": {
+              "_key": "asc"
+            }
+          }
+        },
+        "cl_spatialRepresentationType": {
+          "terms": {
+            "field": "cl_spatialRepresentationType.default",
+            "order": {
+              "_key": "asc"
+            }
+          }
+        },
+        "format": {
+          "terms": {
+            "field": "format",
+            "order": {
+              "_key": "asc"
+            }
+          }
+        }
+      }
+    },
+    "editor": {
+      "enabled": false,
+      "appUrl": "../../{{node}}/{{lang}}/catalog.edit",
+      "isUserRecordsOnly": false,
+      "minUserProfileToCreateTemplate": "",
+      "isFilterTagsDisplayed": false,
+      "fluidEditorLayout": true,
+      "createPageTpl": "../../catalog/templates/editor/new-metadata-horizontal.html",
+      "editorIndentType": "",
+      "allowRemoteRecordLink": true,
+      "facetConfig": {
+        "resourceType": {
+          "terms": {
+            "field": "resourceType"
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw gn-icon-"
+            }
+          }
+        },
+        "mdStatus": {
+          "terms": {
+            "field": "statusWorkflow",
+            "size": 20
+          },
+          "meta": {
+            "field": "statusWorkflow"
+          }
+        },
+        "cl_status.key": {
+          "terms": {
+            "field": "cl_status.key",
+            "size": 15
+          }
+        },
+        "valid": {
+          "terms": {
+            "field": "valid",
+            "size": 10
+          }
+        },
+        "valid_inspire": {
+          "terms": {
+            "field": "valid_inspire",
+            "size": 10
+          },
+          "meta": {
+            "collapsed": true
+          }
+        },
+        "sourceCatalogue": {
+          "terms": {
+            "field": "sourceCatalogue",
+            "size": 100,
+            "include": ".*"
+          },
+          "meta": {
+            "orderByTranslation": true,
+            "filterByTranslation": true,
+            "displayFilter": true,
+            "collapsed": true
+          }
+        },
+        "groupOwner": {
+          "terms": {
+            "field": "groupOwner",
+            "size": 200,
+            "include": ".*"
+          },
+          "meta": {
+            "orderByTranslation": true,
+            "filterByTranslation": true,
+            "displayFilter": true,
+            "collapsed": true
+          }
+        },
+        "recordOwner": {
+          "terms": {
+            "field": "recordOwner",
+            "size": 5,
+            "include": ".*"
+          },
+          "meta": {
+            "collapsed": true
+          }
+        },
+        "isPublishedToAll": {
+          "terms": {
+            "field": "isPublishedToAll",
+            "size": 2
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw ",
+              "map": {
+                "false": "fa-lock",
+                "true": "fa-unlock"
+              }
+            }
+          }
+        },
+        "groupPublishedId": {
+          "terms": {
+            "field": "groupPublishedId",
+            "size": 200,
+            "include": ".*"
+          },
+          "meta": {
+            "orderByTranslation": true,
+            "filterByTranslation": true,
+            "displayFilter": true,
+            "collapsed": true
+          }
+        },
+        "documentStandard": {
+          "terms": {
+            "field": "documentStandard",
+            "size": 10
+          },
+          "meta": {
+            "collapsed": true
+          }
+        },
+        "isHarvested": {
+          "terms": {
+            "field": "isHarvested",
+            "size": 2
+          },
+          "meta": {
+            "collapsed": true,
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw ",
+              "map": {
+                "false": "fa-folder",
+                "true": "fa-cloud"
+              }
+            }
+          }
+        },
+        "isTemplate": {
+          "terms": {
+            "field": "isTemplate",
+            "size": 5
+          },
+          "meta": {
+            "collapsed": true,
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw ",
+              "map": {
+                "n": "fa-file-text",
+                "y": "fa-file"
+              }
+            }
+          }
+        }
+      }
+    },
+    "directory": {
+      "sortbyValues": [
+        {
+          "sortBy": "relevance",
+          "sortOrder": ""
+        },
+        {
+          "sortBy": "dateStamp",
+          "sortOrder": "desc"
+        },
+        {
+          "sortBy": "resourceTitleObject.default.sort",
+          "sortOrder": ""
+        },
+        {
+          "sortBy": "recordOwner",
+          "sortOrder": ""
+        },
+        {
+          "sortBy": "valid",
+          "sortOrder": "desc"
+        }
+      ],
+      "sortBy": "relevance",
+      "facetConfig": {
+        "valid": {
+          "terms": {
+            "field": "valid",
+            "size": 10
+          }
+        },
+        "groupOwner": {
+          "terms": {
+            "field": "groupOwner",
+            "size": 10
+          }
+        },
+        "recordOwner": {
+          "terms": {
+            "field": "recordOwner",
+            "size": 10
+          }
+        },
+        "groupPublished": {
+          "terms": {
+            "field": "groupPublished",
+            "size": 10
+          }
+        },
+        "isHarvested": {
+          "terms": {
+            "field": "isHarvested",
+            "size": 2
+          }
+        }
+      },
+      "queryBase": "any.${searchLang}:(${any}) OR any.common:(${any}) OR resourceTitleObject.${searchLang}:\"${any}\"^10 OR resourceTitleObject.${searchLang}:(${any})^5 OR resourceTitleObject.${searchLang}:(${any}~2)"
+    },
+    "admin": {
+      "enabled": false,
+      "appUrl": "../../{{node}}/{{lang}}/admin.console",
+      "facetConfig": {
+        "availableInServices": {
+          "filters": {
+            "filters": {
+              "availableInViewService": {
+                "query_string": {
+                  "query": "+linkProtocol:/OGC:WMS.*/"
+                }
+              },
+              "availableInDownloadService": {
+                "query_string": {
+                  "query": "+linkProtocol:/OGC:WFS.*/"
+                }
+              }
+            }
+          }
+        },
+        "resourceType": {
+          "terms": {
+            "field": "resourceType"
+          },
+          "meta": {
+            "vega": "arc"
+          }
+        },
+        "tag.default": {
+          "terms": {
+            "field": "tag.default",
+            "size": 10
+          },
+          "meta": {
+            "vega": "arc"
+          }
+        },
+        "indexingErrorMsg": {
+          "terms": {
+            "field": "indexingErrorMsg",
+            "size": 12
+          }
+        }
+      }
+    },
+    "authentication": {
+      "enabled": false,
+      "signinUrl": "../../{{node}}/{{lang}}/catalog.signin",
+      "signoutUrl": "../../signout"
+    },
+    "page": {
+      "enabled": false,
+      "appUrl": "../../{{node}}/{{lang}}/catalog.search#/page"
+    },
+    "workflowHelper": {
+      "enabled": false,
+      "workflowAssistApps": [
+        {
+          "appUrl": "",
+          "appLabelKey": ""
+        }
+      ]
+    }
+  }
+}

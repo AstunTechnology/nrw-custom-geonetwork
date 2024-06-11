@@ -8,7 +8,6 @@
     <xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
 
 
-    
     <xsl:strip-space elements="*"/>
 
 
@@ -18,11 +17,17 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
+
+    <!-- switch identifier to use RS_Identifier -->
+    <xsl:template match="//gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:identifier">
+        <xsl:message>== Matched identifier element ===</xsl:message>
+        <!-- TODO wait for example of correct encoding using RS_Identifier -->
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
     
-    <!-- example from docs <xsl:template match="*[gmd:CI_OnlineResource
-                         and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[not(starts-with(text(), 'http'))]) > 0]"
-                priority="2"/> -->
-    
+
     <!-- remove PostGIS protocol resources -->
     <xsl:template match="*[gmd:CI_OnlineResource and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[(starts-with(text(), 'PG'))]) > 0]" priority="1000">
         <xsl:message>=== Stripping Online Resources where the URL is a PostgreSQL DSN ===</xsl:message>
@@ -32,8 +37,14 @@
     <xsl:template match="nrw:*">
         <xsl:message>== Discarding elements from the NRW namespace ===</xsl:message>
     </xsl:template>
+
+        <!-- Don't copy elements from the NRW namespace -->
+    <xsl:template match="gmd:specification" priority="1000">
+        <xsl:message>== Discarding Format Specification Element ===</xsl:message>
+    </xsl:template>
+
     
-    <!--  Change standard to UK GEMINI  -->
+    <!--  Change standard to MEDIN -->
     <xsl:template match="//gmd:metadataStandardName"  priority="10">
         <xsl:message>=== Updating Metadata Standard Name ===</xsl:message>
         <gmd:metadataStandardName>
@@ -49,12 +60,6 @@
         
     </xsl:template>
         
-    
-    <!--<xsl:template match="//gmd:extent/gmd:EX_Extent/gmd:geographicElement[gmd:EX_GeographicDescription/gmd:geographicIdentifier/gmd:MD_Identifier/gmd:authority/gmd:CI_Citation/gmd:title/gco:CharacterString='SeaVoX Vertical Co-ordinate Coverages']">
-        <xsl:message>==== Removing MEDIN-Specific Vertical Extent keywords ====</xsl:message>
-    </xsl:template>-->
-        
-   
     
 
 

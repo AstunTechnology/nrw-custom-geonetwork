@@ -1,0 +1,32 @@
+<div class="btn-group" data-ng-show="listOfResultTemplate.length > 1">
+    <!-- Add button name to improve accessibility -->
+    <button
+      type="button"
+      class="btn btn-default dropdown-toggle"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-label="Change results template"
+    >
+      <i
+        data-ng-repeat="t in listOfResultTemplate"
+        data-ng-show="t.tplUrl == resultTemplate.tplUrl"
+        title="{{t.tooltip | translate}}"
+        class="fa {{t.icon}}"
+      />
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <!-- Add the correct role to improve accessibility -->
+      <li
+        data-ng-repeat="t in listOfResultTemplate"
+        data-ng-hide="t.tplUrl == resultTemplate.tplUrl"
+        role="presentation"
+      >
+        <!-- Add the correct role to improve accessibility -->
+        <a href="" data-ng-click="setResultTemplate(t);" role="option">
+          <i class="fa {{t.icon}}" />&nbsp; {{t.tooltip | translate}}
+        </a>
+      </li>
+    </ul>
+  </div>

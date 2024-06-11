@@ -112,7 +112,7 @@
       "zeppelin.jdbc.interpolation": {
         "envName": null,
         "propertyName": "zeppelin.jdbc.interpolation",
-        "defaultValue": false,
+        "defaultValue": true,
         "description": "Enable ZeppelinContext variable interpolation into paragraph text",
         "type": "checkbox"
       },

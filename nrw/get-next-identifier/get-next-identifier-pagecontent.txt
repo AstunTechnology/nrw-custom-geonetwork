@@ -1,0 +1,5 @@
+<br />
+<p>Next Identifier:</p>
+<iframe src="../../../zeppelin/#/notebook/2JUBZJ4VH/paragraph/paragraph_1712588955407_13758961?asIframe" height="50" width="500" style="border:none;"></iframe>
+<br />
+<p class="col-md-8 alert alert-warning">Please copy the identifier above, and click <a href="../eng/catalog.edit#/create">here</a> to return to the create record page.</p>

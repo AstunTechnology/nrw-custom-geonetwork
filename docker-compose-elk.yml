@@ -2,10 +2,14 @@ version: '3'
 
 volumes:
   esdata:
+  esconfig:
+  kbdata:
+  kbconfig:
 
 services:
   elasticsearch:
-    image: elasticsearch:7.12.1
+    #image: elasticsearch:7.12.1
+    image: elasticsearch:7.17.15
     # build:
     #   context: ./elasticsearch
     container_name: elasticsearch
@@ -28,30 +32,36 @@ services:
     environment:
       - "ES_JAVA_OPTS=-Xms1G -Xmx1G" 
       - discovery.type=single-node
-      # - logger.discovery.name=org.elasticsearch.discovery
+      - xpack.security.enabled=true
       - logger.deprecation.level=OFF
-      #- logger.level=WARN
+      - ES_USERNAME=${ES_USERNAME}
+      - ES_PASSWORD=${ES_PASSWORD}
     volumes:
       - esdata:/usr/share/elasticsearch/data
+      - esconfig:/usr/share/elasticsearch/config
     healthcheck:
-      test: ["CMD-SHELL", "curl -i -H \"Accept: application/json\" -f http://localhost:9200/gn-records || exit 1"]
+      test: ["CMD-SHELL", "curl -u $ES_USERNAME:$ES_PASSWORD -i -H \"Accept: application/json\" -f http://localhost:9200/_cat/health || exit 1"]
       interval: 3m
       timeout: 10s
       retries: 3
 
 
   kibana:
-    image: kibana:7.12.1
+    #image: kibana:7.12.1
+    image: kibana:7.17.15
     #image: amazon/opendistro-for-elasticsearch-kibana:1.9.0
     container_name: kibana
     restart: unless-stopped
     environment:
       ELASTICSEARCH_URL: ${ES_URL}
-      #ES_USERNAME: ${ES_USERNAME}
-      #ES_PASSWORD: ${ES_PASSWORD}
-      #XPACK_MONITORING_UI_CONTAINER_ELASTICSEARCH_ENABLED: 'true'
+      ES_USERNAME: ${ES_USERNAME}
+      ES_PASSWORD: ${ES_PASSWORD}
+      SERVER_PUBLICBASEURL: ${KB_BASE_URL}/geonetwork/dashboards
     volumes:
       - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./kibana/node.options:/usr/share/kibana/config/node.options
+      - kbdata:/usr/share/kibana/data
+      - kbconfig:/usr/share/kibana/config
     logging:
           driver: "json-file"
     ports:

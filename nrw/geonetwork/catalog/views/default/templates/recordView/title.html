@@ -1,0 +1,37 @@
+<div>
+    <h1 class="gn-break">
+      <i class="fa gn-icon-{{mdView.current.record.resourceType[0]}}" />
+
+      {{mdView.current.record.resourceTitle}}
+
+      <span
+        class="text-muted badge"
+        data-ng-class="{
+                'text-success': md.mdStatus == 2,
+                'text-warning': md.mdStatus == 4
+                }"
+        data-ng-if="user.isEditorOrMore()
+                        && md.mdStatus < 50
+                        && isMdWorkflowEnable"
+        >{{('status-' + md.mdStatus) | translate}}</span
+      >
+    </h1>
+
+    <div
+      class="gn-alt-title"
+      data-ng-if="mdView.current.record.resourceAltTitle && mdView.current.record.resourceAltTitle.length > 0"
+      >
+      <div>
+        <!-- Changed from h3 to a h2 to imrpove the document outline for accessibility reasons -->
+        <h2 data-translate="" style="font-size: 14px; margin-bottom: 5px;">alternateTitle</h2>
+        <ul style="list-style-type: none;">
+          <li data-ng-repeat="t in mdView.current.record.resourceAltTitle">
+            {{t}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <br />
+    <p data-ng-bind-html="(mdView.current.record.resourceAbstract) | linky | newlines"></p>
+  </div>

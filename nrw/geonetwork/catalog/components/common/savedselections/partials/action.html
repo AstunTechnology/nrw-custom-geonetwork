@@ -1,0 +1,50 @@
+<!-- Single button -->
+<div
+  class="btn-group"
+  data-ng-show="isSavedSelectionEnabled && selections.list.length > 0"
+>
+  <button
+    type="button"
+    class="btn btn-default dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    <i class="fa fa-thumb-tack"></i>&nbsp;
+    <span class="sr-only" data-translate="">addToSelection</span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <!-- Add roles to elements to improve accessibility -->
+    <li
+      class="dropdown-header"
+      data-ng-show="canBeAdded()"
+      role="presentation"
+      data-translate=""
+    >
+      addToSelection
+    </li>
+    <li
+      data-ng-repeat="s in selections.list"
+      data-ng-show="canBeAdded(s)"
+      role="presentation"
+    >
+      <a href="" data-ng-click="add(s)" role="option"> {{s.label[lang] || (s.name | translate)}} </a>
+    </li>
+    <li
+      class="dropdown-header"
+      data-ng-show="canBeRemoved()"
+      role="presentation"
+      data-translate=""
+    >
+      removeFromSelection
+    </li>
+    <li
+      data-ng-repeat="s in selections.list"
+      data-ng-show="canBeRemoved(s)"
+      role="presentation"
+    >
+      <a href="" data-ng-click="remove(s)" role="option"> {{s.label[lang] || (s.name | translate)}} </a>
+    </li>
+  </ul>
+</div>

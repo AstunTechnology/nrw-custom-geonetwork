@@ -1,0 +1,88 @@
+<!-- Removed class to reduce padding - previously set to data-ng-class="fluidHeaderLayout ? 'container-fluid' : 'container'" -->
+<div>
+    <!-- Add role attribute for accessibility purposes -->
+    <div class="navbar-header" role="navigation">
+      <!-- Removed redundant link behind logo to improve accessibility -->
+      <img
+        class="gn-logo hidden-sm hidden-md hidden-lg pull-left"
+        style="margin-top: 13px; margin-left:13px;"
+        alt=""
+        data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
+        data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}"
+        role="presentation"
+      />
+      <a
+        class="hidden-sm hidden-md hidden-lg btn btn-link pull-left"
+        data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}"
+        role="link"
+      >
+        <span
+          class="gn-name"
+          data-ng-class="authenticated && user.isEditorOrMore() ? 'gn-truncate' : ''"
+          title="{{info['system/site/name']}}"
+          >{{info['node/name'] || info['system/site/name']}}</span
+        >
+      </a>
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar"
+        title="{{'toggleNavigation' | translate}}"
+        aria-expanded="false"
+        aria-controls="navbar"
+      >
+        <span class="sr-only" data-translate>toggleNavigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="navbar-accessible navbar-collapse collapse">
+      <!-- Add role attribute for accessibility purposes -->
+      <ul class="nav navbar-nav gn-menu-xs" role="navigation">
+        <!-- Add role attribute for accessibility purposes -->
+        <li data-ng-repeat-start="menu in toolbarMenu" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-site-name-menu'" gn-site-name-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-portal-switcher'" gn-portal-switcher="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-search-menu'" gn-search-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-map-menu'" gn-map-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-contribute-menu'" gn-contribute-menu="" role="navigation"></li>
+        <li data-ng-if="menu == 'gn-admin-menu'" gn-admin-menu="" role="navigation"></li>
+        <!-- Add role attribute for accessibility purposes -->
+        <li
+          data-ng-if="isPage(menu)"
+          gn-static-page-menu="menu"
+          language="{{lang}}"
+          section="top"
+          role="navigation"
+        ></li>
+        <!-- Add role attribute for accessibility purposes -->
+        <ul
+          data-ng-if="menu == 'gn-static-pages-list-viewer'"
+          gn-static-pages-list-viewer=""
+          language="{{lang}}"
+          section="top"
+          class="nav navbar-nav gn-menu-xs"
+          role="navigation"
+        ></ul>
+        <!-- Add role attribute for accessibility purposes -->
+        <li data-ng-repeat-end="" aria-hidden="true"></li>
+      </ul>
+      <div class="navbar-right">
+        <!-- Add custom button to switch between welsh/english NRW portals -->
+        <ul class="nav navbar-nav gn-menu-xs ng-scope ng-isolate-scope" role="navigation">
+          <li role="presentation"
+          language="{{'targetLang' | translate}}"
+          class="ng-scope ng-isolate-scope">
+            <a title="{{'switchToPortalTitle' | translate}}" role="link" class="ng-scope" target="_blank" href="{{'portalURL' | translate}}">
+              <span role="presentation" class="ng-binding" data-translate="">switchToPortal</span>
+            </a>
+          </li>
+        </ul>
+        <!-- Add role attribute for accessibility purposes -->
+        <ul gn-signin-menu="" role="navigation"></ul>
+        <div gn-languages-menu="" role="navigation"></div>
+      </div>
+    </div>
+  </div>

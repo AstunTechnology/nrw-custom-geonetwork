@@ -10,7 +10,6 @@ testing/target
 *.dump
 *.log
 *.err
-thesauri/local
 Tiltfile
 *.yaml
 tilt_modules
@@ -21,3 +20,4 @@ kibana/kibana.yml
 kibana/export.ndjson
 astun/*
 scotgov/*
+nginx/servers/*

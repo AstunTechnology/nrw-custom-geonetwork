@@ -1,0 +1,171 @@
+{
+  "langDetector": {
+    "fromHtmlTag": false,
+    "regexp": "^(?:/.+)?/.+/([a-z]{2,3})/.+",
+    "default": "wel"
+  },
+  "mods": {
+    "header": {
+      "languages": {
+        "wel": "cy"
+      },
+      "showPortalSwitcher": "",
+      "topCustomMenu": []
+    },
+    "home": {
+      "appUrl": "../../cym/wel/catalog.search#/home",
+      "showMosaic": false,
+      "showSocialBarInFooter": false,
+      "facetConfig": {
+        "cl_topic.key": {
+          "terms": {
+            "field": "cl_topic.key",
+            "size": 20
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-2x pull-left gn-icon-"
+            }
+          }
+        },
+        "th_httpinspireeceuropaeutheme-theme_tree.key": {
+          "terms": {
+            "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+            "size": 34
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-2x pull-left gn-icon iti-",
+              "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+            }
+          }
+        },
+        "resourceType": {
+          "terms": {
+            "field": "resourceType",
+            "size": 10
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-2x pull-left gn-icon-"
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "appUrl": "../../cym/wel/catalog.search#/search",
+      "savedSelection": {
+        "enabled": true
+      },
+      "usersearches": {
+        "enabled": true,
+        "includePortals": true,
+        "displayFeaturedSearchesPanel": false
+      },
+      "facetConfig": {
+        "resourceType": {
+          "terms": {
+            "field": "resourceType"
+          },
+          "meta": {
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw gn-icon-"
+            }
+          }
+        },
+        "formatSpecification": {
+          "terms": {
+            "field": "formatSpecification"
+          }
+        },
+        "hasOnlineResource": {
+          "terms": {
+            "field": "hasOnlineResource"
+          }
+        },
+        "license": {
+          "terms": {
+            "field": "license"
+          }
+        },
+        "OwnerForResource": {
+          "terms": {
+            "field": "ownerOrgForResourceObject.default",
+            "include": ".*",
+            "size": 10,
+            "order": {
+              "_count": "desc"
+            }
+          },
+          "meta": {
+            "caseInsensitiveInclude": true
+          }
+        },
+        "th_httpinspireeceuropaeutheme-theme_tree.key": {
+          "terms": {
+            "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+            "size": 34
+          },
+          "meta": {
+            "collapsed": true,
+            "decorator": {
+              "type": "icon",
+              "prefix": "fa fa-fw gn-icon iti-",
+              "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+            }
+          }
+        }
+      },
+      "resultViewTpls": [
+        {
+          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/grid.html",
+          "tooltip": "Grid",
+          "icon": "fa-th",
+          "related": []
+        },
+        {
+          "tplUrl": "../../catalog/components/search/resultsview/partials/viewtemplates/list.html",
+          "tooltip": "List",
+          "icon": "fa-bars",
+          "related": [
+            "parent",
+            "children",
+            "services",
+            "datasets"
+          ]
+        }
+      ]
+    },
+    "editor": {
+      "enabled": false
+    },
+    "admin": {
+      "enabled": false
+    },
+    "authentication": {
+      "enabled": false
+    },
+    "map": {
+      "enabled": false
+    },
+    "footer": {
+      "showSocialBarInFooter": false
+    },
+    "recordview": {
+      "isSocialbarEnabled": false
+    }
+  },
+  "baseURLDetector": {
+    "regexp": "^((?:/.+)?)+/.+/[a-z]{2,3}/.+",
+    "default": "/geonetwork"
+  },
+  "nodeDetector": {
+    "regexp": "^(?:/.+)?/(.+)/[a-z]{2,3}/.+",
+    "default": "srv"
+  }
+}

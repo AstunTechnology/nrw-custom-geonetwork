@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <skos:ConceptScheme xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/">
+    <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">NRW SMNR Keywords</dc:title>
+    <dct:issued xmlns:dct="http://purl.org/dc/terms/">2024-03-05</dct:issued>
+    <dct:issued xmlns:dct="http://purl.org/dc/terms/">2024-03-05</dct:issued>
+  </skos:ConceptScheme>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/air">
+    <skos:prefLabel xml:lang="en">Air (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/animals-plants-and-other-organisms">
+    <skos:prefLabel xml:lang="en">Animals, Plants and Other Organisms (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/climate">
+    <skos:prefLabel xml:lang="en">Climate (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/coastal-margins">
+    <skos:prefLabel xml:lang="en">Coastal Margins (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/cultural-services">
+    <skos:prefLabel xml:lang="en">Cultural Services (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/ecosystem">
+    <skos:prefLabel xml:lang="en">Ecosystem (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/ecosystem-services">
+    <skos:prefLabel xml:lang="en">Ecosystem Services (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/enclosed-farmlands">
+    <skos:prefLabel xml:lang="en">Enclosed Farmlands (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/energy">
+    <skos:prefLabel xml:lang="en">Energy (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/flooding">
+    <skos:prefLabel xml:lang="en">Flooding (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/freshwater-and-wetlands">
+    <skos:prefLabel xml:lang="en">Freshwater and Wetlands (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/geodiversity">
+    <skos:prefLabel xml:lang="en">Geodiversity (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/geological">
+    <skos:prefLabel xml:lang="en">Geological (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/geomorphology">
+    <skos:prefLabel xml:lang="en">Geomorphology (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/hydrological-processes">
+    <skos:prefLabel xml:lang="en">Hydrological Processes (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/landscape">
+    <skos:prefLabel xml:lang="en">Landscape (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/management-areas">
+    <skos:prefLabel xml:lang="en">Management Areas (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/marine">
+    <skos:prefLabel xml:lang="en">Marine (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/minerals">
+    <skos:prefLabel xml:lang="en">Minerals (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/mountains-moorland-and-heaths">
+    <skos:prefLabel xml:lang="en">Mountains, Moorland and Heaths (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/natural-resources">
+    <skos:prefLabel xml:lang="en">Natural Resources (Incl. Features and Processes) (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/physical-geography">
+    <skos:prefLabel xml:lang="en">Physical Geography (Physiography) (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/provisioning-services">
+    <skos:prefLabel xml:lang="en">Provisioning Services (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/regulating-services">
+    <skos:prefLabel xml:lang="en">Regulating Services (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/sea-and-coast">
+    <skos:prefLabel xml:lang="en">Sea and Coast (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/seascape">
+    <skos:prefLabel xml:lang="en">Seascape (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/seminatural-grasslands">
+    <skos:prefLabel xml:lang="en">Semi-natural Grasslands (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/soil-and-land">
+    <skos:prefLabel xml:lang="en">Soil and Land (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/soils">
+    <skos:prefLabel xml:lang="en">Soils (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/supporting-services">
+    <skos:prefLabel xml:lang="en">Supporting Services (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/sustainable-management-of-natural-resources">
+    <skos:prefLabel xml:lang="en">Sustainable Management of Natural Resources (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/urban">
+    <skos:prefLabel xml:lang="en">Urban (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/waste">
+    <skos:prefLabel xml:lang="en">Waste (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/water-quality">
+    <skos:prefLabel xml:lang="en">Water Quality (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/water-resources">
+    <skos:prefLabel xml:lang="en">Water Resources (SMNR)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-smnr-keywords/woodlands">
+    <skos:prefLabel xml:lang="en">Woodlands (SMNR)</skos:prefLabel>
+  </skos:Concept>
+</rdf:RDF>
+

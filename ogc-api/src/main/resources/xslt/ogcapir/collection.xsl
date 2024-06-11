@@ -154,7 +154,7 @@
                   </section>
                 </xsl:when>
                 <xsl:otherwise>
-                  <a href="{$collection/name}/items">
+                  <a href="{$requestUrl}/items">
                     <button class="p-4 rounded-full bg-gray-800 text-white
                                 transition duration-500 ease-in-out
                                 focus:outline-none focus:shadow-outline

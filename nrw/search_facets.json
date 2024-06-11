@@ -1,0 +1,71 @@
+{
+  "resourceType": {
+    "terms": {
+      "field": "resourceType"
+    },
+    "meta": {
+      "decorator": {
+        "type": "icon",
+        "prefix": "fa fa-fw gn-icon-"
+      }
+    }
+  },
+  "formatSpecification": {
+    "terms": {
+      "field": "formatSpecification"
+    }
+  },
+  "hasOnlineResource": {
+    "terms": {
+      "field": "hasOnlineResource"
+    }
+  },
+  "license": {
+    "terms": {
+      "field": "license"
+    }
+  },
+  "OwnerForResource": {
+    "terms": {
+      "field": "ownerOrgForResourceObject.default",
+      "include": ".*",
+      "size": 10,
+      "order": {
+        "_count": "desc"
+      }
+    },
+    "meta": {
+      "caseInsensitiveInclude": true
+    }
+  },
+  "isPublishedToAll": {
+    "terms": {
+      "field": "isPublishedToAll",
+      "size": 2
+    },
+    "meta": {
+      "decorator": {
+        "type": "icon",
+        "prefix": "fa fa-fw ",
+        "map": {
+          "false": "fa-lock",
+          "true": "fa-unlock"
+        }
+      }
+    }
+  },
+  "th_httpinspireeceuropaeutheme-theme_tree.key": {
+    "terms": {
+      "field": "th_httpinspireeceuropaeutheme-theme_tree.key",
+      "size": 34
+    },
+    "meta": {
+      "collapsed": true,
+      "decorator": {
+        "type": "icon",
+        "prefix": "fa fa-fw gn-icon iti-",
+        "expression": "http://inspire.ec.europa.eu/theme/(.*)"
+      }
+    }
+  }
+}
