@@ -64,5 +64,6 @@
 	"targetLang": "cy",
 	"switchToPortal": "Cymraeg",
 	"switchToPortalTitle": "Newid i Cymraeg",
-	"portalURL": "../../cym/wel/catalog.search#/home"
+	"portalURL": "../../cym/wel/catalog.search#/home",
+	"logoName": "Natural Resources Wales"
 }

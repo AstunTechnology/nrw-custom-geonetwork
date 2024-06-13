@@ -3,10 +3,11 @@
     <!-- Add role attribute for accessibility purposes -->
     <div class="navbar-header" role="navigation">
       <!-- Removed redundant link behind logo to improve accessibility -->
+      <!-- Added an alt attribute to the logo based on guidance from Zoonou and NRW to be the organisation name in English or Welsh depending on the language of the site a user is looking at to improve accessibility -->
       <img
         class="gn-logo hidden-sm hidden-md hidden-lg pull-left"
         style="margin-top: 13px; margin-left:13px;"
-        alt=""
+        alt="{{'logoName' | translate}}"
         data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
         data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}"
         role="presentation"

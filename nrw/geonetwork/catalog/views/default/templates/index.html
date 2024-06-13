@@ -22,9 +22,10 @@
       <div class="col-md-12 text-{{gnCfg.mods.header.logoInHeaderPosition}}">
         <!-- Removed redundant link for accessibility
         Added classes to improve appearance on different screen sizes -->
+        <!-- Added an alt attribute to the logo based on guidance from Zoonou and NRW to be the organisation name in English or Welsh depending on the language of the site a user is looking at to improve accessibility -->
         <img
           class="{{gnCfg.mods.header.logoInHeaderPosition}} col-lg-3 col-md-4 col-sm-8 col-xs-12"
-          alt=""
+          alt="{{'logoName' | translate}}"
           data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
         />
       </div>

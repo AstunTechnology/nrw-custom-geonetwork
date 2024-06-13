@@ -63,5 +63,6 @@
 	"targetLang": "en",
 	"switchToPortal": "English",
 	"switchToPortalTitle": "Switch to English",
-	"portalURL": "../../srv/eng/catalog.search#/home"
+	"portalURL": "../../srv/eng/catalog.search#/home",
+	"logoName": "Cyfoeth Naturiol Cymru"
 }
