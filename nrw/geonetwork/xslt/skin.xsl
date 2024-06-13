@@ -75,14 +75,15 @@
                                     else /root/gui/nodeUrl"/>
                   <li>
                     <!-- Added the logo back in PDFs and Permalink view for NRW -->
+                     <!-- Set the alt attribute to the logo based on guidance from Zoonou and NRW to be the organisation name in English or Welsh depending on the language of the site a user is looking at to improve accessibility -->
                     <xsl:if test="$output != 'pdf'">
                       <img style="width: 450px; margin-left: -30px;"
-                            alt=""
+                            alt="{{'logoName' | translate}}"
                             src="{/root/gui/nodeUrl}../images/logos/{$env//system/site/siteId}.png"/>
                     </xsl:if>
                     <xsl:if test="$output = 'pdf'">
                       <img class="gn-logo"
-                      alt=""
+                      alt="{{'logoName' | translate}}"
                       src="{/root/gui/nodeUrl}../images/logos/{$env//system/site/siteId}.png"/>
                     </xsl:if>
                     <a href="{$appUrl}">
