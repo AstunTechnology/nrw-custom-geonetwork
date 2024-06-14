@@ -46,6 +46,7 @@ services:
       ## layout changes (*.html files) ##
       - ./nrw/geonetwork/catalog/templates/admin/settings/system.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/admin/settings/system.html
       - ./nrw/geonetwork/catalog/templates/editor/new-metadata-horizontal.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/new-metadata-horizontal.html
+      - ./nrw/geonetwork/catalog/templates/editor/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/top-toolbar.html
       - ./nrw/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/advancedSearchForm/defaultAdvancedSearchForm.html
       - ./nrw/geonetwork/catalog/views/default/templates/recordView/recordView.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/recordView.html
       - ./nrw/geonetwork/catalog/views/default/templates/recordView/type-dataset.html:/var/lib/jetty/webapps/geonetwork/catalog/views/default/templates/recordView/type-dataset.html
