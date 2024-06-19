@@ -1,93 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rdf:RDF
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:ns3="http://purl.org/dc/elements/1.1/"
-	xmlns:ns5="http://www.opengis.net/gml#"
-	xmlns:ns2="http://www.w3.org/2004/02/skos/core#"
-	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/3pc">
-	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j9krix1">
-	<ns5:upperCorner> </ns5:upperCorner>
-	<ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/3pc">
-	<ns2:prefLabel xml:lang="en">3rd Party Conditional</ns2:prefLabel>
-	<ns5:BoundedBy rdf:nodeID="node1hh2j8edhx1"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j8edhx1">
-	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
-	<ns5:lowerCorner> </ns5:lowerCorner>
-	<ns5:upperCorner> </ns5:upperCorner>
-	<ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/nlr">
-	<ns2:prefLabel xml:lang="en">Not Licenced for Re-Use</ns2:prefLabel>
-	<ns5:BoundedBy rdf:nodeID="node1hh2j9krix1"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/nc">
-	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-	<ns2:prefLabel xml:lang="en">NRW Conditional</ns2:prefLabel>
-	<ns5:BoundedBy rdf:nodeID="node1hh2j91qpx1"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j91qpx1">
-	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
-	<ns5:lowerCorner> </ns5:lowerCorner>
-	<ns5:upperCorner> </ns5:upperCorner>
-	<ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j9krix1">
-	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/ogl">
-	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-	<ns2:prefLabel xml:lang="en">Open Government Licence</ns2:prefLabel>
-	<ns5:BoundedBy rdf:nodeID="node1hh2j74u4x1"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j74u4x1">
-	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
-	<ns5:lowerCorner> </ns5:lowerCorner>
-	<ns5:upperCorner> </ns5:upperCorner>
-	<ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/3po">
-	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-	<ns2:prefLabel xml:lang="en">3rd Party Open</ns2:prefLabel>
-	<ns5:BoundedBy rdf:nodeID="node1hh2j7v0kx1"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j7v0kx1">
-	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
-	<ns5:lowerCorner> </ns5:lowerCorner>
-	<ns5:upperCorner> </ns5:upperCorner>
-	<ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
-</rdf:Description>
-
-<rdf:Description rdf:nodeID="node1hh2j9krix1">
-	<ns5:lowerCorner> </ns5:lowerCorner>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/nlr">
-	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-</rdf:Description>
-
-<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses">
-	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-	<ns3:title xml:lang="en">NRW License Types</ns3:title>
-	<ns3:identifier>nrw-licenses.rdf</ns3:identifier>
-	<ns3:type>theme</ns3:type>
-</rdf:Description>
-
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:ns3="http://purl.org/dc/elements/1.1/" xmlns:ns5="http://www.opengis.net/gml#" xmlns:ns2="http://www.w3.org/2004/02/skos/core#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/3pc">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j9krix1">
+    <ns5:upperCorner />
+    <ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/3pc">
+    <ns2:prefLabel xml:lang="en">3rd Party Conditional</ns2:prefLabel>
+    <ns5:BoundedBy rdf:nodeID="node1hh2j8edhx1" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j8edhx1">
+    <rdf:type rdf:resource="http://www.opengis.net/gml#Envelope" />
+    <ns5:lowerCorner />
+    <ns5:upperCorner />
+    <ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/nlr">
+    <ns2:prefLabel xml:lang="en">Not Licenced for Re-Use</ns2:prefLabel>
+    <ns5:BoundedBy rdf:nodeID="node1hh2j9krix1" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/nc">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+    <ns2:prefLabel xml:lang="en">NRW Conditional</ns2:prefLabel>
+    <ns5:BoundedBy rdf:nodeID="node1hh2j91qpx1" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j91qpx1">
+    <rdf:type rdf:resource="http://www.opengis.net/gml#Envelope" />
+    <ns5:lowerCorner />
+    <ns5:upperCorner />
+    <ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j9krix1">
+    <rdf:type rdf:resource="http://www.opengis.net/gml#Envelope" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/ogl">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+    <ns2:prefLabel xml:lang="en">Open Government Licence</ns2:prefLabel>
+    <ns5:BoundedBy rdf:nodeID="node1hh2j74u4x1" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j74u4x1">
+    <rdf:type rdf:resource="http://www.opengis.net/gml#Envelope" />
+    <ns5:lowerCorner />
+    <ns5:upperCorner />
+    <ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/3po">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+    <ns2:prefLabel xml:lang="en">3rd Party Open</ns2:prefLabel>
+    <ns5:BoundedBy rdf:nodeID="node1hh2j7v0kx1" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j7v0kx1">
+    <rdf:type rdf:resource="http://www.opengis.net/gml#Envelope" />
+    <ns5:lowerCorner />
+    <ns5:upperCorner />
+    <ns5:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326" />
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="node1hh2j9krix1">
+    <ns5:lowerCorner />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses/nlr">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept" />
+  </rdf:Description>
+  <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrwlicenses">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme" />
+    <ns3:title xml:lang="en">NRW License Types</ns3:title>
+    <ns3:identifier>nrw-licenses.rdf</ns3:identifier>
+    <ns3:type>theme</ns3:type>
+  </rdf:Description>
 </rdf:RDF>
+

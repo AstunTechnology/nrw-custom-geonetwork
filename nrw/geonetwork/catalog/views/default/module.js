@@ -239,6 +239,10 @@
         $("button.gn-minimap-toggle > i").toggleClass(
           "fa-angle-double-left fa-angle-double-right"
         );
+
+        setTimeout(function () {
+            searchMap.updateSize();
+        }, 0);
       };
       hotkeys
         .bindTo($scope)

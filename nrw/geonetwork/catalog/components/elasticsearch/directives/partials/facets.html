@@ -38,17 +38,17 @@
           ng-repeat="item in facet.items | orderBy:facetSorter(facet, facet.key)"
         ></li>
       </ul>
-      <!-- Change facets to use fieldset elements for accessibility -->
-      <fieldset>
-        <div
-          ng-repeat="facet in ctrl.list track by facet.key"
-          ng-if="!isTabMode && facet.key !== appTabField"
-          ng-show="ctrl.isVisibleForUser(facet) && (
-                      facet.items.length > 0 ||
-                      facet.include.length > 0 ||
-                      (facet.dates && facet.dates.length > 0))"
-          class="gn-facet"
-        >
+      <!-- Changed facets to use a fieldset/legend structure for accessibility -->
+      <div
+        ng-repeat="facet in ctrl.list track by facet.key"
+        ng-if="!isTabMode && facet.key !== appTabField"
+        ng-show="ctrl.isVisibleForUser(facet) && (
+                    facet.items.length > 0 ||
+                    facet.include.length > 0 ||
+                    (facet.dates && facet.dates.length > 0))"
+        class="gn-facet"
+      >
+        <fieldset>
           <legend class="gn-facet-header flex-row width-100" style="font-size: 14px !important;">
             <a
               href
@@ -156,7 +156,7 @@
               <span translate>less</span>
             </a>
           </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     </div>
   </div>

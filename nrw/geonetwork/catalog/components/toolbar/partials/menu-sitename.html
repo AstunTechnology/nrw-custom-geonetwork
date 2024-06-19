@@ -1,11 +1,11 @@
 <li class="clearfix hidden-xs" data-ng-show="gnCfg.mods.home.enabled" role="presentation">
     <!-- Remove link to homepage for NRW accessibility -->
-    <!-- Set the alt attribute to be empty for NRW accessibility - previously set to {{'siteLogo' | translate}} -->
+    <!-- Set the alt attribute to the logo based on guidance from Zoonou and NRW to be the organisation name in English or Welsh depending on the language of the site a user is looking at to improve accessibility -->
     <img
         class="pull-left"
         style="margin-top: 12px; max-height: 30px;"
         data-ng-hide="{{gnCfg.mods.header.isLogoInHeader}}"
-        alt=""
+        alt="{{'logoName' | translate}}"
         data-ng-src="{{gnUrl}}../images/logos/{{info['node/id'] || info['system/site/siteId']}}.png?random{{info['system/site/lastUpdate']}}"
       />
     <a class="pull-left gn-logo-link" data-gn-active-tb-item="{{gnCfg.mods.home.appUrl}}" role="link">
