@@ -85,6 +85,7 @@ services:
       ## *.xsl file changes ##
       # correct aria-label for map coordinates fields #
       - ./nrw/geonetwork/xslt/render-functions.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/formatter/xslt/render-functions.xsl
+      - ./nrw/geonetwork/xslt/render-variables.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/formatter/xslt/render-variables.xsl
       # adjust the header in the permalink view
       - ./nrw/geonetwork/xslt/skin.xsl:/var/lib/jetty/webapps/geonetwork/xslt/skin/default/skin.xsl
       # hide minimap on Search page
