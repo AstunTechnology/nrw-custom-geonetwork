@@ -6,7 +6,7 @@
 
   <!-- Define the view to be rendered as defined in
   the config-editor.xml file of the schema. -->
-  <xsl:param name="view" select="'advanced'"/>
+  <xsl:param name="view" select="'custom'"/>
 
   <!-- Choose the type of HTML to return:
   * html render a full HTML page
