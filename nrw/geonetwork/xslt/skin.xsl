@@ -91,10 +91,10 @@
                         <xsl:variable name="siteName">
                           <xsl:choose>
                               <xsl:when test="contains($nodeUrl, 'test') and contains($nodeUrl, 'cym')">
-                                  <xsl:value-of select="'prawf'" />
+                                  <xsl:value-of select="'Prawf'" />
                               </xsl:when>
                               <xsl:when test="contains($nodeUrl, 'test') and not(contains($nodeUrl, 'cym'))">
-                                  <xsl:value-of select="'test'" />
+                                  <xsl:value-of select="'Test'" />
                               </xsl:when>
                               <xsl:when test="not(contains($nodeUrl, 'test')) and contains($nodeUrl, 'cym')">
                                   <xsl:value-of select="'Darganfod Data CNC'" />
