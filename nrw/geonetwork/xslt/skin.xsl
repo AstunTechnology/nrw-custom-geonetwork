@@ -88,7 +88,23 @@
                     </xsl:if>
                     <a href="{$appUrl}">
                       <xsl:if test="$isShowGNName">
-                        <xsl:value-of select="$env//system/site/name"/>
+                        <xsl:variable name="siteName">
+                          <xsl:choose>
+                              <xsl:when test="contains($nodeUrl, 'test') and (contains($nodeUrl, 'cym')">
+                                  <xsl:value-of select="'prawf'" />
+                              </xsl:when>
+                              <xsl:when test="contains($nodeUrl, 'test') and not(contains($nodeUrl, 'cym'))">
+                                  <xsl:value-of select="'test'" />
+                              </xsl:when>
+                              <xsl:when test="not(contains($nodeUrl, 'test')) and (contains($nodeUrl, 'cym')">
+                                  <xsl:value-of select="'Darganfod Data CNC'" />
+                              </xsl:when>
+                              <xsl:otherwise>
+                                  <xsl:value-of select="'NRW Data Discovery'" />
+                              </xsl:otherwise>
+                          </xsl:choose>
+                        </xsl:variable>
+                        <xsl:value-of select="$siteName"/>
                       </xsl:if>
                     </a>
                   </li>
