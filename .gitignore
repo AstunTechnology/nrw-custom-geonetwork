@@ -2,7 +2,6 @@ creds.txt
 .env
 shiro-geonetwork
 bitbucket.sh
-geonetwork/*.war
 *.war
 testing/target
 *creds.txt
@@ -18,8 +17,8 @@ certs/letsencrypt
 certs/cacerts
 kibana/kibana.yml
 kibana/export.ndjson
-astun/*
-scotgov/*
-nginx/servers/*
+astun/
+scotgov/
+nginx/servers/
 nginx/root/robots.txt
 nrw/nginx/servers/cyfoethnaturiol_cymru.inc
