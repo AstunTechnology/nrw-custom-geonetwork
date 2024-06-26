@@ -2,7 +2,7 @@ creds.txt
 .env
 shiro-geonetwork
 bitbucket.sh
-geonetwork/*.war
+geonetwork\/*.war
 *.war
 testing/target
 *creds.txt
