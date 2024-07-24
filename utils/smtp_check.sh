@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # make sure we have the environment variables available
-set -a; source $HOME/docker-geonetwork/.env; set +a
+set -a; source $HOME/repos/docker-geonetwork/.env; set +a
 
 # set the value of variables
 logfile="smtp_check_log.txt"
@@ -44,11 +44,11 @@ else
     # logic for correcting the password:
     elif [ "$currentPassword" = "" ]; then
         psql -h $host -p $port -U $user -d $database -c "update settings set value = '$geonetworkSmtpPassword', encrypted = 'n' where name = 'system/feedback/mailServer/password' and value = '';" > $logfile
-        echo "$currentDateTime ERROR: Password is missing - reseting it" > $logfile
+        echo "$currentDateTime ERROR: Password is missing - reseting it" >> $logfile
 
     elif [ "$currentPassword" != "$geonetworkSmtpPassword" ]; then
         psql -h $host -p $port -U $user -d $database -c "update settings set value = '$geonetworkSmtpPassword', encrypted = 'n' where name = 'system/feedback/mailServer/password' and value = '$currentPassword';" > $logfile
-        echo "$currentDateTime ERROR: Password is incorrect - reseting it" > $logfile
+        echo "$currentDateTime ERROR: Password is incorrect - reseting it" >> $logfile
     fi
 fi
 
@@ -57,9 +57,8 @@ log_content=$(cat "$logfile")
 
 # check if the content contains the specified string
 if [[ "$log_content" == *"INFO: Passwords are the same"* ]]; then
-    # do nothing if there was no issue
-    # i.e. don't send an email
-    true
+    # don't send an email if there was no issue
+    echo "No problem with the password."	
 
 else
     # set up output file from sample with environment variables and such like
@@ -67,12 +66,13 @@ else
     sed -i -e "s|TOADDRESS|$EMAIL_ADDR|g" output.txt
     sed -i -e "s|FROMADDRESS|$EMAIL_ADDR|g" output.txt
     sed -i -e "s|SUBJECT|$GN_SITE_NAME SMTP password check output $(date +%Y-%m-%d)|g" output.txt
+    sed -i -e "s|SITE|$GN_PROTOCOL://$GN_URL/geonetwork|g" output.txt
 
     # append logs to output email file
     cat $logfile >> output.txt
 
     # send email with output.txt as body
-    /usr/sbin/ssmtp -v -C ssmtp.conf $EMAIL_ADDR < output.txt
+    /usr/sbin/ssmtp -v -C ssmtp.conf metadata@astuntechnology.com < output.txt
 
     # remove the output email
     rm output.txt
