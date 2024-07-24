@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # make sure we have the environment variables available
-set -a; source $HOME/docker-geonetwork/.env; set +a
+set -a; source $HOME/repos/docker-geonetwork/.env; set +a
 
 # set the value of variables
 logfile="smtp_check_log.txt"
+host=$POSTGRES_DB_HOST
+port=$POSTGRES_DB_PORT
 database=$POSTGRES_DB_NAME
 user=$POSTGRES_DB_USERNAME
 password=$POSTGRES_DB_PASSWORD
@@ -29,7 +31,7 @@ TLS_CA_File=/etc/pki/tls/certs/ca-bundle.crt
 EOF
 
 # execute psql command to retrieve the current password from GeoNetwork
-currentPassword=$(psql -t -h localhost -p 5432 -U "$user" -d "$database" -c "select value from settings where name = 'system/feedback/mailServer/password';" 2>&1 | awk '{$1=$1};1')
+currentPassword=$(psql -t -h $host -p $port -U $user -d $database -c "select value from settings where name = 'system/feedback/mailServer/password';" 2>&1 | awk '{$1=$1};1')
 
 # check for errors from psql
 if [[ "$currentPassword" == *"ERROR:"* || "$currentPassword" == *"error:"* ]]; then
@@ -41,11 +43,11 @@ else
 
     # logic for correcting the password:
     elif [ "$currentPassword" = "" ]; then
-        psql -h localhost -p 5432 -U $user -d $database -c "update settings set value = '$geonetworkSmtpPassword', encrypted = 'n' where name = 'system/feedback/mailServer/password' and value = '';" > $logfile
+        psql -h $host -p $port -U $user -d $database -c "update settings set value = '$geonetworkSmtpPassword', encrypted = 'n' where name = 'system/feedback/mailServer/password' and value = '';" > $logfile
         echo "$currentDateTime ERROR: Password is missing - reseting it" > $logfile
 
     elif [ "$currentPassword" != "$geonetworkSmtpPassword" ]; then
-        psql -h localhost -p 5432 -U $user -d $database -c "update settings set value = '$geonetworkSmtpPassword', encrypted = 'n' where name = 'system/feedback/mailServer/password' and value = '$currentPassword';" > $logfile
+        psql -h $host -p $port -U $user -d $database -c "update settings set value = '$geonetworkSmtpPassword', encrypted = 'n' where name = 'system/feedback/mailServer/password' and value = '$currentPassword';" > $logfile
         echo "$currentDateTime ERROR: Password is incorrect - reseting it" > $logfile
     fi
 fi
