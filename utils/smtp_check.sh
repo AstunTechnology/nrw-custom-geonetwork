@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # make sure we have the environment variables available
-set -a; source $HOME/repos/docker-geonetwork/.env; set +a
+set -a; source $HOME/docker-geonetwork/.env; set +a
 
 # set the value of variables
 logfile="smtp_check_log.txt"
