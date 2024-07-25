@@ -1,6 +1,6 @@
 server.basePath: "/geonetwork/dashboards"
-server.publicBaseUrl: ${SERVER_PUBLICBASEURL}
-server.rewriteBasePath: false
+  #server.publicBaseUrl: ${SERVER_PUBLICBASEURL}
+server.rewriteBasePath: true
 kibana.index: ".dashboards"
 server.name: kibana
 server.host: "0.0.0.0"

@@ -5,7 +5,7 @@
 # move infected files to clamav-quarantine
 
 # make sure we have the environment variables available
-set -a; source /home/astun/docker-geonetwork/.env-local; set +a
+set -a; source /home/astun/docker-geonetwork/.env; set +a
 # make directories for quarantine and logs if they don't exist
 
 mkdir -p /home/astun/clamav-logs /home/astun/clamav-quarantine
