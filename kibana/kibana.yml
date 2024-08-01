@@ -1,11 +1,11 @@
 server.basePath: "/geonetwork/dashboards"
-  #server.publicBaseUrl: ${SERVER_PUBLICBASEURL}
-server.rewriteBasePath: true
+server.publicBaseUrl: ${SERVER_PUBLICBASEURL}
+server.rewriteBasePath: false
 kibana.index: ".dashboards"
 server.name: kibana
 server.host: "0.0.0.0"
 elasticsearch.hosts: [ "http://elasticsearch:9200" ]
-logging.quiet: true
+logging.quiet: false
 csp.rules: ["frame-src 'self' ${SERVER_PUBLICBASEURL}"]
 csp.warnLegacyBrowsers: false
 elasticsearch.username: "elastic"
