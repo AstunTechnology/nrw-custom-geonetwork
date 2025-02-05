@@ -8,6 +8,12 @@ location /geonetwork {
 	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 	proxy_pass      http://geonetwork:8080;
 	add_header Cache-Control "no-store";
+
+	# add security headers for NRW
+	# the default values are set in default.local
+	add_header Strict-Transport-Security $hdr_strict_transport_security;
+	add_header X-Content-Type-Options $hdr_x_content_type_options;
+
 	#limit_req zone=ip burst=100 delay=75;
 	client_max_body_size 30M;
 	proxy_send_timeout          36000;
