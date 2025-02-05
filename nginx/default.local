@@ -54,7 +54,7 @@ server {
     location ^~ /files {
         alias /var/www/html/files;
     }
-	
+
     include locations/*.inc;
 
     include sites-available/*.inc;
@@ -62,6 +62,14 @@ server {
 
 }
 
+# Set default $hdr_x_content_type_options if X-Content-Type-Options does not exist
+map $upstream_http_x_content_type_options $hdr_x_content_type_options {
+    '' "nosniff";
+}
 
-	 	
+# Set default $hdr_strict_transport_security if Strict-Transport-Security does not exist
+map $upstream_http_strict_transport_security $hdr_strict_transport_security {
+    '' "max-age=31536000; includeSubDomains";
+}
+
 include servers/*.inc;
