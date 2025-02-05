@@ -2,12 +2,15 @@ location /geonetwork {
 
 # default geonetwork in docker
 
-	add_header X-Frame-Options "SAMEORIGIN" always;
 	proxy_set_header Host $host;
 	proxy_set_header X-Real-IP $remote_addr;
 	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 	proxy_pass      http://geonetwork:8080;
-	add_header Cache-Control "no-store";
+
+	# update headers to prevent duplication
+	# the default values are set in default.local
+	add_header X-Frame-Options $hdr_x_frame_options;
+
 
 	# add security headers for NRW
 	# the default values are set in default.local
