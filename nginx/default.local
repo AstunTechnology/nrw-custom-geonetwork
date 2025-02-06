@@ -72,6 +72,11 @@ map $upstream_http_strict_transport_security $hdr_strict_transport_security {
     '' "max-age=31536000; includeSubDomains";
 }
 
+# Set default $hdr_permissions_policy if Permissions-Policy does not exist
+map $upstream_http_permissions_policy $hdr_permissions_policy {
+    '' "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()";
+}
+
 # Set default $hdr_x_frame_options if X-Frame-Options does not exist
 map $upstream_http_x_frame_options $hdr_x_frame_options {
     '' "SAMEORIGIN";
