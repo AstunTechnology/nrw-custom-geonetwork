@@ -16,6 +16,7 @@ location /geonetwork {
 	# the default values are set in default.local
 	add_header Strict-Transport-Security $hdr_strict_transport_security;
 	add_header X-Content-Type-Options $hdr_x_content_type_options;
+	add_header Permissions-Policy $hdr_permissions_policy;
 
 	#limit_req zone=ip burst=100 delay=75;
 	client_max_body_size 30M;
