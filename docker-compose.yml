@@ -30,8 +30,8 @@ services:
         -Dgeonetwork.schema.dir=/var/lib/jetty/webapps/geonetwork/WEB-INF/data/config/schema_plugins
         -Dorg.eclipse.jetty.server.Request.maxFormContentSize=500000
         -Dorg.eclipse.jetty.server.Request.maxFormKeys=8000
-        -Dgeonetwork.ESFeaturesProxy.username=${ES_USERNAME} 
-        -Dgeonetwork.ESFeaturesProxy.password=${ES_PASSWORD} 
+        -Dgeonetwork.ESFeaturesProxy.username=${ES_USERNAME}
+        -Dgeonetwork.ESFeaturesProxy.password=${ES_PASSWORD}
       ES_HOST: ${ES_HOST}
       ES_PROTOCOL: ${ES_PROTOCOL}
       ES_PORT: ${ES_PORT}
@@ -139,6 +139,7 @@ services:
           - ../geonetwork-data/overviews:/var/www/html/files/overviews
           - nginxlog:/var/log/nginx
           - ./nginx/html/custom_404.html:/usr/share/nginx/html/custom_404.html
+          - ./nginx/html/custom_500.html:/usr/share/nginx/html/50x.html
     ports:
       - "80:80"
       - "8443:8443"
