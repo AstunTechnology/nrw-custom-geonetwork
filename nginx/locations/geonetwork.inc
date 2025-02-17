@@ -25,6 +25,8 @@ location /geonetwork {
 	send_timeout                36000;
 	proxy_intercept_errors on;
 	error_page 404 /custom_404.html;
+	error_page 500 /50x.html;
+	error_page 502 /50x.html;
 	if ($http_x_forwarded_proto = "http") {
 				rewrite ^/(.*)$ https://$host$request_uri;
 			}
@@ -33,4 +35,9 @@ location /geonetwork {
 location = /custom_404.html {
 			root /usr/share/nginx/html;
 			internal;
-    	}
+}
+
+location = /50x.html {
+			root /usr/share/nginx/html;
+			internal;
+}
