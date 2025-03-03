@@ -23,3 +23,5 @@ nginx/servers/
 nginx/root/robots.txt
 nrw/nginx/servers/cyfoethnaturiol_cymru.inc
 .env.*
+/thesauri/external
+/thesauri/local
