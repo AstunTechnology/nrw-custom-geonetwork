@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:fn="http://www.w3.org/2005/02/xpath-functions" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:gml="http://www.opengis.net/gml#" xmlns:grg="http://www.isotc211.org/schemas/grg/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:void="http://rdfs.org/ns/void#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xdt="http://www.w3.org/2005/02/xpath-datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <skos:ConceptScheme rdf:about="http://geonetwork-opensource.org/thesaurus/nrw-custom-regions">
+    <dc:title>Countries and Welsh Local Authorities.</dc:title>
+    <dc:description>Generated from NaturalEarth, SeaVox Salt and Freshwater Gazetteer, and Open Data Communities Data.</dc:description>
+    <dcterms:issued>2024-05-08</dcterms:issued>
+    <dcterms:modified>2024-05-08</dcterms:modified>
+    <skos:hasTopConcept rdf:resource="http://www.naturalearthdata.com/ne_admin#Country" />
+    <skos:hasTopConcept rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+    <skos:hasTopConcept rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+  </skos:ConceptScheme>
+  <skos:Concept rdf:about="http://www.naturalearthdata.com/ne_admin#Country">
+    <skos:prefLabel xml:lang="en">Countries</skos:prefLabel>
+    <skos:inScheme rdf:resource="http://geonetwork-opensource.org/thesaurus/nrw-custom-regions" />
+  </skos:Concept>
+  <!-- Countries -->
+  <skos:Concept rdf:about="http://www.naturalearthdata.com/ne_admin#Country/GBR">
+    <skos:prefLabel xml:lang="en">United Kingdom</skos:prefLabel>
+    <skos:altLabel>GBR</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-13.691 49.910</gml:lowerCorner>
+        <gml:upperCorner>1.7712 60.848</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://www.naturalearthdata.com/ne_admin#Country" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://www.naturalearthdata.com/ne_admin#Country/WLS">
+    <skos:prefLabel xml:lang="en">Wales</skos:prefLabel>
+    <skos:altLabel>WLS</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-5.311 51.384</gml:lowerCorner>
+        <gml:upperCorner>-2.647 53.427</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://www.naturalearthdata.com/ne_admin#Country" />
+  </skos:Concept>
+  <!-- Welsh Local Authorities -->
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities">
+    <skos:prefLabel xml:lang="en">Welsh Local Authorities</skos:prefLabel>
+    <skos:inScheme rdf:resource="http://geonetwork-opensource.org/thesaurus/nrw-custom-regions" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000001">
+    <skos:prefLabel xml:lang="en">SIR YNYS MON  -  ISLE OF ANGLESEY</skos:prefLabel>
+    <skos:altLabel>W06000001</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.7004 53.1262</gml:lowerCorner>
+        <gml:upperCorner>-4.0394 53.4301</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000002">
+    <skos:prefLabel xml:lang="en">GWYNEDD  -  GWYNEDD</skos:prefLabel>
+    <skos:altLabel>W06000002</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.7004 53.1262</gml:lowerCorner>
+        <gml:upperCorner>-4.0394 53.4301</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000003">
+    <skos:prefLabel xml:lang="en">CONWY  -  CONWY</skos:prefLabel>
+    <skos:altLabel>W06000003</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.0313 52.9494</gml:lowerCorner>
+        <gml:upperCorner>-3.4546 53.3431</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000004">
+    <skos:prefLabel xml:lang="en">SIR DDINBYCH  -  DENBIGHSHIRE</skos:prefLabel>
+    <skos:altLabel>W06000004</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.602 52.862</gml:lowerCorner>
+        <gml:upperCorner>-3.0903 53.3573</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000005">
+    <skos:prefLabel xml:lang="en">SIR Y FFLINT  -  FLINTSHIRE</skos:prefLabel>
+    <skos:altLabel>W06000005</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.4006 53.0721</gml:lowerCorner>
+        <gml:upperCorner>-2.9203 53.3619</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000006">
+    <skos:prefLabel xml:lang="en">WRECSAM  -  WREXHAM</skos:prefLabel>
+    <skos:altLabel>W06000006</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.3755 53.1343</gml:lowerCorner>
+        <gml:upperCorner>-2.7241 52.8666</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000008">
+    <skos:prefLabel xml:lang="en">SIR CEREDIGION  -  CEREDIGION</skos:prefLabel>
+    <skos:altLabel>W06000008</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.6972 52.0267</gml:lowerCorner>
+        <gml:upperCorner>-3.6582 52.5624</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000009">
+    <skos:prefLabel xml:lang="en">SIR BENFRO  -  PEMBROKESHIRE</skos:prefLabel>
+    <skos:altLabel>W06000009</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-5.6703 51.596</gml:lowerCorner>
+        <gml:upperCorner>-4.4855 52.1179</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000010">
+    <skos:prefLabel xml:lang="en">SIR GAERFYRDDIN  -  CARMARTHENSHIRE</skos:prefLabel>
+    <skos:altLabel>W06000010</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.7231 51.645</gml:lowerCorner>
+        <gml:upperCorner>-3.6471 52.1424</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000011">
+    <skos:prefLabel xml:lang="en">ABERTAWE  -  SWANSEA</skos:prefLabel>
+    <skos:altLabel>W06000011</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.3339 51.7741</gml:lowerCorner>
+        <gml:upperCorner>-3.8427 51.5349</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000012">
+    <skos:prefLabel xml:lang="en">CASTELL NEDD PORT TALBOT  -  NEATH PORT TALBOT</skos:prefLabel>
+    <skos:altLabel>W06000012</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.9365 51.81036</gml:lowerCorner>
+        <gml:upperCorner>-3.56177 51.5271</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000013">
+    <skos:prefLabel xml:lang="en">PEN Y BONT AR OGWR  -  BRIDGEND</skos:prefLabel>
+    <skos:altLabel>W06000013</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.9365 51.81036</gml:lowerCorner>
+        <gml:upperCorner>-3.56177 51.5271</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000014">
+    <skos:prefLabel xml:lang="en">BRO MORGANNWG  -  THE VALE OF GLAMORGAN</skos:prefLabel>
+    <skos:altLabel>W06000014</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.6476 51.51538</gml:lowerCorner>
+        <gml:upperCorner>-3.1597 51.3787</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000015">
+    <skos:prefLabel xml:lang="en">CAERDYDD  -  CARDIFF</skos:prefLabel>
+    <skos:altLabel>W06000015</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.3438 51.3746</gml:lowerCorner>
+        <gml:upperCorner>-3.0689 51.5604</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000016">
+    <skos:prefLabel xml:lang="en">RHONDDA CYNON TAF  -  RHONDDA CYNON TAF</skos:prefLabel>
+    <skos:altLabel>W06000016</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.5937 51.8301</gml:lowerCorner>
+        <gml:upperCorner>-3.2363 51.4989</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000018">
+    <skos:prefLabel xml:lang="en">CAERFFILI  -  CAERPHILLY</skos:prefLabel>
+    <skos:altLabel>W06000018</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.0636 51.7989</gml:lowerCorner>
+        <gml:upperCorner>-3.3344 51.5456</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000019">
+    <skos:prefLabel xml:lang="en">BLAENAU GWENT  -  BLAENAU GWENT</skos:prefLabel>
+    <skos:altLabel>W06000019</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.3101 51.82548</gml:lowerCorner>
+        <gml:upperCorner>-3.106 51.681</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000020">
+    <skos:prefLabel xml:lang="en">TORFAEN  -  TORFAEN</skos:prefLabel>
+    <skos:altLabel>W06000020</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.1439 51.6067</gml:lowerCorner>
+        <gml:upperCorner>-2.9589 51.7962</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000021">
+    <skos:prefLabel xml:lang="en">SIR FYNWY  -  MONMOUTHSHIRE</skos:prefLabel>
+    <skos:altLabel>W06000021</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.1573 51.5172</gml:lowerCorner>
+        <gml:upperCorner>-2.6499 51.9831</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000022">
+    <skos:prefLabel xml:lang="en">CASNEWYDD  -  NEWPORT</skos:prefLabel>
+    <skos:altLabel>W06000022</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.1241 51.64947</gml:lowerCorner>
+        <gml:upperCorner>-2.803 51.4949</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000023">
+    <skos:prefLabel xml:lang="en">POWYS  -  POWYS</skos:prefLabel>
+    <skos:altLabel>W06000023</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.9293 52.90157</gml:lowerCorner>
+        <gml:upperCorner>-2.94962 51.7527</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities/W06000024">
+    <skos:prefLabel xml:lang="en">MERTHYR TUDFUL  -  MERTHYR TYDFIL</skos:prefLabel>
+    <skos:altLabel>W06000024</skos:altLabel>
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.45315 51.835</gml:lowerCorner>
+        <gml:upperCorner>-3.273 51.6446</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://opendatacommunities.org/data/welsh-local-authorities#Welsh-Local-Authorities" />
+  </skos:Concept>
+  <!-- SeaVox Gazetter -->
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer">
+    <skos:prefLabel xml:lang="en">SeaVoX salt and fresh water body gazetteer</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">SeaVoX salt and fresh water body gazetteer</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">SeaVoX salt and fresh water body gazetteer</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">SeaVoX salt and fresh water body gazetteer</skos:prefLabel>
+    <skos:inScheme rdf:resource="http://geonetwork-opensource.org/regions" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN010/">
+    <dc:identifier>SDN:C19::UKMDN010</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN010</skos:notation>
+    <skos:prefLabel xml:lang="en">Bridgwater Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Bridgwater Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.556599 51.094136</gml:lowerCorner>
+        <gml:upperCorner>-2.983919 51.327537</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_5/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/1_5/">
+    <dc:identifier>SDN:C19::1_5</dc:identifier>
+    <skos:notation>SDN:C19::1_5</skos:notation>
+    <skos:prefLabel xml:lang="en">Bristol Channel</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Bristol Channel</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.92793354527336 50.9821892370407</gml:lowerCorner>
+        <gml:upperCorner>-2.33951017970547 51.8177489225295</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>2</owl:versionInfo>
+    <dc:date>2009-11-06 12:28:44.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN013/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN009/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN010/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN012/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN011/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/SVX00015/" />
+    <owl:sameAs rdf:resource="http://vocab.nerc.ac.uk/collection/C16/current/20/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN016/">
+    <dc:identifier>SDN:C19::UKMDN016</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN016</skos:notation>
+    <skos:prefLabel xml:lang="en">Caernarfon Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Caernarfon Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.569748 52.9274</gml:lowerCorner>
+        <gml:upperCorner>-4.331398 53.246701</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN027/">
+    <dc:identifier>SDN:C19::UKMDN027</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN027</skos:notation>
+    <skos:prefLabel xml:lang="en">Cardigan Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Cardigan Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-5.27197 51.946541</gml:lowerCorner>
+        <gml:upperCorner>-3.834283 53.040645</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN028/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN012/">
+    <dc:identifier>SDN:C19::UKMDN012</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN012</skos:notation>
+    <skos:prefLabel xml:lang="en">Carmarthen Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Carmarthen Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.716649 51.518205</gml:lowerCorner>
+        <gml:upperCorner>-4.065184 51.872269</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_5/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/1_6/">
+    <dc:identifier>SDN:C19::1_6</dc:identifier>
+    <skos:notation>SDN:C19::1_6</skos:notation>
+    <skos:prefLabel xml:lang="en">Celtic Sea</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Celtic Sea</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-12.2128460269809 46.2707246368092</gml:lowerCorner>
+        <gml:upperCorner>-3.01587804939607 54.0010154819428</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>2</owl:versionInfo>
+    <dc:date>2009-11-06 12:28:44.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN014/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN015/" />
+    <skos:related rdf:resource="http://sws.geonames.org/2960856/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/SVX00015/" />
+    <owl:sameAs rdf:resource="http://vocab.nerc.ac.uk/collection/C16/current/21a/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN026/">
+    <dc:identifier>SDN:C19::UKMDN026</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN026</skos:notation>
+    <skos:prefLabel xml:lang="en">Dee Estuary</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Dee Estuary</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.320215 53.228119</gml:lowerCorner>
+        <gml:upperCorner>-3.039657 53.424093</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN023/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/1_7/">
+    <dc:identifier>SDN:C19::1_7</dc:identifier>
+    <skos:notation>SDN:C19::1_7</skos:notation>
+    <skos:prefLabel xml:lang="en">English Channel</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">English Channel</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-5.49429980797459 48.1318819932155</gml:lowerCorner>
+        <gml:upperCorner>2.16298072468261 51.3045895719078</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>2</owl:versionInfo>
+    <dc:date>2009-11-06 12:28:44.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN005/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_7_1/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN007/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN001/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN002/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN003/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN004/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/SVX00015/" />
+    <owl:sameAs rdf:resource="http://vocab.nerc.ac.uk/collection/C16/current/21/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/1_4/">
+    <dc:identifier>SDN:C19::1_4</dc:identifier>
+    <skos:notation>SDN:C19::1_4</skos:notation>
+    <skos:prefLabel xml:lang="en">Irish Sea</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Irish Sea</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-7.11114770535259 51.535029928431</gml:lowerCorner>
+        <gml:upperCorner>-2.31308982242631 55.445712487712</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>2</owl:versionInfo>
+    <dc:date>2009-11-06 12:28:44.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN024/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN056/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN015/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN027/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN023/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN017/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN018/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN020/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN016/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/SVX00015/" />
+    <owl:sameAs rdf:resource="http://vocab.nerc.ac.uk/collection/C16/current/19/" />
+    <owl:sameAs rdf:resource="http://vocab.nerc.ac.uk/collection/P30/current/irish_sea/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN023/">
+    <dc:identifier>SDN:C19::UKMDN023</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN023</skos:notation>
+    <skos:prefLabel xml:lang="en">Liverpool Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Liverpool Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.311958 52.783504</gml:lowerCorner>
+        <gml:upperCorner>-2.671846 53.96993</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN025/" />
+    <skos:narrower rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN026/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN056/">
+    <dc:identifier>SDN:C19::UKMDN056</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN056</skos:notation>
+    <skos:prefLabel xml:lang="en">Menai Strait</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Menai Strait</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.36577626471796 53.0918041417739</gml:lowerCorner>
+        <gml:upperCorner>-3.95996733538543 53.3299731363398</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-26 15:29:26.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN025/">
+    <dc:identifier>SDN:C19::UKMDN025</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN025</skos:notation>
+    <skos:prefLabel xml:lang="en">Mersey Estuary</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Mersey Estuary</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.068628 53.245121</gml:lowerCorner>
+        <gml:upperCorner>-2.680371 53.455889</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN023/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN018/">
+    <dc:identifier>SDN:C19::UKMDN018</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN018</skos:notation>
+    <skos:prefLabel xml:lang="en">Morecambe Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Morecambe Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.251891 53.824857</gml:lowerCorner>
+        <gml:upperCorner>-2.685308 54.386974</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN024/">
+    <dc:identifier>SDN:C19::UKMDN024</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN024</skos:notation>
+    <skos:prefLabel xml:lang="en">Ribble Estuary</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Ribble Estuary</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.060802 53.6408</gml:lowerCorner>
+        <gml:upperCorner>-2.821021 53.805262</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN013/">
+    <dc:identifier>SDN:C19::UKMDN013</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN013</skos:notation>
+    <skos:prefLabel xml:lang="en">Severn Estuary</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Severn Estuary</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-3.198788 51.23584</gml:lowerCorner>
+        <gml:upperCorner>-2.287589 51.919964</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_5/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN014/">
+    <dc:identifier>SDN:C19::UKMDN014</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN014</skos:notation>
+    <skos:prefLabel xml:lang="en">St. Brides Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">St. Brides Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-5.3184 51.714651</gml:lowerCorner>
+        <gml:upperCorner>-5.094861 51.922062</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_6/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN015/">
+    <dc:identifier>SDN:C19::UKMDN015</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN015</skos:notation>
+    <skos:prefLabel xml:lang="en">St. George's Channel</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">St. George's Channel</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-6.589568 51.831487</gml:lowerCorner>
+        <gml:upperCorner>-5.193781 52.301173</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_6/" />
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_4/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN011/">
+    <dc:identifier>SDN:C19::UKMDN011</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN011</skos:notation>
+    <skos:prefLabel xml:lang="en">Swansea Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Swansea Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.000391 51.502667</gml:lowerCorner>
+        <gml:upperCorner>-3.72218 51.667944</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/1_5/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+  <skos:Concept rdf:about="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN028/">
+    <dc:identifier>SDN:C19::UKMDN028</dc:identifier>
+    <skos:notation>SDN:C19::UKMDN028</skos:notation>
+    <skos:prefLabel xml:lang="en">Tremadog Bay</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Tremadog Bay</skos:prefLabel>
+    <skos:altLabel />
+    <gml:BoundedBy>
+      <gml:Envelope gml:srsName="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326">
+        <gml:lowerCorner>-4.328205 52.798415</gml:lowerCorner>
+        <gml:upperCorner>-4.048563 52.932953</gml:upperCorner>
+      </gml:Envelope>
+    </gml:BoundedBy>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/#SeaVoXGazetteer" />
+    <owl:versionInfo>1</owl:versionInfo>
+    <dc:date>2011-08-12 12:18:29.0</dc:date>
+    <skos:note xml:lang="en">accepted</skos:note>
+    <owl:deprecated>false</owl:deprecated>
+    <skos:broader rdf:resource="http://vocab.nerc.ac.uk/collection/C19/current/UKMDN027/" />
+    <void:inDataset rdf:resource="http://vocab.nerc.ac.uk/.well-known/void" />
+  </skos:Concept>
+</rdf:RDF>
+
