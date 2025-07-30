@@ -1,3 +1,14 @@
+#  workaround for preventing malicious requests - resolves SUPPORT-23128
+location /geonetwork/doc/api/index.html {
+    if ($query_string ~ configUrl=) {
+        return 301 $uri;
+    }
+    proxy_pass http://geonetwork:8080;
+}
+
+# workaround for security vulnerability of WFS Indexing - resolves MET-790
+location ~ /api/workers/data/wfs/[0-9a-z]+ { deny all; }
+
 location /geonetwork {
 
 # default geonetwork in docker
