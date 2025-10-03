@@ -4,7 +4,7 @@
     xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:srv="http://www.isotc211.org/2005/srv"
     xmlns:nrw="http://naturalresources.wales/nrw"
     exclude-result-prefixes="srv">
-    
+
     <xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" indent="yes"/>
 
 
@@ -26,24 +26,19 @@
             <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
-    
+
 
     <!-- remove PostGIS protocol resources -->
     <xsl:template match="*[gmd:CI_OnlineResource and count(gmd:CI_OnlineResource/gmd:linkage/gmd:URL[(starts-with(text(), 'PG'))]) > 0]" priority="1000">
         <xsl:message>=== Stripping Online Resources where the URL is a PostgreSQL DSN ===</xsl:message>
     </xsl:template>
 
-        <!-- Don't copy elements from the NRW namespace -->
+    <!-- Don't copy elements from the NRW namespace -->
     <xsl:template match="nrw:*">
         <xsl:message>== Discarding elements from the NRW namespace ===</xsl:message>
     </xsl:template>
 
-        <!-- Don't copy elements from the NRW namespace -->
-    <xsl:template match="gmd:specification" priority="1000">
-        <xsl:message>== Discarding Format Specification Element ===</xsl:message>
-    </xsl:template>
 
-    
     <!--  Change standard to MEDIN -->
     <xsl:template match="//gmd:metadataStandardName"  priority="10">
         <xsl:message>=== Updating Metadata Standard Name ===</xsl:message>
@@ -51,16 +46,16 @@
             <gmx:Anchor xlink:type="simple" xlink:href="http://vocab.nerc.ac.uk/collection/M25/current/MEDIN/">MEDIN</gmx:Anchor>
         </gmd:metadataStandardName>
     </xsl:template>
-    
+
     <xsl:template match="//gmd:metadataStandardVersion"  priority="10">
         <xsl:message>=== Updating Metadata Standard Version ===</xsl:message>
         <gmd:metadataStandardVersion>
             <gco:CharacterString>3.1.2</gco:CharacterString>
         </gmd:metadataStandardVersion>
-        
+
     </xsl:template>
-        
-    
+
+
 
 
 </xsl:stylesheet>
