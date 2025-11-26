@@ -1,0 +1,128 @@
+{
+  "paragraphs": [
+    {
+      "user": "monica.jones_reporting",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1742401104830_381046801",
+      "id": "paragraph_1742401104830_381046801",
+      "dateCreated": "2025-03-19 16:18:24.830",
+      "status": "READY"
+    },
+    {
+      "text": "--Can add coments throughout to describe fucntion of each statement. \n-- try to restrict to just NRW_DS records\nSELECT \n\tmx.id AS \"Database ID\",\n\tmx.uuid AS \"NRW File identifier\",\n    array_to_string(xpath(\u0027/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString/text()\u0027::text, mx.data_xml, \u0027{{gco,http://www.isotc211.org/2005/gco},{gmd,http://www.isotc211.org/2005/gmd}}\u0027::text[]), \u0027-\u0027::text) AS \"Title\",\n\tarray_to_string(xpath(\u0027/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/text()\u0027::text, mx.data_xml, \u0027{{gco,http://www.isotc211.org/2005/gco},{gmd,http://www.isotc211.org/2005/gmd}}\u0027::text[]), \u0027-\u0027::text) AS \"Resource Identifier\",\n\tarray_to_string(xpath(\u0027/gmd:MD_Metadata/gmd:contentInfo/nrw:MD_ContentInfo/nrw:internalInfo/nrw:MD_InternalInfo/nrw:internalLocationInfo/gco:CharacterString/text()\u0027::text, mx.data_xml, \u0027{{gco,http://www.isotc211.org/2005/gco},{gmd,http://www.isotc211.org/2005/gmd},{nrw,http://naturalresources.wales/nrw}}\u0027::text[]), \u0027-\u0027::text) AS \"NRW Internal Location\",\n\tarray_to_string(xpath(\u0027/gmd:MD_Metadata/gmd:contentInfo/nrw:MD_ContentInfo/nrw:internalInfo/nrw:MD_InternalInfo/nrw:internalContactInfo/gco:CharacterString/text()\u0027::text, mx.data_xml, \u0027{{gco,http://www.isotc211.org/2005/gco},{gmd,http://www.isotc211.org/2005/gmd},{nrw,http://naturalresources.wales/nrw}}\u0027::text[]), \u0027-\u0027::text) AS \"NRW Internal Custodian\",\n\tarray_to_string(xpath(\u0027/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact[gmd:CI_ResponsibleParty/gmd:role/gmd:CI_RoleCode/@codeListValue \u003d \"owner\"]/gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString/text()\u0027::text, mx.data_xml, \u0027{{gco,http://www.isotc211.org/2005/gco},{gmd,http://www.isotc211.org/2005/gmd}}\u0027::text[]), \u0027-\u0027::text) AS \"Owner organisation\",\n\tarray_to_string(xpath(\u0027/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:resourceConstraints/gmd:MD_LegalConstraints[gmd:useConstraints]/gmd:otherConstraints/gmx:Anchor/text()\u0027::text, mx.data_xml, \u0027{{gmx,http://www.isotc211.org/2005/gmx},{gmd,http://www.isotc211.org/2005/gmd}}\u0027::text[]), \u0027-\u0027::text) AS \"Licence\",\n\t(CASE\n\t        WHEN EXISTS (\n\t            SELECT 1\n\t            FROM validation\n\t            WHERE metadataid \u003d mx.id AND required \u003d \u0027true\u0027 AND failed !\u003d 0\n\t        ) THEN \u0027Invalid\u0027\n\t        WHEN EXISTS (\n\t            SELECT 1\n\t            FROM validation\n\t            WHERE metadataid \u003d mx.id AND required \u003d \u0027true\u0027 AND failed \u003d 0\n\t        ) THEN \u0027Valid\u0027\n\t        ELSE \u0027Unknown\u0027\n\t    END\n\t) AS \"Validation Status\",\n\t(CASE\n            WHEN mx.id IN (\n                SELECT metadataid\n                FROM operationallowed\n                WHERE operationid \u003d 2 AND groupid \u003d 107\n            ) THEN \u0027Editable\u0027\n            ELSE \u0027Non-editable\u0027\n        END\n    ) AS \"Edit Status\",\n\tms.changedate AS \"Date Last Edited\",\n    u.name || \u0027 \u0027 || u.surname AS \"Last Editor Name\",\n\t(CASE\n\t        WHEN EXISTS (SELECT 1 FROM operationallowed oa WHERE oa.metadataid \u003d mx.id AND oa.groupid \u003d 102 AND oa.operationid \u003d 0) AND EXISTS (SELECT 1 FROM operationallowed oa2 WHERE oa2.metadataid \u003d mx.id AND oa2.groupid \u003d 103 AND oa2.operationid \u003d 0) THEN \u0027GEMINI \u0026 MEDIN\u0027\n\t        WHEN EXISTS (SELECT 1 FROM operationallowed oa WHERE oa.metadataid \u003d mx.id AND oa.groupid \u003d 102 AND oa.operationid \u003d 0) THEN \u0027GEMINI\u0027\n\t        WHEN EXISTS (SELECT 1 FROM operationallowed oa WHERE oa.metadataid \u003d mx.id AND oa.groupid \u003d 103 AND oa.operationid \u003d 0) THEN \u0027MEDIN\u0027\n\t        ELSE \u0027-\u0027\n\t    END \n\t) AS \"Groups Available in (GEMINI / MEDIN)\",\n\t(CASE\n    \t    WHEN EXISTS (SELECT 1 FROM operationallowed oa WHERE oa.metadataid \u003d mx.id AND oa.groupid \u003d 1 AND oa.operationid \u003d 0) THEN \u0027Public record\u0027 \n    \t    ELSE \u0027Private record\u0027\n\t    END\n\t) AS \"Record in Public view\"\nFROM\n    custom.metadata_xml mx\nJOIN (\n    SELECT DISTINCT ON (uuid)\n        uuid,\n        changedate,\n        userid\n    FROM\n        metadatastatus\n    ORDER BY\n        uuid,\n        changedate DESC,\n        userid\n) ms ON mx.uuid \u003d ms.uuid\nJOIN\n    users u ON ms.userid \u003d u.id\nWHERE (mx.istemplate \u003d \u0027n\u0027 OR mx.istemplate \u003d \u0027y\u0027)\n--Enable the below to search for just EXT records\n--AND mx.uuid LIKE \u0027EXT_DS%\u0027\n--Enable the below to search for just NRW records\nAND mx.uuid LIKE \u0027NRW_DS%\u0027\n--Enable the below to search for record where just have the number (in this case122146)\n--AND mx.uuid LIKE \u0027%122146\u0027\nLIMIT 5;",
+      "user": "monica.jones_reporting",
+      "dateUpdated": "2025-03-19 16:17:57.722",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Database ID": "string",
+                      "NRW File identifier": "string",
+                      "Title": "string",
+                      "Resource Identifier": "string",
+                      "NRW Internal Location": "string",
+                      "NRW Internal Custodian": "string",
+                      "Owner organisation": "string",
+                      "Licence": "string",
+                      "Validation Status": "string",
+                      "Edit Status": "string",
+                      "Date Last Edited": "string",
+                      "Last Editor Name": "string",
+                      "Groups Available in (GEMINI / MEDIN)": "string",
+                      "Record in Public view": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Database ID\tNRW File identifier\tTitle\tResource Identifier\tNRW Internal Location\tNRW Internal Custodian\tOwner organisation\tLicence\tValidation Status\tEdit Status\tDate Last Edited\tLast Editor Name\tGroups Available in (GEMINI / MEDIN)\tRecord in Public view\n19274\tNRW_DS000001\tTemplate for Dataset Metadata in NRW 1.0 format\t4f4c4942-4343-5764-6473-303030303031\t\t\t\t\tUnknown\tNon-editable\t2024-09-25T15:18:56.000Z\tJohn Beattie\t-\tPrivate record\n19187\tNRW_DS000002\t\t\t\t\t\t\tUnknown\tEditable\t2024-07-31T07:58:26.000Z\tJohn Beattie\t-\tPrivate record\n19184\tNRW_DS000003\t\t\t\t\t\t\tUnknown\tEditable\t2024-08-02T13:13:52.000Z\tJohn Beattie\t-\tPublic record\n19186\tNRW_DS000004\t\t\t\t\t\t\tUnknown\tEditable\t2024-08-02T13:13:52.000Z\tJohn Beattie\t-\tPublic record\n17504\tNRW_DS100031\tLand Agency - Proposed Countryside Council for Wales (CCW) Holdings\t4f4c4942-4343-5764-6473-313030303331\tX:\\Ownership\\NRW Land\\Ex CCW land holdings proposed.lyr\tInternal Custodian and Metadata contact:  GIS and Spatial Data Team, NRW ( Hannah Brazier or Pippa Jones )\tNatural Resources Wales (NRW)\t\tUnknown\tNon-editable\t2025-02-04T12:00:51.000Z\tAstun Technology Admin\t-\tPublic record\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1742401010044_189975728",
+      "id": "paragraph_1742401010044_189975728",
+      "dateCreated": "2025-03-19 16:16:50.044",
+      "dateStarted": "2025-03-19 16:17:57.225",
+      "dateFinished": "2025-03-19 16:17:57.493",
+      "status": "FINISHED"
+    },
+    {
+      "user": "monica.jones_reporting",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1742401077223_358897987",
+      "id": "paragraph_1742401077223_358897987",
+      "dateCreated": "2025-03-19 16:17:57.223",
+      "status": "READY"
+    }
+  ],
+  "name": "Test Reports",
+  "id": "2KQGBGWWF",
+  "defaultInterpreterGroup": "jdbc",
+  "version": "0.11.0-SNAPSHOT",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,352 @@
+{
+  "paragraphs": [
+    {
+      "text": "select\n\nisenabled, lastlogindate, name, surname,\n\ncase\n\nwhen profile \u003d 0 then \u0027admin\u0027\nwhen profile \u003d 1 then \u00271\u0027\nwhen profile \u003d 2 then \u0027Reviewer\u0027\nwhen profile \u003d 3 then \u0027Editor\u0027\nwhen profile \u003d 4 then \u0027User\u0027\nelse null\nend as \"Profile\"\n\n from users\n",
+      "user": "andrew.jeffery_reporting",
+      "dateUpdated": "2025-05-12 08:29:33.553",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "isenabled0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "lastlogindate1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "name2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "surname3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "Profile4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "isenabled": "string",
+                      "lastlogindate": "string",
+                      "name": "string",
+                      "surname": "string",
+                      "Profile": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "isenabled\tlastlogindate\tname\tsurname\tProfile\ny\t2024-07-24T12:20:25.647Z\tDonna\tMuirhead\tEditor\ny\t2024-08-28T14:22:50.182Z\tDavid\tTarrant\tUser\ny\t2025-02-24T10:47:22.652Z\tHuw\tFriedhoff\tUser\ny\t2024-11-18T10:17:18.908Z\tNickie\tMoore\tUser\ny\t2024-07-08T10:43:48.074Z\tRobert\tBacon\tUser\ny\t2024-11-11T10:10:31.417Z\tKeith\tJones\tEditor\ny\t2024-08-14T12:28:32.693Z\tJonathan\tYoung\tUser\ny\t2024-10-07T14:56:11.218Z\tCarol\tOwen\tUser\ny\t2024-09-11T10:19:50.835Z\tIain\tFairley\tUser\ny\t2024-09-10T08:42:50.563Z\tNeil\tParker\tUser\ny\t2025-05-07T10:34:47.918Z\tAlex\tHardie-brown\tUser\ny\t2025-04-24T16:33:43.891Z\tAstun Technology\tAdmin\tadmin\ny\t2025-03-10T15:51:34.163Z\tDafydd\tDavies\tUser\ny\t2025-05-08T10:33:48.914Z\tAndrew\tWilliams\tEditor\ny\t2024-09-17T15:23:14.911Z\tSteven\tBlythe\tUser\ny\t2025-04-22T13:20:54.804Z\tOliver\tIshmael\tEditor\ny\tnull\tAndrew\tJeffery (Reporting)\tUser\ny\t2025-02-26T10:23:59.936Z\tPaul\tBrazier\tUser\ny\tnull\tAstun\tEditor\tEditor\ny\t2025-05-08T10:37:51.564Z\tMatthew\tWareham\tEditor\ny\t2024-03-26T10:41:37.059Z\tAled\tJones\tReviewer\ny\t2024-09-12T09:37:54.416Z\tDafydd\tRobbins-Hill\tUser\ny\t2024-09-12T10:07:59.699Z\tSimon\tBonwick\tEditor\ny\t2024-09-12T12:38:33.397Z\tGruffudd\tOwen\tUser\ny\t2024-10-16T09:18:25.38Z\tSteven\tKing\tUser\ny\t2025-03-12T14:52:56.34Z\tSteven\tNewstead\tUser\ny\tnull\tAndrew\tJeffery\tReviewer\ny\t2024-10-16T09:23:26.885Z\tDylan\tLloyd\tUser\ny\t2025-04-17T13:49:37.429Z\tKathleen\tBanner\tUser\ny\t2025-02-25T16:56:20.119Z\tMonica\tJones (Reporting)\tUser\ny\t2025-04-02T09:15:43.461Z\tNatasha\tLough\tUser\ny\t2025-04-09T09:52:52.718Z\tCarole\tThornley\tUser\ny\t2025-05-08T12:49:11.255Z\tJohn\tBeattie\tadmin\ny\t2024-11-29T15:53:25.472Z\tBryan\tTozer\tUser\ny\t2025-04-30T10:10:05.292Z\tJonathan\tRothwell\tUser\ny\t2025-01-16T15:29:10.765Z\tKate\tLinck\tUser\ny\t2025-05-09T10:13:22.032Z\tOwen\tJones\tUser\ny\t2025-02-28T14:44:12.101Z\tLouise\tBailey\tUser\ny\t2025-05-12T08:21:50.172Z\tMonica\tJones\tadmin\ny\t2025-04-11T09:40:03.817Z\tLiza\tTomos\tUser\ny\t2025-04-09T13:25:22.052Z\tHannah\tBrazier\tEditor\ny\t2025-03-18T09:33:23.68Z\tThomas\tKirkham\tUser\nn\tnull\tnobody\tnobody\tUser\ny\t2025-05-09T15:35:30.395Z\tRachel\tMorris\tReviewer\ny\t2025-05-12T07:49:50.129Z\tMarc\tCampbell\tUser\ny\t2024-10-16T09:18:21.883Z\tLuke\tMaggs\tUser\ny\t2024-10-16T09:18:28.415Z\tIrina\tNicholas\tUser\ny\t2024-06-27T15:23:02.341Z\tNatasha\tWan\tUser\ny\t2024-08-01T11:27:36.114Z\tMichael\tGoodrich\tEditor\ny\t2024-09-12T06:39:11.759Z\tRuth\tSkillen\tUser\ny\t2024-11-19T16:48:55.665Z\tKeith Harri\tJones\tEditor\ny\t2024-09-12T10:56:29.499Z\tBenjamin\tHext\tUser\ny\t2025-05-02T12:38:07.572Z\tMichelle\tLewis\tUser\ny\t2024-09-13T08:04:04.029Z\tSarah\tLowe\tUser\ny\t2024-08-08T14:30:12.382Z\tSimon\tWebb\tUser\ny\t2025-02-24T14:41:20.156Z\tRuth\tBroderick\tUser\ny\t2024-07-23T15:11:14.567Z\tKester\tSavage\tUser\ny\t2025-02-12T16:15:54.861Z\tMark\tMcLoughlin\tUser\ny\t2024-08-14T09:00:41.284Z\tKatie\tReynolds\tUser\ny\t2024-10-07T15:04:58.919Z\tStephanie\tMeadows\tUser\ny\t2024-08-27T10:47:30.206Z\tSarah\tJones\tUser\ny\t2024-08-27T13:14:37.755Z\tStuart\tKay\tUser\ny\t2024-08-20T08:25:41.061Z\tSara\tRidley\tUser\ny\t2024-08-28T15:01:15.697Z\tMatthew\tMurphy\tUser\ny\t2025-03-25T15:42:32.808Z\tLukasz\tPonienski\tUser\ny\tnull\tTest\tAdmin\tadmin\ny\tnull\tJohn\tBeattie (Reporting)\tUser\ny\t2024-12-02T10:09:36.686Z\tMostyn\tWall\tUser\ny\t2024-10-25T10:17:44.371Z\tHarriet\tGislam\tUser\ny\t2025-05-07T12:47:28.909Z\tAndrew\tJeffery\tReviewer\ny\t2024-09-23T08:27:36.319Z\tGareth\tRoberts\tUser\ny\t2025-02-04T14:45:57.662Z\tRhonwen\tWilliams\tUser\ny\t2025-02-26T15:45:21.279Z\tJohn\tBriggs\tUser\ny\t2025-05-01T08:05:38.994Z\tGary\tEccleston\tEditor\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1744202260333_1229902968",
+      "id": "paragraph_1744202260333_1229902968",
+      "dateCreated": "2025-04-09 12:37:40.333",
+      "dateStarted": "2025-05-12 08:28:51.056",
+      "dateFinished": "2025-05-12 08:28:51.101",
+      "status": "FINISHED"
+    },
+    {
+      "text": "select * from email\n\n\n",
+      "user": "andrew.jeffery_reporting",
+      "dateUpdated": "2025-05-12 10:58:37.779",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "metadataid0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "valtype1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "failed2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "tested3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "reportcontent4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "reporturl5",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "required6",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "status7",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "valdate8",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "user_id": "string",
+                      "email": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "user_id\temail\n1\tmetadata@astuntechnology.com\n115\tjohn.beattie@cyfoethnaturiolcymru.gov.uk\n122\tmonica.jones@cyfoethnaturiolcymru.gov.uk\n133\taled.wyn.jones@cyfoethnaturiolcymru.gov.uk\n182\tmatthew.d.wareham@cyfoethnaturiolcymru.gov.uk\n183\tmichelle.lewis@cyfoethnaturiolcymru.gov.uk\n184\tdonna.muirhead@cyfoethnaturiolcymru.gov.uk\n185\thannah.brazier@cyfoethnaturiolcymru.gov.uk\n186\tmichael.j.goodrich@cyfoethnaturiolcymru.gov.uk\n187\tkathleen.banner@cyfoethnaturiolcymru.gov.uk\n188\trachel.morris@cyfoethnaturiolcymru.gov.uk\n189\tandrew.jeffery@cyfoethnaturiolcymru.gov.uk\n190\tnatasha.wan@cyfoethnaturiolcymru.gov.uk\n191\towen.jones@cyfoethnaturiolcymru.gov.uk\n192\tmarc.campbell@cyfoethnaturiolcymru.gov.uk\n193\toliver.t.ishmael@cyfoethnaturiolcymru.gov.uk\n194\tgary.eccleston@cyfoethnaturiolcymru.gov.uk\n195\trobert.bacon@cyfoethnaturiolcymru.gov.uk\n196\tandrew.williams@cyfoethnaturiolcymru.gov.uk\n197\tkester.savage@cyfoethnaturiolcymru.gov.uk\n198\tmetadata+edit@astuntechnology.com\n199\tpaul.brazier@cyfoethnaturiolcymru.gov.uk\n200\tsimon.webb@cyfoethnaturiolcymru.gov.uk\n201\tsimon.bonwick@cyfoethnaturiolcymru.gov.uk\n202\tkatie.reynolds@cyfoethnaturiolcymru.gov.uk\n203\tjonathan.young@cyfoethnaturiolcymru.gov.uk\n204\tsara.ridley@cyfoethnaturiolcymru.gov.uk\n205\tkeith.jones@cyfoethnaturiolcymru.gov.uk\n206\tsarah.jones@cyfoethnaturiolcymru.gov.uk\n207\thuw.friedhoff@cyfoethnaturiolcymru.gov.uk\n208\tstuart.kay@cyfoethnaturiolcymru.gov.uk\n209\tdavid.tarrant@cyfoethnaturiolcymru.gov.uk\n210\tmatthew.murphy@cyfoethnaturiolcymru.gov.uk\n211\tneil.parker@cyfoethnaturiolcymru.gov.uk\n212\tiain.fairley@cyfoethnaturiolcymru.gov.uk\n213\truth.skillen@cyfoethnaturiolcymru.gov.uk\n214\tdafydd.robbins-hill@cyfoethnaturiolcymru.gov.uk\n215\tbenjamin.hext@cyfoethnaturiolcymru.gov.uk\n216\tgruffudd.s.owen@cyfoethnaturiolcymru.gov.uk\n217\tsarah.lowe@cyfoethnaturiolcymru.gov.uk\n218\tsteven.blythe@cyfoethnaturiolcymru.gov.uk\n219\tgareth.d.roberts@cyfoethnaturiolcymru.gov.uk\n220\tcarol.owen@cyfoethnaturiolcymru.gov.uk\n221\tstephanie.meadows@cyfoethnaturiolcymru.gov.uk\n222\talex.hardie-brown@cyfoethnaturiolcymru.gov.uk\n223\tluke.maggs@cyfoethnaturiolcymru.gov.uk\n224\tsteven.king@cyfoethnaturiolcymru.gov.uk\n225\tirina.nicholas@cyfoethnaturiolcymru.gov.uk\n226\tdylan.lloyd@cyfoethnaturiolcymru.gov.uk\n227\tharriet.gislam@cyfoethnaturiolcymru.gov.uk\n228\tnickie.moore@cyfoethnaturiolcymru.gov.uk\n229\tkeith.harri.jones@cyfoethnaturiolcymru.gov.uk\n230\tbryan.tozer@cyfoethnaturiolcymru.gov.uk\n231\tmostyn.wall@cyfoethnaturiolcymru.gov.uk\n232\tnatasha.lough@cyfoethnaturiolcymru.gov.uk\n233\tkate.a.linck@cyfoethnaturiolcymru.gov.uk\n234\tsteven.newstead@cyfoethnaturiolcymru.gov.uk\n235\tcarole.thornley@cyfoethnaturiolcymru.gov.uk\n236\trhonwen.williams@cyfoethnaturiolcymru.gov.uk\n237\tthomas.kirkham@cyfoethnaturiolcymru.gov.uk\n238\tmark.mcloughlin@cyfoethnaturiolcymru.gov.uk\n240\truth.broderick@cyfoethnaturiolcymru.gov.uk\n241\tjonathan.rothwell@cyfoethnaturiolcymru.gov.uk\n242\telenarobu@astuntechnology.com\n243\tmonica.jones+reports@cyfoethnaturiolcymru.gov.uk\n244\tjohn.beattie+reports@cyfoethnaturiolcymru.gov.uk\n245\tandrew.jeffery+reports@cyfoethnaturiolcymru.gov.uk\n246\tjohn.briggs@cyfoethnaturiolcymru.gov.uk\n247\tlouise.bailey@cyfoethnaturiolcymru.gov.uk\n248\tdafydd.davies@cyfoethnaturiolcymru.gov.uk\n249\tlukasz.ponienski@cyfoethnaturiolcymru.gov.uk\n250\tliza.tomos@cyfoethnaturiolcymru.gov.uk\n251\tandrew.jeffery@natrualresourcewales.gov.uk\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1747038788437_1813518758",
+      "id": "paragraph_1747038788437_1813518758",
+      "dateCreated": "2025-05-12 08:33:08.437",
+      "dateStarted": "2025-05-12 10:58:37.628",
+      "dateFinished": "2025-05-12 10:58:37.655",
+      "status": "FINISHED"
+    },
+    {
+      "user": "andrew.jeffery_reporting",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1747047086731_1864286921",
+      "id": "paragraph_1747047086731_1864286921",
+      "dateCreated": "2025-05-12 10:51:26.731",
+      "status": "READY"
+    }
+  ],
+  "name": "Andrew Jeffery Test Area",
+  "id": "2KRA2T1HN",
+  "defaultInterpreterGroup": "jdbc",
+  "version": "0.11.0-SNAPSHOT",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {
+    "isRunning": false
+  }
+}

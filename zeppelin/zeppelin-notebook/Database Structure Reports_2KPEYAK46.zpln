@@ -1,0 +1,463 @@
+{
+  "paragraphs": [
+    {
+      "title": "List all database tables",
+      "text": "select * from custom.get_tables order by table_schema, table_name",
+      "user": "admin",
+      "dateUpdated": "2025-09-10 09:21:39.278",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "table_schema0",
+                        "visible": true,
+                        "width": 816.0,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "table_name1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "table_schema": "string",
+                      "table_name": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "table_schema\ttable_name\npublic\taddress\npublic\tcategories\npublic\tcategoriesdes\npublic\tcustomelementset\npublic\temail\npublic\tfiles\npublic\tgeography_columns\npublic\tgeometry_columns\npublic\tgroup_category\npublic\tgroups\npublic\tgroupsdes\npublic\tguf_keywords\npublic\tguf_rating\npublic\tguf_ratingcriteria\npublic\tguf_ratingcriteriades\npublic\tguf_userfeedback_keyword\npublic\tguf_userfeedbacks\npublic\tguf_userfeedbacks_guf_rating\npublic\tharvesterdata\npublic\tharvestersettings\npublic\tharvesthistory\npublic\tinspireatomfeed\npublic\tinspireatomfeed_entrylist\npublic\tisolanguages\npublic\tisolanguagesdes\npublic\tlanguages\npublic\tlinks\npublic\tlinkstatus\npublic\tmapservers\npublic\tmessageproducerentity\npublic\tmetadata\npublic\tmetadatacateg\npublic\tmetadatadraft\npublic\tmetadatafiledownloads\npublic\tmetadatafileuploads\npublic\tmetadataidentifiertemplate\npublic\tmetadatalink\npublic\tmetadatarating\npublic\tmetadatastatus\npublic\toperationallowed\npublic\toperations\npublic\toperationsdes\npublic\trelations\npublic\tschematron\npublic\tschematroncriteria\npublic\tschematroncriteriagroup\npublic\tschematrondes\npublic\tselections\npublic\tselectionsdes\npublic\tsettings\npublic\tsettings_cssstyle\npublic\tsettings_ui\npublic\tsources\npublic\tsourcesdes\npublic\tspatial_ref_sys\npublic\tspg_page\npublic\tspg_sections\npublic\tstatusvalues\npublic\tstatusvaluesdes\npublic\ttranslations\npublic\tuseraddress\npublic\tusergroups\npublic\tusers\npublic\tusersavedselections\npublic\tusersearch\npublic\tusersearch_group\npublic\tusersearchdes\npublic\tvalidation\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1740563965754_1212232277",
+      "id": "paragraph_1740563965754_1212232277",
+      "dateCreated": "2025-02-26 09:59:25.754",
+      "dateStarted": "2025-09-10 09:21:39.340",
+      "dateFinished": "2025-09-10 09:21:43.878",
+      "status": "FINISHED"
+    },
+    {
+      "title": "List all columns in a table",
+      "text": "select * from custom.getcolumns ",
+      "user": "anonymous",
+      "dateUpdated": "2025-05-16 09:00:40.967",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "table_schema0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "table_name1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "asc"
+                        },
+                        "filters": [
+                          {
+                            "term": ""
+                          }
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "column_name2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {
+                            "term": ""
+                          }
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "ordinal_position3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "is_nullable4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "data_type5",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "table_schema": "string",
+                      "table_name": "string",
+                      "column_name": "string",
+                      "ordinal_position": "string",
+                      "is_nullable": "string",
+                      "data_type": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": true,
+                    "showPagination": true,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "table name without schema": "metadatastatus"
+        },
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "table_schema\ttable_name\tcolumn_name\tordinal_position\tis_nullable\tdata_type\npublic\tguf_userfeedbacks\tapprover_id\t9\tYES\tinteger\npublic\tguf_userfeedbacks\tauthor_id\t10\tYES\tinteger\npublic\tusers\tprofile\t7\tNO\tinteger\npublic\tmetadata\tgroupowner\t17\tYES\tinteger\npublic\tmetadatadraft\trating\t9\tNO\tinteger\npublic\tmetadata\towner\t18\tNO\tinteger\npublic\trelations\trelatedid\t2\tNO\tinteger\npublic\tmetadataidentifiertemplate\tid\t1\tNO\tinteger\npublic\tstatusvalues\tid\t1\tNO\tinteger\ncustom\trecords_date_updated\tid\t1\tYES\tinteger\npublic\tstatusvalues\tdisplayorder\t2\tYES\tinteger\npublic\tguf_ratingcriteria\tid\t1\tNO\tinteger\npublic\tusergroups\tuserid\t3\tNO\tinteger\npublic\tschematrondes\tiddes\t1\tNO\tinteger\ncustom\trecords_validation\tid\t1\tYES\tinteger\npublic\tguf_keywords\tid\t1\tNO\tbigint\ncustom\tmetadata_xml\tid\t1\tYES\tinteger\npublic\tschematroncriteriagroup\tschematronid\t2\tNO\tinteger\npublic\tgroupsdes\tiddes\t1\tNO\tinteger\ncustom\trecords_validation\tstatus\t6\tYES\tinteger\ncustom\trecords_validation\tfailed\t7\tYES\tinteger\npublic\tvalidation\tmetadataid\t1\tNO\tinteger\npublic\tcategories\tid\t1\tNO\tinteger\npublic\tvalidation\tfailed\t3\tYES\tinteger\npublic\tvalidation\ttested\t4\tYES\tinteger\npublic\tfiles\tid\t1\tNO\tinteger\npublic\tfiles\tcontent\t2\tNO\toid\ncustom\tmetadata_xml\tdata_xml\t8\tYES\txml\npublic\tusersearch\tid\t1\tNO\tinteger\npublic\tusersearch\tcreationdate\t2\tYES\ttimestamp without time zone\npublic\tmetadatafileuploads\tid\t1\tNO\tinteger\npublic\tisolanguagesdes\tiddes\t1\tNO\tinteger\npublic\ttranslations\tidfield\t1\tNO\tinteger\npublic\tusersearch\tcreator_id\t6\tYES\tinteger\npublic\tharvestersettings\tid\t1\tNO\tinteger\npublic\tvalidation\trequired\t7\tYES\tboolean\npublic\tstatusvaluesdes\tiddes\t1\tNO\tinteger\ncustom\tmetadata_xml\towner\t14\tYES\tinteger\npublic\tharvestersettings\tparentid\t5\tYES\tinteger\npublic\toperationsdes\tiddes\t1\tNO\tinteger\npublic\tvalidation\tstatus\t8\tNO\tinteger\ncustom\tmetadata_xml\tgroupowner\t16\tYES\tinteger\npublic\tusersearch_group\tgroup_id\t2\tNO\tinteger\npublic\tusersavedselections\tselectionid\t2\tNO\tinteger\npublic\tusersavedselections\tuserid\t3\tNO\tinteger\npublic\tusersearchdes\tiddes\t1\tNO\tinteger\ncustom\tmetadata_xml\trating\t18\tYES\tinteger\ncustom\tmetadata_xml\tpopularity\t19\tYES\tinteger\npublic\tgroup_category\tgroup_id\t1\tNO\tinteger\npublic\tgroup_category\tcategory_id\t2\tNO\tinteger\npublic\toperationallowed\tgroupid\t1\tNO\tinteger\npublic\toperationallowed\tmetadataid\t2\tNO\tinteger\npublic\toperationallowed\toperationid\t3\tNO\tinteger\npublic\tguf_rating\tid\t1\tNO\tbigint\npublic\tguf_rating\trating\t2\tYES\tinteger\npublic\tguf_rating\tcriteria_id\t3\tYES\tinteger\ncustom\tmetadata_xml\tdisplayorder\t20\tYES\tinteger\npublic\tselections\tid\t1\tNO\tinteger\npublic\tmetadatafileuploads\tfilesize\t4\tNO\tdouble precision\npublic\tmetadatafileuploads\tmetadataid\t5\tNO\tinteger\ncustom\ttitleabstractlength\ttitlelength\t3\tYES\tinteger\ncustom\ttitleabstractlength\tabstractlength\t4\tYES\tinteger\npublic\tgroups\tid\t1\tNO\tinteger\npublic\tguf_userfeedback_keyword\tkeyword_id\t2\tNO\tbigint\npublic\tschematron\tid\t1\tNO\tinteger\npublic\tschematron\tdisplaypriority\t2\tNO\tinteger\npublic\tgeometry_columns\tcoord_dimension\t5\tYES\tinteger\npublic\tgeometry_columns\tsrid\t6\tYES\tinteger\npublic\tsources\tgroupowner\t4\tYES\tinteger\npublic\tguf_userfeedbacks_guf_rating\tdetailedratinglist_id\t2\tNO\tbigint\npublic\tharvesthistory\tid\t1\tNO\tinteger\npublic\tusersearch_group\tusersearch_id\t1\tNO\tinteger\npublic\tharvesthistory\telapsedtime\t3\tYES\tinteger\npublic\tmetadatafiledownloads\tmetadataid\t5\tNO\tinteger\npublic\tgroups\treferrer\t7\tYES\tinteger\npublic\taddress\tid\t1\tNO\tinteger\npublic\tgroups\tdefaultcategory_id\t9\tYES\tinteger\npublic\tmetadatafiledownloads\tfileuploadid\t4\tNO\tinteger\ncustom\tall_records\tid\t2\tYES\tinteger\npublic\tinspireatomfeed\tid\t1\tNO\tinteger\ncustom\tgetcolumns\tordinal_position\t4\tYES\tinteger\npublic\tmetadatafiledownloads\tid\t1\tNO\tinteger\npublic\tuseraddress\tuserid\t1\tNO\tinteger\npublic\tuseraddress\taddressid\t2\tNO\tinteger\npublic\tmetadatadraft\tapprovedversion_id\t21\tNO\tinteger\ncustom\tmetadata_training_xml\tid\t1\tYES\tinteger\npublic\tcategoriesdes\tiddes\t1\tNO\tinteger\npublic\tinspireatomfeed\tmetadataid\t9\tNO\tinteger\npublic\tusergroups\tprofile\t2\tNO\tinteger\ncustom\tmetadata_training_xml\tdata_xml\t3\tYES\txml\npublic\tmetadatalink\tlinkid\t1\tNO\tinteger\npublic\tinspireatomfeed_entrylist\tinspireatomfeed_id\t1\tNO\tinteger\npublic\tsettings\tdatatype\t2\tYES\tinteger\npublic\tinspireatomfeed_entrylist\tid\t3\tNO\tinteger\npublic\tlinks\tid\t1\tNO\tinteger\npublic\tmetadatalink\tmetadataid\t2\tNO\tinteger\npublic\tlinks\tlaststate\t3\tYES\tinteger\npublic\tmetadatarating\tmetadataid\t2\tNO\tinteger\npublic\tisolanguages\tid\t1\tNO\tinteger\npublic\tmetadatarating\trating\t3\tNO\tinteger\npublic\tsettings\tposition\t6\tNO\tinteger\npublic\tmapservers\tid\t1\tNO\tinteger\npublic\tmetadatacateg\tmetadataid\t1\tNO\tinteger\npublic\tmetadatacateg\tcategoryid\t2\tNO\tinteger\npublic\tmetadatastatus\tid\t1\tNO\tinteger\npublic\toperations\tid\t1\tNO\tinteger\npublic\tselectionsdes\tiddes\t1\tNO\tinteger\npublic\tspatial_ref_sys\tsrid\t1\tNO\tinteger\npublic\tguf_ratingcriteriades\tiddes\t1\tNO\tinteger\npublic\tmetadata\tid\t1\tNO\tinteger\npublic\tmetadatastatus\tmetadataid\t7\tNO\tinteger\npublic\tmetadatastatus\towner\t8\tNO\tinteger\ncustom\trecords_status\tid\t1\tYES\tinteger\ncustom\tstructureddata\tid\t1\tYES\tinteger\npublic\tmetadatastatus\tuserid\t11\tNO\tinteger\npublic\tusergroups\tgroupid\t1\tNO\tinteger\npublic\tspg_page\tdata\t3\tYES\toid\npublic\tmetadatastatus\trelatedmetadatastatusid\t13\tYES\tinteger\npublic\tmetadatastatus\tstatusid\t14\tNO\tinteger\npublic\temail\tuser_id\t1\tNO\tinteger\npublic\tmetadata\tdisplayorder\t5\tYES\tinteger\npublic\tschematroncriteria\tid\t1\tNO\tinteger\npublic\tcustomelementset\txpathhashcode\t1\tNO\tinteger\npublic\tspatial_ref_sys\tauth_srid\t3\tYES\tinteger\npublic\tlinkstatus\tid\t1\tNO\tinteger\ncustom\trecords_status\tuserid\t5\tYES\tinteger\npublic\tmetadata\tpopularity\t8\tNO\tinteger\npublic\tschematroncriteria\tgroup_schematronid\t7\tNO\tinteger\npublic\tmessageproducerentity\tid\t1\tNO\tbigint\npublic\tmetadata\trating\t9\tNO\tinteger\npublic\tgeography_columns\tcoord_dimension\t5\tYES\tinteger\npublic\tguf_userfeedbacks\tauthorprivacy\t5\tYES\tinteger\npublic\tlinkstatus\tlink\t7\tNO\tinteger\npublic\tmetadatadraft\towner\t18\tNO\tinteger\npublic\tmetadatadraft\tid\t1\tNO\tinteger\npublic\tmetadatadraft\tgroupowner\t17\tYES\tinteger\npublic\tusers\tid\t1\tNO\tinteger\npublic\tgeography_columns\tsrid\t6\tYES\tinteger\npublic\tmetadatadraft\tdisplayorder\t5\tYES\tinteger\npublic\tguf_userfeedbacks\tcreationdate\t7\tYES\ttimestamp without time zone\npublic\trelations\tid\t1\tNO\tinteger\npublic\tmetadatadraft\tpopularity\t8\tNO\tinteger\ncustom\tmetadata_xml\troot\t12\tYES\tcharacter varying\ncustom\tmetadata_xml\tharvestuuid\t13\tYES\tcharacter varying\ncustom\tmetadata_xml\tdoctype\t15\tYES\tcharacter varying\ncustom\tmetadata_xml\tharvesturi\t17\tYES\tcharacter varying\ncustom\tbrokenlinks\tstatusvalue\t1\tYES\tcharacter varying\ncustom\tbrokenlinks\turl\t2\tYES\ttext\ncustom\tbrokenlinks\tmetadatauuid\t3\tYES\tcharacter varying\ncustom\tbrokenlinks\towner\t4\tYES\tcharacter varying\npublic\tgroups\tdescription\t2\tYES\tcharacter varying\npublic\tgroups\temail\t3\tYES\tcharacter varying\npublic\tgroups\tenablecategoriesrestriction\t4\tYES\tcharacter\npublic\tgroups\tlogo\t5\tYES\tcharacter varying\npublic\tgroups\tname\t6\tNO\tcharacter varying\npublic\tgroups\twebsite\t8\tYES\tcharacter varying\ncustom\tall_records\tcategories\t1\tYES\ttext\ncustom\tall_records\tuuid\t3\tYES\ttext\ncustom\tall_records\ttitle\t4\tYES\ttext\ncustom\tall_records\tstatus\t5\tYES\ttext\ncustom\tall_records\tabstract\t6\tYES\ttext\ncustom\tall_records\tkeywords\t7\tYES\ttext\ncustom\tall_records\torl\t8\tYES\ttext\ncustom\tall_records\totherconstraints\t9\tYES\ttext\ncustom\tall_records\tcontact1\t10\tYES\ttext\ncustom\tall_records\tcontact2\t11\tYES\ttext\ncustom\tall_records\tcontact3\t12\tYES\ttext\ncustom\tall_records\tcontact4\t13\tYES\ttext\npublic\tlinks\tdateandtime\t2\tYES\tcharacter varying\npublic\tlinks\tlinktype\t4\tNO\tcharacter varying\npublic\tlinks\tprotocol\t5\tYES\tcharacter varying\npublic\tlinks\turl\t6\tYES\ttext\npublic\tmetadatastatus\tchangedate\t2\tNO\tcharacter varying\npublic\tmetadatastatus\tchangemessage\t3\tNO\tcharacter varying\npublic\tmetadatastatus\tclosedate\t4\tYES\tcharacter varying\npublic\tmetadatastatus\tcurrentstate\t5\tYES\ttext\npublic\tmetadatastatus\tduedate\t6\tYES\tcharacter varying\npublic\tmetadatastatus\tpreviousstate\t9\tYES\ttext\npublic\tmetadatastatus\ttitles\t10\tYES\ttext\npublic\tmetadatastatus\tuuid\t12\tNO\tcharacter varying\npublic\temail\temail\t2\tYES\tcharacter varying\npublic\tcustomelementset\txpath\t2\tNO\tcharacter varying\npublic\tlinkstatus\tbatchkey\t2\tYES\tcharacter varying\npublic\tlinkstatus\tcheckdate\t3\tYES\tcharacter varying\npublic\tlinkstatus\tfailing\t4\tNO\tcharacter\npublic\tlinkstatus\tstatusinfo\t5\tYES\ttext\npublic\tlinkstatus\tstatusvalue\t6\tNO\tcharacter varying\npublic\tusers\tisenabled\t2\tNO\tcharacter\npublic\tusers\tkind\t3\tYES\tcharacter varying\npublic\tusers\tlastlogindate\t4\tYES\tcharacter varying\npublic\tusers\tname\t5\tYES\tcharacter varying\npublic\tusers\torganisation\t6\tYES\tcharacter varying\npublic\tusers\tauthtype\t8\tYES\tcharacter varying\npublic\tusers\tpassword\t10\tNO\tcharacter varying\npublic\tusers\tsecurity\t11\tYES\tcharacter varying\npublic\tusers\tsurname\t12\tYES\tcharacter varying\npublic\tusers\tusername\t13\tNO\tcharacter varying\ncustom\trecords_date_updated\tchangedate\t2\tYES\tcharacter varying\ncustom\trecords_date_updated\tcustodian\t3\tYES\ttext\ncustom\trecords_date_updated\ttitle\t4\tYES\ttext\ncustom\trecords_date_updated\torganisation\t5\tYES\tcharacter varying\ncustom\trecords_validation\tname\t2\tYES\tcharacter varying\ncustom\trecords_validation\tchangedate\t3\tYES\tcharacter varying\ncustom\trecords_validation\tchangemessage\t4\tYES\tcharacter varying\ncustom\trecords_validation\tvaltype\t5\tYES\tcharacter varying\ncustom\trecords_validation\tvaldate\t8\tYES\tcharacter varying\ncustom\trecords_validation\torganisation\t9\tYES\tcharacter varying\ncustom\trecords_validation\torl\t10\tYES\ttext\ncustom\trecords_validation\ttitle\t11\tYES\ttext\npublic\tfiles\tmimetype\t3\tNO\tcharacter varying\npublic\tusersearch\tfeaturedtype\t3\tYES\tcharacter\npublic\tusersearch\tlogo\t4\tYES\tcharacter varying\npublic\tusersearch\turl\t5\tYES\ttext\npublic\tharvestersettings\tencrypted\t2\tNO\tcharacter\npublic\tharvestersettings\tname\t3\tNO\tcharacter varying\npublic\tharvestersettings\tvalue\t4\tYES\ttext\npublic\toperationsdes\tlabel\t2\tNO\tcharacter varying\npublic\toperationsdes\tlangid\t3\tNO\tcharacter varying\npublic\tusersavedselections\tmetadatauuid\t1\tNO\tcharacter varying\npublic\tusersearchdes\tlabel\t2\tNO\tcharacter varying\npublic\tusersearchdes\tlangid\t3\tNO\tcharacter varying\npublic\tguf_rating\tuserfeedback_id\t4\tYES\tcharacter varying\npublic\tselections\tname\t2\tNO\tcharacter varying\npublic\tselections\tiswatchable\t3\tNO\tcharacter\npublic\tsettings_ui\tid\t1\tNO\tcharacter varying\npublic\tsettings_ui\tconfiguration\t2\tYES\ttext\npublic\tguf_userfeedback_keyword\tuserfeedback_uuid\t1\tNO\tcharacter varying\npublic\tschematron\tfilename\t3\tNO\tcharacter varying\npublic\tschematron\tschemaname\t4\tNO\tcharacter varying\npublic\tguf_userfeedbacks_guf_rating\tguf_userfeedback_uuid\t1\tNO\tcharacter varying\npublic\tharvesthistory\tdeleted\t2\tNO\tcharacter\npublic\tharvesthistory\tharvestdate\t4\tYES\tcharacter varying\npublic\tharvesthistory\tharvestername\t5\tYES\tcharacter varying\npublic\tharvesthistory\tharvestertype\t6\tYES\tcharacter varying\npublic\tharvesthistory\tharvesteruuid\t7\tYES\tcharacter varying\npublic\tharvesthistory\tinfo\t8\tYES\ttext\npublic\tharvesthistory\tparams\t9\tYES\ttext\npublic\tinspireatomfeed\tatom\t2\tYES\ttext\npublic\tinspireatomfeed\tatomdatasetid\t3\tYES\tcharacter varying\npublic\tinspireatomfeed\tatomdatasetns\t4\tYES\tcharacter varying\npublic\tinspireatomfeed\tatomurl\t5\tYES\tcharacter varying\npublic\tinspireatomfeed\tauthoremail\t6\tYES\tcharacter varying\npublic\tinspireatomfeed\tauthorname\t7\tYES\tcharacter varying\npublic\tinspireatomfeed\tlang\t8\tYES\tcharacter varying\npublic\tinspireatomfeed\trights\t10\tYES\tcharacter varying\npublic\tinspireatomfeed\tsubtitle\t11\tYES\tcharacter varying\npublic\tinspireatomfeed\ttitle\t12\tYES\tcharacter varying\npublic\tinspireatomfeed_entrylist\tcrs\t2\tYES\tcharacter varying\npublic\tinspireatomfeed_entrylist\tlang\t4\tYES\tcharacter varying\npublic\tinspireatomfeed_entrylist\ttitle\t5\tYES\tcharacter varying\npublic\tinspireatomfeed_entrylist\ttype\t6\tYES\tcharacter varying\npublic\tinspireatomfeed_entrylist\turl\t7\tYES\tcharacter varying\npublic\tisolanguages\tcode\t2\tNO\tcharacter varying\npublic\tisolanguages\tshortcode\t3\tYES\tcharacter varying\npublic\tmapservers\tconfigurl\t2\tNO\tcharacter varying\npublic\tmapservers\tdescription\t3\tYES\tcharacter varying\npublic\tmapservers\tname\t4\tNO\tcharacter varying\npublic\tmapservers\tnamespace\t5\tYES\tcharacter varying\npublic\tmapservers\tnamespaceprefix\t6\tYES\tcharacter varying\npublic\tmapservers\tpassword\t7\tYES\tcharacter varying\npublic\tmapservers\tpushstyleinworkspace\t8\tYES\tcharacter\npublic\tmapservers\tstylerurl\t9\tYES\tcharacter varying\npublic\tmapservers\tusername\t10\tYES\tcharacter varying\npublic\tmapservers\twcsurl\t11\tYES\tcharacter varying\npublic\tmapservers\twfsurl\t12\tYES\tcharacter varying\npublic\tmapservers\twmsurl\t13\tYES\tcharacter varying\npublic\tspg_page\tlanguage\t1\tNO\tcharacter varying\npublic\tspg_page\tlinktext\t2\tNO\tcharacter varying\npublic\tspg_page\tformat\t4\tNO\tcharacter varying\npublic\tspg_page\tlabel\t5\tNO\tcharacter varying\npublic\tspg_page\tlink\t6\tYES\ttext\npublic\tspg_page\tstatus\t7\tNO\tcharacter varying\npublic\tschematroncriteria\ttype\t2\tNO\tcharacter varying\npublic\tschematroncriteria\tuitype\t3\tYES\tcharacter varying\npublic\tschematroncriteria\tuivalue\t4\tYES\tcharacter varying\npublic\tschematroncriteria\tvalue\t5\tNO\tcharacter varying\npublic\tschematroncriteria\tgroup_name\t6\tNO\tcharacter varying\npublic\tmessageproducerentity\tcronexpression\t2\tYES\tcharacter varying\npublic\tmessageproducerentity\tmetadatauuid\t3\tYES\tcharacter varying\npublic\tmessageproducerentity\tstrategy\t4\tYES\tcharacter varying\npublic\tmessageproducerentity\ttypename\t5\tYES\tcharacter varying\npublic\tmessageproducerentity\turl\t6\tYES\tcharacter varying\npublic\tmetadatadraft\tdata\t2\tNO\ttext\npublic\tmetadatadraft\tchangedate\t3\tNO\tcharacter varying\npublic\tmetadatadraft\tcreatedate\t4\tNO\tcharacter varying\npublic\tmetadatadraft\tdoctype\t6\tYES\tcharacter varying\npublic\tmetadatadraft\textra\t7\tYES\tcharacter varying\npublic\tusers\tnodeid\t9\tYES\tcharacter varying\npublic\tgeography_columns\ttype\t7\tYES\ttext\npublic\tgeometry_columns\ttype\t7\tYES\tcharacter varying\npublic\tspatial_ref_sys\tauth_name\t2\tYES\tcharacter varying\npublic\tspatial_ref_sys\tsrtext\t4\tYES\tcharacter varying\npublic\tspatial_ref_sys\tproj4text\t5\tYES\tcharacter varying\npublic\tmetadataidentifiertemplate\tname\t2\tNO\tcharacter varying\npublic\tmetadataidentifiertemplate\tisprovided\t3\tNO\tcharacter\npublic\tmetadataidentifiertemplate\ttemplate\t4\tNO\tcharacter varying\npublic\tmetadatafileuploads\tdeleteddate\t2\tYES\tcharacter varying\npublic\tmetadatafileuploads\tfilename\t3\tNO\tcharacter varying\npublic\tmetadatafileuploads\tuploaddate\t6\tNO\tcharacter varying\npublic\tmetadatafileuploads\tusername\t7\tNO\tcharacter varying\npublic\tmetadatarating\tipaddress\t1\tNO\tcharacter varying\npublic\toperations\tname\t2\tNO\tcharacter varying\ncustom\tstructureddata\tuuid\t2\tYES\tcharacter varying\ncustom\tstructureddata\ttitle\t3\tYES\ttext\ncustom\tstructureddata\tabstract\t4\tYES\ttext\ncustom\tstructureddata\tkeywords\t5\tYES\ttext\ncustom\tstructureddata\ttemporalextent\t6\tYES\ttext\ncustom\tstructureddata\tpointofcontact\t7\tYES\ttext\ncustom\tstructureddata\tresponsibleorg\t8\tYES\ttext\ncustom\tstructureddata\tbbox\t9\tYES\ttext\ncustom\tstructureddata\tconditionsofaccess\t10\tYES\ttext\ncustom\tstructureddata\tusageinfo\t11\tYES\ttext\npublic\tcategories\tname\t2\tNO\tcharacter varying\ncustom\tabstractfirst120chars\tuuid\t1\tYES\tcharacter varying\ncustom\tabstractfirst120chars\ttitle\t2\tYES\ttext\ncustom\tabstractfirst120chars\tabstractfirst120chars\t3\tYES\ttext\ncustom\tabstractfirst120chars\towner\t4\tYES\tcharacter varying\ncustom\tinvaliduuids\tuuid\t1\tYES\tcharacter varying\ncustom\tinvaliduuids\tname\t2\tYES\tcharacter varying\ncustom\tmetadata_training_xml\tistemplate\t2\tYES\tcharacter\ncustom\tmetadata_keywords\tuuid\t1\tYES\tcharacter varying\ncustom\tmetadata_keywords\ttitle\t2\tYES\ttext\ncustom\tmetadata_keywords\tkeywords\t3\tYES\ttext\ncustom\tmetadata_keywords\tthesauri\t4\tYES\ttext\ncustom\trecords_status\tuuid\t2\tYES\tcharacter varying\ncustom\trecords_status\ttitle\t3\tYES\ttext\ncustom\trecords_status\tstatus\t4\tYES\tcharacter varying\ncustom\trecords_status\tchangedate\t6\tYES\tcharacter varying\ncustom\trecords_status\tchangemessage\t7\tYES\tcharacter varying\ncustom\trecords_status\torganisation\t8\tYES\tcharacter varying\ncustom\trecords_ownership\tuuid\t1\tYES\tcharacter varying\ncustom\trecords_ownership\tRecord Title\t2\tYES\ttext\ncustom\trecords_ownership\tFirst Name\t3\tYES\tcharacter varying\ncustom\trecords_ownership\tLast Name\t4\tYES\tcharacter varying\ncustom\trecords_ownership\tusername\t5\tYES\tcharacter varying\npublic\tvalidation\tvaltype\t2\tNO\tcharacter varying\npublic\tvalidation\treportcontent\t5\tYES\ttext\npublic\tvalidation\treporturl\t6\tYES\tcharacter varying\npublic\tvalidation\tvaldate\t9\tYES\tcharacter varying\ncustom\ttitleabstractlength\tuuid\t1\tYES\tcharacter varying\ncustom\ttitleabstractlength\ttitle\t2\tYES\ttext\ncustom\ttitleabstractlength\towner\t5\tYES\tcharacter varying\ncustom\tduplicatetitles\ttitle\t1\tYES\ttext\ncustom\tduplicatetitles\tuuid\t2\tYES\ttext\ncustom\tduplicatetitles\towner\t3\tYES\tcharacter varying\npublic\taddress\taddress\t2\tYES\tcharacter varying\npublic\taddress\tcity\t3\tYES\tcharacter varying\npublic\taddress\tcountry\t4\tYES\tcharacter varying\npublic\taddress\tstate\t5\tYES\tcharacter varying\npublic\taddress\tzip\t6\tYES\tcharacter varying\npublic\tcategoriesdes\tlabel\t2\tNO\tcharacter varying\npublic\tcategoriesdes\tlangid\t3\tNO\tcharacter varying\npublic\tmetadatalink\tmetadatauuid\t3\tYES\tcharacter varying\npublic\tharvesterdata\tharvesteruuid\t1\tNO\tcharacter varying\npublic\tharvesterdata\tkeyvalue\t2\tNO\tcharacter varying\npublic\tharvesterdata\tvalue\t3\tNO\tcharacter varying\npublic\tguf_ratingcriteriades\tlabel\t2\tNO\tcharacter varying\npublic\tguf_ratingcriteriades\tlangid\t3\tNO\tcharacter varying\npublic\tguf_userfeedbacks\tuuid\t1\tNO\tcharacter varying\npublic\tguf_userfeedbacks\tauthoremail\t2\tYES\tcharacter varying\npublic\tguf_userfeedbacks\tauthorname\t3\tYES\tcharacter varying\npublic\tguf_userfeedbacks\tauthororganization\t4\tYES\tcharacter varying\npublic\tguf_userfeedbacks\tcommenttext\t6\tYES\tcharacter varying\npublic\tguf_userfeedbacks\tstatus\t8\tNO\tcharacter varying\npublic\tguf_userfeedbacks\tmetadata_uuid\t11\tYES\tcharacter varying\npublic\tguf_userfeedbacks\tparent_uuid\t12\tYES\tcharacter varying\npublic\tguf_ratingcriteria\tisinternal\t2\tNO\tcharacter\npublic\tguf_ratingcriteria\tname\t3\tNO\tcharacter varying\npublic\tguf_keywords\tvalue\t2\tYES\tcharacter varying\npublic\tgroupsdes\tlabel\t2\tNO\tcharacter varying\npublic\tgroupsdes\tlangid\t3\tNO\tcharacter varying\npublic\tlanguages\tid\t1\tNO\tcharacter varying\npublic\tlanguages\tisinspire\t2\tYES\tcharacter\npublic\tlanguages\tname\t3\tNO\tcharacter varying\npublic\tisolanguagesdes\tlabel\t2\tNO\tcharacter varying\npublic\tisolanguagesdes\tlangid\t3\tNO\tcharacter varying\npublic\tstatusvaluesdes\tlabel\t2\tNO\tcharacter varying\npublic\tstatusvaluesdes\tlangid\t3\tNO\tcharacter varying\npublic\tspg_sections\tspg_page_language\t1\tNO\tcharacter varying\npublic\tspg_sections\tspg_page_linktext\t2\tNO\tcharacter varying\npublic\tspg_sections\tsection\t3\tYES\tcharacter varying\npublic\tsources\tuuid\t1\tNO\tcharacter varying\npublic\tsources\tcreationdate\t2\tYES\tcharacter varying\npublic\tsources\tfilter\t3\tYES\tcharacter varying\npublic\tsources\tislistableinheaderselector\t5\tNO\tcharacter\npublic\tsources\tlogo\t6\tYES\tcharacter varying\npublic\tsources\tname\t7\tYES\tcharacter varying\npublic\tsources\tservicerecord\t8\tYES\tcharacter varying\npublic\tsources\ttype\t9\tYES\tcharacter varying\npublic\tsources\tuiconfig\t10\tYES\tcharacter varying\npublic\tsourcesdes\tiddes\t1\tNO\tcharacter varying\npublic\tsourcesdes\tlabel\t2\tNO\tcharacter varying\npublic\tsourcesdes\tlangid\t3\tNO\tcharacter varying\npublic\tsettings_cssstyle\tvariable\t1\tNO\tcharacter varying\npublic\tsettings_cssstyle\tvalue\t2\tYES\tcharacter varying\npublic\tsettings\tname\t1\tNO\tcharacter varying\npublic\tsettings\teditable\t3\tNO\tcharacter\npublic\tsettings\tencrypted\t4\tNO\tcharacter\npublic\tsettings\tinternal\t5\tNO\tcharacter\npublic\tsettings\tvalue\t7\tYES\ttext\npublic\tselectionsdes\tlabel\t2\tNO\tcharacter varying\npublic\tselectionsdes\tlangid\t3\tNO\tcharacter varying\npublic\tmetadata\tdata\t2\tNO\ttext\npublic\tmetadata\tchangedate\t3\tNO\tcharacter varying\npublic\tmetadata\tcreatedate\t4\tNO\tcharacter varying\npublic\tmetadata\tdoctype\t6\tYES\tcharacter varying\npublic\tmetadata\textra\t7\tYES\tcharacter varying\npublic\tmetadata\troot\t10\tYES\tcharacter varying\npublic\tmetadata\tschemaid\t11\tNO\tcharacter varying\npublic\tmetadata\ttitle\t12\tYES\tcharacter varying\npublic\tmetadata\tistemplate\t13\tNO\tcharacter\npublic\tmetadata\tisharvested\t14\tNO\tcharacter\npublic\tmetadata\tharvesturi\t15\tYES\tcharacter varying\npublic\tmetadata\tharvestuuid\t16\tYES\tcharacter varying\npublic\tmetadata\tsource\t19\tNO\tcharacter varying\npublic\tmetadata\tuuid\t20\tNO\tcharacter varying\npublic\tstatusvalues\tname\t3\tNO\tcharacter varying\npublic\tstatusvalues\tnotificationlevel\t4\tYES\tcharacter varying\npublic\tstatusvalues\treserved\t5\tNO\tcharacter\npublic\tstatusvalues\ttype\t6\tYES\tcharacter varying\ncustom\tmetadata_xml\tuuid\t2\tYES\tcharacter varying\ncustom\tmetadata_xml\tschemaid\t3\tYES\tcharacter varying\ncustom\tmetadata_xml\tistemplate\t4\tYES\tcharacter\ncustom\tmetadata_xml\tisharvested\t5\tYES\tcharacter\ncustom\tmetadata_xml\tcreatedate\t6\tYES\tcharacter varying\ncustom\tmetadata_xml\tchangedate\t7\tYES\tcharacter varying\ncustom\tmetadata_xml\tdata\t9\tYES\ttext\ncustom\tmetadata_xml\tsource\t10\tYES\tcharacter varying\ncustom\tmetadata_xml\ttitle\t11\tYES\tcharacter varying\npublic\tmetadatadraft\tuuid\t20\tNO\tcharacter varying\npublic\tmetadatafiledownloads\tdownloaddate\t2\tNO\tcharacter varying\npublic\tmetadatafiledownloads\tfilename\t3\tNO\tcharacter varying\npublic\tmetadatafiledownloads\trequestercomments\t6\tYES\tcharacter varying\npublic\tmetadatafiledownloads\trequestermail\t7\tYES\tcharacter varying\npublic\tmetadatafiledownloads\trequestername\t8\tYES\tcharacter varying\npublic\tmetadatafiledownloads\trequesterorg\t9\tYES\tcharacter varying\npublic\tmetadatafiledownloads\tusername\t10\tYES\tcharacter varying\npublic\ttranslations\tfield\t2\tNO\tcharacter varying\npublic\ttranslations\tlangid\t3\tNO\tcharacter varying\npublic\ttranslations\tlabel\t4\tYES\ttext\npublic\tschematroncriteriagroup\tname\t1\tNO\tcharacter varying\npublic\tschematroncriteriagroup\trequirement\t3\tNO\tcharacter varying\npublic\tschematrondes\tlabel\t2\tNO\tcharacter varying\npublic\tschematrondes\tlangid\t3\tNO\tcharacter varying\npublic\tmetadatadraft\troot\t10\tYES\tcharacter varying\npublic\tmetadatadraft\tschemaid\t11\tNO\tcharacter varying\npublic\tmetadatadraft\ttitle\t12\tYES\tcharacter varying\npublic\tmetadatadraft\tistemplate\t13\tNO\tcharacter\npublic\tmetadatadraft\tisharvested\t14\tNO\tcharacter\npublic\tmetadatadraft\tharvesturi\t15\tYES\tcharacter varying\npublic\tmetadatadraft\tharvestuuid\t16\tYES\tcharacter varying\npublic\tmetadatadraft\tsource\t19\tNO\tcharacter varying\npublic\tgeography_columns\tf_table_catalog\t1\tYES\tname\npublic\tgeometry_columns\tf_table_name\t3\tYES\tname\ncustom\tgetcolumns\tcolumn_name\t3\tYES\tname\ncustom\tgetcolumns\ttable_name\t2\tYES\tname\npublic\tgeography_columns\tf_geography_column\t4\tYES\tname\npublic\tgeometry_columns\tf_table_catalog\t1\tYES\tcharacter varying\npublic\tgeography_columns\tf_table_name\t3\tYES\tname\npublic\tgeography_columns\tf_table_schema\t2\tYES\tname\ncustom\tget_tables\ttable_name\t2\tYES\tname\ncustom\tget_tables\ttable_schema\t1\tYES\tname\npublic\tgeometry_columns\tf_table_schema\t2\tYES\tname\ncustom\tgetcolumns\ttable_schema\t1\tYES\tname\ncustom\tgetcolumns\tdata_type\t6\tYES\tcharacter varying\ncustom\tgetcolumns\tis_nullable\t5\tYES\tcharacter varying\npublic\tgeometry_columns\tf_geometry_column\t4\tYES\tname\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1740563973612_252151719",
+      "id": "paragraph_1740563973612_252151719",
+      "dateCreated": "2025-02-26 09:59:33.612",
+      "dateStarted": "2025-03-20 12:13:39.541",
+      "dateFinished": "2025-03-20 12:13:39.655",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Copy List all columns in a table - amend the table below and run to see the schema",
+      "text": "select * from custom.getcolumns where table_name \u003d \u0027${table name without schema}\u0027",
+      "user": "admin",
+      "dateUpdated": "2025-09-10 09:21:51.058",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "title": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "table_schema0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "table_name1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "column_name2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "ordinal_position3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "is_nullable4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "data_type5",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "table_schema": "string",
+                      "table_name": "string",
+                      "column_name": "string",
+                      "ordinal_position": "string",
+                      "is_nullable": "string",
+                      "data_type": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": true,
+                    "showPagination": true,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {
+          "table name without schema": "metadata"
+        },
+        "forms": {
+          "table name without schema": {
+            "type": "TextBox",
+            "name": "table name without schema",
+            "displayName": "table name without schema",
+            "hidden": false
+          }
+        }
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "table_schema\ttable_name\tcolumn_name\tordinal_position\tis_nullable\tdata_type\npublic\tmetadata\tid\t1\tNO\tinteger\npublic\tmetadata\tdata\t2\tNO\ttext\npublic\tmetadata\tchangedate\t3\tNO\tcharacter varying\npublic\tmetadata\tcreatedate\t4\tNO\tcharacter varying\npublic\tmetadata\tdisplayorder\t5\tYES\tinteger\npublic\tmetadata\tdoctype\t6\tYES\tcharacter varying\npublic\tmetadata\textra\t7\tYES\tcharacter varying\npublic\tmetadata\tpopularity\t8\tNO\tinteger\npublic\tmetadata\trating\t9\tNO\tinteger\npublic\tmetadata\troot\t10\tYES\tcharacter varying\npublic\tmetadata\tschemaid\t11\tNO\tcharacter varying\npublic\tmetadata\ttitle\t12\tYES\tcharacter varying\npublic\tmetadata\tistemplate\t13\tNO\tcharacter\npublic\tmetadata\tisharvested\t14\tNO\tcharacter\npublic\tmetadata\tharvesturi\t15\tYES\tcharacter varying\npublic\tmetadata\tharvestuuid\t16\tYES\tcharacter varying\npublic\tmetadata\tgroupowner\t17\tYES\tinteger\npublic\tmetadata\towner\t18\tNO\tinteger\npublic\tmetadata\tsource\t19\tNO\tcharacter varying\npublic\tmetadata\tuuid\t20\tNO\tcharacter varying\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1742402463357_614711487",
+      "id": "paragraph_1742402463357_614711487",
+      "dateCreated": "2025-03-19 16:41:03.357",
+      "dateStarted": "2025-09-10 09:21:51.138",
+      "dateFinished": "2025-09-10 09:21:51.309",
+      "status": "FINISHED"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1743173496376_361064372",
+      "id": "paragraph_1743173496376_361064372",
+      "dateCreated": "2025-03-28 14:51:36.376",
+      "status": "READY"
+    }
+  ],
+  "name": "Database Structure Reports",
+  "id": "2KPEYAK46",
+  "defaultInterpreterGroup": "jdbc",
+  "version": "0.11.0-SNAPSHOT",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

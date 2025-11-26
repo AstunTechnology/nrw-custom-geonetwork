@@ -1,0 +1,31 @@
+{
+  "paragraphs": [
+    {
+      "user": "andrew.jeffery_reporting",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1744202246317_1246714081",
+      "id": "paragraph_1744202246317_1246714081",
+      "dateCreated": "2025-04-09 12:37:26.317",
+      "status": "READY"
+    }
+  ],
+  "name": "John Beattie",
+  "id": "2KTHFBQ6C",
+  "defaultInterpreterGroup": "jdbc",
+  "version": "0.11.0-SNAPSHOT",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

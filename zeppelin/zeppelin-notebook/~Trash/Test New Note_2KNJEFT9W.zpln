@@ -1,0 +1,31 @@
+{
+  "paragraphs": [
+    {
+      "user": "admin",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1740740354523_27048154",
+      "id": "paragraph_1740740354523_27048154",
+      "dateCreated": "2025-02-28 10:59:14.523",
+      "status": "READY"
+    }
+  ],
+  "name": "Test New Note",
+  "id": "2KNJEFT9W",
+  "defaultInterpreterGroup": "jdbc",
+  "version": "0.11.0-SNAPSHOT",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
