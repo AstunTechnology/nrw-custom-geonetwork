@@ -1,5 +1,4 @@
-# Default server configuration
-#
+# Default server configuration #
 
 # don't send nginx version in error pages and server header
 server_tokens off;
@@ -12,15 +11,6 @@ add_header X-XSS-Protection "1; mode=block";
 
 # X-Permitted-Cross-Domain-Policies
 add_header X-Permitted-Cross-Domain-Policies none;
-
-# content security policy
-# original
-#add_header Content-Security-Policy "frame-ancestors 'none'; child-src 'self', frame-src 'self'";
-# revised- to fix map preview in datahub
-#add_header Content-Security-Policy "frame-ancestors 'none'; frame-src 'self'";
-
-# referrer policy
-add_header Referrer-Policy 'No-referrer';
 
 # rate limiting
 #limit_req_zone $binary_remote_addr zone=ip:10m rate=60r/s;
@@ -84,6 +74,26 @@ map $upstream_http_permissions_policy $hdr_permissions_policy {
 # Set default $hdr_x_frame_options if X-Frame-Options does not exist
 map $upstream_http_x_frame_options $hdr_x_frame_options {
     '' "SAMEORIGIN";
+}
+
+# Set default $hdr_referrer_policy if Referrer-Policy does not exist
+map $upstream_http_referrer_policy $hdr_referrer_policy {
+    '' "no-referrer";
+}
+
+# Set default $hdr_coep if Cross-Origin-Embedder-Policy does not exist
+map $upstream_http_coep $hdr_coep {
+    '' "require-corp";
+}
+
+# Set default $hdr_coop if Cross-Origin-Opener-Policy does not exist
+map $upstream_http_coop $hdr_coop {
+    '' "same-origin";
+}
+
+# Set default $hdr_corp if Cross-Origin-Resource-Policy does not exist
+map $upstream_http_corp $hdr_corp {
+    '' "same-origin";
 }
 
 include servers/*.inc;
