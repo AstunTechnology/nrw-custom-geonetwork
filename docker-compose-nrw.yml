@@ -107,6 +107,8 @@ services:
       ## Hotkeys Angular extension ##
       - ./nrw/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.js
       - ./nrw/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.min.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.min.js
+      # fix directory entries going to the wrong group
+      - ./nrw/geonetwork/catalog/js/DirectoryController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/edit/DirectoryController.js
       ### NRW font files ###
       - ./nrw/geonetwork/catalog/style/GothamRnd-Medium.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Medium.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-MedIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-MediumIta.otf
