@@ -5,6 +5,8 @@ kibana.index: ".dashboards"
 server.name: kibana
 server.host: "0.0.0.0"
 elasticsearch.hosts: [ "http://elasticsearch:9200" ]
+xpack.security.sameSiteCookies: "None"
+xpack.security.secureCookies: true
 logging.quiet: true
 csp.rules: ["frame-src 'self' ${SERVER_PUBLICBASEURL}"]
 csp.warnLegacyBrowsers: false

@@ -1,4 +1,4 @@
-#  workaround for preventing malicious requests - resolves SUPPORT-23128
+# workaround for preventing malicious requests - resolves SUPPORT-23128
 location /geonetwork/doc/api/index.html {
     if ($query_string ~ configUrl=) {
         return 301 $uri;
@@ -26,14 +26,14 @@ location /geonetwork {
 	add_header X-Frame-Options $hdr_x_frame_options;
 
 
-	# add security headers for NRW 
-	add_header Content-Security-Policy "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com; img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://*.openstreetmap.org; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com;";
+	# add security headers for NRW
+	add_header Content-Security-Policy "frame-ancestors 'self' https://*.naturalresources.wales https://*.cyfoethnaturiol.cymru https://*.gov.uk; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.openstreetmap.org; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com;" always;
 
 	# the default values for the headers below are set in default.local
 	add_header Strict-Transport-Security $hdr_strict_transport_security;
 	add_header X-Content-Type-Options $hdr_x_content_type_options;
 	add_header Permissions-Policy $hdr_permissions_policy;
-	add_header Referrer-Policy $hdr_referrer_policy;
+	add_header Referrer-Policy $hdr_referrer_policy always;
 	add_header Cross-Origin-Embedder-Policy $hdr_coep;
 	add_header Cross-Origin-Opener-Policy $hdr_coop;
 	add_header Cross-Origin-Resource-Policy $hdr_corp;
@@ -54,8 +54,44 @@ location /geonetwork {
 	error_page 502 /50x.html;
 
 	if ($http_x_forwarded_proto = "http") {
-				rewrite ^/(.*)$ https://$host$request_uri;
-			}
+        rewrite ^/(.*)$ https://$host$request_uri;
+    }
+
+    ## CORS configuration
+    # Remove GeoNetwork's internal CORS headers
+    proxy_hide_header 'Access-Control-Allow-Origin';
+    proxy_hide_header 'Access-Control-Allow-Credentials';
+    if ($cors_origin != "") {
+        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+        add_header 'Vary' 'Origin' always;
+    }
+    # Immediate response for browser preflight checks
+    if ($request_method = 'OPTIONS') {
+        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,X-XSRF-TOKEN' always;
+        add_header 'Access-Control-Max-Age' 1728000;
+        add_header 'Vary' 'Origin' always;
+        return 204;
+    }
+    # Set cookies to secure
+    proxy_cookie_path / "/; Secure; SameSite=None";
+}
+
+location /geonetwork/dashboards/ {
+    proxy_buffer_size   128k;
+    proxy_buffers       4 256k;
+    proxy_busy_buffers_size 256k;
+    # Rewrite the internal redirects from Kibana
+    proxy_redirect http://kibana:5601/ /geonetwork/dashboards/;
+    proxy_pass http://kibana:5601/;
+    proxy_cookie_path / "/geonetwork/dashboards/; Secure; HttpOnly; SameSite=None";
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
 }
 
 location = /custom_404.html {
