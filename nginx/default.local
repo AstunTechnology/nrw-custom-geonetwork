@@ -26,12 +26,14 @@ log_format  verbose  '$remote_addr - $remote_user [$time_local] "$request" '
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-
 server {
     listen       80;
     listen  [::]:80;
     root /var/www/html;
 
+    # handle long dashboards URL
+    client_header_buffer_size 64k;
+    large_client_header_buffers 4 64k;
 
     server_name _;
 
@@ -73,17 +75,17 @@ map $upstream_http_permissions_policy $hdr_permissions_policy {
 
 # Set default $hdr_x_frame_options if X-Frame-Options does not exist
 map $upstream_http_x_frame_options $hdr_x_frame_options {
-    '' "SAMEORIGIN";
+    '' "ALLOW-FROM https://*.naturalresources.wales";
 }
 
 # Set default $hdr_referrer_policy if Referrer-Policy does not exist
 map $upstream_http_referrer_policy $hdr_referrer_policy {
-    '' "no-referrer";
+    '' "strict-origin-when-cross-origin";
 }
 
 # Set default $hdr_coep if Cross-Origin-Embedder-Policy does not exist
 map $upstream_http_coep $hdr_coep {
-    '' "require-corp";
+    '' "unsafe-none";
 }
 
 # Set default $hdr_coop if Cross-Origin-Opener-Policy does not exist
@@ -94,6 +96,20 @@ map $upstream_http_coop $hdr_coop {
 # Set default $hdr_corp if Cross-Origin-Resource-Policy does not exist
 map $upstream_http_corp $hdr_corp {
     '' "same-origin";
+}
+
+# Define list of hosts for CORS
+map $http_origin $cors_origin {
+    default "";
+
+    # Matches any domains with optional test/metadata subdomains
+    "~^https?://(test\.)?(metadata\.)?naturalresources\.wales$"         "$http_origin";
+    "~^https?://(test\.)?(metadata\.)?naturalresourceswales\.gov\.uk$"  "$http_origin";
+    "~^https?://(test\.)?(metadata\.)?cyfoethnaturiol\.cymru$"          "$http_origin";
+    "~^https?://(test\.)?(metadata\.)?cyfoethnaturiolcymru\.gov\.uk$"   "$http_origin";
+
+    # Localhost for dev work
+    "~^https?://localhost(:[0-9]+)?$"                                   "$http_origin";
 }
 
 include servers/*.inc;
