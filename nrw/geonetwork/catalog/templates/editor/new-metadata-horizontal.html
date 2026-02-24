@@ -155,15 +155,17 @@
               </div>
             </div>
           </div>
-            <div class="btn-group">
+	  <!-- Swap buttons for NRW to default to publishing a record for editors -->
+	  <!--<div class="btn-group">-->
             <button
                 type="button"
                 class="btn btn-success"
-                data-gn-click-and-spin="createNewMetadata()"
+		style="margin-bottom: 7px;"
+                data-gn-click-and-spin="createNewMetadata(true)"
                 data-ng-disabled="(!activeTpl || !ownerGroup || ((!generateUuid) && (!isMdIdentifierFilled())))"
             >
                 <i class="fa fa-plus" />
-                <span data-translate="">createMetadata</span>
+                <span data-translate="">createMetadataForGroup</span>
             </button>
             <button
                 type="button"
@@ -173,22 +175,19 @@
             >
                 <span class="caret"></span>&nbsp;
             </button>
-            <ul class="dropdown-menu pull-right" role="menu">
+            <ul class="dropdown-menu" role="menu"
+		style="margin-left: 15px; border: none; box-shadow: none;">
                 <li>
-                <a
-                    title="{{'createMetadataForGroup-help' | translate}}"
-                    data-gn-click-and-spin="createNewMetadata(true)"
-                    href=""
-                    data-translate=""
-                >
-                    createMetadataForGroup</a
-                >
+                	<a class="btn btn-success custom-btn" data-ng-click="createNewMetadata()" style="color:#fff !important">
+				<i class="fa fa-plus" />
+				<span data-translate="">createMetadata</span>
+			</a>
                 </li>
             </ul>
-        </div>
+	    <!--</div>-->
         <a data-ng-click="cancelCreateMetadata()" class="btn btn-default">
-        <i class="fa fa-close" />&nbsp;
-        <span data-translate="">cancel</span>
+        	<i class="fa fa-close" />&nbsp;
+        	<span data-translate="">cancel</span>
         </a>
     </div>
 
