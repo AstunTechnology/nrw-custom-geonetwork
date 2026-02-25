@@ -82,6 +82,7 @@ services:
       - ./nrw/geonetwork/catalog/components/toolbar/partials/top-toolbar.html:/var/lib/jetty/webapps/geonetwork/catalog/components/toolbar/partials/top-toolbar.html
       - ./nrw/geonetwork/catalog/components/pages/partials/top.html:/var/lib/jetty/webapps/geonetwork/catalog/components/pages/partials/top.html
       - ./nrw/geonetwork/catalog/components/pages/partials/menu-page.html:/var/lib/jetty/webapps/geonetwork/catalog/components/pages/partials/menu-page.html
+      - ./nrw/geonetwork/catalog/templates/editor/editorboard.html:/var/lib/jetty/webapps/geonetwork/catalog/templates/editor/editorboard.html
       ## *.xsl file changes ##
       # correct aria-label for map coordinates fields #
       - ./nrw/geonetwork/xslt/render-functions.xsl:/var/lib/jetty/webapps/geonetwork/WEB-INF/data/data/formatter/xslt/render-functions.xsl
