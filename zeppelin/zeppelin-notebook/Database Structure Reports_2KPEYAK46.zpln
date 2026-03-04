@@ -3,8 +3,8 @@
     {
       "title": "List all database tables",
       "text": "select * from custom.get_tables order by table_schema, table_name",
-      "user": "admin",
-      "dateUpdated": "2025-09-10 09:21:39.278",
+      "user": "anonymous",
+      "dateUpdated": "2026-02-12 09:05:27.506",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -96,7 +96,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "table_schema\ttable_name\npublic\taddress\npublic\tcategories\npublic\tcategoriesdes\npublic\tcustomelementset\npublic\temail\npublic\tfiles\npublic\tgeography_columns\npublic\tgeometry_columns\npublic\tgroup_category\npublic\tgroups\npublic\tgroupsdes\npublic\tguf_keywords\npublic\tguf_rating\npublic\tguf_ratingcriteria\npublic\tguf_ratingcriteriades\npublic\tguf_userfeedback_keyword\npublic\tguf_userfeedbacks\npublic\tguf_userfeedbacks_guf_rating\npublic\tharvesterdata\npublic\tharvestersettings\npublic\tharvesthistory\npublic\tinspireatomfeed\npublic\tinspireatomfeed_entrylist\npublic\tisolanguages\npublic\tisolanguagesdes\npublic\tlanguages\npublic\tlinks\npublic\tlinkstatus\npublic\tmapservers\npublic\tmessageproducerentity\npublic\tmetadata\npublic\tmetadatacateg\npublic\tmetadatadraft\npublic\tmetadatafiledownloads\npublic\tmetadatafileuploads\npublic\tmetadataidentifiertemplate\npublic\tmetadatalink\npublic\tmetadatarating\npublic\tmetadatastatus\npublic\toperationallowed\npublic\toperations\npublic\toperationsdes\npublic\trelations\npublic\tschematron\npublic\tschematroncriteria\npublic\tschematroncriteriagroup\npublic\tschematrondes\npublic\tselections\npublic\tselectionsdes\npublic\tsettings\npublic\tsettings_cssstyle\npublic\tsettings_ui\npublic\tsources\npublic\tsourcesdes\npublic\tspatial_ref_sys\npublic\tspg_page\npublic\tspg_sections\npublic\tstatusvalues\npublic\tstatusvaluesdes\npublic\ttranslations\npublic\tuseraddress\npublic\tusergroups\npublic\tusers\npublic\tusersavedselections\npublic\tusersearch\npublic\tusersearch_group\npublic\tusersearchdes\npublic\tvalidation\n"
+            "data": "table_schema\ttable_name\npublic\taddress\npublic\tcategories\npublic\tcategoriesdes\npublic\tcustomelementset\npublic\temail\npublic\tfiles\npublic\tgeography_columns\npublic\tgeometry_columns\npublic\tgroup_category\npublic\tgroups\npublic\tgroupsdes\npublic\tguf_keywords\npublic\tguf_rating\npublic\tguf_ratingcriteria\npublic\tguf_ratingcriteriades\npublic\tguf_userfeedback_keyword\npublic\tguf_userfeedbacks\npublic\tguf_userfeedbacks_guf_rating\npublic\tharvesterdata\npublic\tharvestersettings\npublic\tharvesthistory\npublic\tinspireatomfeed\npublic\tinspireatomfeed_entrylist\npublic\tisolanguages\npublic\tisolanguagesdes\npublic\tlanguages\npublic\tlinks\npublic\tlinkstatus\npublic\tmapservers\npublic\tmessageproducerentity\npublic\tmetadata\npublic\tmetadatacateg\npublic\tmetadatadraft\npublic\tmetadatafiledownloads\npublic\tmetadatafileuploads\npublic\tmetadataidentifiertemplate\npublic\tmetadatalink\npublic\tmetadatarating\npublic\tmetadatastatus\npublic\toperationallowed\npublic\toperationallowed-old\npublic\toperations\npublic\toperationsdes\npublic\trelations\npublic\tschematron\npublic\tschematroncriteria\npublic\tschematroncriteriagroup\npublic\tschematrondes\npublic\tselections\npublic\tselectionsdes\npublic\tsettings\npublic\tsettings_cssstyle\npublic\tsettings_ui\npublic\tsources\npublic\tsourcesdes\npublic\tspatial_ref_sys\npublic\tspg_page\npublic\tspg_sections\npublic\tstatusvalues\npublic\tstatusvaluesdes\npublic\ttranslations\npublic\tuseraddress\npublic\tusergroups\npublic\tusers\npublic\tusersavedselections\npublic\tusersearch\npublic\tusersearch_group\npublic\tusersearchdes\npublic\tvalidation\n"
           }
         ]
       },
@@ -106,15 +106,15 @@
       "jobName": "paragraph_1740563965754_1212232277",
       "id": "paragraph_1740563965754_1212232277",
       "dateCreated": "2025-02-26 09:59:25.754",
-      "dateStarted": "2025-09-10 09:21:39.340",
-      "dateFinished": "2025-09-10 09:21:43.878",
+      "dateStarted": "2026-02-12 09:05:27.557",
+      "dateFinished": "2026-02-12 09:05:31.441",
       "status": "FINISHED"
     },
     {
       "title": "List all columns in a table",
       "text": "select * from custom.getcolumns ",
       "user": "anonymous",
-      "dateUpdated": "2025-05-16 09:00:40.967",
+      "dateUpdated": "2026-02-26 15:42:14.626",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -169,7 +169,7 @@
                         "sort": {},
                         "filters": [
                           {
-                            "term": ""
+                            "term": "user"
                           }
                         ],
                         "pinned": ""
@@ -274,7 +274,7 @@
     {
       "title": "Copy List all columns in a table - amend the table below and run to see the schema",
       "text": "select * from custom.getcolumns where table_name \u003d \u0027${table name without schema}\u0027",
-      "user": "admin",
+      "user": "anonymous",
       "dateUpdated": "2025-09-10 09:21:51.058",
       "progress": 0,
       "config": {

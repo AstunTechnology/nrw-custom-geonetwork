@@ -11172,10 +11172,10 @@
 	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
 	<skos:prefLabel xml:lang="en">Test entry</skos:prefLabel>
 	<skos:scopeNote xml:lang="en">Testing adding new NRW keywords</skos:scopeNote>
-	<ns3:BoundedBy rdf:nodeID="node1ih1qhvjax1"/>
+	<ns3:BoundedBy rdf:nodeID="node1jf2599l3x1"/>
 </rdf:Description>
 
-<rdf:Description rdf:nodeID="node1ih1qhvjax1">
+<rdf:Description rdf:nodeID="node1jf2599l3x1">
 	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
 	<ns3:lowerCorner></ns3:lowerCorner>
 	<ns3:upperCorner></ns3:upperCorner>
@@ -11186,10 +11186,10 @@
 	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
 	<skos:prefLabel xml:lang="en">Test Monica</skos:prefLabel>
 	<skos:scopeNote xml:lang="en">test2</skos:scopeNote>
-	<ns3:BoundedBy rdf:nodeID="node1ih1qhvjax2"/>
+	<ns3:BoundedBy rdf:nodeID="node1jf2599l3x2"/>
 </rdf:Description>
 
-<rdf:Description rdf:nodeID="node1ih1qhvjax2">
+<rdf:Description rdf:nodeID="node1jf2599l3x2">
 	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
 	<ns3:lowerCorner></ns3:lowerCorner>
 	<ns3:upperCorner></ns3:upperCorner>
@@ -11199,10 +11199,34 @@
 <rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-keywords/WaterCompanies">
 	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
 	<skos:prefLabel xml:lang="en">Water Companies</skos:prefLabel>
-	<ns3:BoundedBy rdf:nodeID="node1ih2meshgx1"/>
+	<ns3:BoundedBy rdf:nodeID="node1jf2599l3x3"/>
 </rdf:Description>
 
-<rdf:Description rdf:nodeID="node1ih2meshgx1">
+<rdf:Description rdf:nodeID="node1jf2599l3x3">
+	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
+	<ns3:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-keywords/Eurasian-Beaver">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Eurasian Beaver</skos:prefLabel>
+	<ns3:BoundedBy rdf:nodeID="node1jf3hs50qx1"/>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="node1jf3hs50qx1">
+	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
+	<ns3:lowerCorner> </ns3:lowerCorner>
+	<ns3:upperCorner> </ns3:upperCorner>
+	<ns3:srsName rdf:resource="http://www.opengis.net/gml/srs/epsg.xml#epsg:4326"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://registry.geonetwork-opensource.org/theme/nrw-keywords/Castor-fibre">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+	<skos:prefLabel xml:lang="en">Castor fibre</skos:prefLabel>
+	<ns3:BoundedBy rdf:nodeID="node1jf3hstp8x1"/>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="node1jf3hstp8x1">
 	<rdf:type rdf:resource="http://www.opengis.net/gml#Envelope"/>
 	<ns3:lowerCorner> </ns3:lowerCorner>
 	<ns3:upperCorner> </ns3:upperCorner>
