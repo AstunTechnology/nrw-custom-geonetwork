@@ -110,6 +110,8 @@ services:
       - ./nrw/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.min.js:/var/lib/jetty/webapps/geonetwork/catalog/lib/angular.ext/hotkeys/hotkeys.min.js
       # fix directory entries going to the wrong group
       - ./nrw/geonetwork/catalog/js/DirectoryController.js:/var/lib/jetty/webapps/geonetwork/catalog/js/edit/DirectoryController.js
+      # fix thesaurus search doing a fuzzy search for URIs
+      - ./nrw/geonetwork/catalog/components/thesaurus/ThesaurusService.js:/var/lib/jetty/webapps/geonetwork/catalog/components/thesaurus/ThesaurusService.js
       ### NRW font files ###
       - ./nrw/geonetwork/catalog/style/GothamRnd-Medium.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-Medium.otf
       - ./nrw/geonetwork/catalog/style/GothamRnd-MedIta.otf:/var/lib/jetty/webapps/geonetwork/catalog/style/GothamRnd-MediumIta.otf
