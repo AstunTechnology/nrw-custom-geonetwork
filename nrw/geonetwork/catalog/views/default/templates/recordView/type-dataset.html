@@ -74,7 +74,9 @@
   <div class="col-md-8 gn-record gn-page-break-avoid">
     <div class="row">
       <div ng-include="'../../catalog/views/default/templates/recordView/downloads.html'" />
-      <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/constraints.html'" />
+      <!-- added an overflow-wrap to improve readability. Fixes SUPPORT-28153 -->
+      <div class="gn-page-break-avoid" ng-include="'../../catalog/views/default/templates/recordView/constraints.html'"
+           style="overflow-wrap: break-word;" />
     </div>
 
     <div data-ng-if="mdView.current.record.lineage
@@ -122,7 +124,8 @@
 </div>
 
 <!-- NRW Custom elements -->
-<div class="col-md-8 gn-record gn-page-break-avoid">
+ <!-- added an overflow-wrap to improve readability. Fixes SUPPORT-28153 -->
+<div class="col-md-8 gn-record gn-page-break-avoid" style="overflow-wrap: break-word;">
   <h2 data-translate=""
     data-ng-if="mdView.current.record.NRW_relatedTitle ||
                 ((mdView.current.record.NRW_internalLocationInfo ||
@@ -138,11 +141,13 @@
   </div>
   <div class="row" data-ng-if="mdView.current.record.NRW_internalContactInfo && user.isConnected()">
     <h3 data-translate="">NRW_internalContact</h3>
-    <p>{{mdView.current.record.NRW_internalContactInfo}}</p>
+    <!-- added a pre-wrap to improve readability. Fixes SUPPORT-28153 -->
+    <p style="white-space: pre-wrap;">{{mdView.current.record.NRW_internalContactInfo}}</p>
   </div>
   <div class="row" data-ng-if="mdView.current.record.NRW_internalLocationInfo && user.isConnected()">
     <h3 data-translate="">NRW_internalLocation</h3>
-    <p>{{mdView.current.record.NRW_internalLocationInfo}}</p>
+    <!-- added a pre-wrap to improve readability. Fixes SUPPORT-28153 -->
+    <p style="white-space: pre-wrap;">{{mdView.current.record.NRW_internalLocationInfo}}</p>
   </div>
 </div>
 
