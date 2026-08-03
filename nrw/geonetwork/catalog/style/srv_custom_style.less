@@ -445,3 +445,9 @@ span.gn-user-name.ng-binding :hover {
     background-color: #115c39 !important;
     color: #ffffff !important;
   }
+
+// set textareas to size with text to improve the editing experience and allow for resizing. Fixes SUPPORT-28154
+.gn-multi-field textarea.form-control {
+  field-sizing: content;
+  resize: vertical;
+}
