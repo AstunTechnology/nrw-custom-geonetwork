@@ -12,6 +12,14 @@ location ~ /api/workers/data/wfs/[0-9a-z]+ { deny all; }
 # prevent access to stack trace endpoint
 location ~ /geonetwork/jolokia/read/[0-9a-z]+ { deny all; }
 
+# block write requests to the formatters API until patching to 4.4.x
+location ~* ^/geonetwork/[^/]+/api/records/[^/]+/formatters/ {
+        if ($arg_a ~* "write") {
+        return 403;
+    }
+    proxy_pass http://geonetwork:8080;
+}
+
 location /geonetwork {
 
 # default geonetwork in docker
